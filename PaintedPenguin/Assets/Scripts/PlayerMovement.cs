@@ -8,9 +8,12 @@ public class PlayerMovement : MonoBehaviour
     public float velocity = 10f;
     public string position;
     public BoxCollider2D groundCollider;
+    public bool dead;
+    public int colour = 0;
 
     void Start()
     {
+        dead = false;
         Physics.gravity = Vector2.zero;
         rb = GetComponent<Rigidbody2D>();
     }
@@ -32,8 +35,6 @@ public class PlayerMovement : MonoBehaviour
         {
             position = "water";
         }
-
-        Debug.Log(position);
 
         if (transform.position.y > 0.126706)
         {
@@ -73,7 +74,6 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = Vector2.down * 8;
         }
 
-
-
+        Debug.Log(dead);
     }
 }
