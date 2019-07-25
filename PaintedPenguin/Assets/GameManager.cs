@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject gameOverCanvas;
+
+    public void Start()
     {
-        
+        Time.timeScale = 1;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        
+        if (gameOverCanvas.activeInHierarchy == true)
+        {
+            Time.timeScale -= 0.05f;
+        }
     }
+
+    //Display game over overlay when the player dies
+    public void GameOver()
+    {
+        gameOverCanvas.SetActive(true);
+        //Time.timeScale = 0.5f;
+    }
+
 }
