@@ -26,14 +26,8 @@ public class PlayerMovement : MonoBehaviour
             transform.position = new Vector3(-0.33f, -0.075f, 0);
         }
 
-        //Player starts walking if it falls to the ground
-        if ((transform.position.y <= -0.075) && position == "falling")
-        {
-            position = "walking";
-        }
-
-        //Player starts walking if it resurfaces
-        if ((transform.position.y >= -0.075) && position == "resurfacing")
+        //Player starts walking if it falls to the ground or resurfaces from water
+        if ((transform.position.y <= -0.075 && position == "falling") || ((transform.position.y >= -0.075) && position == "resurfacing"))
         {
             position = "walking";
         }
@@ -69,12 +63,6 @@ public class PlayerMovement : MonoBehaviour
         {
             position = "resurfacing";
         }
-
-        //If player is falling or resurfacing near the ground, then switch back to walking
-        //if ((position == "falling" || position == "resurfacing") && transform.position.y == -0.075f)
-        //{
-        //    position = "walking";
-        //}
 
         //Super jump from dive
         //if (Input.GetKeyDown("up") && position == "water")
