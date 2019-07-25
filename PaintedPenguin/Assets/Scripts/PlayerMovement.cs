@@ -27,7 +27,13 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Player starts walking if it falls to the ground
-        if ((transform.position.y <= 0.13 || transform.position.y >= 0.12) && position == "falling")
+        if ((transform.position.y <= -0.075) && position == "falling")
+        {
+            position = "walking";
+        }
+
+        //Player starts walking if it resurfaces
+        if ((transform.position.y >= -0.075) && position == "resurfacing")
         {
             position = "walking";
         }
@@ -53,36 +59,36 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Mark player as falling
-        if (position == "jumping" && transform.position.y >= 0.7009602)
+        if (position == "jumping" && rb.velocity.y < -0.1)
         {
-            //position = "falling";
+            position = "falling";
         }
 
         //Mark player as resurfacing
-        if (position == "diving" && transform.position.y <= -0.8496)
+        if (position == "diving" && rb.velocity.y > 0.1)
         {
-            //position = "resurfacing";
+            position = "resurfacing";
         }
 
         //If player is falling or resurfacing near the ground, then switch back to walking
-        if ((position == "falling" || position == "resurfacing") && transform.position.y == -0.075f)
-        {
-            position = "walking";
-        }
+        //if ((position == "falling" || position == "resurfacing") && transform.position.y == -0.075f)
+        //{
+        //    position = "walking";
+        //}
 
         //Super jump from dive
-        if (Input.GetKeyDown("up") && position == "water")
-        {
-            rb.velocity = Vector2.up * 8;
-        }
+        //if (Input.GetKeyDown("up") && position == "water")
+        //{
+        //    rb.velocity = Vector2.up * 8;
+        //}
 
         //Super dive from jump
-        if (Input.GetKeyDown("down") && transform.position.y > 0.89)
-        {
-            rb.velocity = Vector2.down * 8;
-        }
+        //if (Input.GetKeyDown("down") && transform.position.y > 0.89)
+        //{
+        //    rb.velocity = Vector2.down * 8;
+        //}
 
-        Debug.Log(dead);
+        //Debug.Log(dead);
     }
 
     //End the game if collision with block occurs

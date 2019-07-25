@@ -22,26 +22,26 @@ public class BlockController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if (timer > maxTime)
-        {
-            GameObject newBlock = Instantiate(block);
-            int roll = Random.Range(1, 4); // 1, 2 or 3
-            if (roll == 1)
-            {
-                place = 0.16f;
-            }
-            if (roll == 2)
-            {
-                place = 0.87f;
-            }
-            if (roll == 3)
-            {
-                place = -0.91f;
-            }
-            newBlock.transform.position = transform.position + new Vector3(1, place, 0);
-            Destroy(newBlock, 2);
-            timer = 0;
-        }
-        timer += Time.deltaTime;
+        //if (timer > maxtime)
+        //{
+        //    gameobject newblock = instantiate(block);
+        //    int roll = random.range(1, 4); // 1, 2 or 3
+        //    if (roll == 1)
+        //    {
+        //        place = 0.16f;
+        //    }
+        //    if (roll == 2)
+        //    {
+        //        place = 0.87f;
+        //    }
+        //    if (roll == 3)
+        //    {
+        //        place = -0.91f;
+        //    }
+        //    newblock.transform.position = transform.position + new vector3(1, place, 0);
+        //    destroy(newblock, 2);
+        //    timer = 0;
+        //}
+        //timer += time.deltatime;
     }
 }
