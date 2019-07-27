@@ -5,10 +5,12 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public GameObject gameOverCanvas;
+    public int score;
 
     public void Start()
     {
         Time.timeScale = 1;
+        score = 0;
     }
 
     public void Update()
