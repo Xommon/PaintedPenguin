@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
+    public Animator animator;
     public GameManager gameManager;
     public float velocity = 10f;
     public string position;
@@ -20,16 +21,23 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        //animator.SetBool("IsJumping", true);
         //Snap to ground if walking
         if (transform.position.y != -0.075 && position == "walking")
         {
             transform.position = new Vector3(-0.33f, -0.075f, 0);
+            animator.SetBool("jumping", false);
+            animator.SetBool("falling", false);
+            animator.SetBool("swimming", false);
         }
 
         //Player starts walking if it falls to the ground or resurfaces from water
         if ((transform.position.y <= -0.075 && position == "falling") || ((transform.position.y >= -0.075) && position == "resurfacing"))
         {
             position = "walking";
+            animator.SetBool("falling", false);
+            animator.SetBool("swimming", false);
+
         }
 
         //Jump or swim only on the ground
@@ -41,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
                 position = "jumping";
                 rb.gravityScale = 1;
                 rb.velocity = Vector2.up * 4;
+                animator.SetBool("jumping", true);
             }
 
             //Swim
@@ -49,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
                 position = "diving";
                 rb.gravityScale = -1;
                 rb.velocity = Vector2.down * 4;
+                animator.SetBool("swimming", true);
             }
         }
 
@@ -56,6 +66,8 @@ public class PlayerMovement : MonoBehaviour
         if (position == "jumping" && rb.velocity.y < -0.1)
         {
             position = "falling";
+            animator.SetBool("jumping", false);
+            animator.SetBool("falling", true);
         }
 
         //Mark player as resurfacing
@@ -64,13 +76,15 @@ public class PlayerMovement : MonoBehaviour
             position = "resurfacing";
         }
 
-        //Super jump from dive
-        //if (Input.GetKeyDown("up") && position == "water")
+        //SUPER jump from dive | && (velocity > -0.5 && velocity < 0.5)
+        //if (Input.GetKeyDown("up") && (position == "diving" || position == "resurfacing"))
         //{
-        //    rb.velocity = Vector2.up * 8;
+        //    position = "superjumping";
+        //    rb.gravityScale = 1;
+        //    rb.velocity = Vector2.up * 6;
         //}
 
-        //Super dive from jump
+        //SUPER dive from jump
         //if (Input.GetKeyDown("down") && transform.position.y > 0.89)
         //{
         //    rb.velocity = Vector2.down * 8;
