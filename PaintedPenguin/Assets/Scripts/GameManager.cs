@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Middle = -0.1
-    // High = 0.7
-    // Low = -0.9
+    // Menu components
+    public GameObject gameOverCanvas;
+    public GameObject mainMenuUI;
+    public GameObject gameUI;
+
+    // Game components
+    public bool on;
+    public int score;
+    public PlayerMovement player;
 
     // Obstacle creation
     public float maxTime = 1;
@@ -16,11 +22,6 @@ public class GameManager : MonoBehaviour
     float place;
     float place2;
     bool pass;
-
-    // Game components
-    public bool on;
-    public GameObject gameOverCanvas;
-    public int score;
 
     void SpawnBlock()
     {
@@ -128,8 +129,17 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
+        mainMenuUI.SetActive(true);
         Time.timeScale = 1;
         score = 0;
+    }
+
+    // Start Button pressed
+    public void StartGame()
+    {
+        player.position = "starting";
+        mainMenuUI.SetActive(false);
+        gameUI.SetActive(true);
     }
 
     public void Update()
