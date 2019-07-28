@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     // Game components
     public bool on;
     public int score;
+    public float maxTime2 = 1;
+    private float timer2 = 0;
     public PlayerMovement player;
 
     // Obstacle creation
@@ -23,7 +25,6 @@ public class GameManager : MonoBehaviour
     public GameObject paint;
     float place;
     float place2;
-    bool pass;
 
     void SpawnBlock()
     {
@@ -32,7 +33,6 @@ public class GameManager : MonoBehaviour
             // Create the two blocks
             GameObject newblock = Instantiate(block);
             GameObject newblock2 = Instantiate(block);
-            bool pass = false;
 
             // Randow draw to figure out placement of first block
             int roll = Random.Range(1, 4); // 1, 2 or 3
@@ -118,7 +118,7 @@ public class GameManager : MonoBehaviour
             newblock.transform.position = transform.position + new Vector3(1, place, 0);
             newblock2.transform.position = transform.position + new Vector3(1, place2, 0);
 
-            // If the block passes by the player without being hit, then the player gets a point
+            // Increase score every second
             score += 1;
 
             // Destroy the blocks once the timer runs out
@@ -147,13 +147,7 @@ public class GameManager : MonoBehaviour
     // Score Button pressed
     public void ScoreButton()
     {
-
-    }
-
-    // Replay Button pressed
-    public void ReplayButton()
-    {
-        // SceneManager.LoadScene(SceneManager.GetActiveScene().SampleScene);
+        // ONLINE HIGH SCORE LIST
     }
 
     public void Update()
@@ -165,7 +159,7 @@ public class GameManager : MonoBehaviour
         }
 
         // Obstacles
-        if (on == true)
+        if (on == true && player.dead == false)
         {
             SpawnBlock();
         }
@@ -174,7 +168,7 @@ public class GameManager : MonoBehaviour
     //Display game over overlay when the player dies
     public void GameOver()
     {
-        Time.timeScale = 0.5f;
+        Time.timeScale = 0.3f;
         //new WaitForSeconds(2);
         gameOverCanvas.SetActive(true);
     }

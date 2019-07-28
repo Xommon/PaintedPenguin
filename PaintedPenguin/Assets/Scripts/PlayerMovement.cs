@@ -7,7 +7,6 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     public Animator animator;
     public GameManager gameManager;
-    public float velocity = 10f;
     public string position;
     public bool dead;
     public int colour = 0;
@@ -115,8 +114,8 @@ public class PlayerMovement : MonoBehaviour
         {
             dead = true;
             animator.SetBool("dead", true);
-            rb.gravityScale = -0.5f;
-            rb.transform.localScale -= new Vector3(0.1f, 0.1f, 0);
+            rb.gravityScale = 0;
+            rb.velocity = new Vector3(0, 0, 0);
             gameManager.GameOver();
         }
     }

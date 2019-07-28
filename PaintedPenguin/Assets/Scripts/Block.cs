@@ -5,7 +5,6 @@ using UnityEngine;
 public class Block : MonoBehaviour
 {
     public float speed;
-    public PlayerMovement player;
 
     void Update()
     {
