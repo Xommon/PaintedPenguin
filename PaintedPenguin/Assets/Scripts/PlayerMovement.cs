@@ -27,7 +27,6 @@ public class PlayerMovement : MonoBehaviour
         {
             // Player is out of sight, ready to start
             transform.position = new Vector3(-1.0f, -0.075f, 0);
-            dead = false;
             animator.SetBool("jumping", false);
             animator.SetBool("falling", false);
             animator.SetBool("swimming", false);
@@ -35,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Player walks to starting position
-        if (position == "starting")
+        if (position == "starting" && dead == false)
         {
             rb.velocity = transform.right;
 
@@ -102,34 +101,23 @@ public class PlayerMovement : MonoBehaviour
             {
                 position = "resurfacing";
             }
-
-            //SUPER jump from dive | && (velocity > -0.5 && velocity < 0.5)
-            //if (Input.GetKeyDown("up") && (position == "diving" || position == "resurfacing"))
-            //{
-            //    position = "superjumping";
-            //    rb.gravityScale = 1;
-            //    rb.velocity = Vector2.up * 6;
-            //}
-
-            //SUPER dive from jump
-            //if (Input.GetKeyDown("down") && transform.position.y > 0.89)
-            //{
-            //    rb.velocity = Vector2.down * 8;
-            //}
-
-            //Debug.Log(dead);
+        }
+        else
+        {
+            position = "dead";
         }
     }
 
     // End the game if collision with block occurs
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.name == "Block")
+        if (collision.rigidbody.tag == "Block")
         {
-            dead = false;
+            dead = true;
             animator.SetBool("dead", true);
-            Debug.Log("Hit block");
-            //gameManager.GameOver();
+            rb.gravityScale = -0.5f;
+            rb.transform.localScale -= new Vector3(0.1f, 0.1f, 0);
+            gameManager.GameOver();
         }
     }
 }

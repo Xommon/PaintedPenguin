@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -142,12 +144,24 @@ public class GameManager : MonoBehaviour
         gameUI.SetActive(true);
     }
 
+    // Score Button pressed
+    public void ScoreButton()
+    {
+
+    }
+
+    // Replay Button pressed
+    public void ReplayButton()
+    {
+        // SceneManager.LoadScene(SceneManager.GetActiveScene().SampleScene);
+    }
+
     public void Update()
     {
         // Menus
         if (gameOverCanvas.activeInHierarchy == true)
         {
-            Time.timeScale -= 0.05f;
+            //Time.timeScale -= 0.05f;
         }
 
         // Obstacles
@@ -160,8 +174,14 @@ public class GameManager : MonoBehaviour
     //Display game over overlay when the player dies
     public void GameOver()
     {
+        Time.timeScale = 0.5f;
+        //new WaitForSeconds(2);
         gameOverCanvas.SetActive(true);
-        //Time.timeScale = 0.5f;
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene("SampleScene");
     }
 
 }
