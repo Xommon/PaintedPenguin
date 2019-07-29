@@ -5,11 +5,12 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
+    public SpriteRenderer sr;
     public Animator animator;
     public GameManager gameManager;
     public string position;
     public bool dead;
-    public int colour = 0;
+    public int colour;
 
     void Start()
     {
@@ -30,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("falling", false);
             animator.SetBool("swimming", false);
             animator.SetBool("dead", false);
+            dead = false;
         }
 
         // Player walks to starting position
@@ -103,20 +105,82 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            position = "dead";
+            //position = "dead";
+        }
+
+        // White
+        if (colour == 0)
+        {
+            sr.color = new Color(1f, 1f, 1f, 1f);
+        }
+
+        // Red
+        if (colour == 1)
+        {
+            sr.color = new Color(1f, 0.1f, 0.1f, 1f);
+        }
+
+        // Orange
+        if (colour == 2)
+        {
+            sr.color = new Color(1f, 0.5f, 0.1f, 1f);
+        }
+
+        // Yellow
+        if (colour == 3)
+        {
+            sr.color = new Color(1f, 1f, 0.1f, 1f);
+        }
+
+        // Green
+        if (colour == 4)
+        {
+            sr.color = new Color(0.1f, 1f, 0.1f, 1f);
+        }
+
+        // Blue
+        if (colour == 5)
+        {
+            sr.color = new Color(0.1f, 0.2f, 1f, 1f);
+        }
+
+        // Purple
+        if (colour == 6)
+        {
+            sr.color = new Color(0.7f, 0.1f, 1f, 1f);
         }
     }
 
-    // End the game if collision with block occurs
+    // End the game if collision with an obstacle occurs
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.rigidbody.tag == "Block")
+        if (collision.transform.tag == "Block")
         {
-            dead = true;
-            animator.SetBool("dead", true);
-            rb.gravityScale = 0;
-            rb.velocity = new Vector3(0, 0, 0);
-            gameManager.GameOver();
+            if (collision.gameObject.GetComponent<Block>().colour != colour)
+            {
+                dead = true;
+                animator.SetBool("dead", true);
+                animator.SetBool("jumping", false);
+                animator.SetBool("falling", false);
+                animator.SetBool("swimming", false);
+                rb.gravityScale = 0;
+                Time.timeScale = 0.75f;
+                Invoke("Death", 0.5f);
+            } else if (collision.gameObject.GetComponent<Block>().hit == false)
+            {
+                gameManager.score += 5;
+                collision.gameObject.GetComponent<Block>().hit = true;
+            }
         }
+
+        if (collision.transform.tag == "Paint")
+        {
+            colour = collision.gameObject.GetComponent<Paint>().colour;
+        }
+    }
+
+    public void Death()
+    {
+        gameManager.GameOver();
     }
 }

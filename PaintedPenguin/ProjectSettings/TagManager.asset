@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Block
+  - Paint
   layers:
   - Default
   - TransparentFX

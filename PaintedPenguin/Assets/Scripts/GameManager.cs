@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     // Menu components
     public GameObject gameOverCanvas;
+    public GameObject continueButtonUI;
     public GameObject mainMenuUI;
     public GameObject gameUI;
 
@@ -15,8 +16,8 @@ public class GameManager : MonoBehaviour
     public bool on;
     public int score;
     public float maxTime2 = 1;
-    private float timer2 = 0;
     public PlayerMovement player;
+    public bool canContinue;
 
     // Obstacle creation
     public float maxTime = 1;
@@ -25,6 +26,8 @@ public class GameManager : MonoBehaviour
     public GameObject paint;
     float place;
     float place2;
+    float place3;
+    public float obstacleSpeed;
 
     void SpawnBlock()
     {
@@ -33,6 +36,7 @@ public class GameManager : MonoBehaviour
             // Create the two blocks
             GameObject newblock = Instantiate(block);
             GameObject newblock2 = Instantiate(block);
+            GameObject newpaint = Instantiate(paint);
 
             // Randow draw to figure out placement of first block
             int roll = Random.Range(1, 4); // 1, 2 or 3
@@ -69,7 +73,7 @@ public class GameManager : MonoBehaviour
                 }
                 if (roll2 == 3)
                 {
-                    // Out of frame
+                    // Out of the frame
                     place2 = 2f;
                 }
             }
@@ -89,7 +93,7 @@ public class GameManager : MonoBehaviour
                 }
                 if (roll2 == 3)
                 {
-                    // Out of frame
+                    // Out of the frame
                     place2 = 2f;
                 }
             }
@@ -109,14 +113,82 @@ public class GameManager : MonoBehaviour
                 }
                 if (roll2 == 3)
                 {
-                    // Out of frame
+                    // Out of the frame
                     place2 = 2f;
+                }
+            }
+
+            // Place paint where ever the last space is
+            if (score == 0 || score % 10 == 0)
+            {
+                if (roll == 1) // No space on ground
+                {
+                    if (roll2 == 1) // No space in air
+                    {
+                        // Water
+                        place3 = -0.9f;
+                    }
+
+                    if (roll2 == 2) // No space in water
+                    {
+                        // Air
+                        place3 = 0.7f;
+                    }
+
+                    if (roll2 == 3)
+                    {
+                        // Out of the frame
+                        place3 = 2f;
+                    }
+                }
+
+                if (roll == 2) // No space in air
+                {
+                    if (roll2 == 1) // No space on ground
+                    {
+                        // Water
+                        place3 = -0.9f;
+                    }
+
+                    if (roll2 == 2) // No space in water
+                    {
+                        // Ground
+                        place3 = -0.1f;
+                    }
+
+                    if (roll2 == 3)
+                    {
+                        // Out of the frame
+                        place3 = 2f;
+                    }
+                }
+
+                if (roll == 3) // No space in water
+                {
+                    if (roll2 == 1) // No space on ground
+                    {
+                        // Air
+                        place3 = 0.7f;
+                    }
+
+                    if (roll2 == 2) // No space in air
+                    {
+                        // Ground
+                        place3 = -0.1f;
+                    }
+
+                    if (roll2 == 3)
+                    {
+                        // Out of the frame
+                        place3 = 2f;
+                    }
                 }
             }
 
             // Position the blocks
             newblock.transform.position = transform.position + new Vector3(1, place, 0);
             newblock2.transform.position = transform.position + new Vector3(1, place2, 0);
+            paint.transform.position = transform.position + new Vector3(1, place3, 0);
 
             // Increase score every second
             score += 1;
@@ -124,6 +196,7 @@ public class GameManager : MonoBehaviour
             // Destroy the blocks once the timer runs out
             Destroy(newblock, 2);
             Destroy(newblock2, 2);
+            Destroy(newpaint, 2);
             timer = 0;
         }
         timer += Time.deltaTime;
@@ -132,6 +205,7 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         mainMenuUI.SetActive(true);
+        canContinue = true;
         Time.timeScale = 1;
         score = 0;
     }
@@ -163,14 +237,37 @@ public class GameManager : MonoBehaviour
         {
             SpawnBlock();
         }
+
+        // *** FOR DESKTOP TESTING ONLY ***
+        if (Input.GetKeyDown("return"))
+        {
+            if (mainMenuUI.activeInHierarchy == true)
+            {
+                StartGame();
+            }
+
+            if (gameOverCanvas.activeInHierarchy == true)
+            {
+                if (continueButtonUI.activeInHierarchy == true)
+                {
+                    ContinueButton();
+                } else
+                {
+                    RestartGame();
+                }
+            }
+
+        }
     }
 
     //Display game over overlay when the player dies
     public void GameOver()
     {
-        Time.timeScale = 0.3f;
-        //new WaitForSeconds(2);
         gameOverCanvas.SetActive(true);
+        if (canContinue == false)
+        {
+            continueButtonUI.SetActive(false);
+        }
     }
 
     public void RestartGame()
@@ -178,4 +275,12 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("SampleScene");
     }
 
+    public void ContinueButton()
+    {
+        Time.timeScale = 1f;
+        player.dead = false;
+        gameOverCanvas.SetActive(false);
+        player.position = "starting";
+        canContinue = false;
+    }
 }
