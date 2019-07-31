@@ -21,6 +21,22 @@ public class PlayerMovement : MonoBehaviour
         rb.gravityScale = 0;
     }
 
+    public void Jump()
+    {
+        position = "jumping";
+        rb.gravityScale = 1;
+        rb.velocity = Vector2.up * 4;
+        animator.SetBool("jumping", true);
+    }
+    
+    public void Dive()
+    {
+        position = "diving";
+        rb.gravityScale = -1;
+        rb.velocity = Vector2.down * 4;
+        animator.SetBool("swimming", true);
+    }
+
     void Update()
     {
         if (position == "ready")
@@ -73,19 +89,13 @@ public class PlayerMovement : MonoBehaviour
                 //Jump
                 if (Input.GetKeyDown("up"))
                 {
-                    position = "jumping";
-                    rb.gravityScale = 1;
-                    rb.velocity = Vector2.up * 4;
-                    animator.SetBool("jumping", true);
+                    Jump();
                 }
 
                 // Swim
                 if (Input.GetKeyDown("down"))
                 {
-                    position = "diving";
-                    rb.gravityScale = -1;
-                    rb.velocity = Vector2.down * 4;
-                    animator.SetBool("swimming", true);
+                    Dive();
                 }
             }
 
@@ -176,6 +186,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.transform.tag == "Paint")
         {
             colour = collision.gameObject.GetComponent<Paint>().colour;
+            Destroy(collision.gameObject);
         }
     }
 
