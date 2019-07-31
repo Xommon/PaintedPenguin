@@ -703,10 +703,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: 3bde5b4a-fd3a-4d4a-b006-210e6336ba03
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: PaintedPenguin
+  organizationId: xommon
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

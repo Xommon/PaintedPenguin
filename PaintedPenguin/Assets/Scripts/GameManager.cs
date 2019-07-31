@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public GameObject continueButtonUI;
     public GameObject mainMenuUI;
     public GameObject gameUI;
+    public GameObject adController;
 
     // Game components
     public bool on;
