@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public GameObject continueButtonUI;
     public GameObject mainMenuUI;
     public GameObject gameUI;
-    public GameObject adController;
+    public AdController adController;
 
     // Game components
     public bool on;
@@ -27,177 +27,52 @@ public class GameManager : MonoBehaviour
     public GameObject paint;
     float place;
     float place2;
-    float place3;
     public float obstacleSpeed;
+    public List<float> obstaclePositions = new List<float>();
+
+    public bool PercentChance(int percent)
+    {
+        int selection = Random.Range(0, 101);
+        if (selection <= percent)
+        {
+            return true;
+        } else
+        {
+            return false;
+        }
+    }
 
     void SpawnBlock()
     {
         if (timer > maxTime)
         {
-            // Create the two blocks
+            // Create a list of possible positions
+            obstaclePositions.Clear();
+            obstaclePositions.Add(-0.1f);
+            obstaclePositions.Add(0.7f);
+            obstaclePositions.Add(-0.9f);
+
+            // Place first block
             GameObject newblock = Instantiate(block);
-            GameObject newblock2 = Instantiate(block);
-            GameObject newpaint = Instantiate(paint);
-
-            // Randow draw to figure out placement of first block
-            int roll = Random.Range(1, 4); // 1, 2 or 3
-            if (roll == 1)
-            {
-                // Ground
-                place = -0.1f;
-            }
-            if (roll == 2)
-            {
-                // Air
-                place = 0.7f;
-            }
-            if (roll == 3)
-            {
-                // Water
-                place = -0.9f;
-            }
-
-            // Place second block randomly where ever the first block is not
-            int roll2 = Random.Range(1, 4); // 1, 2 or 3
-            // If the first block is on the ground
-            if (roll == 1)
-            {
-                if (roll2 == 1)
-                {
-                    // Air
-                    place2 = 0.7f;
-                }
-                if (roll2 == 2)
-                {
-                    // Water
-                    place2 = -0.9f;
-                }
-                if (roll2 == 3)
-                {
-                    // Out of the frame
-                    place2 = 2f;
-                }
-            }
-
-            // If the first block is in the air
-            if (roll == 2)
-            {
-                if (roll2 == 1)
-                {
-                    // Ground
-                    place2 = -0.1f;
-                }
-                if (roll2 == 2)
-                {
-                    // Water
-                    place2 = -0.9f;
-                }
-                if (roll2 == 3)
-                {
-                    // Out of the frame
-                    place2 = 2f;
-                }
-            }
-
-            // If the first block is in the water
-            if (roll == 3)
-            {
-                if (roll2 == 1)
-                {
-                    // Ground
-                    place2 = -0.1f;
-                }
-                if (roll2 == 2)
-                {
-                    // Air
-                    place2 = 0.7f;
-                }
-                if (roll2 == 3)
-                {
-                    // Out of the frame
-                    place2 = 2f;
-                }
-            }
-
-            // Place paint where ever the last space is
-            if (score == 0 || score % 10 == 0)
-            {
-                if (roll == 1) // No space on ground
-                {
-                    if (roll2 == 1) // No space in air
-                    {
-                        // Water
-                        place3 = -0.9f;
-                    }
-
-                    if (roll2 == 2) // No space in water
-                    {
-                        // Air
-                        place3 = 0.7f;
-                    }
-
-                    if (roll2 == 3)
-                    {
-                        // Out of the frame
-                        place3 = 2f;
-                    }
-                }
-
-                if (roll == 2) // No space in air
-                {
-                    if (roll2 == 1) // No space on ground
-                    {
-                        // Water
-                        place3 = -0.9f;
-                    }
-
-                    if (roll2 == 2) // No space in water
-                    {
-                        // Ground
-                        place3 = -0.1f;
-                    }
-
-                    if (roll2 == 3)
-                    {
-                        // Out of the frame
-                        place3 = 2f;
-                    }
-                }
-
-                if (roll == 3) // No space in water
-                {
-                    if (roll2 == 1) // No space on ground
-                    {
-                        // Air
-                        place3 = 0.7f;
-                    }
-
-                    if (roll2 == 2) // No space in air
-                    {
-                        // Ground
-                        place3 = -0.1f;
-                    }
-
-                    if (roll2 == 3)
-                    {
-                        // Out of the frame
-                        place3 = 2f;
-                    }
-                }
-            }
-
-            // Position the blocks
+            place = obstaclePositions[(Random.Range(0, 3))]; // 0, 1 or 2
             newblock.transform.position = transform.position + new Vector3(1, place, 0);
-            newblock2.transform.position = transform.position + new Vector3(1, place2, 0);
-            paint.transform.position = transform.position + new Vector3(1, place3, 0);
+            obstaclePositions.Remove(place);
+
+            // Place second block
+            GameObject newblock2 = Instantiate(block);
+            place = obstaclePositions[(Random.Range(0, 2))]; // 0 or 1
+            newblock2.transform.position = transform.position + new Vector3(1, place, 0);
+            obstaclePositions.Remove(place);
+
+            // Place paint
+            if (PercentChance(10))
+            {
+                GameObject newpaint = Instantiate(paint);
+                newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
+            }
 
             // Increase score every second
             score += 1;
-
-            // Destroy the blocks once the timer runs out
-            Destroy(newblock, 2);
-            Destroy(newblock2, 2);
-            Destroy(newpaint, 2);
             timer = 0;
         }
         timer += Time.deltaTime;
@@ -205,6 +80,7 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
+        adController.OpenBannerAd();
         mainMenuUI.SetActive(true);
         canContinue = true;
         Time.timeScale = 1;
@@ -214,6 +90,7 @@ public class GameManager : MonoBehaviour
     // Start Button pressed
     public void StartGame()
     {
+        adController.CloseAd();
         player.position = "starting";
         mainMenuUI.SetActive(false);
         gameUI.SetActive(true);
@@ -227,12 +104,6 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
-        // Menus
-        if (gameOverCanvas.activeInHierarchy == true)
-        {
-            //Time.timeScale -= 0.05f;
-        }
-
         // Obstacles
         if (on == true && player.dead == false)
         {
@@ -257,13 +128,13 @@ public class GameManager : MonoBehaviour
                     RestartGame();
                 }
             }
-
         }
     }
 
     //Display game over overlay when the player dies
     public void GameOver()
     {
+        adController.OpenBannerAd();
         gameOverCanvas.SetActive(true);
         if (canContinue == false)
         {
@@ -273,11 +144,13 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        adController.CloseAd();
         SceneManager.LoadScene("SampleScene");
     }
 
     public void ContinueButton()
     {
+        adController.OpenRewardedVideoAd();
         Time.timeScale = 1f;
         player.dead = false;
         gameOverCanvas.SetActive(false);

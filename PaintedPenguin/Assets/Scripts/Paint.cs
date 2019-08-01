@@ -59,5 +59,11 @@ public class Paint : MonoBehaviour
     {
         //Paint keeps moving to the left
         transform.position += Vector3.left * speed * Time.deltaTime;
+
+        // Destroy if out of scene
+        if (transform.position.x < -0.9)
+        {
+            GameObject.Destroy(gameObject);
+        }
     }
 }

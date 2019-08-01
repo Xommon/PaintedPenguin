@@ -55,5 +55,11 @@ public class Block : MonoBehaviour
     {
         //Blocks keep moving to the left
         transform.position += Vector3.left * speed * Time.deltaTime;
+
+        // Destroy if out of scene
+        if (transform.position.x < -0.9)
+        {
+            GameObject.Destroy(gameObject);
+        }
     }
 }

@@ -5,11 +5,14 @@ using UnityEngine.Monetization;
 
 public class AdController : MonoBehaviour
 {
-    private string store_id = "3241553";
+    public string store_id = "3241553";
 
-    private string video_ad = "video";
-    private string rewarded_video_ad = "rewardedVideo";
-    private string banner_ad = "bannerAd";
+    public string video_ad = "video";
+    public string rewarded_video_ad = "rewardedVideo";
+    public string banner_ad = "bannerAd";
+
+    // WHEN YOU PUBLISH GAME, CHANGE TO FALSE
+    public bool testing = true;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +23,7 @@ public class AdController : MonoBehaviour
 
     public void OpenVideoAd()
     {
-        if (Monetization.IsReady(video_ad))
+        if (Monetization.IsReady(video_ad) && testing == false)
         {
             ShowAdPlacementContent ad = null;
             ad = Monetization.GetPlacementContent(video_ad) as ShowAdPlacementContent;
@@ -34,7 +37,7 @@ public class AdController : MonoBehaviour
 
     public void OpenRewardedVideoAd()
     {
-        if (Monetization.IsReady(rewarded_video_ad))
+        if (Monetization.IsReady(rewarded_video_ad) && testing == false)
         {
             ShowAdPlacementContent ad = null;
             ad = Monetization.GetPlacementContent(rewarded_video_ad) as ShowAdPlacementContent;
@@ -48,7 +51,7 @@ public class AdController : MonoBehaviour
 
     public void OpenBannerAd()
     {
-        if (Monetization.IsReady(banner_ad))
+        if (Monetization.IsReady(banner_ad) && testing == false)
         {
             ShowAdPlacementContent ad = null;
             ad = Monetization.GetPlacementContent(banner_ad) as ShowAdPlacementContent;
