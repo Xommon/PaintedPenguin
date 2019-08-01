@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Paint : MonoBehaviour
 {
-    public float speed;
+    public GameManager gameManager;
     public int colour;
     public SpriteRenderer sr;
 
@@ -14,11 +14,9 @@ public class Paint : MonoBehaviour
         int roll = Random.Range(1, 7); // Between 1 and 6
         if (roll == 1)
         {
-        // Red
-        colour = 1;
-        //GetComponent<SpriteRenderer>().color = Color.red;
-        sr.color = new Color(1f, 0.1f, 0.1f, 1f);
-
+            // Red
+            colour = 1;
+            sr.color = new Color(1f, 0.1f, 0.1f, 1f);
         }
         if (roll == 2)
         {
@@ -57,8 +55,8 @@ public class Paint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Paint keeps moving to the left
-        transform.position += Vector3.left * speed * Time.deltaTime;
+        // Paint keeps moving to the left
+        transform.position += Vector3.left * gameManager.obstacleSpeed * Time.deltaTime;
 
         // Destroy if out of scene
         if (transform.position.x < -0.9)

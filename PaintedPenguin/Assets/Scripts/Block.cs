@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
+    public GameManager gameManager;
     public int colour;
     public SpriteRenderer sr;
-    public float speed;
     public bool hit = false;
 
     private void Start()
@@ -54,7 +54,7 @@ public class Block : MonoBehaviour
     void Update()
     {
         //Blocks keep moving to the left
-        transform.position += Vector3.left * speed * Time.deltaTime;
+        transform.position += Vector3.left * gameManager.obstacleSpeed * Time.deltaTime;
 
         // Destroy if out of scene
         if (transform.position.x < -0.9)

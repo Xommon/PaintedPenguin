@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &814642394577855543
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 814642394577855561}
+  - component: {fileID: 814642394577855560}
+  - component: {fileID: 814642394577855562}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &814642394577855561
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814642394577855543}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &814642394577855560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814642394577855543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d44c1b2802f76bf49ad30ac56f6a8ebc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverCanvas: {fileID: 0}
+  continueButtonUI: {fileID: 0}
+  mainMenuUI: {fileID: 0}
+  gameUI: {fileID: 0}
+  adController: {fileID: 814642394577855562}
+  on: 0
+  score: 1746
+  maxTime2: 1
+  player: {fileID: 0}
+  canContinue: 0
+  maxTime: 1
+  block: {fileID: 6912182656722656618, guid: 28a263cf0e83020418b6fa4f9b07f0ac, type: 3}
+  paint: {fileID: 1643468843167535004, guid: 42b715afaedacbe49a39f6cf661ccca3, type: 3}
+  obstacleSpeed: 1
+  obstaclePositions: []
+--- !u!114 &814642394577855562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814642394577855543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a94b0922499d7f43aaa474f16f5dc1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  store_id: 3241553
+  video_ad: video
+  rewarded_video_ad: rewardedVideo
+  banner_ad: bannerAd
+  testing: 1

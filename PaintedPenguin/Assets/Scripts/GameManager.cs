@@ -148,13 +148,29 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("SampleScene");
     }
 
+    public void ClearObstacles()
+    {
+        GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Block");
+        for (int i = 0; i < obstacles.Length; i++)
+        {
+            Destroy(obstacles[i]);
+        }
+
+        obstacles = GameObject.FindGameObjectsWithTag("Paint");
+        for (int i = 0; i < obstacles.Length; i++)
+        {
+            Destroy(obstacles[i]);
+        }
+    }
+
     public void ContinueButton()
     {
         adController.OpenRewardedVideoAd();
+        ClearObstacles();
+        canContinue = false;
         Time.timeScale = 1f;
         player.dead = false;
         gameOverCanvas.SetActive(false);
         player.position = "starting";
-        canContinue = false;
     }
 }
