@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     public GameObject continueButtonUI;
     public GameObject mainMenuUI;
     public GameObject gameUI;
-    public AdController adController;
 
     // Game components
     public bool on;
@@ -80,7 +79,6 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
-        adController.OpenBannerAd();
         mainMenuUI.SetActive(true);
         canContinue = true;
         Time.timeScale = 1;
@@ -90,7 +88,6 @@ public class GameManager : MonoBehaviour
     // Start Button pressed
     public void StartGame()
     {
-        adController.CloseAd();
         player.position = "starting";
         mainMenuUI.SetActive(false);
         gameUI.SetActive(true);
@@ -134,7 +131,6 @@ public class GameManager : MonoBehaviour
     //Display game over overlay when the player dies
     public void GameOver()
     {
-        adController.OpenBannerAd();
         gameOverCanvas.SetActive(true);
         if (canContinue == false)
         {
@@ -144,7 +140,6 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
-        adController.CloseAd();
         SceneManager.LoadScene("SampleScene");
     }
 
@@ -165,7 +160,6 @@ public class GameManager : MonoBehaviour
 
     public void ContinueButton()
     {
-        adController.OpenRewardedVideoAd();
         ClearObstacles();
         canContinue = false;
         Time.timeScale = 1f;
