@@ -2,13 +2,13 @@
 
 public class SwipeDrawer : MonoBehaviour
 {
-    public LineRenderer lineRenderer;
+    private LineRenderer lineRenderer;
 
     private float zOffset = 10;
 
     private void Awake()
     {
-        //lineRenderer = GetComponent<LineRenderer>();
+        lineRenderer = GetComponent<LineRenderer>();
         SwipeDetector.OnSwipe += SwipeDetector_OnSwipe;
     }
 
@@ -17,7 +17,7 @@ public class SwipeDrawer : MonoBehaviour
         Vector3[] positions = new Vector3[2];
         positions[0] = Camera.main.ScreenToWorldPoint(new Vector3(data.StartPosition.x, data.StartPosition.y, zOffset));
         positions[1] = Camera.main.ScreenToWorldPoint(new Vector3(data.EndPosition.x, data.EndPosition.y, zOffset));
-        //lineRenderer.positionCount = 2;
-        //lineRenderer.SetPositions(positions);
+        lineRenderer.positionCount = 2;
+        lineRenderer.SetPositions(positions);
     }
 }
