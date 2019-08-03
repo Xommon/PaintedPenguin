@@ -164,7 +164,7 @@ public class PlayerMovement : MonoBehaviour
     // End the game if collision with an obstacle occurs
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.tag == "Block")
+        if (collision.transform.name == "Block(Clone)")
         {
             if (collision.gameObject.GetComponent<Block>().colour != colour)
             {
@@ -176,10 +176,12 @@ public class PlayerMovement : MonoBehaviour
                 rb.gravityScale = 0;
                 Time.timeScale = 0.75f;
                 Invoke("Death", 0.5f);
+                Destroy(collision.gameObject);
             } else if (collision.gameObject.GetComponent<Block>().hit == false)
             {
                 gameManager.score += 5;
                 collision.gameObject.GetComponent<Block>().hit = true;
+                Destroy(collision.gameObject);
             }
         }
 

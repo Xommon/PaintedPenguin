@@ -50,10 +50,8 @@ public class Paint : MonoBehaviour
         }
     }
 
-
-
     // Update is called once per frame
-    void Update()
+     void Update()
     {
         // Paint keeps moving to the left
         transform.position += Vector3.left * gameManager.obstacleSpeed * Time.deltaTime;

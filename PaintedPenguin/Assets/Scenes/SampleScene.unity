@@ -2561,14 +2561,21 @@ PrefabInstance:
     - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: obstacleSpeed
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: score
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
+        type: 3}
+      propertyPath: paint
+      value: 
+      objectReference: {fileID: 410293751131886679, guid: f2e9a55dc7a3a7641884b0dfc4bb3fac,
+        type: 3}
+    m_RemovedComponents:
+    - {fileID: 814642394577855562, guid: a71de283662990e4bbb15849e0178a74, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a71de283662990e4bbb15849e0178a74, type: 3}
 --- !u!1001 &3070816319602699741
 PrefabInstance:
