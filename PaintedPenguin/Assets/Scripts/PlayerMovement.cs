@@ -54,12 +54,14 @@ public class PlayerMovement : MonoBehaviour
         if (position == "starting" && dead == false)
         {
             rb.velocity = transform.right;
+            animator.SetBool("dead", false);
 
             // Start game if player is in position, start the game
             if (transform.position.x >= -0.33)
             {
                 gameManager.on = true;
                 position = ("walking");
+
             }
         }
 
@@ -159,6 +161,11 @@ public class PlayerMovement : MonoBehaviour
         {
             sr.color = new Color(0.7f, 0.1f, 1f, 1f);
         }
+
+        if (dead == true)
+        {
+            animator.SetBool("dead", true);
+        }
     }
 
     // End the game if collision with an obstacle occurs
@@ -166,18 +173,19 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.transform.name == "Block(Clone)")
         {
-            if (collision.gameObject.GetComponent<Block>().colour != colour)
+            if (collision.gameObject.GetComponent<Block>().colour != colour && dead == false)
             {
+                rb.gravityScale = 0;
                 dead = true;
-                animator.SetBool("dead", true);
                 animator.SetBool("jumping", false);
                 animator.SetBool("falling", false);
                 animator.SetBool("swimming", false);
-                rb.gravityScale = 0;
-                Time.timeScale = 0.75f;
+                rb.velocity = Vector2.up * 2;
+                rb.gravityScale = 0.5f;
+                // Time.timeScale = 0.25f;
                 Invoke("Death", 0.5f);
                 Destroy(collision.gameObject);
-            } else if (collision.gameObject.GetComponent<Block>().hit == false)
+            } else if (collision.gameObject.GetComponent<Block>().hit == false && dead == false)
             {
                 gameManager.score += 5;
                 collision.gameObject.GetComponent<Block>().hit = true;

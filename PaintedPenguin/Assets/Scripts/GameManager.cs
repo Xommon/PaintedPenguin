@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public GameObject continueButtonUI;
     public GameObject mainMenuUI;
     public GameObject gameUI;
+    public GameObject pauseUI;
+    public bool paused = false;
 
     // Game components
     public bool on;
@@ -85,6 +87,19 @@ public class GameManager : MonoBehaviour
         score = 0;
     }
 
+    public void Pause()
+    {
+        if (paused == false)
+        {
+            paused = true;
+        }
+
+        if (paused == true)
+        {
+            paused = false;
+        }
+    }
+
     // Start Button pressed
     public void StartGame()
     {
@@ -105,6 +120,17 @@ public class GameManager : MonoBehaviour
         if (on == true && player.dead == false)
         {
             SpawnBlock();
+        }
+
+        // Pause
+        if (paused == true)
+        {
+            pauseUI.SetActive(true);
+            Time.timeScale = 0;
+        } else
+        {
+            pauseUI.SetActive(false);
+            Time.timeScale = 1;
         }
 
         // *** FOR DESKTOP TESTING ONLY ***
