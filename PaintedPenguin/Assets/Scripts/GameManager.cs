@@ -145,6 +145,11 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+
+        if (Input.GetKeyDown("space"))
+        {
+            Pause();
+        }
     }
 
     //Display game over overlay when the player dies
