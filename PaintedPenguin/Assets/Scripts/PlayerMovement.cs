@@ -23,18 +23,24 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
-        position = "jumping";
-        rb.gravityScale = 1;
-        rb.velocity = Vector2.up * 4;
-        animator.SetBool("jumping", true);
+        if (gameManager.paused == false)
+        {
+            position = "jumping";
+            rb.gravityScale = 1;
+            rb.velocity = Vector2.up * 4;
+            animator.SetBool("jumping", true);
+        }
     }
-    
+
     public void Dive()
     {
-        position = "diving";
-        rb.gravityScale = -1;
-        rb.velocity = Vector2.down * 4;
-        animator.SetBool("swimming", true);
+        if (gameManager.paused == false)
+        {
+            position = "diving";
+            rb.gravityScale = -1;
+            rb.velocity = Vector2.down * 4;
+            animator.SetBool("swimming", true);
+        }
     }
 
     void Update()

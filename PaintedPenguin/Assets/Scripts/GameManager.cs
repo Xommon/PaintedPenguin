@@ -89,13 +89,17 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
+        // Pause
         if (paused == false)
         {
+            pauseUI.SetActive(true);
+            Time.timeScale = 0;
             paused = true;
         }
-
-        if (paused == true)
+        else
         {
+            pauseUI.SetActive(false);
+            Time.timeScale = 1;
             paused = false;
         }
     }
@@ -120,17 +124,6 @@ public class GameManager : MonoBehaviour
         if (on == true && player.dead == false)
         {
             SpawnBlock();
-        }
-
-        // Pause
-        if (paused == true)
-        {
-            pauseUI.SetActive(true);
-            Time.timeScale = 0;
-        } else
-        {
-            pauseUI.SetActive(false);
-            Time.timeScale = 1;
         }
 
         // *** FOR DESKTOP TESTING ONLY ***

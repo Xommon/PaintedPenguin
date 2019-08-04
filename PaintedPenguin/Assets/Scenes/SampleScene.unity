@@ -2667,6 +2667,52 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
+        type: 3}
+      propertyPath: gameOverCanvas
+      value: 
+      objectReference: {fileID: 1303924342}
+    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
+        type: 3}
+      propertyPath: continueButtonUI
+      value: 
+      objectReference: {fileID: 1724162283}
+    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
+        type: 3}
+      propertyPath: mainMenuUI
+      value: 
+      objectReference: {fileID: 44683138}
+    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
+        type: 3}
+      propertyPath: gameUI
+      value: 
+      objectReference: {fileID: 351294078}
+    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1418362666}
+    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
+        type: 3}
+      propertyPath: obstacleSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
+        type: 3}
+      propertyPath: score
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
+        type: 3}
+      propertyPath: paint
+      value: 
+      objectReference: {fileID: 410293751131886679, guid: f2e9a55dc7a3a7641884b0dfc4bb3fac,
+        type: 3}
+    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
+        type: 3}
+      propertyPath: pauseUI
+      value: 
+      objectReference: {fileID: 1542407960}
     - target: {fileID: 814642394577855561, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2722,52 +2768,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
-        type: 3}
-      propertyPath: gameOverCanvas
-      value: 
-      objectReference: {fileID: 1303924342}
-    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
-        type: 3}
-      propertyPath: continueButtonUI
-      value: 
-      objectReference: {fileID: 1724162283}
-    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
-        type: 3}
-      propertyPath: mainMenuUI
-      value: 
-      objectReference: {fileID: 44683138}
-    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
-        type: 3}
-      propertyPath: gameUI
-      value: 
-      objectReference: {fileID: 351294078}
-    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1418362666}
-    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
-        type: 3}
-      propertyPath: obstacleSpeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
-        type: 3}
-      propertyPath: score
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
-        type: 3}
-      propertyPath: paint
-      value: 
-      objectReference: {fileID: 410293751131886679, guid: f2e9a55dc7a3a7641884b0dfc4bb3fac,
-        type: 3}
-    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
-        type: 3}
-      propertyPath: pauseUI
-      value: 
-      objectReference: {fileID: 1542407960}
     m_RemovedComponents:
     - {fileID: 814642394577855562, guid: a71de283662990e4bbb15849e0178a74, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a71de283662990e4bbb15849e0178a74, type: 3}
