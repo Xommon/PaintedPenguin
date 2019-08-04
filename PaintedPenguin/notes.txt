@@ -7,7 +7,6 @@ ADDITIONS:
 - Intro splash
 - Collision effect with blocks
 - Languages / ¿Ñulzaodånærøžuß?
-- Pause button
 - Analytics
 - Rainbow Ball and Mode
 
@@ -19,5 +18,3 @@ BUGS:
 DON'T FORGET:
 - SWITCH MONETIZATION SWIPE TO FALSE
 - DELETE HIGHSCORE URL IN HIGHSCORE.SCR
-
-Reverting is not possible because you have unmerged files

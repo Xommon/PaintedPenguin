@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameUI;
     public GameObject pauseUI;
     public bool paused = false;
+    public GameObject pauseButton;
 
     // Game components
     public bool on;
@@ -20,12 +22,21 @@ public class GameManager : MonoBehaviour
     public float maxTime2 = 1;
     public PlayerMovement player;
     public bool canContinue;
+    public static int highScore;
+
+    // High scores
+    // http://dreamlo.com/lb/cQ87T8a7BUGRQmQNMDB6iwWUTDoSubyUOyfJ9_43b3_g
+
+    const string privateCode = "cQ87T8a7BUGRQmQNMDB6iwWUTDoSubyUOyfJ9_43b3_g";
+    const string publicCode = "5d43646f76827f1758cfaa7c";
+    const string webURL = "dreamlo.com/lb/";
 
     // Obstacle creation
     public float maxTime = 1;
     private float timer = 0;
     public GameObject block;
     public GameObject paint;
+    public GameObject rainbow;
     float place;
     float place2;
     public float obstacleSpeed;
@@ -66,10 +77,17 @@ public class GameManager : MonoBehaviour
             obstaclePositions.Remove(place);
 
             // Place paint
-            if (PercentChance(10))
+            if (PercentChance(25))
             {
                 GameObject newpaint = Instantiate(paint);
                 newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
+            } else
+            {
+                if (PercentChance(1))
+                {
+                    GameObject newpaint = Instantiate(rainbow);
+                    newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
+                }
             }
 
             // Increase score every second
@@ -77,6 +95,22 @@ public class GameManager : MonoBehaviour
             timer = 0;
         }
         timer += Time.deltaTime;
+    }
+
+    // Adding high scores
+    IEnumerator AddNewHighScore(string username, int score)
+    {
+        UnityWebRequest uwr = UnityWebRequest.Get(webURL + privateCode + "/add/" + UnityWebRequest.EscapeURL(username) + "/" + score);
+        yield return uwr.SendWebRequest();
+
+        if (uwr.isNetworkError)
+        {
+            Debug.Log("Error While Sending: " + uwr.error);
+        }
+        else
+        {
+            Debug.Log("Received: " + uwr.downloadHandler.text);
+        }
     }
 
     public void Start()
@@ -126,6 +160,14 @@ public class GameManager : MonoBehaviour
             SpawnBlock();
         }
 
+        if (player.dead == true)
+        {
+            pauseButton.SetActive(false);
+        } else
+        {
+            pauseButton.SetActive(true);
+        }
+
         // *** FOR DESKTOP TESTING ONLY ***
         if (Input.GetKeyDown("return"))
         {
@@ -152,9 +194,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    //Display game over overlay when the player dies
+    //Display game over overlay and upload high score when the player dies
     public void GameOver()
     {
+        StartCoroutine(AddNewHighScore("Test" + Random.Range(0, 100), score));
         gameOverCanvas.SetActive(true);
         if (canContinue == false)
         {
@@ -164,6 +207,11 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        gameUI.SetActive(false);
+        if (score > highScore)
+        {
+            highScore = score;
+        }
         SceneManager.LoadScene("SampleScene");
     }
 
@@ -176,6 +224,12 @@ public class GameManager : MonoBehaviour
         }
 
         obstacles = GameObject.FindGameObjectsWithTag("Paint");
+        for (int i = 0; i < obstacles.Length; i++)
+        {
+            Destroy(obstacles[i]);
+        }
+
+        obstacles = GameObject.FindGameObjectsWithTag("Rainbow");
         for (int i = 0; i < obstacles.Length; i++)
         {
             Destroy(obstacles[i]);

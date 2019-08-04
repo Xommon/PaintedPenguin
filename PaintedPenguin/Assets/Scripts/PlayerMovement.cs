@@ -12,6 +12,12 @@ public class PlayerMovement : MonoBehaviour
     public bool dead;
     public int colour;
 
+    // Swipe controls
+    public Vector2 fingerDownPosition;
+    public Vector2 fingerUpPosition;
+    public float swipeMinDistance;
+    public string swipeDirection;
+
     void Start()
     {
         dead = false;
@@ -45,6 +51,48 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (colour == 7)
+        {
+            for (int i = 0; i < 6; i++)
+            {
+                // Red
+                if (i == 0)
+                {
+                    sr.color = new Color(1f, 0.1f, 0.1f, 1f);
+                }
+
+                // Orange
+                if (i == 1)
+                {
+                    sr.color = new Color(1f, 0.5f, 0.1f, 1f);
+                }
+
+                // Yellow
+                if (i == 2)
+                {
+                    sr.color = new Color(1f, 1f, 0.1f, 1f);
+                }
+
+                // Green
+                if (i == 3)
+                {
+                    sr.color = new Color(0.1f, 1f, 0.1f, 1f);
+                }
+
+                // Blue
+                if (i == 4)
+                {
+                    sr.color = new Color(0.1f, 0.2f, 1f, 1f);
+                }
+
+                // Purple
+                if (i == 5)
+                {
+                    sr.color = new Color(0.7f, 0.1f, 1f, 1f);
+                }
+            }
+        }
+
         if (position == "ready")
         {
             // Player is out of sight, ready to start
@@ -168,10 +216,28 @@ public class PlayerMovement : MonoBehaviour
             sr.color = new Color(0.7f, 0.1f, 1f, 1f);
         }
 
+        // Rainbow
+        if (colour == 7)
+        {
+            sr.color = new Color(0.3f, 0.3f, 0.3f, 1f);
+        }
+
         if (dead == true)
         {
             animator.SetBool("dead", true);
         }
+    }
+
+    // Rainbow
+    public void Rainbow(int seconds)
+    {
+        colour = 7;
+        Invoke("Unrainbow", seconds);
+    }
+
+    public void Unrainbow()
+    {
+        colour = 0;
     }
 
     // End the game if collision with an obstacle occurs
@@ -179,7 +245,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.transform.name == "Block(Clone)")
         {
-            if (collision.gameObject.GetComponent<Block>().colour != colour && dead == false)
+            if (collision.gameObject.GetComponent<Block>().colour != colour && colour != 7 && dead == false)
             {
                 rb.gravityScale = 0;
                 dead = true;
@@ -201,7 +267,16 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.transform.tag == "Paint")
         {
-            colour = collision.gameObject.GetComponent<Paint>().colour;
+            if (colour != 7)
+            {
+                colour = collision.gameObject.GetComponent<Paint>().colour;
+            }
+            Destroy(collision.gameObject);
+        }
+
+        if (collision.transform.tag == "Rainbow")
+        {
+            Rainbow(5);
             Destroy(collision.gameObject);
         }
     }
