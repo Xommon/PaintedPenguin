@@ -31,6 +31,9 @@ public class GameManager : MonoBehaviour
     const string publicCode = "5d43646f76827f1758cfaa7c";
     const string webURL = "dreamlo.com/lb/";
     public Highscore[] highScoresList;
+    public Text[] highscoreText;
+    public Highscore highscoreManager;
+    public GameObject highScoreTableUI;
 
     // Obstacle creation
     public float maxTime = 1;
@@ -131,6 +134,7 @@ public class GameManager : MonoBehaviour
         else
         {
             FormatHighScores(uwr.downloadHandler.text);
+            OnHighscoresDownloaded(highScoresList);
         }
     }
 
@@ -168,6 +172,38 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         score = 0;
         DownloadHighScores();
+
+        // Displaying high scores
+        for (int i = 0; i < highscoreText.Length; i++)
+        {
+            highscoreText[i].text = i + 1 + ". Fetching ...";
+        }
+
+        highscoreManager = GetComponent<Highscore>();
+
+        StartCoroutine("RefreshHighscores");
+    }
+
+    public void OnHighscoresDownloaded(Highscore[] highscoreList)
+    {
+        for (int i = 0; i < highscoreText.Length; i++)
+        {
+            highscoreText[i].text = i + 1 + ". ";
+            if (highscoreList.Length > i)
+            {
+                highscoreText[i].text += highscoreList[i].username + " - " + highscoreList[i].score;
+            }
+        }
+    }
+
+    IEnumerator RefreshHighscores()
+    {
+        while (true)
+        {
+            DownloadHighScores();
+            yield return new WaitForSeconds(30);
+
+        }
     }
 
     public void Pause()
@@ -198,7 +234,14 @@ public class GameManager : MonoBehaviour
     // Score Button pressed
     public void ScoreButton()
     {
-        // ONLINE HIGH SCORE LIST
+        mainMenuUI.SetActive(false);
+        highScoreTableUI.SetActive(true);
+    }
+
+    public void xButtonScore()
+    {
+        highScoreTableUI.SetActive(false);
+        mainMenuUI.SetActive(true);
     }
 
     public void Update()
