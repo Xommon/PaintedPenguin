@@ -1,7 +1,6 @@
 ADDITIONS:
 - Ads
 - Analytics
-- Online high score
 - Redo art and background
 - Sound effects
 - Intro splash
@@ -14,6 +13,7 @@ BUGS:
 - Random collision with blocks
 - Player shifts a little bit sometimes when dying
 - Swipe controls not consistant
+- High score and close button overflow
 
 DON'T FORGET:
 - SWITCH MONETIZATION SWIPE TO FALSE
