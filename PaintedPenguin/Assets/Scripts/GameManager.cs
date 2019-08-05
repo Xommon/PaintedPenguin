@@ -284,6 +284,11 @@ public class GameManager : MonoBehaviour
         {
             Pause();
         }
+
+        if (Input.GetKeyDown("escape"))
+        {
+            xButtonScore();
+        }
     }
 
     //Display game over overlay and upload high score when the player dies
