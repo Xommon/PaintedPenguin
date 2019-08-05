@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     const string privateCode = "cQ87T8a7BUGRQmQNMDB6iwWUTDoSubyUOyfJ9_43b3_g";
     const string publicCode = "5d43646f76827f1758cfaa7c";
     const string webURL = "dreamlo.com/lb/";
+    public Highscore[] highScoresList;
 
     // Obstacle creation
     public float maxTime = 1;
@@ -105,11 +106,58 @@ public class GameManager : MonoBehaviour
 
         if (uwr.isNetworkError)
         {
-            Debug.Log("Error While Sending: " + uwr.error);
+            Debug.Log("Error Uploading: " + uwr.error);
         }
         else
         {
             Debug.Log("Received: " + uwr.downloadHandler.text);
+        }
+    }
+
+    public void DownloadHighScores()
+    {
+        StartCoroutine("DownloadHighScoresFromDatabase");
+    }
+
+    IEnumerator DownloadHighScoresFromDatabase()
+    {
+        UnityWebRequest uwr = UnityWebRequest.Get(webURL + publicCode + "/pipe/");
+        yield return uwr.SendWebRequest();
+
+        if (uwr.isNetworkError)
+        {
+            Debug.Log("Error Downloading: " + uwr.error);
+        }
+        else
+        {
+            FormatHighScores(uwr.downloadHandler.text);
+        }
+    }
+
+
+    void FormatHighScores(string textStream)
+    {
+        string[] entries = textStream.Split(new char[] { '\n' }, System.StringSplitOptions.RemoveEmptyEntries);
+        highScoresList = new Highscore[entries.Length];
+        for (int i = 0; i < entries.Length; i++)
+        {
+            string[] entryInfo = entries[i].Split(new char[] { '|' });
+            string username = entryInfo[0];
+            int score = int.Parse(entryInfo[1]);
+            highScoresList[i] = new Highscore(username, score);
+            print(highScoresList[i].username + ": " + highScoresList[i].score);
+        }
+    }
+
+    public struct Highscore
+    {
+        public string username;
+        public int score;
+
+        public Highscore(string _username, int _score)
+        {
+            username = _username;
+            score = _score;
         }
     }
 
@@ -119,6 +167,7 @@ public class GameManager : MonoBehaviour
         canContinue = true;
         Time.timeScale = 1;
         score = 0;
+        DownloadHighScores();
     }
 
     public void Pause()
