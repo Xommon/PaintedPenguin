@@ -22,7 +22,6 @@ public class GameManager : MonoBehaviour
     public float maxTime2 = 1;
     public PlayerMovement player;
     public bool canContinue;
-    public static int highScore;
 
     // High scores
     // http://dreamlo.com/lb/cQ87T8a7BUGRQmQNMDB6iwWUTDoSubyUOyfJ9_43b3_g
@@ -33,7 +32,11 @@ public class GameManager : MonoBehaviour
     public Highscore[] highScoresList;
     public Text[] highscoreText;
     public GameObject highScoreTableUI;
-    public Text scoreDisplayUI;
+    //public Text scoreDisplayUI;
+    public Text tableScoreUI;
+    public Text tableUsernameUI;
+    public Text tablePlaceUI;
+    public static string playerUsername;
 
     // Obstacle creation
     public float maxTime = 1;
@@ -183,20 +186,31 @@ public class GameManager : MonoBehaviour
 
     public void OnHighscoresDownloaded(Highscore[] highscoreList)
     {
-        scoreDisplayUI.text = "";
+        // Clear all display text
+        tablePlaceUI.text = "";
+        tableUsernameUI.text = "";
+        tableScoreUI.text = "";
+        
+        // Populate the score table
         for (int i = 0; i <= 100; i++)
         {
+            // Score
+            tableScoreUI.text += highscoreList[i].score + "\n";
+
+            // Username
+            tableUsernameUI.text += highscoreList[i].username + "\n";
+
             if (i < 9)
             {
-                scoreDisplayUI.text += "00";
+                tablePlaceUI.text += "00";
             }
 
             if (i > 8 && i < 100)
             {
-                scoreDisplayUI.text += "0";
+                tablePlaceUI.text += "0";
             }
-            scoreDisplayUI.text += i + 1 + ". ";
-            scoreDisplayUI.text += highscoreList[i].username + " - " + highscoreList[i].score + "\n";
+            // Place
+            tablePlaceUI.text += i + 1 + ": \n";
         }
     }
 
@@ -308,10 +322,6 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         gameUI.SetActive(false);
-        if (score > highScore)
-        {
-            highScore = score;
-        }
         SceneManager.LoadScene("SampleScene");
     }
 

@@ -7,13 +7,14 @@ ADDITIONS:
 - Collision effect with blocks
 - Languages / ¿Ñulzaodånærøžuß?
 - Analytics
-- Rainbow Ball and Mode
+- Get player name entry for high score
 
 BUGS:
 - Random collision with blocks
 - Player shifts a little bit sometimes when dying
 - Swipe controls not consistant
 - High score, scrollbar, and close button overflow
+- Make player flash while rainbow, plus timer
 
 DON'T FORGET:
 - SWITCH MONETIZATION SWIPE TO FALSE
