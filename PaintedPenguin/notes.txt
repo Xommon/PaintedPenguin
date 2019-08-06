@@ -13,7 +13,7 @@ BUGS:
 - Random collision with blocks
 - Player shifts a little bit sometimes when dying
 - Swipe controls not consistant
-- High score and close button overflow
+- High score, scrollbar, and close button overflow
 
 DON'T FORGET:
 - SWITCH MONETIZATION SWIPE TO FALSE

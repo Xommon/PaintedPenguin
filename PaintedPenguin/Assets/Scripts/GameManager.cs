@@ -32,8 +32,8 @@ public class GameManager : MonoBehaviour
     const string webURL = "dreamlo.com/lb/";
     public Highscore[] highScoresList;
     public Text[] highscoreText;
-    public Highscore highscoreManager;
     public GameObject highScoreTableUI;
+    public Text scoreDisplayUI;
 
     // Obstacle creation
     public float maxTime = 1;
@@ -149,7 +149,6 @@ public class GameManager : MonoBehaviour
             string username = entryInfo[0];
             int score = int.Parse(entryInfo[1]);
             highScoresList[i] = new Highscore(username, score);
-            print(highScoresList[i].username + ": " + highScoresList[i].score);
         }
     }
 
@@ -174,25 +173,30 @@ public class GameManager : MonoBehaviour
         DownloadHighScores();
 
         // Displaying high scores
-        for (int i = 0; i < highscoreText.Length; i++)
+        //for (int i = 0; i < highscoreText.Length; i++)
         {
-            highscoreText[i].text = i + 1 + ". Fetching ...";
+            //highscoreText[i].text = i + 1 + ". Fetching ...";
         }
-
-        highscoreManager = GetComponent<Highscore>();
 
         StartCoroutine("RefreshHighscores");
     }
 
     public void OnHighscoresDownloaded(Highscore[] highscoreList)
     {
-        for (int i = 0; i < highscoreText.Length; i++)
+        scoreDisplayUI.text = "";
+        for (int i = 0; i <= 100; i++)
         {
-            highscoreText[i].text = i + 1 + ". ";
-            if (highscoreList.Length > i)
+            if (i < 9)
             {
-                highscoreText[i].text += highscoreList[i].username + " - " + highscoreList[i].score;
+                scoreDisplayUI.text += "00";
             }
+
+            if (i > 8 && i < 100)
+            {
+                scoreDisplayUI.text += "0";
+            }
+            scoreDisplayUI.text += i + 1 + ". ";
+            scoreDisplayUI.text += highscoreList[i].username + " - " + highscoreList[i].score + "\n";
         }
     }
 
@@ -202,7 +206,6 @@ public class GameManager : MonoBehaviour
         {
             DownloadHighScores();
             yield return new WaitForSeconds(30);
-
         }
     }
 
