@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public GameObject pauseUI;
     public bool paused = false;
     public GameObject pauseButton;
+    public Text warning;
 
     // Game components
     public bool on;
@@ -36,7 +37,8 @@ public class GameManager : MonoBehaviour
     public Text tableScoreUI;
     public Text tableUsernameUI;
     public Text tablePlaceUI;
-    public static string playerUsername;
+    public GameObject usernameInputUI;
+    public static string playerUsername = "";
 
     // Obstacle creation
     public float maxTime = 1;
@@ -105,9 +107,9 @@ public class GameManager : MonoBehaviour
     }
 
     // Adding high scores
-    IEnumerator AddNewHighScore(string username, int score)
+    IEnumerator AddNewHighScore(int score)
     {
-        UnityWebRequest uwr = UnityWebRequest.Get(webURL + privateCode + "/add/" + UnityWebRequest.EscapeURL(username) + "/" + score);
+        UnityWebRequest uwr = UnityWebRequest.Get(webURL + privateCode + "/add/" + UnityWebRequest.EscapeURL(playerUsername) + "/" + score);
         yield return uwr.SendWebRequest();
 
         if (uwr.isNetworkError)
@@ -167,11 +169,24 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void GetUsername(string name)
+    {
+        playerUsername = name;
+    }
+
     public void Start()
     {
-        mainMenuUI.SetActive(true);
+        if (playerUsername == "")
+        {
+            usernameInputUI.SetActive(true);
+            mainMenuUI.SetActive(false);
+        } else // If the player's username has already been set
+        {
+            usernameInputUI.SetActive(false);
+            mainMenuUI.SetActive(true);
+            Time.timeScale = 1;
+        }
         canContinue = true;
-        Time.timeScale = 1;
         score = 0;
         DownloadHighScores();
 
@@ -261,6 +276,27 @@ public class GameManager : MonoBehaviour
         mainMenuUI.SetActive(true);
     }
 
+    public void OKButton()
+    {
+        if (usernameInputUI.activeInHierarchy == true)
+        {
+            if (playerUsername.Contains(" ") || playerUsername.Contains("*"))
+            {
+                warning.text = "Cannot contain * or spaces.";
+            }
+            else if (playerUsername.Length < 3 || playerUsername.Length > 12)
+            {
+                warning.text = "Must be between 3 and 12 characters.";
+            }
+            else
+            {
+                usernameInputUI.SetActive(false);
+                mainMenuUI.SetActive(true);
+            }
+        }
+    }
+
+
     public void Update()
     {
         // Obstacles
@@ -295,9 +331,12 @@ public class GameManager : MonoBehaviour
                     RestartGame();
                 }
             }
+
+            // Set username
+            OKButton();
         }
 
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("space") && gameUI.activeInHierarchy == true)
         {
             Pause();
         }
@@ -311,7 +350,7 @@ public class GameManager : MonoBehaviour
     //Display game over overlay and upload high score when the player dies
     public void GameOver()
     {
-        StartCoroutine(AddNewHighScore("Test" + Random.Range(0, 100), score));
+        StartCoroutine(AddNewHighScore(score));
         gameOverCanvas.SetActive(true);
         if (canContinue == false)
         {
