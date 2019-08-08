@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     public Text tableUsernameUI;
     public Text tablePlaceUI;
     public GameObject usernameInputUI;
-    public static string playerUsername = "";
+    public string playerUsername = "";
 
     // Obstacle creation
     public float maxTime = 1;
@@ -47,13 +47,12 @@ public class GameManager : MonoBehaviour
     public GameObject rainbow;
     float place;
     float place2;
-    public float obstacleSpeed;
+    public float obstacleSpeed = 2;
     public List<float> obstaclePositions = new List<float>();
 
     public bool PercentChance(float percent)
     {
         float selection = Random.Range(0.0f, 101.0f);
-        Debug.Log("Selection: " + selection);
         if (selection <= percent)
         {
             return true;
@@ -143,7 +142,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
     void FormatHighScores(string textStream)
     {
         string[] entries = textStream.Split(new char[] { '\n' }, System.StringSplitOptions.RemoveEmptyEntries);
@@ -169,34 +167,52 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Open username prompt
+    public void OpenUsernamePrompt()
+    {
+        usernameInputUI.SetActive(true);
+        mainMenuUI.SetActive(false);
+    }
+
     public void GetUsername(string name)
     {
         playerUsername = name;
     }
 
+    // Save Username
+    public void SaveUsername(string name)
+    {
+        playerUsername = name;
+        SaveSystem.SaveUsername(this);
+    }
+
+    // Load Username
+    public void LoadUsername()
+    {
+        SaveData data = SaveSystem.LoadUsername();
+
+        playerUsername = data.playerUsername;
+    }
+
     // Code for start of script
     public void Start()
     {
-        // Enter username at the beginning of the game
-        if (playerUsername == "")
+        LoadUsername();
+        if (playerUsername == "" || playerUsername == null)
         {
             usernameInputUI.SetActive(true);
             mainMenuUI.SetActive(false);
-        } else // If the player's username has already been set
+        }
+        else // If the player's username has already been set
         {
             usernameInputUI.SetActive(false);
             mainMenuUI.SetActive(true);
             Time.timeScale = 1;
         }
+
         canContinue = true;
         score = 0;
         DownloadHighScores();
-
-        // Displaying high scores
-        //for (int i = 0; i < highscoreText.Length; i++)
-        {
-            //highscoreText[i].text = i + 1 + ". Fetching ...";
-        }
 
         StartCoroutine("RefreshHighscores");
     }
@@ -272,7 +288,7 @@ public class GameManager : MonoBehaviour
         highScoreTableUI.SetActive(true);
     }
 
-    public void xButtonScore()
+    public void XButtonScore()
     {
         highScoreTableUI.SetActive(false);
         mainMenuUI.SetActive(true);
@@ -292,6 +308,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
+                SaveUsername(playerUsername);
                 usernameInputUI.SetActive(false);
                 mainMenuUI.SetActive(true);
             }
@@ -300,6 +317,12 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
+        if (paused == false)
+        {
+            Time.timeScale = 1f + (score / 20000.0f);
+            Debug.Log(Time.timeScale);
+        }
+
         // Hello, Username!
         helloUsernameUI.text = "Hello, " + playerUsername + "!";
 
@@ -347,7 +370,15 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown("escape"))
         {
-            xButtonScore();
+            XButtonScore();
+        }
+
+        if (score >= 9999)
+        {
+            score = 9999;
+            ClearObstacles();
+            canContinue = false;
+            player.KillPlayer();
         }
     }
 

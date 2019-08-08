@@ -55,14 +55,11 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
         {
             swipeStartPosition = Input.mousePosition;
-            Debug.Log("Start: " + swipeStartPosition);
         }
 
         if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1) || Input.GetMouseButtonUp(2))
         {
             swipeEndPosition = Input.mousePosition;
-            Debug.Log("End: " + swipeEndPosition);
-            Debug.Log("Distance: " + Mathf.Abs(swipeStartPosition.y - swipeEndPosition.y));
 
             // If the swipe was long enough
             if (Mathf.Abs(swipeStartPosition.y - swipeEndPosition.y) >= swipeMinDistance)
@@ -71,14 +68,12 @@ public class PlayerMovement : MonoBehaviour
                 {
                     swipeDirection = "down";
                     Dive();
-                    Debug.Log("Direction: " + swipeDirection);
                 }
 
                 if (swipeStartPosition.y < swipeEndPosition.y)
                 {
                     swipeDirection = "up";
                     Jump();
-                    Debug.Log("Direction: " + swipeDirection);
                 }
             }
         }
@@ -269,6 +264,18 @@ public class PlayerMovement : MonoBehaviour
         colour = 0;
     }
 
+    public void KillPlayer()
+    {
+        rb.gravityScale = 0;
+        dead = true;
+        animator.SetBool("jumping", false);
+        animator.SetBool("falling", false);
+        animator.SetBool("swimming", false);
+        rb.velocity = Vector2.up * 2;
+        rb.gravityScale = 0.5f;
+        Invoke("Death", 0.5f);
+    }
+
     // End the game if collision with an obstacle occurs
     public void OnCollisionEnter2D(Collision2D collision)
     {
@@ -276,14 +283,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (collision.gameObject.GetComponent<Block>().colour != colour && colour != 7 && dead == false)
             {
-                rb.gravityScale = 0;
-                dead = true;
-                animator.SetBool("jumping", false);
-                animator.SetBool("falling", false);
-                animator.SetBool("swimming", false);
-                rb.velocity = Vector2.up * 2;
-                rb.gravityScale = 0.5f;
-                Invoke("Death", 0.5f);
+                KillPlayer();
                 Destroy(collision.gameObject);
             } else if (collision.gameObject.GetComponent<Block>().hit == false && dead == false)
             {

@@ -6,7 +6,6 @@ ADDITIONS:
 - Intro splash
 - Collision effect with blocks
 - Languages / ¿Ñulzaodånærøžuß?
-- Analytics
 
 BUGS:
 - Random collision with blocks(???????)
@@ -14,6 +13,7 @@ BUGS:
 - Swipe controls not consistant
 - High score, scrollbar, and close button overflow
 - Make player flash while rainbow, plus timer
+- Some scripts don't appear on in-game highscore list
 
 DON'T FORGET:
 - SWITCH MONETIZATION SWIPE TO FALSE
