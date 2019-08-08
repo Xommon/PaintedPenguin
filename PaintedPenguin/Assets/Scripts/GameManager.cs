@@ -106,7 +106,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Adding high scores
-    IEnumerator AddNewHighScore(int score)
+    public IEnumerator AddNewHighScore(int score)
     {
         UnityWebRequest uwr = UnityWebRequest.Get(webURL + privateCode + "/add/" + UnityWebRequest.EscapeURL(playerUsername) + "/" + score);
         yield return uwr.SendWebRequest();
@@ -385,7 +385,6 @@ public class GameManager : MonoBehaviour
     //Display game over overlay and upload high score when the player dies
     public void GameOver()
     {
-        StartCoroutine(AddNewHighScore(score));
         gameOverCanvas.SetActive(true);
         if (canContinue == false)
         {

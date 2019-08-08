@@ -266,6 +266,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void KillPlayer()
     {
+        StartCoroutine(gameManager.AddNewHighScore(gameManager.score));
         rb.gravityScale = 0;
         dead = true;
         animator.SetBool("jumping", false);

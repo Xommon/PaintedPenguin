@@ -6,14 +6,15 @@ ADDITIONS:
 - Intro splash
 - Collision effect with blocks
 - Languages / ¿Ñulzaodånærøžuß?
+- Arabic and Hebrew fix
 
 BUGS:
 - Random collision with blocks(???????)
 - Player shifts a little bit sometimes when dying
 - Swipe controls not consistant
-- High score, scrollbar, and close button overflow
+- Space at the end of highscore list
 - Make player flash while rainbow, plus timer
-- Some scripts don't appear on in-game highscore list
+- Some scripts/emojis don't appear on in-game highscore list
 
 DON'T FORGET:
 - SWITCH MONETIZATION SWIPE TO FALSE
