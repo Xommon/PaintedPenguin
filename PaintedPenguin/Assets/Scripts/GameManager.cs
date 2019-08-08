@@ -50,9 +50,10 @@ public class GameManager : MonoBehaviour
     public float obstacleSpeed;
     public List<float> obstaclePositions = new List<float>();
 
-    public bool PercentChance(int percent)
+    public bool PercentChance(float percent)
     {
-        int selection = Random.Range(0, 101);
+        float selection = Random.Range(0.0f, 101.0f);
+        Debug.Log("Selection: " + selection);
         if (selection <= percent)
         {
             return true;
@@ -91,7 +92,7 @@ public class GameManager : MonoBehaviour
                 newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
             } else
             {
-                if (PercentChance(1))
+                if (PercentChance(0.5f))
                 {
                     GameObject newpaint = Instantiate(rainbow);
                     newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
