@@ -7,10 +7,9 @@ ADDITIONS:
 - Collision effect with blocks
 - Languages / ¿Ñulzaodånærøžuß?
 - Analytics
-- Get player name entry for high score
 
 BUGS:
-- Random collision with blocks
+- Random collision with blocks(???????)
 - Player shifts a little bit sometimes when dying
 - Swipe controls not consistant
 - High score, scrollbar, and close button overflow
