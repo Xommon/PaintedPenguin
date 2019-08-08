@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public GameObject mainMenuUI;
     public GameObject gameUI;
     public GameObject pauseUI;
+    public Text helloUsernameUI;
     public bool paused = false;
     public GameObject pauseButton;
     public Text warning;
@@ -31,9 +32,7 @@ public class GameManager : MonoBehaviour
     const string publicCode = "5d43646f76827f1758cfaa7c";
     const string webURL = "dreamlo.com/lb/";
     public Highscore[] highScoresList;
-    public Text[] highscoreText;
     public GameObject highScoreTableUI;
-    //public Text scoreDisplayUI;
     public Text tableScoreUI;
     public Text tableUsernameUI;
     public Text tablePlaceUI;
@@ -174,8 +173,10 @@ public class GameManager : MonoBehaviour
         playerUsername = name;
     }
 
+    // Code for start of script
     public void Start()
     {
+        // Enter username at the beginning of the game
         if (playerUsername == "")
         {
             usernameInputUI.SetActive(true);
@@ -207,7 +208,7 @@ public class GameManager : MonoBehaviour
         tableScoreUI.text = "";
         
         // Populate the score table
-        for (int i = 0; i <= 100; i++)
+        for (int i = 0; i <= 99; i++)
         {
             // Score
             tableScoreUI.text += highscoreList[i].score + "\n";
@@ -220,7 +221,7 @@ public class GameManager : MonoBehaviour
                 tablePlaceUI.text += "00";
             }
 
-            if (i > 8 && i < 100)
+            if (i > 8 && i < 99)
             {
                 tablePlaceUI.text += "0";
             }
@@ -284,9 +285,9 @@ public class GameManager : MonoBehaviour
             {
                 warning.text = "Cannot contain * or spaces.";
             }
-            else if (playerUsername.Length < 3 || playerUsername.Length > 12)
+            else if (playerUsername.Length < 1 || playerUsername.Length > 12)
             {
-                warning.text = "Must be between 3 and 12 characters.";
+                warning.text = "Must be between 1 and 12 characters.";
             }
             else
             {
@@ -296,9 +297,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
     public void Update()
     {
+        // Hello, Username!
+        helloUsernameUI.text = "Hello, " + playerUsername + "!";
+
         // Obstacles
         if (on == true && player.dead == false)
         {

@@ -13,9 +13,9 @@ public class PlayerMovement : MonoBehaviour
     public int colour;
 
     // Swipe controls
-    public Vector2 fingerDownPosition;
-    public Vector2 fingerUpPosition;
-    public float swipeMinDistance;
+    public Vector3 swipeStartPosition;
+    public Vector3 swipeEndPosition;
+    public float swipeMinDistance = 1000;
     public string swipeDirection;
 
     void Start()
@@ -29,28 +29,61 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
-        if (gameManager.paused == false)
+        if (gameManager.paused == false && position == "walking")
         {
             position = "jumping";
             rb.gravityScale = 1;
-            rb.velocity = Vector2.up * 4;
+            rb.velocity = new Vector2(0, 4);
             animator.SetBool("jumping", true);
         }
     }
 
     public void Dive()
     {
-        if (gameManager.paused == false)
+        if (gameManager.paused == false && position == "walking")
         {
             position = "diving";
             rb.gravityScale = -1;
-            rb.velocity = Vector2.down * 4;
+            rb.velocity = new Vector2(0, -4);
             animator.SetBool("swimming", true);
         }
     }
 
     void Update()
     {
+        // Swipe controls
+        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
+        {
+            swipeStartPosition = Input.mousePosition;
+            Debug.Log("Start: " + swipeStartPosition);
+        }
+
+        if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1) || Input.GetMouseButtonUp(2))
+        {
+            swipeEndPosition = Input.mousePosition;
+            Debug.Log("End: " + swipeEndPosition);
+            Debug.Log("Distance: " + Mathf.Abs(swipeStartPosition.y - swipeEndPosition.y));
+
+            // If the swipe was long enough
+            if (Mathf.Abs(swipeStartPosition.y - swipeEndPosition.y) >= swipeMinDistance)
+            {
+                if (swipeStartPosition.y > swipeEndPosition.y)
+                {
+                    swipeDirection = "down";
+                    Dive();
+                    Debug.Log("Direction: " + swipeDirection);
+                }
+
+                if (swipeStartPosition.y < swipeEndPosition.y)
+                {
+                    swipeDirection = "up";
+                    Jump();
+                    Debug.Log("Direction: " + swipeDirection);
+                }
+            }
+        }
+
+        // Set colour
         if (colour == 7)
         {
             for (int i = 0; i < 6; i++)
@@ -169,10 +202,6 @@ public class PlayerMovement : MonoBehaviour
                 position = "resurfacing";
             }
         }
-        else
-        {
-            //position = "dead";
-        }
 
         // White
         if (colour == 0)
@@ -254,7 +283,6 @@ public class PlayerMovement : MonoBehaviour
                 animator.SetBool("swimming", false);
                 rb.velocity = Vector2.up * 2;
                 rb.gravityScale = 0.5f;
-                // Time.timeScale = 0.25f;
                 Invoke("Death", 0.5f);
                 Destroy(collision.gameObject);
             } else if (collision.gameObject.GetComponent<Block>().hit == false && dead == false)
