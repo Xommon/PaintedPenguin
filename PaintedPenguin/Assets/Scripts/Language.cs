@@ -27,7 +27,6 @@ public class Language : MonoBehaviour
 
     // High Scores
     public string HighScores;
-    public string Loading;
 
     // Username Input
     public string Name;
@@ -57,7 +56,6 @@ public class Language : MonoBehaviour
 
         // High Scores
         HighScores = "HIGH SCORES";
-        Loading = "Loading ...";
 
         // Username Input
         Name = "Name ...";
@@ -87,7 +85,6 @@ public class Language : MonoBehaviour
 
         // High Scores
         HighScores = "SCORES ÉLEVÉS";
-        Loading = "Chargement ...";
 
         // Username Input
         Name = "Nom ...";

@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour
     // Game components
     public bool on;
     public int score;
-    public float maxTime2 = 1;
     public PlayerMovement player;
     public bool canContinue;
 
@@ -35,7 +34,7 @@ public class GameManager : MonoBehaviour
     public Text tableUsernameUI;
     public Text tablePlaceUI;
     public GameObject usernameInputUI;
-    public string playerUsername = "";
+    public string playerUsername;
     public string playerLanguage = "english";
 
     // Languages
@@ -55,7 +54,6 @@ public class GameManager : MonoBehaviour
     public Text pauseText;
 
     public Text highScoresText;
-    public Text loadingText;
 
     public Text nameFillInText;
     public Text okButtonText;
@@ -68,8 +66,6 @@ public class GameManager : MonoBehaviour
     public GameObject paint;
     public GameObject rainbow;
     float place;
-    float place2;
-    public float obstacleSpeed = 2;
     public List<float> obstaclePositions = new List<float>();
 
     public bool PercentChance(float percent)
@@ -86,7 +82,7 @@ public class GameManager : MonoBehaviour
 
     void SpawnBlock()
     {
-        if (timer > maxTime)
+        if (timer > maxTime * 1.5)
         {
             // Create a list of possible positions
             obstaclePositions.Clear();
@@ -355,19 +351,14 @@ public class GameManager : MonoBehaviour
         pauseText.text = language.Paused;
 
         highScoresText.text = language.HighScores;
-        loadingText.text = language.Loading;
 
         nameFillInText.text = language.Name;
         okButtonText.text = language.OK;
 
         if (paused == false)
         {
-            Time.timeScale = 1f + (score / 20000.0f);
-            Debug.Log(Time.timeScale);
+            Time.timeScale = 1f + (score / 9000.0f);
         }
-
-        // Hello, Username!
-        helloUsernameText.text = language.HelloUsername;
 
         // Obstacles
         if (on == true && player.dead == false)
