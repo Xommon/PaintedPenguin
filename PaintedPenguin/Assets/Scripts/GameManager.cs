@@ -13,10 +13,8 @@ public class GameManager : MonoBehaviour
     public GameObject mainMenuUI;
     public GameObject gameUI;
     public GameObject pauseUI;
-    public Text helloUsernameUI;
     public bool paused = false;
     public GameObject pauseButton;
-    public Text warning;
 
     // Game components
     public bool on;
@@ -38,6 +36,30 @@ public class GameManager : MonoBehaviour
     public Text tablePlaceUI;
     public GameObject usernameInputUI;
     public string playerUsername = "";
+    public string playerLanguage = "english";
+
+    // Languages
+    public Language language;
+
+    public Text gameTitleText;
+    public Text startButtonText;
+    public Text scoreButtonText;
+    public Text helloUsernameText;
+
+    public Text gameOverText;
+    public Text replayButtonText;
+    public Text continueButtonText;
+
+    public Text scoreText;
+
+    public Text pauseText;
+
+    public Text highScoresText;
+    public Text loadingText;
+
+    public Text nameFillInText;
+    public Text okButtonText;
+    public Text warningBoxText;
 
     // Obstacle creation
     public float maxTime = 1;
@@ -197,6 +219,7 @@ public class GameManager : MonoBehaviour
     // Code for start of script
     public void Start()
     {
+        language.French();
         LoadUsername();
         if (playerUsername == "" || playerUsername == null)
         {
@@ -300,11 +323,11 @@ public class GameManager : MonoBehaviour
         {
             if (playerUsername.Contains(" ") || playerUsername.Contains("*"))
             {
-                warning.text = "Cannot contain * or spaces.";
+                warningBoxText.text = language.Warning1;
             }
             else if (playerUsername.Length < 1 || playerUsername.Length > 12)
             {
-                warning.text = "Must be between 1 and 12 characters.";
+                warningBoxText.text = language.Warning2;
             }
             else
             {
@@ -317,6 +340,26 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
+        // Set up text based on language
+        gameTitleText.text = language.GameTitle;
+        startButtonText.text = language.Start;
+        scoreButtonText.text = language.Score;
+        helloUsernameText.text = language.HelloUsername;
+
+        gameOverText.text = language.GameOver;
+        replayButtonText.text = language.Replay;
+        continueButtonText.text = language.Continue;
+
+        scoreText.text = language.ScoreUI;
+
+        pauseText.text = language.Paused;
+
+        highScoresText.text = language.HighScores;
+        loadingText.text = language.Loading;
+
+        nameFillInText.text = language.Name;
+        okButtonText.text = language.OK;
+
         if (paused == false)
         {
             Time.timeScale = 1.0f + (score / 10000.0f);
@@ -324,7 +367,7 @@ public class GameManager : MonoBehaviour
         }
 
         // Hello, Username!
-        helloUsernameUI.text = "Hello, " + playerUsername + "!";
+        helloUsernameText.text = language.HelloUsername;
 
         // Obstacles
         if (on == true && player.dead == false)
