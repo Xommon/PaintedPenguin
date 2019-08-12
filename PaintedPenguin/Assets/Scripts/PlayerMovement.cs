@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
         {
             position = "jumping";
             rb.gravityScale = 0.5f;
-            rb.velocity = new Vector2(0, 2.8f);
+            rb.velocity = new Vector2(0, 2.9f);
             animator.SetBool("jumping", true);
         }
     }
@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
         {
             position = "diving";
             rb.gravityScale = -0.5f;
-            rb.velocity = new Vector2(0, -2.8f);
+            rb.velocity = new Vector2(0, -2.9f);
             animator.SetBool("swimming", true);
         }
     }

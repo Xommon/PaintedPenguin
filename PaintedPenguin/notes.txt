@@ -9,7 +9,7 @@ ADDITIONS:
 - Tutorial
 
 BUGS:
-- Random collision with blocks(???????)
+- Random collision with blocks
 - Player shifts a little bit sometimes when dying
 - Swipe controls not consistant
 - Space at the end of highscore list

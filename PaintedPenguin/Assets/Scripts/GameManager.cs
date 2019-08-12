@@ -215,7 +215,7 @@ public class GameManager : MonoBehaviour
     // Code for start of script
     public void Start()
     {
-        language.French();
+        language.Mandarin();
         LoadUsername();
         if (playerUsername == "" || playerUsername == null)
         {

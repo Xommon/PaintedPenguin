@@ -92,4 +92,33 @@ public class Language : MonoBehaviour
         Warning1 = "Ne peut pas contenir d'espaces ou *.";
         Warning2 = "Doit comporter entre 1 et 12 caractères.";
     }
+
+    public void Mandarin()
+    {
+        // Main Menu
+        GameTitle = "画海雀";
+        Start = "开始";
+        Score = "高分数";
+        HelloUsername = "你好, " + gameManager.playerUsername + "！";
+
+        // Game Over
+        GameOver = "游戏结束";
+        Replay = "重播";
+        Continue = " 继续？";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "暂停";
+
+        // High Scores
+        HighScores = "高分数";
+
+        // Username Input
+        Name = "你的名字 。。。";
+        OK = "好";
+        Warning1 = "不能包含空格或“*”。";
+        Warning2 = "必须介于1到12个字符之间。";
+    }
 }
