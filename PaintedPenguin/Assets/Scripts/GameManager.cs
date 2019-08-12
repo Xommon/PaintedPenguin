@@ -215,7 +215,7 @@ public class GameManager : MonoBehaviour
     // Code for start of script
     public void Start()
     {
-        language.Mandarin();
+        language.Latin();
         LoadUsername();
         if (playerUsername == "" || playerUsername == null)
         {
@@ -334,19 +334,38 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public string ToRoman(int score)
+    {
+        if (score >= 1000) return "Ⅿ" + ToRoman(score - 1000);
+        if (score >= 900) return "ⅭⅯ" + ToRoman(score - 900);
+        if (score >= 500) return "Ⅾ" + ToRoman(score - 500);
+        if (score >= 400) return "ⅭⅮ" + ToRoman(score - 400);
+        if (score >= 100) return "Ⅽ" + ToRoman(score - 100);
+        if (score >= 90) return "ⅩⅭ" + ToRoman(score - 90);
+        if (score >= 50) return "Ⅼ" + ToRoman(score - 50);
+        if (score >= 40) return "ⅩⅬ" + ToRoman(score - 40);
+        if (score >= 10) return "Ⅹ" + ToRoman(score - 10);
+        if (score >= 9) return "Ⅸ" + ToRoman(score - 9);
+        if (score >= 5) return "Ⅴ" + ToRoman(score - 5);
+        if (score >= 4) return "Ⅳ" + ToRoman(score - 4);
+        if (score >= 1) return "Ⅰ" + ToRoman(score - 1);
+        return "";
+    }
+
     public void Update()
     {
         // Set up text based on language
         gameTitleText.text = language.GameTitle;
         startButtonText.text = language.Start;
         scoreButtonText.text = language.Score;
-        helloUsernameText.text = language.HelloUsername;
+        helloUsernameText.text = playerUsername;
 
         gameOverText.text = language.GameOver;
         replayButtonText.text = language.Replay;
         continueButtonText.text = language.Continue;
 
-        scoreText.text = language.ScoreUI;
+        
+        scoreText.text = ToRoman(score);
 
         pauseText.text = language.Paused;
 
@@ -357,7 +376,7 @@ public class GameManager : MonoBehaviour
 
         if (paused == false)
         {
-            Time.timeScale = 1f + (score / 9000.0f);
+            Time.timeScale = 1.0f + (score / 1000.0f);
         }
 
         // Obstacles
