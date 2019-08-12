@@ -54,7 +54,7 @@ public class Paint : MonoBehaviour
      void Update()
     {
         // Paint keeps moving to the left
-        transform.position += Vector3.left * 0.75f * Time.deltaTime;
+        transform.position += Vector3.left * 1 * Time.deltaTime;
 
         // Destroy if out of scene
         if (transform.position.x < -0.9)

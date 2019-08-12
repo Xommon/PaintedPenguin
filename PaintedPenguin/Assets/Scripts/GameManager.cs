@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     // Game components
     public bool on;
     public int score;
-    //public float maxTime2 = 1;
+    public float maxTime2 = 1;
     public PlayerMovement player;
     public bool canContinue;
 
@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
 
     void SpawnBlock()
     {
-        if (timer > maxTime * 1.5)
+        if (timer > maxTime)
         {
             // Create a list of possible positions
             obstaclePositions.Clear();
@@ -362,7 +362,7 @@ public class GameManager : MonoBehaviour
 
         if (paused == false)
         {
-            Time.timeScale = 1.0f + (score / 10000.0f);
+            Time.timeScale = 1f + (score / 20000.0f);
             Debug.Log(Time.timeScale);
         }
 

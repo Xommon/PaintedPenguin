@@ -32,9 +32,8 @@ public class PlayerMovement : MonoBehaviour
         if (gameManager.paused == false && position == "walking")
         {
             position = "jumping";
-            rb.gravityScale = 0.5f;
-            Debug.Log(rb.gravityScale);
-            rb.velocity = new Vector2(0, 2.8f);
+            rb.gravityScale = 1;
+            rb.velocity = new Vector2(0, 4);
             animator.SetBool("jumping", true);
         }
     }
@@ -44,8 +43,8 @@ public class PlayerMovement : MonoBehaviour
         if (gameManager.paused == false && position == "walking")
         {
             position = "diving";
-            rb.gravityScale = -0.5f;
-            rb.velocity = new Vector2(0, -2.8f);
+            rb.gravityScale = -1;
+            rb.velocity = new Vector2(0, -4);
             animator.SetBool("swimming", true);
         }
     }
@@ -79,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        // Rainbow mode
+        // Set colour
         if (colour == 7)
         {
             for (int i = 0; i < 6; i++)
@@ -306,10 +305,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.transform.tag == "Rainbow")
         {
-            if (colour != 7)
-            {
-                Rainbow(7);
-            }
+            Rainbow(5);
             Destroy(collision.gameObject);
         }
     }
