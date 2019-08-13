@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public int score;
     public PlayerMovement player;
     public bool canContinue;
+    public int timesTwoMode;
 
     // High scores
     // http://dreamlo.com/lb/cQ87T8a7BUGRQmQNMDB6iwWUTDoSubyUOyfJ9_43b3_g
@@ -35,10 +36,11 @@ public class GameManager : MonoBehaviour
     public Text tablePlaceUI;
     public GameObject usernameInputUI;
     public string playerUsername;
-    public string playerLanguage = "english";
+    public string playerLanguage;
 
     // Languages
     public Language language;
+    public GameObject languageTableUI;
 
     public Text gameTitleText;
     public Text startButtonText;
@@ -115,9 +117,6 @@ public class GameManager : MonoBehaviour
                     newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
                 }
             }
-
-            // Increase score every second
-            score += 1;
             timer = 0;
         }
         timer += Time.deltaTime;
@@ -185,6 +184,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Opens Language prompt
+    public void OpenLanguagePrompt()
+    {
+        usernameInputUI.SetActive(false);
+        languageTableUI.SetActive(true);
+    }
+
     // Open username prompt
     public void OpenUsernamePrompt()
     {
@@ -198,9 +204,10 @@ public class GameManager : MonoBehaviour
     }
 
     // Save Username
-    public void SaveUsername(string name)
+    public void SaveUsername(string name, string language)
     {
         playerUsername = name;
+        playerLanguage = language;
         SaveSystem.SaveUsername(this);
     }
 
@@ -210,20 +217,28 @@ public class GameManager : MonoBehaviour
         SaveData data = SaveSystem.LoadUsername();
 
         playerUsername = data.playerUsername;
+        playerLanguage = data.playerLanguage;
     }
 
     // Code for start of script
     public void Start()
     {
-        language.Latin();
         LoadUsername();
-        if (playerUsername == "" || playerUsername == null)
+        if (playerLanguage == "" || playerUsername == null)
+        {
+            languageTableUI.SetActive(true);
+            usernameInputUI.SetActive(false);
+            mainMenuUI.SetActive(false);
+        } else if (playerUsername == "" || playerUsername == null)
         {
             usernameInputUI.SetActive(true);
             mainMenuUI.SetActive(false);
         }
-        else // If the player's username has already been set
+        else // If the player's username and language has already been set
         {
+            //gameObject.GetComponent<Language>().SendMessage(playerLanguage, language, SendMessageOptions.DontRequireReceiver);
+            //SendMessage(playerLanguage, language, SendMessageOptions.DontRequireReceiver);
+            language.SendMessage(playerLanguage, null, SendMessageOptions.DontRequireReceiver);
             usernameInputUI.SetActive(false);
             mainMenuUI.SetActive(true);
             Time.timeScale = 1;
@@ -254,12 +269,12 @@ public class GameManager : MonoBehaviour
 
             if (i < 9)
             {
-                tablePlaceUI.text += "00";
+                tablePlaceUI.text += "";
             }
 
             if (i > 8 && i < 99)
             {
-                tablePlaceUI.text += "0";
+                tablePlaceUI.text += "";
             }
             // Place
             tablePlaceUI.text += i + 1 + ": \n";
@@ -313,6 +328,12 @@ public class GameManager : MonoBehaviour
         mainMenuUI.SetActive(true);
     }
 
+    public void XButtonLanguage()
+    {
+        languageTableUI.SetActive(false);
+        usernameInputUI.SetActive(true);
+    }
+
     public void OKButton()
     {
         if (usernameInputUI.activeInHierarchy == true)
@@ -327,7 +348,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                SaveUsername(playerUsername);
+                SaveUsername(playerUsername, playerLanguage);
                 usernameInputUI.SetActive(false);
                 mainMenuUI.SetActive(true);
             }
@@ -356,7 +377,7 @@ public class GameManager : MonoBehaviour
     {
         // Set up text based on language
         gameTitleText.text = language.GameTitle;
-        startButtonText.text = language.Start;
+        startButtonText.text = language.StartButton;
         scoreButtonText.text = language.Score;
         helloUsernameText.text = playerUsername;
 
@@ -376,7 +397,7 @@ public class GameManager : MonoBehaviour
 
         if (paused == false)
         {
-            Time.timeScale = 1.0f + (score / 1000.0f);
+            Time.timeScale = 1.0f + (score / 10000.0f);
         }
 
         // Obstacles

@@ -5,8 +5,8 @@ ADDITIONS:
 - Sound effects
 - Intro splash
 - Collision effect with blocks
-- English, French, Spanish, German, Portuguese, Polish, Russian, Korean, Mandarin, Cantonese, Japanese, Arabic, Catalan, Hindi, Indonesian, Latin
 - Tutorial
+- Colourblind Mode
 
 BUGS:
 - Random collision with blocks

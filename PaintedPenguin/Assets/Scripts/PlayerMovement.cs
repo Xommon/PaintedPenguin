@@ -288,7 +288,7 @@ public class PlayerMovement : MonoBehaviour
                 Destroy(collision.gameObject);
             } else if (collision.gameObject.GetComponent<Block>().hit == false && dead == false)
             {
-                gameManager.score += 5;
+                gameManager.score += collision.gameObject.GetComponent<Block>().price;
                 collision.gameObject.GetComponent<Block>().hit = true;
                 Destroy(collision.gameObject);
             }

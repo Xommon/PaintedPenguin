@@ -8,9 +8,13 @@ public class Block : MonoBehaviour
     public int colour;
     public SpriteRenderer sr;
     public bool hit = false;
+    public int price;
 
     private void Start()
     {
+        // Set price
+        int price = Random.Range(1, 4);
+
         // Randomly choose paint's colour
         int roll = Random.Range(1, 7); // Between 1 and 6
         if (roll == 1)

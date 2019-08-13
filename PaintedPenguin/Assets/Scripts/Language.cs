@@ -10,7 +10,7 @@ public class Language : MonoBehaviour
     
     // Main Menu
     public string GameTitle;
-    public string Start;
+    public string StartButton;
     public string Score;
     public string HelloUsername;
 
@@ -36,46 +36,49 @@ public class Language : MonoBehaviour
     public Button Flag;
 
     // Flags
-    public Sprite english;
-    public Sprite french;
-    public Sprite mandarin;
-    public Sprite cantonese;
-    public Sprite german;
-    public Sprite spanish;
-    public Sprite italian;
-    public Sprite portuguese;
-    public Sprite russian;
-    public Sprite ukranian;
-    public Sprite greek;
-    public Sprite turkish;
-    public Sprite danish;
-    public Sprite swedish;
-    public Sprite norwegian;
-    public Sprite dutch;
-    public Sprite polish;
-    public Sprite finnish;
-    public Sprite japanese;
-    public Sprite korean;
-    public Sprite czech;
-    public Sprite hungarian;
-    public Sprite romanian;
-    public Sprite thai;
-    public Sprite bulgarian;
-    public Sprite hebrew;
     public Sprite arabic;
     public Sprite bosnian;
-    public Sprite vietnamese;
-    public Sprite latin;
+    public Sprite bulgarian;
+    public Sprite catalan;
+    public Sprite cantonese;
+    public Sprite mandarin;
+    public Sprite taiwanese;
+    public Sprite czech;
+    public Sprite danish;
+    public Sprite dutch;
+    public Sprite english;
+    public Sprite finnish;
+    public Sprite french;
+    public Sprite german;
+    public Sprite greek;
+    public Sprite hebrew;
+    public Sprite hindi;
+    public Sprite hungarian;
     public Sprite icelandic;
-    public Sprite catalonian;
     public Sprite inuit;
+    public Sprite italian;
+    public Sprite japanese;
+    public Sprite korean;
+    public Sprite latin;
+    public Sprite norwegian;
+    public Sprite persian;
+    public Sprite polish;
+    public Sprite portuguese;
+    public Sprite romanian;
+    public Sprite russian;
+    public Sprite spanish;
+    public Sprite swedish;
+    public Sprite thai;
+    public Sprite turkish;
+    public Sprite ukranian;
+    public Sprite vietnamese;
 
     // Languages
     public void English()
     {
         // Main Menu
         GameTitle = "Painted Penguin";
-        Start = "START";
+        StartButton = "START";
         Score = "SCORE";
         HelloUsername = "Hello, " + gameManager.playerUsername + "!";
 
@@ -98,14 +101,16 @@ public class Language : MonoBehaviour
         OK = "OK";
         Warning1 = "Cannot contain spaces or *.";
         Warning2 = "Must be between 1 and 12 characters.";
-        Flag.GetComponent<Image>().sprite = Resources.Load<Sprite>("flags/gb.gif");
+        Flag.image.overrideSprite = english;
+        gameManager.playerLanguage = "English";
+        gameManager.XButtonLanguage();
     }
 
     public void French()
     {
         // Main Menu
         GameTitle = "Macareux Peint";
-        Start = "DÉBUT";
+        StartButton = "DÉBUT";
         Score = "SCORES";
         HelloUsername = "Bonjour, " + gameManager.playerUsername + "!";
 
@@ -128,14 +133,16 @@ public class Language : MonoBehaviour
         OK = "D'accord";
         Warning1 = "Ne peut pas contenir d'espaces ou *.";
         Warning2 = "Doit comporter entre 1 et 12 caractères.";
-        Flag.image.sprite = french;
+        Flag.image.overrideSprite = french;
+        gameManager.playerLanguage = "French";
+        gameManager.XButtonLanguage();
     }
 
     public void Mandarin()
     {
         // Main Menu
         GameTitle = "画海雀";
-        Start = "开始";
+        StartButton = "开始";
         Score = "高分数";
         HelloUsername = "你好, " + gameManager.playerUsername + "！";
 
@@ -159,13 +166,47 @@ public class Language : MonoBehaviour
         Warning1 = "不能包含空格或“*”。";
         Warning2 = "必须介于1到12个字符之间。";
         Flag.image.overrideSprite = mandarin;
+        gameManager.playerLanguage = "Mandarin";
+        gameManager.XButtonLanguage();
+    }
+
+    public void Taiwanese()
+    {
+        // Main Menu
+        GameTitle = "画海雀";
+        StartButton = "开始";
+        Score = "高分数";
+        HelloUsername = "你好, " + gameManager.playerUsername + "！";
+
+        // Game Over
+        GameOver = "游戏结束";
+        Replay = "重播";
+        Continue = " 继续？";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "暂停";
+
+        // High Scores
+        HighScores = "高分数";
+
+        // Username Input
+        Name = "你的名字 。。。";
+        OK = "好";
+        Warning1 = "不能包含空格或“*”。";
+        Warning2 = "必須介於1到12個字符之間。";
+        Flag.image.overrideSprite = taiwanese;
+        gameManager.playerLanguage = "Taiwanese";
+        gameManager.XButtonLanguage();
     }
 
     public void Cantonese()
     {
         // Main Menu
         GameTitle = "彩繪松餅";
-        Start = "初時";
+        StartButton = "初時";
         Score = "高分";
         HelloUsername = "你好, " + gameManager.playerUsername + "！";
 
@@ -189,13 +230,47 @@ public class Language : MonoBehaviour
         Warning1 = "唔包含空格或“*”。";
         Warning2 = "必須介乎1到12個字符之間。";
         Flag.image.overrideSprite = cantonese;
+        gameManager.playerLanguage = "Cantonese";
+        gameManager.XButtonLanguage();
+    }
+
+    public void German()
+    {
+        // Main Menu
+        GameTitle = "Painted Puffin";
+        StartButton = "START";
+        Score = "PUNKTZAHLEN";
+        HelloUsername = "Hallo, " + gameManager.playerUsername + "!";
+
+        // Game Over
+        GameOver = "SPIEL VORBEI";
+        Replay = "NEUSTART";
+        Continue = "FORTSETZEN?";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "EN PAUSE";
+
+        // High Scores
+        HighScores = "SCORES ÉLEVÉS";
+
+        // Username Input
+        Name = "Nom ...";
+        OK = "D'accord";
+        Warning1 = "Ne peut pas contenir d'espaces ou *.";
+        Warning2 = "Doit comporter entre 1 et 12 caractères.";
+        Flag.image.sprite = german;
+        gameManager.playerLanguage = "German";
+        gameManager.XButtonLanguage();
     }
 
     public void Latin()
     {
         // Main Menu
         GameTitle = "Painted Puffin";
-        Start = "Initium";
+        StartButton = "Initium";
         Score = "Gradus";
         HelloUsername = "Salve, " + gameManager.playerUsername + "!";
 
@@ -219,6 +294,8 @@ public class Language : MonoBehaviour
         Warning1 = "Non habet spatia vel *";
         Warning2 = "XII et I oportet inter ingenia.";
         Flag.image.overrideSprite = latin;
+        gameManager.playerLanguage = ",Latin";
+        gameManager.XButtonLanguage();
     }
 
     public string toRoman(int score)
