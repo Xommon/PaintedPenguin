@@ -234,35 +234,35 @@ public class Language : MonoBehaviour
         gameManager.XButtonLanguage();
     }
 
-    public void French()
+    public void Cantonese()
     {
         // Main Menu
-        GameTitle.text = "Macareux Peint";
-        StartButton = "DÉBUT";
-        Score = "SCORES";
-        HelloUsername = "Bonjour, " + gameManager.playerUsername + "!";
+        GameTitle.text = "彩繪松餅";
+        StartButton = "初時";
+        Score = "高分";
+        HelloUsername = "你好, " + gameManager.playerUsername + "！";
 
         // Game Over
-        GameOver = "JEU TERMINÉ";
-        Replay = "REJOUER";
-        Continue = "CONTINUER?";
+        GameOver = "遊戲結束";
+        Replay = "重播";
+        Continue = " 繼續？";
 
         // Score
         ScoreUI = gameManager.score.ToString();
 
         // Pause
-        Paused = "EN PAUSE";
+        Paused = "暫停";
 
         // High Scores
-        HighScores = "SCORES ÉLEVÉS";
+        HighScores = "高分";
 
         // Username Input
-        Name = "Nom ...";
-        OK = "D'accord";
-        Warning1 = "Ne peut pas contenir d'espaces ou *.";
-        Warning2 = "Doit comporter entre 1 et 12 caractères.";
-        Flag.image.overrideSprite = french;
-        gameManager.playerLanguage = "French";
+        Name = "名字 。。。";
+        OK = "仲可以";
+        Warning1 = "唔包含空格或“*”。";
+        Warning2 = "必須介乎1到12個字符之間。";
+        Flag.image.overrideSprite = cantonese;
+        gameManager.playerLanguage = "Cantonese";
         gameManager.XButtonLanguage();
     }
 
@@ -330,37 +330,139 @@ public class Language : MonoBehaviour
         gameManager.XButtonLanguage();
     }
 
-    public void Cantonese()
+    public void Czech()
     {
         // Main Menu
-        GameTitle.text = "彩繪松餅";
-        StartButton = "初時";
-        Score = "高分";
-        HelloUsername = "你好, " + gameManager.playerUsername + "！";
+        GameTitle.text = "Malovaný \nPuffin";
+        StartButton = "START";
+        Score = "SKÓRE";
+        HelloUsername = "Ahoj, " + gameManager.playerUsername + "!";
 
         // Game Over
-        GameOver = "遊戲結束";
-        Replay = "重播";
-        Continue = " 繼續？";
+        GameOver = "KONEC HRY";
+        Replay = "PŘEHRÁT";
+        Continue = "POKRAČOVAT?";
 
         // Score
         ScoreUI = gameManager.score.ToString();
 
         // Pause
-        Paused = "暫停";
+        Paused = "POZASTAVENO";
 
         // High Scores
-        HighScores = "高分";
+        HighScores = "VYSOKÉ SKÓRE";
 
         // Username Input
-        Name = "名字 。。。";
-        OK = "仲可以";
-        Warning1 = "唔包含空格或“*”。";
-        Warning2 = "必須介乎1到12個字符之間。";
-        Flag.image.overrideSprite = cantonese;
-        gameManager.playerLanguage = "Cantonese";
+        Name = "Název ...";
+        OK = "Dobře";
+        Warning1 = "Nelze obsahovat mezery nebo *.";
+        Warning2 = "Musí obsahovat 1 až 12 znaků.";
+        Flag.image.overrideSprite = czech;
+        gameManager.playerLanguage = "Czech";
         gameManager.XButtonLanguage();
     }
+
+    public void Danish()
+    {
+        // Main Menu
+        GameTitle.text = "Painted \nPuffin";
+        StartButton = "START";
+        Score = "SCORER";
+        HelloUsername = "Hej, " + gameManager.playerUsername + "!";
+
+        // Game Over
+        GameOver = "GAME OVER";
+        Replay = "SPIL IGEN";
+        Continue = "FORTSÆTTE?";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "PAUSET";
+
+        // High Scores
+        HighScores = "HØJE SCORER";
+
+        // Username Input
+        Name = "Navn ...";
+        OK = "OK";
+        Warning1 = "Kan ikke indeholde mellemrum eller *.";
+        Warning2 = "Skal være mellem 1 og 12 tegn.";
+        Flag.image.overrideSprite = danish;
+        gameManager.playerLanguage = "Danish";
+        gameManager.XButtonLanguage();
+    }
+
+    public void Hindi()
+    {
+        // Main Menu
+        GameTitle.text = "पेंट पफिन";
+        StartButton = "शुरु";
+        Score = "उच्च स्कोर";
+        HelloUsername = "नमस्ते, " + gameManager.playerUsername + "!";
+
+        // Game Over
+        GameOver = "खेल खत्म";
+        Replay = "फिर से चालू करें";
+        Continue = "जारी रहना?";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "रोके गए";
+
+        // High Scores
+        HighScores = "उच्च स्कोर";
+
+        // Username Input
+        Name = "नाम ...";
+        OK = "ठीक";
+        Warning1 = "रिक्त स्थान या * नहीं हो सकते।";
+        Warning2 = "1 और 12 अक्षरों के बीच होना चाहिए।";
+        Flag.image.overrideSprite = hindi;
+        gameManager.playerLanguage = "Hindi";
+        gameManager.XButtonLanguage();
+    }
+
+    public void French()
+    {
+        // Main Menu
+        GameTitle.text = "Macareux Peint";
+        StartButton = "DÉBUT";
+        Score = "SCORES";
+        HelloUsername = "Bonjour, " + gameManager.playerUsername + "!";
+
+        // Game Over
+        GameOver = "JEU TERMINÉ";
+        Replay = "REJOUER";
+        Continue = "CONTINUER?";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "EN PAUSE";
+
+        // High Scores
+        HighScores = "SCORES ÉLEVÉS";
+
+        // Username Input
+        Name = "Nom ...";
+        OK = "D'accord";
+        Warning1 = "Ne peut pas contenir d'espaces ou *.";
+        Warning2 = "Doit comporter entre 1 et 12 caractères.";
+        Flag.image.overrideSprite = french;
+        gameManager.playerLanguage = "French";
+        gameManager.XButtonLanguage();
+    }
+
+    
+
+    
+
+    
 
     public void German()
     {
