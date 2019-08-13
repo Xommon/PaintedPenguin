@@ -202,6 +202,38 @@ public class Language : MonoBehaviour
         gameManager.XButtonLanguage();
     }
 
+    public void Catalan()
+    {
+        // Main Menu
+        GameTitle.text = "Puffin Pintat";
+        StartButton = "COMENÇAR";
+        Score = "PUNTUACIONS";
+        HelloUsername = "Hola, " + gameManager.playerUsername + "!";
+
+        // Game Over
+        GameOver = "FI DEL JOC";
+        Replay = "REPOSICIÓ";
+        Continue = "CONTINUAR?";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "PAUSAT";
+
+        // High Scores
+        HighScores = "PUNTUACIONS";
+
+        // Username Input
+        Name = "Nom ...";
+        OK = "D'acord";
+        Warning1 = "No pot contenir espais o *.";
+        Warning2 = "Ha de contenir entre 1 i 12 caràcters.";
+        Flag.image.overrideSprite = catalan;
+        gameManager.playerLanguage = "Catalan";
+        gameManager.XButtonLanguage();
+    }
+
     public void French()
     {
         // Main Menu
