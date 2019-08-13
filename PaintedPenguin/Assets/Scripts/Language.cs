@@ -170,6 +170,38 @@ public class Language : MonoBehaviour
         gameManager.XButtonLanguage();
     }
 
+    public void Bulgarian()
+    {
+        // Main Menu
+        GameTitle.text = "Пейнтед \nТупик";
+        StartButton = "СТАРТ";
+        Score = "ВИСОКА ОЦЕНКА";
+        HelloUsername = "Здрасти, " + gameManager.playerUsername + "!";
+
+        // Game Over
+        GameOver = "КРАЙ \nНА ИГРАТА";
+        Replay = "ПОВТОРЕНИЕ";
+        Continue = "ПРОДЪЛЖИТЕ?";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "ПАУЗИРАНА";
+
+        // High Scores
+        HighScores = "ВИСОКА ОЦЕНКА";
+
+        // Username Input
+        Name = "Име ...";
+        OK = "Добре";
+        Warning1 = "Не може да съдържа интервали или *.";
+        Warning2 = "Трябва да е между 1 и 12 знака.";
+        Flag.image.overrideSprite = bulgarian;
+        gameManager.playerLanguage = "Bulgarian";
+        gameManager.XButtonLanguage();
+    }
+
     public void French()
     {
         // Main Menu
