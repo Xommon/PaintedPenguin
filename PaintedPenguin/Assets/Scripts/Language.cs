@@ -9,7 +9,7 @@ public class Language : MonoBehaviour
     public GameManager gameManager;
     
     // Main Menu
-    public string GameTitle;
+    public Text GameTitle;
     public string StartButton;
     public string Score;
     public string HelloUsername;
@@ -77,7 +77,7 @@ public class Language : MonoBehaviour
     public void English()
     {
         // Main Menu
-        GameTitle = "Painted Penguin";
+        GameTitle.text = "Painted Puffin";
         StartButton = "START";
         Score = "SCORE";
         HelloUsername = "Hello, " + gameManager.playerUsername + "!";
@@ -106,10 +106,74 @@ public class Language : MonoBehaviour
         gameManager.XButtonLanguage();
     }
 
+    public void Arabic()
+    {
+        // Main Menu
+        GameTitle.text = "البفن الملون";
+        StartButton = "البدء";
+        Score = "درجة عالية";
+        HelloUsername = "مرحبا, " + gameManager.playerUsername + "!";
+
+        // Game Over
+        GameOver = "انتهت اللعبة";
+        Replay = "عاد عرض المسرحية";
+        Continue = "إستأنف؟";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "توقف";
+
+        // High Scores
+        HighScores = "درجة عالية";
+
+        // Username Input
+        Name = "اسم ...";
+        OK = "حسنا";
+        Warning1 = "لا يمكن أن تحتوي على مسافات أو *.";
+        Warning2 = "يجب أن يكون بين ١ و ١٢ حرفًا.";
+        Flag.image.overrideSprite = arabic;
+        gameManager.playerLanguage = "Arabic";
+        gameManager.XButtonLanguage();
+    }
+
+    public void Bosnian()
+    {
+        // Main Menu
+        GameTitle.text = "Painted Puffin";
+        StartButton = "START";
+        Score = "REZULTATI";
+        HelloUsername = "Zdravo, " + gameManager.playerUsername + "!";
+
+        // Game Over
+        GameOver = "KRAJ IGRE";
+        Replay = "PONOVO ODIGRATI";
+        Continue = "NASTAVITI?";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "ZASTAO";
+
+        // High Scores
+        HighScores = "REZULTATI";
+
+        // Username Input
+        Name = "Ime ...";
+        OK = "Uredu";
+        Warning1 = "Ne može sadržavati razmake ili *.";
+        Warning2 = "Mora biti između 1 i 12 znakova.";
+        Flag.image.overrideSprite = bosnian;
+        gameManager.playerLanguage = "Bosnian";
+        gameManager.XButtonLanguage();
+    }
+
     public void French()
     {
         // Main Menu
-        GameTitle = "Macareux Peint";
+        GameTitle.text = "Macareux Peint";
         StartButton = "DÉBUT";
         Score = "SCORES";
         HelloUsername = "Bonjour, " + gameManager.playerUsername + "!";
@@ -141,7 +205,7 @@ public class Language : MonoBehaviour
     public void Mandarin()
     {
         // Main Menu
-        GameTitle = "画海雀";
+        GameTitle.text = "画海雀";
         StartButton = "开始";
         Score = "高分数";
         HelloUsername = "你好, " + gameManager.playerUsername + "！";
@@ -173,7 +237,7 @@ public class Language : MonoBehaviour
     public void Taiwanese()
     {
         // Main Menu
-        GameTitle = "画海雀";
+        GameTitle.text = "画海雀";
         StartButton = "开始";
         Score = "高分数";
         HelloUsername = "你好, " + gameManager.playerUsername + "！";
@@ -205,7 +269,7 @@ public class Language : MonoBehaviour
     public void Cantonese()
     {
         // Main Menu
-        GameTitle = "彩繪松餅";
+        GameTitle.text = "彩繪松餅";
         StartButton = "初時";
         Score = "高分";
         HelloUsername = "你好, " + gameManager.playerUsername + "！";
@@ -237,7 +301,7 @@ public class Language : MonoBehaviour
     public void German()
     {
         // Main Menu
-        GameTitle = "Painted Puffin";
+        GameTitle.text = "Painted Puffin";
         StartButton = "START";
         Score = "PUNKTZAHLEN";
         HelloUsername = "Hallo, " + gameManager.playerUsername + "!";
@@ -269,7 +333,7 @@ public class Language : MonoBehaviour
     public void Latin()
     {
         // Main Menu
-        GameTitle = "Painted Puffin";
+        GameTitle.text = "Painted Puffin";
         StartButton = "Initium";
         Score = "Gradus";
         HelloUsername = "Salve, " + gameManager.playerUsername + "!";

@@ -236,8 +236,6 @@ public class GameManager : MonoBehaviour
         }
         else // If the player's username and language has already been set
         {
-            //gameObject.GetComponent<Language>().SendMessage(playerLanguage, language, SendMessageOptions.DontRequireReceiver);
-            //SendMessage(playerLanguage, language, SendMessageOptions.DontRequireReceiver);
             language.SendMessage(playerLanguage, null, SendMessageOptions.DontRequireReceiver);
             usernameInputUI.SetActive(false);
             mainMenuUI.SetActive(true);
@@ -376,7 +374,7 @@ public class GameManager : MonoBehaviour
     public void Update()
     {
         // Set up text based on language
-        gameTitleText.text = language.GameTitle;
+        gameTitleText.text = language.GameTitle.text;
         startButtonText.text = language.StartButton;
         scoreButtonText.text = language.Score;
         helloUsernameText.text = playerUsername;
