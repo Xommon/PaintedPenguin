@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public string position;
     public bool dead;
     public int colour;
+    public int timesTwoMode;
 
     // Swipe controls
     public Vector3 swipeStartPosition;
@@ -20,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        timesTwoMode = 1;
         dead = false;
         animator.SetBool("dead", false);
         rb = GetComponent<Rigidbody2D>();
@@ -264,6 +266,18 @@ public class PlayerMovement : MonoBehaviour
         colour = 0;
     }
 
+    // TimesTwo
+    public void TimesTwoMode(int seconds)
+    {
+        timesTwoMode = 2;
+        Invoke("UntimesTwoMode", seconds);
+    }
+
+    public void UntimesTwoMode()
+    {
+        timesTwoMode = 1;
+    }
+
     public void KillPlayer()
     {
         StartCoroutine(gameManager.AddNewHighScore(gameManager.score));
@@ -288,7 +302,7 @@ public class PlayerMovement : MonoBehaviour
                 Destroy(collision.gameObject);
             } else if (collision.gameObject.GetComponent<Block>().hit == false && dead == false)
             {
-                gameManager.score += collision.gameObject.GetComponent<Block>().price;
+                gameManager.score += (5 * timesTwoMode);
                 collision.gameObject.GetComponent<Block>().hit = true;
                 Destroy(collision.gameObject);
             }
@@ -308,6 +322,15 @@ public class PlayerMovement : MonoBehaviour
             if (colour != 7)
             {
                 Rainbow(7);
+            }
+            Destroy(collision.gameObject);
+        }
+
+        if (collision.transform.tag == "TimesTwo")
+        {
+            if (timesTwoMode == 1)
+            {
+                TimesTwoMode(7);
             }
             Destroy(collision.gameObject);
         }

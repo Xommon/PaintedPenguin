@@ -2413,7 +2413,7 @@ MonoBehaviour:
   WaveEdgeSoftness: 0.001
   WaveBlendLevel: 1
   CurrentSpeed: -0.15
-  DISABLE_WAVES: 1
+  DISABLE_WAVES: 0
   DISABLE_REFRACTION: 0
 --- !u!23 &385359115
 MeshRenderer:
@@ -2470,7 +2470,7 @@ Transform:
   m_GameObject: {fileID: 385359113}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.0335, y: -0.8064, z: 0}
-  m_LocalScale: {x: 1.7362571, y: 1.4731919, z: 1}
+  m_LocalScale: {x: 1.7362571, y: 1.5652664, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 14
@@ -4088,7 +4088,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 811679558}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 814642395745757707}
+        m_MethodName: Japanese
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &811679558
@@ -6213,6 +6224,7 @@ MonoBehaviour:
   position: 
   dead: 1
   colour: 0
+  timesTwoMode: 0
   swipeStartPosition: {x: 0, y: 0, z: 0}
   swipeEndPosition: {x: 0, y: 0, z: 0}
   swipeMinDistance: 0
@@ -9471,12 +9483,12 @@ PrefabInstance:
     - target: {fileID: 61000013697923514, guid: 481cfb28fcec19343b11e4b5249c4c36,
         type: 3}
       propertyPath: m_Offset.y
-      value: -0.54721713
+      value: 0.08150488
       objectReference: {fileID: 0}
     - target: {fileID: 61000013697923514, guid: 481cfb28fcec19343b11e4b5249c4c36,
         type: 3}
       propertyPath: m_Size.y
-      value: 2.5055656
+      value: 1.2481216
       objectReference: {fileID: 0}
     - target: {fileID: 61000013697923514, guid: 481cfb28fcec19343b11e4b5249c4c36,
         type: 3}
@@ -10968,6 +10980,12 @@ PrefabInstance:
       propertyPath: playerLanguage
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
+        type: 3}
+      propertyPath: timesTwo
+      value: 
+      objectReference: {fileID: 26107361239631552, guid: c3a7b6a197d12f249a4dd4350e6bfc7b,
+        type: 3}
     - target: {fileID: 814642394577855561, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: m_LocalPosition.x

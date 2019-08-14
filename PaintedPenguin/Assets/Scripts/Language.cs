@@ -394,38 +394,6 @@ public class Language : MonoBehaviour
         gameManager.XButtonLanguage();
     }
 
-    public void Hindi()
-    {
-        // Main Menu
-        GameTitle.text = "पेंट पफिन";
-        StartButton = "शुरु";
-        Score = "उच्च स्कोर";
-        HelloUsername = "नमस्ते, " + gameManager.playerUsername + "!";
-
-        // Game Over
-        GameOver = "खेल खत्म";
-        Replay = "फिर से चालू करें";
-        Continue = "जारी रहना?";
-
-        // Score
-        ScoreUI = gameManager.score.ToString();
-
-        // Pause
-        Paused = "रोके गए";
-
-        // High Scores
-        HighScores = "उच्च स्कोर";
-
-        // Username Input
-        Name = "नाम ...";
-        OK = "ठीक";
-        Warning1 = "रिक्त स्थान या * नहीं हो सकते।";
-        Warning2 = "1 और 12 अक्षरों के बीच होना चाहिए।";
-        Flag.image.overrideSprite = hindi;
-        gameManager.playerLanguage = "Hindi";
-        gameManager.XButtonLanguage();
-    }
-
     public void French()
     {
         // Main Menu
@@ -458,12 +426,6 @@ public class Language : MonoBehaviour
         gameManager.XButtonLanguage();
     }
 
-    
-
-    
-
-    
-
     public void German()
     {
         // Main Menu
@@ -495,6 +457,78 @@ public class Language : MonoBehaviour
         gameManager.playerLanguage = "German";
         gameManager.XButtonLanguage();
     }
+
+    public void Hindi()
+    {
+        // Main Menu
+        GameTitle.text = "पेंट पफिन";
+        StartButton = "शुरु";
+        Score = "उच्च स्कोर";
+        HelloUsername = "नमस्ते, " + gameManager.playerUsername + "!";
+
+        // Game Over
+        GameOver = "खेल खत्म";
+        Replay = "फिर से चालू करें";
+        Continue = "जारी रहना?";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "रोके गए";
+
+        // High Scores
+        HighScores = "उच्च स्कोर";
+
+        // Username Input
+        Name = "नाम ...";
+        OK = "ठीक";
+        Warning1 = "रिक्त स्थान या * नहीं हो सकते।";
+        Warning2 = "1 और 12 अक्षरों के बीच होना चाहिए।";
+        Flag.image.overrideSprite = hindi;
+        gameManager.playerLanguage = "Hindi";
+        gameManager.XButtonLanguage();
+    }
+
+    public void Japanese()
+    {
+        // Main Menu
+        GameTitle.text = "ツノメドリ\nペイント";
+        StartButton = "スタート";
+        Score = "スコア";
+        HelloUsername = "こんにちは, " + gameManager.playerUsername + "！";
+
+        // Game Over
+        GameOver = "ゲーム\nオーバー";
+        Replay = "リプレイ";
+        Continue = "持続する？";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "ポーズ中";
+
+        // High Scores
+        HighScores = "ハイスコア";
+
+        // Username Input
+        Name = "名 ...";
+        OK = "オーケー";
+        Warning1 = "スペースまたは*を含めることはできません。";
+        Warning2 = "1〜12文字にする必要があります。";
+        Flag.image.overrideSprite = japanese;
+        gameManager.playerLanguage = "Japanese";
+        gameManager.XButtonLanguage();
+    }
+
+
+
+
+
+
+
+
 
     public void Latin()
     {

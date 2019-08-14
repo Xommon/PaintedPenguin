@@ -21,7 +21,6 @@ public class GameManager : MonoBehaviour
     public int score;
     public PlayerMovement player;
     public bool canContinue;
-    public int timesTwoMode;
 
     // High scores
     // http://dreamlo.com/lb/cQ87T8a7BUGRQmQNMDB6iwWUTDoSubyUOyfJ9_43b3_g
@@ -67,6 +66,7 @@ public class GameManager : MonoBehaviour
     public GameObject block;
     public GameObject paint;
     public GameObject rainbow;
+    public GameObject timesTwo;
     float place;
     public List<float> obstaclePositions = new List<float>();
 
@@ -113,11 +113,22 @@ public class GameManager : MonoBehaviour
             {
                 if (PercentChance(0.5f))
                 {
-                    GameObject newpaint = Instantiate(rainbow);
-                    newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
+                    int pick = Random.Range(1, 3);
+                    if (pick == 1)
+                    {
+                        GameObject newpaint = Instantiate(rainbow);
+                        newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
+                    }
+                    if (pick == 2)
+                    {
+                        GameObject newpaint = Instantiate(timesTwo);
+                        newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
+                    }
+                    
                 }
             }
             timer = 0;
+            score += 1;
         }
         timer += Time.deltaTime;
     }
@@ -384,7 +395,7 @@ public class GameManager : MonoBehaviour
         continueButtonText.text = language.Continue;
 
         
-        scoreText.text = ToRoman(score);
+        scoreText.text = score.ToString();
 
         pauseText.text = language.Paused;
 
