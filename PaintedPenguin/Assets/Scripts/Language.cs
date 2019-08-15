@@ -682,6 +682,40 @@ public class Language : MonoBehaviour
         gameManager.XButtonLanguage();
     }
 
+    // Inuit
+
+    public void Italian()
+    {
+        // Main Menu
+        GameTitle.text = "PUFFINO \nDIPINTO";
+        StartButton = "INIZIO";
+        Score = "PUNTEGGI";
+        HelloUsername = "Ciao, " + gameManager.playerUsername + "!";
+
+        // Game Over
+        GameOver = "FINE PARTITA";
+        Replay = "RIGIOCA";
+        Continue = "CONTINUA?";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "IN PAUSA";
+
+        // High Scores
+        HighScores = "PUNTEGGI";
+
+        // Username Input
+        Name = "Nome ...";
+        OK = "OK";
+        Warning1 = "Non può contenere spazi o *.";
+        Warning2 = "Deve contenere da 1 a 12 caratteri.";
+        Flag.image.overrideSprite = italian;
+        gameManager.playerLanguage = "Italian";
+        gameManager.XButtonLanguage();
+    }
+
     public void Japanese()
     {
         // Main Menu
@@ -714,7 +748,37 @@ public class Language : MonoBehaviour
         gameManager.XButtonLanguage();
     }
 
+    public void Korean()
+    {
+        // Main Menu
+        GameTitle.text = "그린 퍼핀";
+        StartButton = "시작";
+        Score = "고득점";
+        HelloUsername = "안녕하세요, " + gameManager.playerUsername + "!";
 
+        // Game Over
+        GameOver = "게임 오버";
+        Replay = "리플레이";
+        Continue = "계속가요?";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "일시 중지됨";
+
+        // High Scores
+        HighScores = "고득점";
+
+        // Username Input
+        Name = "이름 ...";
+        OK = "괜찮아";
+        Warning1 = "공백이나 *를 포함 할 수 없습니다.";
+        Warning2 = "1 ~ 12 자 사이 여야합니다.";
+        Flag.image.overrideSprite = korean;
+        gameManager.playerLanguage = "Korean";
+        gameManager.XButtonLanguage();
+    }
 
 
 
