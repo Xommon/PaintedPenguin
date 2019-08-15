@@ -121,7 +121,7 @@ public class GameManager : MonoBehaviour
                 newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
             } else
             {
-                if (PercentChance(100.0f))
+                if (PercentChance(1.0f))
                 {
                     int pick = Random.Range(1, 3);
                     if (pick == 1)
