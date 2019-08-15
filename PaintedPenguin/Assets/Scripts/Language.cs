@@ -394,6 +394,70 @@ public class Language : MonoBehaviour
         gameManager.XButtonLanguage();
     }
 
+    public void Dutch()
+    {
+        // Main Menu
+        GameTitle.text = "Painted \nPuffin";
+        StartButton = "START";
+        Score = "SCORES";
+        HelloUsername = "Hallo, " + gameManager.playerUsername + "!";
+
+        // Game Over
+        GameOver = "GAME OVER";
+        Replay = "SPEEL OPNIEUW";
+        Continue = "DOORGAAN?";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "GEPAUZEERD";
+
+        // High Scores
+        HighScores = "HOGE SCORES";
+
+        // Username Input
+        Name = "Naam ...";
+        OK = "OK";
+        Warning1 = "Kan geen spaties of * bevatten.";
+        Warning2 = "Moet tussen 1 en 12 tekens bevatten.";
+        Flag.image.overrideSprite = dutch;
+        gameManager.playerLanguage = "Dutch";
+        gameManager.XButtonLanguage();
+    }
+
+    public void Finnish()
+    {
+        // Main Menu
+        GameTitle.text = "Maalattu \nLunni";
+        StartButton = "ALKAA";
+        Score = "TULOKSET";
+        HelloUsername = "Hei, " + gameManager.playerUsername + "!";
+
+        // Game Over
+        GameOver = "PELI LOPPU";
+        Replay = "UUSINTA";
+        Continue = "JATKAA?";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "PYSÄYTETTY";
+
+        // High Scores
+        HighScores = "HUIPPUPISTEET";
+
+        // Username Input
+        Name = "Nimi ...";
+        OK = "Hyvä";
+        Warning1 = "Ei voi sisältää välilyöntejä tai *.";
+        Warning2 = "Täytyy olla 1–12 merkkiä.";
+        Flag.image.overrideSprite = finnish;
+        gameManager.playerLanguage = "Finnish";
+        gameManager.XButtonLanguage();
+    }
+
     public void French()
     {
         // Main Menu
@@ -443,17 +507,17 @@ public class Language : MonoBehaviour
         ScoreUI = gameManager.score.ToString();
 
         // Pause
-        Paused = "EN PAUSE";
+        Paused = "PAUSIERT";
 
         // High Scores
-        HighScores = "SCORES ÉLEVÉS";
+        HighScores = "HIGHSCORES";
 
         // Username Input
-        Name = "Nom ...";
-        OK = "D'accord";
-        Warning1 = "Ne peut pas contenir d'espaces ou *.";
-        Warning2 = "Doit comporter entre 1 et 12 caractères.";
-        Flag.image.sprite = german;
+        Name = "Name ...";
+        OK = "OK";
+        Warning1 = "Darf keine Leerzeichen oder * enthalten.";
+        Warning2 = "Muss zwischen 1 und 12 Zeichen enthalten.";
+        Flag.image.overrideSprite = german;
         gameManager.playerLanguage = "German";
         gameManager.XButtonLanguage();
     }

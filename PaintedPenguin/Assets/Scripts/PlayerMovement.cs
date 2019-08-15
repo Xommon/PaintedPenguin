@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (gameManager.paused == false && position == "walking")
         {
+            transform.position = new Vector3(-0.33f, -0.075f, 0);
             position = "jumping";
             rb.gravityScale = 0.5f;
             rb.velocity = new Vector2(0, 2.9f);
@@ -46,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (gameManager.paused == false && position == "walking")
         {
+            transform.position = new Vector3(-0.33f, -0.075f, 0);
             position = "diving";
             rb.gravityScale = -0.5f;
             rb.velocity = new Vector2(0, -2.9f);
