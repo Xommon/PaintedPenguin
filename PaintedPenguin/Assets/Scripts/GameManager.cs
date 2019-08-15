@@ -31,6 +31,10 @@ public class GameManager : MonoBehaviour
     public PlayerMovement player;
     public bool canContinue;
     public LoadingBar loadingBar;
+    public bool networkConnection = true;
+    public Image connectionUI;
+    public Sprite connectionTrue;
+    public Sprite connectionFalse;
 
     // High scores
     // http://dreamlo.com/lb/cQ87T8a7BUGRQmQNMDB6iwWUTDoSubyUOyfJ9_43b3_g
@@ -404,8 +408,13 @@ public class GameManager : MonoBehaviour
         replayButtonText.text = language.Replay;
         continueButtonText.text = language.Continue;
 
-        
-        scoreText.text = score.ToString();
+        if (playerLanguage != "Latin")
+        {
+            scoreText.text = score.ToString();
+        } else
+        {
+            scoreText.text = ToRoman(score);
+        }
 
         pauseText.text = language.Paused;
 
@@ -413,6 +422,15 @@ public class GameManager : MonoBehaviour
 
         nameFillInText.text = language.Name;
         okButtonText.text = language.OK;
+
+        // Check network connection
+        if (networkConnection == true)
+        {
+            connectionUI.sprite = connectionTrue;
+        } else
+        {
+            connectionUI.sprite = connectionFalse;
+        }
 
         if (paused == false)
         {

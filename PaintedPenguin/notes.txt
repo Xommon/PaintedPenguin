@@ -7,11 +7,11 @@ ADDITIONS:
 - Collision effect with blocks
 - Tutorial
 - Colourblind Mode
+- Code Wifi detection
 
 BUGS:
-- Random collision with blocks
-- Player shifts a little bit sometimes when dying
-- Swipe controls not consistant
+- Random collision with blocks - https://www.reddit.com/r/Unity3D/comments/1ee65w/having_wonky_collisions_rigidbodies_being_weird/
+- Player shifts when dying ON CONTINUED GAME
 - Circle bar doesn't follow player
 - Space at the end of highscore list
 - Some scripts/emojis don't appear on in-game highscore list

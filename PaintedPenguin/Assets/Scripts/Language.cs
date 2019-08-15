@@ -112,7 +112,7 @@ public class Language : MonoBehaviour
         GameTitle.text = "البفن الملون";
         StartButton = "البدء";
         Score = "درجة عالية";
-        HelloUsername = "مرحبا, " + gameManager.playerUsername + "!";
+        HelloUsername = "سلام, " + gameManager.playerUsername + "!";
 
         // Game Over
         GameOver = "انتهت اللعبة";
@@ -621,7 +621,7 @@ public class Language : MonoBehaviour
     public void Hungarian()
     {
         // Main Menu
-        GameTitle.text = "FESTETT \nLUNDA";
+        GameTitle.text = "Festett \nLunda";
         StartButton = "START";
         Score = "PONTSZÁMOK";
         HelloUsername = "Szia, " + gameManager.playerUsername + "!";
@@ -653,7 +653,7 @@ public class Language : MonoBehaviour
     public void Icelandic()
     {
         // Main Menu
-        GameTitle.text = "MÁLUÐ \nLUNDI";
+        GameTitle.text = "Máluð \nLunda";
         StartButton = "BYRJA";
         Score = "SKORAR";
         HelloUsername = "Halló, " + gameManager.playerUsername + "!";
@@ -687,7 +687,7 @@ public class Language : MonoBehaviour
     public void Italian()
     {
         // Main Menu
-        GameTitle.text = "PUFFINO \nDIPINTO";
+        GameTitle.text = "Puffino \nDipinto";
         StartButton = "INIZIO";
         Score = "PUNTEGGI";
         HelloUsername = "Ciao, " + gameManager.playerUsername + "!";
@@ -780,12 +780,6 @@ public class Language : MonoBehaviour
         gameManager.XButtonLanguage();
     }
 
-
-
-
-
-
-
     public void Latin()
     {
         // Main Menu
@@ -814,9 +808,206 @@ public class Language : MonoBehaviour
         Warning1 = "Non habet spatia vel *";
         Warning2 = "XII et I oportet inter ingenia.";
         Flag.image.overrideSprite = latin;
-        gameManager.playerLanguage = ",Latin";
+        gameManager.playerLanguage = "Latin";
         gameManager.XButtonLanguage();
     }
+
+    public void Norwegian()
+    {
+        // Main Menu
+        GameTitle.text = "Painted \nPuffin";
+        StartButton = "START";
+        Score = "REKORDER";
+        HelloUsername = "Hei, " + gameManager.playerUsername + "!";
+
+        // Game Over
+        GameOver = "GAME OVER";
+        Replay = "SPILL IGJEN";
+        Continue = "FORTSETTE?";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "PAUSAT";
+
+        // High Scores
+        HighScores = "REKORDER";
+
+        // Username Input
+        Name = "Navn ...";
+        OK = "OK";
+        Warning1 = "Kan ikke inneholde mellomrom eller *.";
+        Warning2 = "Må være mellom 1 og 12 tegn.";
+        Flag.image.overrideSprite = norwegian;
+        gameManager.playerLanguage = "Norwegian";
+        gameManager.XButtonLanguage();
+    }
+
+    public void Persian()
+    {
+        // Main Menu
+        GameTitle.text = "پافین رنگ شده";
+        StartButton = "شروع کن";
+        Score = "نمرات بالا";
+        HelloUsername = "سلام, " + gameManager.playerUsername + "!";
+
+        // Game Over
+        GameOver = "بازی تمام شد";
+        Replay = "بازپخش";
+        Continue = "ادامه دهید؟";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "متوقف\n شده است";
+
+        // High Scores
+        HighScores = "نمرات بالا";
+
+        // Username Input
+        Name = "نام ...";
+        OK = "خوب";
+        Warning1 = "هیچ فضا یا * مجاز نیست.";
+        Warning2 = "باید بین 1 تا 12 حرف باشد.";
+        Flag.image.overrideSprite = persian;
+        gameManager.playerLanguage = "Persian";
+        gameManager.XButtonLanguage();
+    }
+
+    public void Polish()
+    {
+        // Main Menu
+        GameTitle.text = "Malowane \nMaskonur";
+        StartButton = "POCZĄTEK";
+        Score = "WYSOKI WYNIK";
+        HelloUsername = "Cześć, " + gameManager.playerUsername + "!";
+
+        // Game Over
+        GameOver = "KONIEC GRY";
+        Replay = "ZAGRAJ PONOWNIE";
+        Continue = "DALEJ?";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "PAUZA";
+
+        // High Scores
+        HighScores = "WYSOKI WYNIK";
+
+        // Username Input
+        Name = "Imię ...";
+        OK = "Dobrze";
+        Warning1 = "Nie może zawierać spacji ani *.";
+        Warning2 = "Musi mieć od 1 do 12 znaków.";
+        Flag.image.overrideSprite = polish;
+        gameManager.playerLanguage = "Polish";
+        gameManager.XButtonLanguage();
+    }
+
+    public void Portuguese()
+    {
+        // Main Menu
+        GameTitle.text = "Papagaio-do-Mar \nPintado";
+        StartButton = "COMEÇAR";
+        Score = "PONTUAÇÃO";
+        HelloUsername = "Olá, " + gameManager.playerUsername + "!";
+
+        // Game Over
+        GameOver = "FIM DE JOGO";
+        Replay = "JOGAR DE NOVO";
+        Continue = "CONTINUAR?";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "EM PAUSA";
+
+        // High Scores
+        HighScores = "PONTUAÇÃO MÁXIMAS";
+
+        // Username Input
+        Name = "Nome ...";
+        OK = "OK";
+        Warning1 = "Não pode conter espaços ou *.";
+        Warning2 = "Deve ter entre 1 e 12 caracteres.";
+        Flag.image.overrideSprite = portuguese;
+        gameManager.playerLanguage = "Portuguese";
+        gameManager.XButtonLanguage();
+    }
+
+    public void Romanian()
+    {
+        // Main Menu
+        GameTitle.text = "Puffin Pictat";
+        StartButton = "START";
+        Score = "SCOR";
+        HelloUsername = "Olá, " + gameManager.playerUsername + "!";
+
+        // Game Over
+        GameOver = "JOC TERMINAT";
+        Replay = "JOACA DIN NOU";
+        Continue = "CONTINUĂ?";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "SUSPENDAT";
+
+        // High Scores
+        HighScores = "CEL MAI MARE SCOR";
+
+        // Username Input
+        Name = "Nume ...";
+        OK = "Bine";
+        Warning1 = "Nu poate conține spații sau *.";
+        Warning2 = "Trebuie să aibă între 1 și 12 caractere.";
+        Flag.image.overrideSprite = romanian;
+        gameManager.playerLanguage = "Romanian";
+        gameManager.XButtonLanguage();
+    }
+
+    public void Russian()
+    {
+        // Main Menu
+        GameTitle.text = "Окрашенная \nМорская Птица";
+        StartButton = "СТАРТ";
+        Score = "РЕКОРДЫ";
+        HelloUsername = "Привет, " + gameManager.playerUsername + "!";
+
+        // Game Over
+        GameOver = "ИГРА ОКОНЧЕНА";
+        Replay = "ПОВТОР";
+        Continue = "ПРОДОЛЖИТЬ?";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "ПАУЗА";
+
+        // High Scores
+        HighScores = "ЛУЧШИЕ РЕЗУЛЬТАТЫ";
+
+        // Username Input
+        Name = "Имя ...";
+        OK = "Хорошо";
+        Warning1 = "Не может содержать пробелы или *.";
+        Warning2 = "Должно быть от 1 до 12 символов.";
+        Flag.image.overrideSprite = russian;
+        gameManager.playerLanguage = "Russian";
+        gameManager.XButtonLanguage();
+    }
+
+
+
+
+
 
     public string toRoman(int score)
     {
