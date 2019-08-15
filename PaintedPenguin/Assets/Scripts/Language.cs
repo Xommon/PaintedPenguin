@@ -522,6 +522,70 @@ public class Language : MonoBehaviour
         gameManager.XButtonLanguage();
     }
 
+    public void Greek()
+    {
+        // Main Menu
+        GameTitle.text = "Παιντεδ \nΠόφφιν";
+        StartButton = "ΕΝΑΡΞΗ";
+        Score = "ΥΨΗΛΑ ΣΚΟΡ";
+        HelloUsername = "Γεια, " + gameManager.playerUsername + "!";
+
+        // Game Over
+        GameOver = "ΤΕΛΟΣ \nΠΑΙΧΝΙΔΙΟΥ";
+        Replay = "ΕΠΑΝΑΛΗΨΗ";
+        Continue = "ΝΑ ΣΥΝΕΧΙΣΕΙ?";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "ΠΑΥΣΗ";
+
+        // High Scores
+        HighScores = "ΥΨΗΛΑ ΣΚΟΡ";
+
+        // Username Input
+        Name = "Ονομα ...";
+        OK = "Εντάξει";
+        Warning1 = "Δεν μπορεί να περιέχει κενά ή *.";
+        Warning2 = "Πρέπει να είναι μεταξύ 1 και 12 χαρακτήρων.";
+        Flag.image.overrideSprite = greek;
+        gameManager.playerLanguage = "Greek";
+        gameManager.XButtonLanguage();
+    }
+
+    public void Hebrew()
+    {
+        // Main Menu
+        GameTitle.text = "פאפין צבוע";
+        StartButton = "התחל";
+        Score = "ציונים גבוהים";
+        HelloUsername = "שלום, " + gameManager.playerUsername + "!";
+
+        // Game Over
+        GameOver = "סוף משחק";
+        Replay = "שידור חוזר";
+        Continue = "להמשיך?";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "מושהה";
+
+        // High Scores
+        HighScores = "ציונים גבוהים";
+
+        // Username Input
+        Name = "שם ...";
+        OK = "בסדר";
+        Warning1 = "לא יכול להכיל רווחים או *.";
+        Warning2 = "חייב להיות בין 1 ל 12 אותיות.";
+        Flag.image.overrideSprite = hebrew;
+        gameManager.playerLanguage = "Hebrew";
+        gameManager.XButtonLanguage();
+    }
+
     public void Hindi()
     {
         // Main Menu
@@ -551,6 +615,70 @@ public class Language : MonoBehaviour
         Warning2 = "1 और 12 अक्षरों के बीच होना चाहिए।";
         Flag.image.overrideSprite = hindi;
         gameManager.playerLanguage = "Hindi";
+        gameManager.XButtonLanguage();
+    }
+
+    public void Hungarian()
+    {
+        // Main Menu
+        GameTitle.text = "FESTETT \nLUNDA";
+        StartButton = "START";
+        Score = "PONTSZÁMOK";
+        HelloUsername = "Szia, " + gameManager.playerUsername + "!";
+
+        // Game Over
+        GameOver = "JÁTÉK VÉGE";
+        Replay = "ÚJRAJÁTSZÁS";
+        Continue = "FOLYTATNI?";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "SZÜNETEL";
+
+        // High Scores
+        HighScores = "MAGAS PONTSZÁM";
+
+        // Username Input
+        Name = "Név ...";
+        OK = "Oké";
+        Warning1 = "Nem lehet szóköz vagy *.";
+        Warning2 = "1 és 12 karakter között kell lennie.";
+        Flag.image.overrideSprite = hungarian;
+        gameManager.playerLanguage = "Hungarian";
+        gameManager.XButtonLanguage();
+    }
+
+    public void Icelandic()
+    {
+        // Main Menu
+        GameTitle.text = "MÁLUÐ \nLUNDI";
+        StartButton = "BYRJA";
+        Score = "SKORAR";
+        HelloUsername = "Halló, " + gameManager.playerUsername + "!";
+
+        // Game Over
+        GameOver = "LEIK LOKIÐ";
+        Replay = "ENDURRÆSA";
+        Continue = "ÁFRAM?";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "GERT HLÉ";
+
+        // High Scores
+        HighScores = "HÁR SKORAR";
+
+        // Username Input
+        Name = "Nafn ...";
+        OK = "OK";
+        Warning1 = "Get ekki innihaldið bil eða *.";
+        Warning2 = "Verður að vera á milli 1 og 12 stafir.";
+        Flag.image.overrideSprite = icelandic;
+        gameManager.playerLanguage = "Icelandic";
         gameManager.XButtonLanguage();
     }
 
