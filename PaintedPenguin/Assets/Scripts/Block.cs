@@ -21,37 +21,37 @@ public class Block : MonoBehaviour
         {
             // Red
             colour = 1;
-            sr.color = new Color(1f, 0.1f, 0.1f, 1f);
+            sr.color = gameManager.Red;
         }
         if (roll == 2)
         {
             // Orange
             colour = 2;
-            sr.color = new Color(1f, 0.5f, 0.1f, 1f);
+            sr.color = gameManager.Orange;
         }
         if (roll == 3)
         {
             // Yellow
             colour = 3;
-            sr.color = new Color(1f, 1f, 0.1f, 1f);
+            sr.color = gameManager.Yellow;
         }
         if (roll == 4)
         {
             // Green
             colour = 4;
-            sr.color = new Color(0.1f, 1f, 0.1f, 1f);
+            sr.color = gameManager.Green;
         }
         if (roll == 5)
         {
             // Blue
             colour = 5;
-            sr.color = new Color(0.1f, 0.2f, 1f, 1f);
+            sr.color = gameManager.Blue;
         }
         if (roll == 6)
         {
             // Purple
             colour = 6;
-            sr.color = new Color(0.7f, 0.1f, 1f, 1f);
+            sr.color = gameManager.Purple;
         }
     }
 

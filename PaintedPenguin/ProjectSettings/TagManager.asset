@@ -8,6 +8,7 @@ TagManager:
   - Paint
   - Rainbow
   - TimesTwo
+  - LoadingBar
   layers:
   - Default
   - TransparentFX

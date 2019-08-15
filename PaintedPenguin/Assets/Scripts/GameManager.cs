@@ -16,11 +16,21 @@ public class GameManager : MonoBehaviour
     public bool paused = false;
     public GameObject pauseButton;
 
+    // Colours
+    public Color White = new Color(1f, 1f, 1f, 1f);
+    public Color Red = new Color(1f, 0.1f, 0.1f, 1f);
+    public Color Orange = new Color(1f, 0.5f, 0.1f, 1f);
+    public Color Yellow = new Color(1f, 1f, 0.1f, 1f);
+    public Color Green = new Color(0.1f, 1f, 0.1f, 1f);
+    public Color Blue = new Color(0.1f, 0.2f, 1f, 1f);
+    public Color Purple = new Color(0.7f, 0.1f, 1f, 1f);
+
     // Game components
     public bool on;
     public int score;
     public PlayerMovement player;
     public bool canContinue;
+    public LoadingBar loadingBar;
 
     // High scores
     // http://dreamlo.com/lb/cQ87T8a7BUGRQmQNMDB6iwWUTDoSubyUOyfJ9_43b3_g
@@ -111,7 +121,7 @@ public class GameManager : MonoBehaviour
                 newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
             } else
             {
-                if (PercentChance(0.5f))
+                if (PercentChance(100.0f))
                 {
                     int pick = Random.Range(1, 3);
                     if (pick == 1)
@@ -496,6 +506,12 @@ public class GameManager : MonoBehaviour
         }
 
         obstacles = GameObject.FindGameObjectsWithTag("Rainbow");
+        for (int i = 0; i < obstacles.Length; i++)
+        {
+            Destroy(obstacles[i]);
+        }
+
+        obstacles = GameObject.FindGameObjectsWithTag("TimesTwo");
         for (int i = 0; i < obstacles.Length; i++)
         {
             Destroy(obstacles[i]);

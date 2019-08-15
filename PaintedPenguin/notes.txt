@@ -12,8 +12,8 @@ BUGS:
 - Random collision with blocks
 - Player shifts a little bit sometimes when dying
 - Swipe controls not consistant
+- Circle bar doesn't follow player
 - Space at the end of highscore list
-- Make player flash while rainbow, plus timer
 - Some scripts/emojis don't appear on in-game highscore list
 - Some scripts/letters mess with UI placement
 - Arabic and Hebrew fix

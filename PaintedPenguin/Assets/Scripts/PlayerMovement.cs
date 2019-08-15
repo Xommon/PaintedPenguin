@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public bool dead;
     public int colour;
     public int timesTwoMode;
+    public GameObject circleLoadingBar;
 
     // Swipe controls
     public Vector3 swipeStartPosition;
@@ -21,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        //Instantiate(CircleLoadingBar);
         timesTwoMode = 1;
         dead = false;
         animator.SetBool("dead", false);
@@ -80,47 +82,13 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        Vector3 barPosition = Camera.main.WorldToScreenPoint(this.transform.position);
+        circleLoadingBar.transform.position = barPosition;
+
         // Rainbow Mode
         if (colour == 7)
         {
-            for (int i = 0; i < 6; i++)
-            {
-                // Red
-                if (i == 0)
-                {
-                    sr.color = new Color(1f, 0.1f, 0.1f, 1f);
-                }
-
-                // Orange
-                if (i == 1)
-                {
-                    sr.color = new Color(1f, 0.5f, 0.1f, 1f);
-                }
-
-                // Yellow
-                if (i == 2)
-                {
-                    sr.color = new Color(1f, 1f, 0.1f, 1f);
-                }
-
-                // Green
-                if (i == 3)
-                {
-                    sr.color = new Color(0.1f, 1f, 0.1f, 1f);
-                }
-
-                // Blue
-                if (i == 4)
-                {
-                    sr.color = new Color(0.1f, 0.2f, 1f, 1f);
-                }
-
-                // Purple
-                if (i == 5)
-                {
-                    sr.color = new Color(0.7f, 0.1f, 1f, 1f);
-                }
-            }
+            
         }
 
         if (position == "ready")
@@ -203,49 +171,43 @@ public class PlayerMovement : MonoBehaviour
         // White
         if (colour == 0)
         {
-            sr.color = new Color(1f, 1f, 1f, 1f);
+            sr.color = gameManager.White;
         }
 
         // Red
         if (colour == 1)
         {
-            sr.color = new Color(1f, 0.1f, 0.1f, 1f);
+            sr.color = gameManager.Red;
         }
 
         // Orange
         if (colour == 2)
         {
-            sr.color = new Color(1f, 0.5f, 0.1f, 1f);
+            sr.color = gameManager.Orange;
         }
 
         // Yellow
         if (colour == 3)
         {
-            sr.color = new Color(1f, 1f, 0.1f, 1f);
+            sr.color = gameManager.Yellow;
         }
 
         // Green
         if (colour == 4)
         {
-            sr.color = new Color(0.1f, 1f, 0.1f, 1f);
+            sr.color = gameManager.Green;
         }
 
         // Blue
         if (colour == 5)
         {
-            sr.color = new Color(0.1f, 0.2f, 1f, 1f);
+            sr.color = gameManager.Blue;
         }
 
         // Purple
         if (colour == 6)
         {
-            sr.color = new Color(0.7f, 0.1f, 1f, 1f);
-        }
-
-        // Rainbow
-        if (colour == 7)
-        {
-            sr.color = new Color(0.3f, 0.3f, 0.3f, 1f);
+            sr.color = gameManager.Purple;
         }
 
         if (dead == true)
@@ -255,10 +217,66 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Rainbow
-    public void Rainbow(int seconds)
+    public void Rainbow(float seconds)
     {
         colour = 7;
+        GameObject loadingBar = Instantiate(circleLoadingBar);
+        RainbowCycle();
         Invoke("Unrainbow", seconds);
+    }
+
+    public void RainbowCycle()
+    {
+        if (colour == 7)
+        {
+        // If Purple
+        if (sr.color == gameManager.Purple)
+        {
+            // Turn Red
+            sr.color = gameManager.Red;
+        }
+        else
+
+        // If Red
+        if (sr.color == gameManager.Red)
+        {
+            // Turn Orange
+            sr.color = gameManager.Orange;
+        }
+        else
+
+        // If Orange
+        if (sr.color == gameManager.Orange)
+        {
+            // Turn Yellow
+            sr.color = gameManager.Yellow;
+        }
+        else
+
+        // If Yellow
+        if (sr.color == gameManager.Yellow)
+        {
+            // Turn Green
+            sr.color = gameManager.Green;
+        }
+        else
+
+        // If Green
+        if (sr.color == gameManager.Green)
+        {
+            // Turn Blue
+            sr.color = gameManager.Blue;
+        }
+        else
+
+        // If Blue
+        {
+            // Turn Purple
+            sr.color = gameManager.Purple;
+        }
+
+        Invoke("RainbowCycle", 0.15f);
+        }
     }
 
     public void Unrainbow()
@@ -267,9 +285,10 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // TimesTwo
-    public void TimesTwoMode(int seconds)
+    public void TimesTwoMode(float seconds)
     {
         timesTwoMode = 2;
+        GameObject loadingBar = Instantiate(circleLoadingBar);
         Invoke("UntimesTwoMode", seconds);
     }
 
@@ -288,7 +307,15 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("swimming", false);
         rb.velocity = Vector2.up * 2;
         rb.gravityScale = 0.5f;
+        timesTwoMode = 1;
+        Destroy(GameObject.FindGameObjectWithTag("LoadingBar"));
         Invoke("Death", 0.5f);
+    }
+
+    public void TimesUp()
+    {
+        colour = 0;
+        timesTwoMode = 1;
     }
 
     // End the game if collision with an obstacle occurs
@@ -319,18 +346,20 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.transform.tag == "Rainbow")
         {
-            if (colour != 7)
+            if (colour != 7 && timesTwoMode == 1 && dead == false)
             {
-                Rainbow(7);
+                colour = 7;
+                Rainbow(8.33f);
             }
             Destroy(collision.gameObject);
         }
 
         if (collision.transform.tag == "TimesTwo")
         {
-            if (timesTwoMode == 1)
+            if (timesTwoMode == 1 && colour != 7 && dead == false)
             {
-                TimesTwoMode(7);
+                timesTwoMode = 2;
+                TimesTwoMode(8.33f);
             }
             Destroy(collision.gameObject);
         }
