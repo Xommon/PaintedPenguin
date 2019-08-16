@@ -11106,6 +11106,19 @@ MonoBehaviour:
   turkish: {fileID: 21300000, guid: d79a5e72398ea774898a25b451eaf3c6, type: 3}
   ukranian: {fileID: 21300000, guid: 0f29de9d04fc0af4b999496d5bf3333a, type: 3}
   vietnamese: {fileID: 21300000, guid: 754372d231e95fc4ea418276e0c38db8, type: 3}
+--- !u!114 &814642395745757709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814642395745757705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e47411c19a756b4b8f75519bb4f052c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 1253002816}
 --- !u!1001 &5073945570788641196
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11118,6 +11131,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5073945571518871174, guid: ec57f4535ec603946a7f03fa5bb07814,
+        type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1253002816}
+    - target: {fileID: 5073945571518871174, guid: ec57f4535ec603946a7f03fa5bb07814,
+        type: 3}
+      propertyPath: circleLoadingBar
+      value: 
+      objectReference: {fileID: 7540035268637291345, guid: 2c897b7ab0f02bf478db429b40018c72,
+        type: 3}
     - target: {fileID: 5073945571518871169, guid: ec57f4535ec603946a7f03fa5bb07814,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11188,17 +11212,6 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5073945571518871174, guid: ec57f4535ec603946a7f03fa5bb07814,
-        type: 3}
-      propertyPath: gameManager
-      value: 
-      objectReference: {fileID: 1253002816}
-    - target: {fileID: 5073945571518871174, guid: ec57f4535ec603946a7f03fa5bb07814,
-        type: 3}
-      propertyPath: circleLoadingBar
-      value: 
-      objectReference: {fileID: 7540035268637291345, guid: 2c897b7ab0f02bf478db429b40018c72,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec57f4535ec603946a7f03fa5bb07814, type: 3}
 --- !u!1001 &8384673512484687256

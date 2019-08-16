@@ -16,6 +16,10 @@ public class GameManager : MonoBehaviour
     public bool paused = false;
     public GameObject pauseButton;
 
+    // Location
+    public string playerRegion;
+    public string playerCountry;
+
     // Colours
     public Color White = new Color(1f, 1f, 1f, 1f);
     public Color Red = new Color(1f, 0.1f, 0.1f, 1f);
@@ -245,9 +249,18 @@ public class GameManager : MonoBehaviour
         playerLanguage = data.playerLanguage;
     }
 
+    // Get location
+    public void GetDetails()
+    {
+        playerRegion = Localizer.GetDetails["region"];
+        playerCountry = Localizer.GetDetails["country_code"];
+    }
+
     // Code for start of script
     public void Start()
     {
+        Invoke("GetDetails", 1.0f);
+
         LoadUsername();
         if (playerLanguage == "" || playerUsername == null)
         {

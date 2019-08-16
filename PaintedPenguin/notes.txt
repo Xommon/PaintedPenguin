@@ -8,6 +8,7 @@ ADDITIONS:
 - Tutorial
 - Colourblind Mode
 - Code Wifi detection
+- Baby puffin
 
 BUGS:
 - Random collision with blocks - https://www.reddit.com/r/Unity3D/comments/1ee65w/having_wonky_collisions_rigidbodies_being_weird/
@@ -20,4 +21,3 @@ BUGS:
 
 DON'T FORGET:
 - SWITCH MONETIZATION SWIPE TO FALSE
-- DELETE HIGHSCORE URL IN HIGHSCORE.SCR
