@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
     public Text tableScoreUI;
     public Text tableUsernameUI;
     public Text tablePlaceUI;
+    public Text tableCountryUI;
     public Image tableFlagUI;
     public GameObject usernameInputUI;
     public string playerUsername;
@@ -198,7 +199,9 @@ public class GameManager : MonoBehaviour
             string[] entryInfo = entries[i].Split(new char[] { '|' });
             string username = entryInfo[0];
             int score = int.Parse(entryInfo[1]);
-            highScoresList[i] = new Highscore(username, score);
+            int time = int.Parse(entryInfo[2]);
+            string country = entryInfo[3];
+            highScoresList[i] = new Highscore(username, score, time, country);
         }
     }
 
@@ -206,11 +209,15 @@ public class GameManager : MonoBehaviour
     {
         public string username;
         public int score;
+        public int time;
+        public string country;
 
-        public Highscore(string _username, int _score)
+        public Highscore(string _username, int _score, int _time, string _country)
         {
             username = _username;
             score = _score;
+            time = _time;
+            country = _country;
         }
     }
 
@@ -321,6 +328,7 @@ public class GameManager : MonoBehaviour
         tablePlaceUI.text = "";
         tableUsernameUI.text = "";
         tableScoreUI.text = "";
+        tableCountryUI.text = "";
         tableFlagUI.sprite = null;
         
         // Populate the score table
@@ -332,10 +340,9 @@ public class GameManager : MonoBehaviour
             // Username
             tableUsernameUI.text += highscoreList[i].username + "\n";
 
-            // Flag
+            // Country
+            tableCountryUI.text += highscoreList[i].country + "\n";
             
-
-            //Assets / Resources / Flags / us.gif
             if (i < 9)
             {
                 tablePlaceUI.text += "";
@@ -345,6 +352,7 @@ public class GameManager : MonoBehaviour
             {
                 tablePlaceUI.text += "";
             }
+
             // Place
             tablePlaceUI.text += i + 1 + ": \n";
         }
