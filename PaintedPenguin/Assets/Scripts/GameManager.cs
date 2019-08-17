@@ -155,7 +155,7 @@ public class GameManager : MonoBehaviour
     // Adding high scores
     public IEnumerator AddNewHighScore(int score)
     {
-        UnityWebRequest uwr = UnityWebRequest.Get(webURL + privateCode + "/add/" + UnityWebRequest.EscapeURL(playerUsername) + "/" + score);
+        UnityWebRequest uwr = UnityWebRequest.Get(webURL + privateCode + "/add/" + UnityWebRequest.EscapeURL(playerUsername) + "/" + score + "/" + "0" + "/" + playerCountry);
         yield return uwr.SendWebRequest();
 
         if (uwr.isNetworkError)
@@ -254,14 +254,41 @@ public class GameManager : MonoBehaviour
     public void GetDetails()
     {
         playerRegion = Localizer.GetDetails["region"];
-        playerCountry = Localizer.GetDetails["country_code"];
+
+        if (playerRegion == "Quebec")
+        {
+            playerCountry = "pq";
+        }
+        else if (playerRegion == "Catalonia")
+        {
+            playerCountry = "catalonia";
+        }
+        else if (playerRegion == "Pais Vasco")
+        {
+            playerCountry = "bc";
+        }
+        else if (playerRegion == "Xinjiang")
+        {
+            playerCountry = "xj";
+        }
+        else if (playerRegion == "Kosovsko-Mitrovacki okrug")
+        {
+            playerCountry = "xk";
+        }
+        else
+        {
+            playerCountry = Localizer.GetDetails["country_code"];
+        }
+    }
+
+    private void Awake()
+    {
+        Invoke("GetDetails", 1.0f);
     }
 
     // Code for start of script
     public void Start()
     {
-        Invoke("GetDetails", 1.0f);
-
         LoadUsername();
         if (playerLanguage == "" || playerUsername == null)
         {
@@ -418,22 +445,40 @@ public class GameManager : MonoBehaviour
     public void Update()
     {
         //Flag Testing
-        if (playerRegion == "Quebec")
+        if (playerRegion == "" || playerRegion == null)
         {
-            tableFlagUI.sprite = Resources.Load<Sprite>("Flags/mq");
-        } else if (playerRegion == "Catalonia")
-        {
-            tableFlagUI.sprite = Resources.Load<Sprite>("Flags/catalonia");
-        } else if (playerRegion == "Basque_Country")
-        {
-            tableFlagUI.sprite = Resources.Load<Sprite>("Flags/catalonia");
-        } else if (playerRegion == "Xinjiang")
-        {
-            tableFlagUI.sprite = Resources.Load<Sprite>("Flags/tm");
+            tableFlagUI.color = new Color(1, 1, 1, 0);
         } else
         {
-            tableFlagUI.sprite = Resources.Load<Sprite>("Flags/" + playerCountry.ToLower());
+            tableFlagUI.color = new Color(1, 1, 1, 1);
+
+            if (playerRegion == "Quebec")
+            {
+                tableFlagUI.sprite = Resources.Load<Sprite>("Flags/pq");
+            }
+            else if (playerRegion == "Catalonia")
+            {
+                tableFlagUI.sprite = Resources.Load<Sprite>("Flags/catalonia");
+            }
+            else if (playerRegion == "Pais Vasco")
+            {
+                tableFlagUI.sprite = Resources.Load<Sprite>("Flags/catalonia");
+            }
+            else if (playerRegion == "Xinjiang")
+            {
+                tableFlagUI.sprite = Resources.Load<Sprite>("Flags/xj");
+            }
+            else if (playerRegion == "Kosovsko-Mitrovacki okrug")
+            {
+                tableFlagUI.sprite = Resources.Load<Sprite>("Flags/xk");
+            }
+            else
+            {
+                tableFlagUI.sprite = Resources.Load<Sprite>("Flags/" + playerCountry.ToLower());
+                tableFlagUI.color = new Color(1, 1, 1, 1);
+            }
         }
+        
 
         // Set up text based on language
         gameTitleText.text = language.GameTitle.text;

@@ -2609,7 +2609,15 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.2
-  m_Text: 1892
+  m_Text: '1892
+
+    1204
+
+    1194
+
+    990
+
+    823'
 --- !u!222 &392662642
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2784,8 +2792,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -144.2, y: -1497.7}
-  m_SizeDelta: {x: 288.4, y: 2995.6}
+  m_AnchoredPosition: {x: -119.01, y: -1497.7}
+  m_SizeDelta: {x: 238.03, y: 2995.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &448268565
 MonoBehaviour:
@@ -2814,13 +2822,21 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 40
-    m_Alignment: 1
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.2
-  m_Text: GhastlyIsGay
+  m_Text: 'GhastlyIsGay
+
+    NOT_A_COP
+
+    Dan
+
+    Steve
+
+    Mary'
 --- !u!222 &448268566
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3203,7 +3219,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -113.18, y: 1502.3}
+  m_AnchoredPosition: {x: -114.175, y: 1501}
   m_SizeDelta: {x: 24, y: 16.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &598804769
@@ -3226,7 +3242,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: cc312be45d63e7b4fa596f5a76cef0dd, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8700,7 +8716,15 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.2
-  m_Text: 1.
+  m_Text: '1.
+
+    2.
+
+    3.
+
+    4.
+
+    5.'
 --- !u!222 &1834415700
 CanvasRenderer:
   m_ObjectHideFlags: 0
