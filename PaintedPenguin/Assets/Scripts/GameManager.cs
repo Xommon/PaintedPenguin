@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
     public Text tableScoreUI;
     public Text tableUsernameUI;
     public Text tablePlaceUI;
+    public Image tableFlagUI;
     public GameObject usernameInputUI;
     public string playerUsername;
     public string playerLanguage;
@@ -293,6 +294,7 @@ public class GameManager : MonoBehaviour
         tablePlaceUI.text = "";
         tableUsernameUI.text = "";
         tableScoreUI.text = "";
+        tableFlagUI.sprite = null;
         
         // Populate the score table
         for (int i = 0; i <= 99; i++)
@@ -303,6 +305,10 @@ public class GameManager : MonoBehaviour
             // Username
             tableUsernameUI.text += highscoreList[i].username + "\n";
 
+            // Flag
+            
+
+            //Assets / Resources / Flags / us.gif
             if (i < 9)
             {
                 tablePlaceUI.text += "";
@@ -411,6 +417,24 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
+        //Flag Testing
+        if (playerRegion == "Quebec")
+        {
+            tableFlagUI.sprite = Resources.Load<Sprite>("Flags/mq");
+        } else if (playerRegion == "Catalonia")
+        {
+            tableFlagUI.sprite = Resources.Load<Sprite>("Flags/catalonia");
+        } else if (playerRegion == "Basque_Country")
+        {
+            tableFlagUI.sprite = Resources.Load<Sprite>("Flags/catalonia");
+        } else if (playerRegion == "Xinjiang")
+        {
+            tableFlagUI.sprite = Resources.Load<Sprite>("Flags/tm");
+        } else
+        {
+            tableFlagUI.sprite = Resources.Load<Sprite>("Flags/" + playerCountry.ToLower());
+        }
+
         // Set up text based on language
         gameTitleText.text = language.GameTitle.text;
         startButtonText.text = language.StartButton;
