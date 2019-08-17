@@ -784,8 +784,8 @@ public class Language : MonoBehaviour
     {
         // Main Menu
         GameTitle.text = "Painted Puffin";
-        StartButton = "Initium";
-        Score = "Gradus";
+        StartButton = "INITIUM";
+        Score = "GRADUS";
         HelloUsername = "Salve, " + gameManager.playerUsername + "!";
 
         // Game Over

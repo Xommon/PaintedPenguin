@@ -345,12 +345,13 @@ public class GameManager : MonoBehaviour
             // Country
             Image flag = Instantiate(tableFlagUI);
             flag.transform.SetParent(tableCountryUI.transform);
-            flag.transform.position = new Vector3(44, 400 - (23f * i), 0);
+            flag.transform.position = new Vector3(29.75f, 274f - (14f * i), 0); //23
             flag.sprite = Resources.Load<Sprite>("Flags/" + highscoreList[i].country.ToLower());
-            if (highscoreList[i].country == null)
+            if (flag.sprite == null)
             {
                 flag.color = new Color(1, 1, 1, 0);
-            } else
+            }
+            else
             {
                 flag.color = new Color(1, 1, 1, 1);
             }
