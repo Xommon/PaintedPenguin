@@ -829,7 +829,7 @@ public class Language : MonoBehaviour
         ScoreUI = gameManager.score.ToString();
 
         // Pause
-        Paused = "PAUSAT";
+        Paused = "PAUSET";
 
         // High Scores
         HighScores = "REKORDER";
@@ -1004,7 +1004,101 @@ public class Language : MonoBehaviour
         gameManager.XButtonLanguage();
     }
 
+    public void Spanish()
+    {
+        // Main Menu
+        GameTitle.text = "Frailecillo \nPintado";
+        StartButton = "COMIENZO";
+        Score = "PUNTUACIÓN";
+        HelloUsername = "Hola, " + gameManager.playerUsername + "!";
 
+        // Game Over
+        GameOver = "FIN \nDEL JUEGO";
+        Replay = "REPETIR";
+        Continue = "¿CONTINUAR?";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "PAUSADO";
+
+        // High Scores
+        HighScores = "PUNTUACIONES ALTAS";
+
+        // Username Input
+        Name = "Nombre ...";
+        OK = "Okay";
+        Warning1 = "No puede contener espacios o *.";
+        Warning2 = "Debe tener entre 1 y 12 caracteres.";
+        Flag.image.overrideSprite = spanish;
+        gameManager.playerLanguage = "Spanish";
+        gameManager.XButtonLanguage();
+    }
+
+    public void Swedish()
+    {
+        // Main Menu
+        GameTitle.text = "Painted \nPuffin";
+        StartButton = "START";
+        Score = "REKORD";
+        HelloUsername = "Hej, " + gameManager.playerUsername + "!";
+
+        // Game Over
+        GameOver = "GAME OVER";
+        Replay = "SPELA IGEN";
+        Continue = "FORTSÄTT?";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "PAUSAT";
+
+        // High Scores
+        HighScores = "HÖGA POÄNG";
+
+        // Username Input
+        Name = "Namn ...";
+        OK = "Okej";
+        Warning1 = "Kan inte innehålla mellanslag eller *.";
+        Warning2 = "Måste vara mellan 1 och 12 tecken.";
+        Flag.image.overrideSprite = swedish;
+        gameManager.playerLanguage = "Swedish";
+        gameManager.XButtonLanguage();
+    }
+
+    public void Thai()
+    {
+        // Main Menu
+        GameTitle.text = "นกพัฟฟินท์ทาสี";
+        StartButton = "เริ่มต้น";
+        Score = "คะแนนสูง";
+        HelloUsername = "สวัสดี, " + gameManager.playerUsername + "!";
+
+        // Game Over
+        GameOver = "เกมโอเวอร์";
+        Replay = "เล่นอีกรอบ";
+        Continue = "เล่นต่อ?";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "หยุด";
+
+        // High Scores
+        HighScores = "คะแนนสูง";
+
+        // Username Input
+        Name = "ชื่อ ...";
+        OK = "ตกลง";
+        Warning1 = "ไม่สามารถมีช่องว่างหรือ*";
+        Warning2 = "ต้องอยู่ระหว่าง 1 ถึง 12 ตัวอักษร";
+        Flag.image.overrideSprite = thai;
+        gameManager.playerLanguage = "Thai";
+        gameManager.XButtonLanguage();
+    }
 
 
 
