@@ -41,8 +41,6 @@ public class GameManager : MonoBehaviour
     public Sprite connectionFalse;
 
     // High scores
-    // http://dreamlo.com/lb/cQ87T8a7BUGRQmQNMDB6iwWUTDoSubyUOyfJ9_43b3_g
-
     const string privateCode = "cQ87T8a7BUGRQmQNMDB6iwWUTDoSubyUOyfJ9_43b3_g";
     const string publicCode = "5d43646f76827f1758cfaa7c";
     const string webURL = "dreamlo.com/lb/";
@@ -51,8 +49,9 @@ public class GameManager : MonoBehaviour
     public Text tableScoreUI;
     public Text tableUsernameUI;
     public Text tablePlaceUI;
-    public Text tableCountryUI;
+    public GameObject tableCountryUI;
     public Image tableFlagUI;
+    public Sprite defaultFlag;
     public GameObject usernameInputUI;
     public string playerUsername;
     public string playerLanguage;
@@ -324,13 +323,16 @@ public class GameManager : MonoBehaviour
 
     public void OnHighscoresDownloaded(Highscore[] highscoreList)
     {
-        // Clear all display text
+        // Clear all display text and flags
         tablePlaceUI.text = "";
         tableUsernameUI.text = "";
         tableScoreUI.text = "";
-        tableCountryUI.text = "";
-        tableFlagUI.sprite = null;
-        
+        GameObject[] flags = GameObject.FindGameObjectsWithTag("Flag");
+        for (int i = 0; i < flags.Length; i++)
+        {
+            Destroy(flags[i]);
+        }
+
         // Populate the score table
         for (int i = 0; i <= 99; i++)
         {
@@ -341,19 +343,29 @@ public class GameManager : MonoBehaviour
             tableUsernameUI.text += highscoreList[i].username + "\n";
 
             // Country
-            tableCountryUI.text += highscoreList[i].country + "\n";
-            
+            Image flag = Instantiate(tableFlagUI);
+            flag.transform.SetParent(tableCountryUI.transform);
+            flag.transform.position = new Vector3(44, 400 - (23f * i), 0);
+            flag.sprite = Resources.Load<Sprite>("Flags/" + highscoreList[i].country.ToLower());
+            if (highscoreList[i].country == null)
+            {
+                flag.color = new Color(1, 1, 1, 0);
+            } else
+            {
+                flag.color = new Color(1, 1, 1, 1);
+            }
+
+            // Place
             if (i < 9)
             {
-                tablePlaceUI.text += "";
+                tablePlaceUI.text += "00";
             }
 
             if (i > 8 && i < 99)
             {
-                tablePlaceUI.text += "";
+                tablePlaceUI.text += "0";
             }
 
-            // Place
             tablePlaceUI.text += i + 1 + ": \n";
         }
     }

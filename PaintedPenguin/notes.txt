@@ -18,6 +18,7 @@ BUGS:
 - Some scripts/emojis don't appear on in-game highscore list
 - Some scripts/letters mess with UI placement
 - Arabic and Hebrew fix
+- Perfect anchoring
 
 DON'T FORGET:
 - SWITCH MONETIZATION SWIPE TO FALSE

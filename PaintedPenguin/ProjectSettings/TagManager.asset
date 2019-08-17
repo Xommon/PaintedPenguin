@@ -9,6 +9,7 @@ TagManager:
   - Rainbow
   - TimesTwo
   - LoadingBar
+  - Flag
   layers:
   - Default
   - TransparentFX
