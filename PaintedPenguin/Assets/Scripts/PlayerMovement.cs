@@ -35,7 +35,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (gameManager.paused == false && position == "walking")
         {
-            transform.position = new Vector3(-0.33f, -0.075f, 0);
+            //transform.position = new Vector3(-0.33f, -0.075f, 0);
+            rb.MovePosition(new Vector2(-0.33f, -0.075f));
             position = "jumping";
             rb.gravityScale = 0.5f;
             rb.velocity = new Vector2(0, 2.9f);
@@ -47,7 +48,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (gameManager.paused == false && position == "walking")
         {
-            transform.position = new Vector3(-0.33f, -0.075f, 0);
+            //transform.position = new Vector3(-0.33f, -0.075f, 0);
+            rb.MovePosition(new Vector2(-0.33f, -0.075f));
             position = "diving";
             rb.gravityScale = -0.5f;
             rb.velocity = new Vector2(0, -2.9f);
@@ -84,6 +86,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        // Loading bar position
         Vector3 barPosition = Camera.main.WorldToScreenPoint(this.transform.position);
         circleLoadingBar.transform.position = barPosition;
 
@@ -96,7 +99,8 @@ public class PlayerMovement : MonoBehaviour
         if (position == "ready")
         {
             // Player is out of sight, ready to start
-            transform.position = new Vector3(-1.0f, -0.075f, 0);
+            //transform.position = new Vector3(-1.0f, -0.075f, 0);
+            rb.MovePosition(new Vector2(-1.0f, -0.075f));
             animator.SetBool("jumping", false);
             animator.SetBool("falling", false);
             animator.SetBool("swimming", false);
@@ -111,27 +115,31 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("dead", false);
 
             // Start game if player is in position, start the game
-            if (transform.position.x >= -0.33)
+            //if (transform.position.x >= -0.33)
+            if (rb.position.x >= -0.33)
             {
                 gameManager.on = true;
                 position = ("walking");
-
+                
             }
         }
 
         if (dead == false)
         {
             // Snap to ground if walking
-            if (transform.position.y != -0.075 && position == "walking")
+            //if (transform.position.y != -0.075 && position == "walking")
+            if (rb.position.y != -0.075 && position == "walking")
             {
-                transform.position = new Vector3(-0.33f, -0.075f, 0);
+                //transform.position = new Vector3(-0.33f, -0.075f, 0);
+                rb.MovePosition(new Vector2(-0.33f, -0.075f));
                 animator.SetBool("jumping", false);
                 animator.SetBool("falling", false);
                 animator.SetBool("swimming", false);
             }
 
             // Player starts walking if it falls to the ground or resurfaces from water
-            if ((transform.position.y <= -0.075 && position == "falling") || ((transform.position.y >= -0.075) && position == "resurfacing"))
+            //if ((transform.position.y <= -0.075 && position == "falling") || ((transform.position.y >= -0.075) && position == "resurfacing"))
+            if ((rb.position.y <= -0.075 && position == "falling") || ((rb.position.y >= -0.075) && position == "resurfacing"))
             {
                 position = "walking";
                 animator.SetBool("falling", false);

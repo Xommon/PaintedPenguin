@@ -11,14 +11,16 @@ ADDITIONS:
 - Baby puffin
 
 BUGS:
-- Random collision with blocks - https://www.reddit.com/r/Unity3D/comments/1ee65w/having_wonky_collisions_rigidbodies_being_weird/
+- (?) Sprite shaking when score is higher
+- Clipping when landing
 - Player shifts when dying ON CONTINUED GAME
 - Circle bar doesn't follow player
 - Space at the end of highscore list
 - Some scripts/emojis don't appear on in-game highscore list
 - Some scripts/letters mess with UI placement
 - Arabic and Hebrew fix
-- Perfect anchoring
+- Perfect anchoring of UI elements
+- Flag placement in high score list is inconsistent
 
 DON'T FORGET:
 - SWITCH MONETIZATION SWIPE TO FALSE

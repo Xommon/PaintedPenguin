@@ -537,7 +537,7 @@ public class GameManager : MonoBehaviour
 
         if (paused == false)
         {
-            Time.timeScale = 1.0f + (score / 10000.0f);
+            Time.timeScale = 1.0f + (score / 900.0f);
         }
 
         // Obstacles
