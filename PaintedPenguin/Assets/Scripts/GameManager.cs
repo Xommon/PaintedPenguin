@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
     public Language language;
     public GameObject languageTableUI;
 
-    public Text gameTitleText;
+    public GameObject gameTitleText;
     public Text startButtonText;
     public Text scoreButtonText;
     public Text helloUsernameText;
@@ -115,12 +115,14 @@ public class GameManager : MonoBehaviour
             GameObject newblock = Instantiate(block);
             place = obstaclePositions[(Random.Range(0, 3))]; // 0, 1 or 2
             newblock.transform.position = transform.position + new Vector3(1, place, 0);
+            newblock.GetComponent<Block>().moving = 0;
             obstaclePositions.Remove(place);
 
             // Place second block
             GameObject newblock2 = Instantiate(block);
             place = obstaclePositions[(Random.Range(0, 2))]; // 0 or 1
             newblock2.transform.position = transform.position + new Vector3(1, place, 0);
+            newblock2.GetComponent<Block>().moving = 0;
             obstaclePositions.Remove(place);
 
             // Place paint
@@ -143,7 +145,9 @@ public class GameManager : MonoBehaviour
                         GameObject newpaint = Instantiate(timesTwo);
                         newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
                     }
-                    
+
+                    //if (obstaclePositions.Contains())
+                    //newblock2.GetComponent<Block>().moving = 1;
                 }
             }
             timer = 0;
@@ -345,7 +349,7 @@ public class GameManager : MonoBehaviour
             // Country
             Image flag = Instantiate(tableFlagUI);
             flag.transform.SetParent(tableCountryUI.transform);
-            flag.transform.position = new Vector3(29.75f, 274f - (14f * i), 0); //23
+            flag.transform.position = new Vector3(39, 347f - (23f * i), 0); //23
             flag.sprite = Resources.Load<Sprite>("Flags/" + highscoreList[i].country.ToLower());
             if (flag.sprite == null)
             {
@@ -404,6 +408,8 @@ public class GameManager : MonoBehaviour
         mainMenuUI.SetActive(false);
         gameUI.SetActive(true);
     }
+
+
 
     // Score Button pressed
     public void ScoreButton()
@@ -499,10 +505,9 @@ public class GameManager : MonoBehaviour
                 tableFlagUI.color = new Color(1, 1, 1, 1);
             }
         }
-        
 
         // Set up text based on language
-        gameTitleText.text = language.GameTitle.text;
+        gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().text = language.GameTitle.text;
         startButtonText.text = language.StartButton;
         scoreButtonText.text = language.Score;
         helloUsernameText.text = playerUsername;
@@ -526,7 +531,12 @@ public class GameManager : MonoBehaviour
         nameFillInText.text = language.Name;
         okButtonText.text = language.OK;
 
+        // Check internet connection
+        
+
         // Check network connection
+
+
         if (networkConnection == true)
         {
             connectionUI.sprite = connectionTrue;
@@ -537,7 +547,7 @@ public class GameManager : MonoBehaviour
 
         if (paused == false)
         {
-            Time.timeScale = 1.0f + (score / 900.0f);
+            Time.timeScale = 1.0f + (score / 9999.0f);
         }
 
         // Obstacles

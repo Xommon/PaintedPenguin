@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
         // Swipe controls
         if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
@@ -86,15 +86,28 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        // Jump or swim only on the ground
+        if (position == "walking")
+        {
+            //Jump
+            if (Input.GetKeyDown("up"))
+            {
+                Jump();
+            }
+
+            // Swim
+            if (Input.GetKeyDown("down"))
+            {
+                Dive();
+            }
+        }
+    }
+
+    void FixedUpdate()
+    {
         // Loading bar position
         Vector3 barPosition = Camera.main.WorldToScreenPoint(this.transform.position);
         circleLoadingBar.transform.position = barPosition;
-
-        // Rainbow Mode
-        if (colour == 7)
-        {
-            
-        }
 
         if (position == "ready")
         {
@@ -145,22 +158,6 @@ public class PlayerMovement : MonoBehaviour
                 animator.SetBool("falling", false);
                 animator.SetBool("swimming", false);
 
-            }
-
-            // Jump or swim only on the ground
-            if (position == "walking")
-            {
-                //Jump
-                if (Input.GetKeyDown("up"))
-                {
-                    Jump();
-                }
-
-                // Swim
-                if (Input.GetKeyDown("down"))
-                {
-                    Dive();
-                }
             }
 
             // Mark player as falling

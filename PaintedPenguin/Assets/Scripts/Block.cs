@@ -9,6 +9,7 @@ public class Block : MonoBehaviour
     public SpriteRenderer sr;
     public bool hit = false;
     public int price;
+    public int moving;
 
     private void Start()
     {
@@ -57,8 +58,11 @@ public class Block : MonoBehaviour
 
     void Update()
     {
-        //Blocks keep moving to the left
+        // Blocks keep moving to the left
         transform.position += Vector3.left * 0.75f * Time.deltaTime;
+
+        // Blocks move up and down
+        transform.position += Vector3.up * moving * Time.deltaTime;
 
         // Destroy if out of scene
         if (transform.position.x < -0.9)
