@@ -254,14 +254,15 @@ public class GameManager : MonoBehaviour
             Debug.Log("Error Uploading: " + uwr.error);
             uploadScoreUI.transform.rotation = Quaternion.identity;
             uploadScoreUI.sprite = errorSprite;
-            uploadScoreUI.color = new Color (1, 1, 1, 0.75f);
+            
+            yield return new WaitForSeconds(3);
+            StartCoroutine(AddNewHighScore(score));
         }
         else
         {
             Debug.Log("Received: " + uwr.downloadHandler.text);
             uploadScoreUI.transform.rotation = Quaternion.identity;
             uploadScoreUI.sprite = uploadedSprite;
-            uploadScoreUI.color = new Color(1, 1, 1, 0.75f);
         }
     }
 
