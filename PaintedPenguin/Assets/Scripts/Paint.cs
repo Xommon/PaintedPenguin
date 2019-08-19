@@ -10,43 +10,45 @@ public class Paint : MonoBehaviour
 
     private void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
+
         // Randomly choose paint's colour
         int roll = Random.Range(1, 7); // Between 1 and 6
         if (roll == 1)
         {
             // Red
             colour = 1;
-            sr.color = gameManager.Red;
+            sr.color = gameManager.RedC;
         }
         if (roll == 2)
         {
             // Orange
             colour = 2;
-            sr.color = gameManager.Orange;
+            sr.color = gameManager.OrangeC;
         }
         if (roll == 3)
         {
             // Yellow
             colour = 3;
-            sr.color = gameManager.Yellow;
+            sr.color = gameManager.YellowC;
         }
         if (roll == 4)
         {
             // Green
             colour = 4;
-            sr.color = gameManager.Green;
+            sr.color = gameManager.GreenC;
         }
         if (roll == 5)
         {
             // Blue
             colour = 5;
-            sr.color = gameManager.Blue;
+            sr.color = gameManager.BlueC;
         }
         if (roll == 6)
         {
             // Purple
             colour = 6;
-            sr.color = gameManager.Purple;
+            sr.color = gameManager.PurpleC;
         }
     }
 

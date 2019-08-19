@@ -33,6 +33,6 @@ public class LoadingBar : MonoBehaviour
 
         gameObject.transform.position = Camera.main.WorldToScreenPoint(player.transform.position + new Vector3(0.25f, 0, 0));
         
-        selfImage.color = new Color(player.sr.color.r, player.sr.color.g, player.sr.color.b, 0.8f);
+        selfImage.color = new Color(player.sr.color.r, player.sr.color.g, player.sr.color.b, 0.6f);
     }
 }

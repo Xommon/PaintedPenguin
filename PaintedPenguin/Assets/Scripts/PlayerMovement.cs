@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public int colour;
     public int timesTwoMode;
     public GameObject loadingBarPrefab;
+    public int babyPuffins;
 
     // Swipe controls
     public Vector3 swipeStartPosition;
@@ -174,43 +175,43 @@ public class PlayerMovement : MonoBehaviour
         // White
         if (colour == 0)
         {
-            sr.color = gameManager.White;
+            sr.color = gameManager.WhiteC;
         }
 
         // Red
         if (colour == 1)
         {
-            sr.color = gameManager.Red;
+            sr.color = gameManager.RedC;
         }
 
         // Orange
         if (colour == 2)
         {
-            sr.color = gameManager.Orange;
+            sr.color = gameManager.OrangeC;
         }
 
         // Yellow
         if (colour == 3)
         {
-            sr.color = gameManager.Yellow;
+            sr.color = gameManager.YellowC;
         }
 
         // Green
         if (colour == 4)
         {
-            sr.color = gameManager.Green;
+            sr.color = gameManager.GreenC;
         }
 
         // Blue
         if (colour == 5)
         {
-            sr.color = gameManager.Blue;
+            sr.color = gameManager.BlueC;
         }
 
         // Purple
         if (colour == 6)
         {
-            sr.color = gameManager.Purple;
+            sr.color = gameManager.PurpleC;
         }
 
         if (dead == true)
@@ -233,49 +234,49 @@ public class PlayerMovement : MonoBehaviour
         if (colour == 7)
         {
         // If Purple
-        if (sr.color == gameManager.Purple)
+        if (sr.color == gameManager.PurpleC)
         {
             // Turn Red
-            sr.color = gameManager.Red;
+            sr.color = gameManager.RedC;
         }
         else
 
         // If Red
-        if (sr.color == gameManager.Red)
+        if (sr.color == gameManager.RedC)
         {
             // Turn Orange
-            sr.color = gameManager.Orange;
+            sr.color = gameManager.OrangeC;
         }
         else
 
         // If Orange
-        if (sr.color == gameManager.Orange)
+        if (sr.color == gameManager.OrangeC)
         {
             // Turn Yellow
-            sr.color = gameManager.Yellow;
+            sr.color = gameManager.YellowC;
         }
         else
 
         // If Yellow
-        if (sr.color == gameManager.Yellow)
+        if (sr.color == gameManager.YellowC)
         {
             // Turn Green
-            sr.color = gameManager.Green;
+            sr.color = gameManager.GreenC;
         }
         else
 
         // If Green
-        if (sr.color == gameManager.Green)
+        if (sr.color == gameManager.GreenC)
         {
             // Turn Blue
-            sr.color = gameManager.Blue;
+            sr.color = gameManager.BlueC;
         }
         else
 
         // If Blue
         {
             // Turn Purple
-            sr.color = gameManager.Purple;
+            sr.color = gameManager.PurpleC;
         }
 
         Invoke("RainbowCycle", 0.15f);

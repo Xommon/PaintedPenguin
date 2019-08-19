@@ -21,13 +21,13 @@ public class GameManager : MonoBehaviour
     public string playerCountry;
 
     // Colours
-    public Color White = new Color(1f, 1f, 1f, 1f);
-    public Color Red = new Color(1f, 0.1f, 0.1f, 1f);
-    public Color Orange = new Color(1f, 0.5f, 0.1f, 1f);
-    public Color Yellow = new Color(1f, 1f, 0.1f, 1f);
-    public Color Green = new Color(0.1f, 1f, 0.1f, 1f);
-    public Color Blue = new Color(0.1f, 0.2f, 1f, 1f);
-    public Color Purple = new Color(0.7f, 0.1f, 1f, 1f);
+    public Color WhiteC = new Color(1f, 1f, 1f, 1f);
+    public Color RedC = new Color(1f, 0.1f, 0.1f, 1f);
+    public Color OrangeC = new Color(1f, 0.5f, 0.1f, 1f);
+    public Color YellowC = new Color(1f, 1f, 0.1f, 1f);
+    public Color GreenC = new Color(0.1f, 1f, 0.1f, 1f);
+    public Color BlueC = new Color(0.1f, 0.2f, 1f, 1f);
+    public Color PurpleC = new Color(0.7f, 0.1f, 1f, 1f);
 
     // Game components
     public bool on;
@@ -221,7 +221,7 @@ public class GameManager : MonoBehaviour
             }
 
             timer = 0;
-            score += 1;
+            score += 1 + player.babyPuffins;
         }
         timer += Time.deltaTime;
     }

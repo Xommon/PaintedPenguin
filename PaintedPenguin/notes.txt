@@ -2,9 +2,9 @@ ADDITIONS:
 - Ads
 - Analytics
 - Redo art and background
+	- Collision effect with blocks
 - Sound effects
 - Intro splash
-- Collision effect with blocks
 - Tutorial
 - Colourblind Mode
 - Code Wifi detection
