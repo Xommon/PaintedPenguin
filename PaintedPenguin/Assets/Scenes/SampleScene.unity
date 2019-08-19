@@ -5220,12 +5220,12 @@ GameObject:
   - component: {fileID: 1074737213}
   - component: {fileID: 1074737212}
   m_Layer: 5
-  m_Name: Connection
+  m_Name: UploadScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1074737211
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5242,7 +5242,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 59.5, y: -23.100006}
+  m_AnchoredPosition: {x: 24.4, y: -23.100006}
   m_SizeDelta: {x: 32, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1074737212
@@ -5265,7 +5265,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 10ef1d7ea6db00e4f916142d9464489a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 334dce32401aea14c95731acd33e67d9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11921,6 +11921,29 @@ PrefabInstance:
       propertyPath: purpleImage
       value: 
       objectReference: {fileID: 266352445}
+    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
+        type: 3}
+      propertyPath: uploadScoreUI
+      value: 
+      objectReference: {fileID: 1074737212}
+    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
+        type: 3}
+      propertyPath: loadingSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 334dce32401aea14c95731acd33e67d9,
+        type: 3}
+    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
+        type: 3}
+      propertyPath: uploadedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 65537532cca02fa4f8b2177b5d5e1c11,
+        type: 3}
+    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
+        type: 3}
+      propertyPath: errorSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2c5a735edcde618488ff32fdf7bc2199,
+        type: 3}
     - target: {fileID: 814642394577855561, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: m_LocalPosition.x

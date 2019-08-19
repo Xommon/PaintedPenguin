@@ -7,7 +7,6 @@ ADDITIONS:
 - Intro splash
 - Tutorial
 - Colourblind Mode
-- Code Wifi detection
 - Baby puffin
 
 BUGS:

@@ -49,10 +49,10 @@ public class GameManager : MonoBehaviour
     public PlayerMovement player;
     public bool canContinue;
     public LoadingBar loadingBar;
-    public bool networkConnection = true;
-    public Image connectionUI;
-    public Sprite connectionTrue;
-    public Sprite connectionFalse;
+    public Image uploadScoreUI;
+    public Sprite loadingSprite;
+    public Sprite uploadedSprite;
+    public Sprite errorSprite;
 
     // High scores
     const string privateCode = "cQ87T8a7BUGRQmQNMDB6iwWUTDoSubyUOyfJ9_43b3_g";
@@ -243,16 +243,25 @@ public class GameManager : MonoBehaviour
     // Adding high scores
     public IEnumerator AddNewHighScore(int score)
     {
+        uploadScoreUI.sprite = loadingSprite;
+        uploadScoreUI.color = new Color(1, 1, 1, 0.75f);
+
         UnityWebRequest uwr = UnityWebRequest.Get(webURL + privateCode + "/add/" + UnityWebRequest.EscapeURL(playerUsername) + "/" + score + "/" + "0" + "/" + playerCountry);
         yield return uwr.SendWebRequest();
 
         if (uwr.isNetworkError)
         {
             Debug.Log("Error Uploading: " + uwr.error);
+            uploadScoreUI.transform.rotation = Quaternion.identity;
+            uploadScoreUI.sprite = errorSprite;
+            uploadScoreUI.color = new Color (1, 1, 1, 0.75f);
         }
         else
         {
             Debug.Log("Received: " + uwr.downloadHandler.text);
+            uploadScoreUI.transform.rotation = Quaternion.identity;
+            uploadScoreUI.sprite = uploadedSprite;
+            uploadScoreUI.color = new Color(1, 1, 1, 0.75f);
         }
     }
 
@@ -383,6 +392,9 @@ public class GameManager : MonoBehaviour
     // Code for start of script
     public void Start()
     {
+        uploadScoreUI.sprite = null;
+        uploadScoreUI.color = new Color(1, 1, 1, 0f);
+
         LoadUsername();
         if (playerLanguage == "" || playerUsername == null)
         {
@@ -556,6 +568,11 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
+        if (uploadScoreUI.sprite == loadingSprite)
+        {
+            uploadScoreUI.transform.Rotate(0, 0, 10, Space.Self);
+        }
+
         WhiteC = new Color(1f, 1f, 1f, 1f);
 
         // Pick colour palette
@@ -671,20 +688,6 @@ public class GameManager : MonoBehaviour
         nameFillInText.text = language.Name;
         okButtonText.text = language.OK;
 
-        // Check internet connection
-        
-
-        // Check network connection
-
-
-        if (networkConnection == true)
-        {
-            connectionUI.sprite = connectionTrue;
-        } else
-        {
-            connectionUI.sprite = connectionFalse;
-        }
-
         if (paused == false)
         {
             Time.timeScale = 1.0f + (score / 9999.0f);
@@ -791,6 +794,8 @@ public class GameManager : MonoBehaviour
 
     public void ContinueButton()
     {
+        uploadScoreUI.sprite = null;
+        uploadScoreUI.color = new Color(1, 1, 1, 0f);
         ClearObstacles();
         canContinue = false;
         Time.timeScale = 1f;
