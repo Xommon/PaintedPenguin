@@ -58,7 +58,7 @@ public class Language : MonoBehaviour
     public Sprite hindi;
     public Sprite hungarian;
     public Sprite icelandic;
-    public Sprite inuit;
+    public Sprite mongolian;
     public Sprite italian;
     public Sprite japanese;
     public Sprite korean;
@@ -1173,7 +1173,7 @@ public class Language : MonoBehaviour
         HelloUsername = "Здрастуйте, " + gameManager.playerUsername + "!";
 
         // Game Over
-        GameOver = "ГРА ЗАВЕРШЕНА";
+        GameOver = "ГРА \nЗАВЕРШЕНА";
         Replay = "ПОВТОР";
         Continue = "ПРОДОВЖУВАТИ?";
 
@@ -1200,31 +1200,31 @@ public class Language : MonoBehaviour
     {
         // Main Menu
         GameTitle.text = "Пуффиныг \nбудсан";
-        StartButton = "البدء";
-        Score = "درجة عالية";
-        HelloUsername = "سلام, " + gameManager.playerUsername + "!";
+        StartButton = "СТАРТ";
+        Score = "ДЭЭД ОНОО";
+        HelloUsername = "Сайн уу, " + gameManager.playerUsername + "!";
 
         // Game Over
-        GameOver = "انتهت اللعبة";
-        Replay = "عاد عرض المسرحية";
-        Continue = "إستأنف؟";
+        GameOver = "ТОГЛОЛТ \nДУУСЛАА";
+        Replay = "ДАХИН АЧААЛЛАХ";
+        Continue = "ҮРГЭЛЖЛҮҮЛ";
 
         // Score
         ScoreUI = gameManager.score.ToString();
 
         // Pause
-        Paused = "توقف";
+        Paused = "ТҮР ЗОГСООВ";
 
         // High Scores
-        HighScores = "درجة عالية";
+        HighScores = "ДЭЭД ОНОО";
 
         // Username Input
-        Name = "اسم ...";
-        OK = "حسنا";
-        Warning1 = "لا يمكن أن تحتوي على مسافات أو *.";
-        Warning2 = "";
-        Flag.image.overrideSprite = arabic;
-        gameManager.playerLanguage = "Arabic";
+        Name = "Нэр ...";
+        OK = "Тийм Шүү";
+        Warning1 = "Хоосон зай буюу * байхгүй.";
+        Warning2 = "1-ээс 12 тэмдэгт байх ёстой.";
+        Flag.image.overrideSprite = mongolian;
+        gameManager.playerLanguage = "Mongolian";
         gameManager.XButtonLanguage();
     }
 
@@ -1238,7 +1238,7 @@ public class Language : MonoBehaviour
         HelloUsername = "Xin chào, " + gameManager.playerUsername + "!";
 
         // Game Over
-        GameOver = "TRÒ CHƠI KẾT THÚC";
+        GameOver = "TRÒ CHƠI \nKẾT THÚC";
         Replay = "PHÁT LẠI";
         Continue = "TIẾP TỤC?";
 

@@ -200,7 +200,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 26553915}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 814642395745757707}
+        m_MethodName: Vietnamese
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &26553915
@@ -2332,7 +2343,7 @@ GameObject:
   - component: {fileID: 382188783}
   - component: {fileID: 382188782}
   m_Layer: 5
-  m_Name: InuitButton
+  m_Name: MongolianButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2399,7 +2410,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 382188783}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 814642395745757707}
+        m_MethodName: Mongolian
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &382188783
@@ -2422,7 +2444,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 74adfbc1fd3fa794db42fd9c426be71b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 340738e151bb97e47b30a2667e8f9399, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7841,7 +7863,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1663752692}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 814642395745757707}
+        m_MethodName: Ukranian
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1663752692
@@ -7962,7 +7995,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1677314071}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 814642395745757707}
+        m_MethodName: Turkish
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1677314071
@@ -12089,7 +12133,7 @@ MonoBehaviour:
   hindi: {fileID: 21300000, guid: 141cb291a37539242a408a4baa5d3bef, type: 3}
   hungarian: {fileID: 21300000, guid: 68aa81447c6317441b9280e1392f81d6, type: 3}
   icelandic: {fileID: 21300000, guid: 2febbfedb5d8f4a498b8ecb64a659025, type: 3}
-  inuit: {fileID: 21300000, guid: 74adfbc1fd3fa794db42fd9c426be71b, type: 3}
+  mongolian: {fileID: 21300000, guid: 340738e151bb97e47b30a2667e8f9399, type: 3}
   italian: {fileID: 21300000, guid: bc5962be06bfe5d4bb2b0c7a89c4346c, type: 3}
   japanese: {fileID: 21300000, guid: 257890b4e5bc84343905e24a8ca91d40, type: 3}
   korean: {fileID: 21300000, guid: 9479321a47312204bb9b758befc929b7, type: 3}
