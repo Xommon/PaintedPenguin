@@ -15,19 +15,33 @@ public class GameManager : MonoBehaviour
     public GameObject pauseUI;
     public bool paused = false;
     public GameObject pauseButton;
+    public int colourblindMode;
+    public Image redImage;
+    public Image orangeImage;
+    public Image yellowImage;
+    public Image greenImage;
+    public Image blueImage;
+    public Image purpleImage;
 
     // Location
     public string playerRegion;
     public string playerCountry;
 
     // Colours
-    public Color WhiteC = new Color(1f, 1f, 1f, 1f);
-    public Color RedC = new Color(1f, 0.1f, 0.1f, 1f);
-    public Color OrangeC = new Color(1f, 0.5f, 0.1f, 1f);
-    public Color YellowC = new Color(1f, 1f, 0.1f, 1f);
-    public Color GreenC = new Color(0.1f, 1f, 0.1f, 1f);
-    public Color BlueC = new Color(0.1f, 0.2f, 1f, 1f);
-    public Color PurpleC = new Color(0.7f, 0.1f, 1f, 1f);
+    //[System.NonSerialized]
+    public Color WhiteC;
+    //[System.NonSerialized]
+    public Color RedC;
+    //[System.NonSerialized]
+    public Color OrangeC;
+    //[System.NonSerialized]
+    public Color YellowC;
+    //[System.NonSerialized]
+    public Color GreenC;
+    //[System.NonSerialized]
+    public Color BlueC;
+    //[System.NonSerialized]
+    public Color PurpleC;
 
     // Game components
     public bool on;
@@ -364,7 +378,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Invoke("GetDetails", 1.0f);
-    }
+}
 
     // Code for start of script
     public void Start()
@@ -517,6 +531,7 @@ public class GameManager : MonoBehaviour
                 SaveUsername(playerUsername, playerLanguage);
                 usernameInputUI.SetActive(false);
                 mainMenuUI.SetActive(true);
+                warningBoxText.text = "";
             }
         }
     }
@@ -541,7 +556,54 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
-        //Flag Testing
+        WhiteC = new Color(1f, 1f, 1f, 1f);
+
+        // Pick colour palette
+        if (colourblindMode == 0)
+        {
+            // Normal Vision
+            RedC = new Color(1f, 0.1f, 0.1f, 1f);
+            OrangeC = new Color(1f, 0.5f, 0.1f, 1f);
+            YellowC = new Color(1f, 1f, 0.1f, 1f);
+            GreenC = new Color(0.1f, 1f, 0.1f, 1f);
+            BlueC = new Color(0.1f, 0.2f, 1f, 1f);
+            PurpleC = new Color(0.7f, 0.1f, 1f, 1f);
+        }
+
+        if (colourblindMode == 1)
+        {
+            // Protanopia (Red/Green)
+            RedC = new Color(0.245283f, 0.243449f, 0f, 1f);
+            OrangeC = new Color(0.3584906f, 0.3584906f, 0.3584906f, 1f);
+            YellowC = new Color(1f, 0.985849f, 0.5613208f, 1f);
+            GreenC = new Color(0.7668899f, 0.7924528f, 0f, 1f);
+            BlueC = new Color(0f, 0.1828625f, 1f, 1f);
+            PurpleC = new Color(0.05743195f, 0.0520648f, 0.245283f, 1f);
+        }
+
+        if (colourblindMode == 2)
+        {
+            // Deuteranopia (Red/Green)
+            RedC = new Color(1f, 0.1f, 0.1f, 1f);
+            OrangeC = new Color(1f, 0.5f, 0.1f, 1f);
+            YellowC = new Color(1f, 1f, 0.1f, 1f);
+            GreenC = new Color(0.1f, 1f, 0.1f, 1f);
+            BlueC = new Color(0.1f, 0.2f, 1f, 1f);
+            PurpleC = new Color(0.7f, 0.1f, 1f, 1f);
+        }
+
+        if (colourblindMode == 3)
+        {
+            // Tritanopia (Blue/Yellow)
+            RedC = new Color(1f, 0.1f, 0.1f, 1f);
+            OrangeC = new Color(1f, 0.5f, 0.1f, 1f);
+            YellowC = new Color(1f, 1f, 0.1f, 1f);
+            GreenC = new Color(0.1f, 1f, 0.1f, 1f);
+            BlueC = new Color(0.1f, 0.2f, 1f, 1f);
+            PurpleC = new Color(0.7f, 0.1f, 1f, 1f);
+        }
+
+        // Location settings
         if (playerRegion == "" || playerRegion == null)
         {
             tableFlagUI.color = new Color(1, 1, 1, 0);
@@ -575,6 +637,14 @@ public class GameManager : MonoBehaviour
                 tableFlagUI.color = new Color(1, 1, 1, 1);
             }
         }
+
+        // Render menu colours to match in game colours
+        redImage.color = RedC;
+        orangeImage.color = OrangeC;
+        yellowImage.color = YellowC;
+        greenImage.color = GreenC;
+        blueImage.color = BlueC;
+        purpleImage.color = PurpleC;
 
         // Set up text based on language
         gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().text = language.GameTitle.text;

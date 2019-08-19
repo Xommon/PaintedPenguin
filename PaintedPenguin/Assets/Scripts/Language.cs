@@ -1130,7 +1130,136 @@ public class Language : MonoBehaviour
         gameManager.XButtonLanguage();
     }
 
+    public void Turkish()
+    {
+        // Main Menu
+        GameTitle.text = "Boyalı \nMartı";
+        GameTitle.font = lgcFont;
+        StartButton = "BAŞLAYA";
+        Score = "YÜKSEK SKOR";
+        HelloUsername = "Merhaba, " + gameManager.playerUsername + "!";
 
+        // Game Over
+        GameOver = "OYUN BİTTİ";
+        Replay = "TEKRAR";
+        Continue = "DEVAM ET?";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "DURDURULDU";
+
+        // High Scores
+        HighScores = "YÜKSEK SKOR";
+
+        // Username Input
+        Name = "Isim ...";
+        OK = "Tamam";
+        Warning1 = "Boşluk içeremez veya *.";
+        Warning2 = "1 ila 12 karakter arasında olmalıdır.";
+        Flag.image.overrideSprite = turkish;
+        gameManager.playerLanguage = "Turkish";
+        gameManager.XButtonLanguage();
+    }
+
+    public void Ukranian()
+    {
+        // Main Menu
+        GameTitle.text = "Пофарбована \nПуффін";
+        GameTitle.font = lgcFont;
+        StartButton = "СТАРТ";
+        Score = "ОЦІНКИ";
+        HelloUsername = "Здрастуйте, " + gameManager.playerUsername + "!";
+
+        // Game Over
+        GameOver = "ГРА ЗАВЕРШЕНА";
+        Replay = "ПОВТОР";
+        Continue = "ПРОДОВЖУВАТИ?";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "ПРИЗУПИНЕНО";
+
+        // High Scores
+        HighScores = "ОЦІНКИ";
+
+        // Username Input
+        Name = "Ім'я ...";
+        OK = "Добре";
+        Warning1 = "Не може бути пробілів або *.";
+        Warning2 = "Повинно бути від 1 до 12 символів.";
+        Flag.image.overrideSprite = ukranian;
+        gameManager.playerLanguage = "Ukranian";
+        gameManager.XButtonLanguage();
+    }
+
+    public void Mongolian()
+    {
+        // Main Menu
+        GameTitle.text = "Пуффиныг \nбудсан";
+        StartButton = "البدء";
+        Score = "درجة عالية";
+        HelloUsername = "سلام, " + gameManager.playerUsername + "!";
+
+        // Game Over
+        GameOver = "انتهت اللعبة";
+        Replay = "عاد عرض المسرحية";
+        Continue = "إستأنف؟";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "توقف";
+
+        // High Scores
+        HighScores = "درجة عالية";
+
+        // Username Input
+        Name = "اسم ...";
+        OK = "حسنا";
+        Warning1 = "لا يمكن أن تحتوي على مسافات أو *.";
+        Warning2 = "";
+        Flag.image.overrideSprite = arabic;
+        gameManager.playerLanguage = "Arabic";
+        gameManager.XButtonLanguage();
+    }
+
+    public void Vietnamese()
+    {
+        // Main Menu
+        GameTitle.text = "Sơn Puffin";
+        GameTitle.font = lgcFont;
+        StartButton = "BẮT ĐẦU";
+        Score = "ĐIỂM CAO";
+        HelloUsername = "Xin chào, " + gameManager.playerUsername + "!";
+
+        // Game Over
+        GameOver = "TRÒ CHƠI KẾT THÚC";
+        Replay = "PHÁT LẠI";
+        Continue = "TIẾP TỤC?";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "TRÒ CHƠI BỊ \nTẠM DỪNG";
+
+        // High Scores
+        HighScores = "ĐIỂM CAO";
+
+        // Username Input
+        Name = "Tên ...";
+        OK = "Được";
+        Warning1 = "Không thể chứa dấu cách hoặc *.";
+        Warning2 = "Phải có từ 1 đến 12 ký tự.";
+        Flag.image.overrideSprite = vietnamese;
+        gameManager.playerLanguage = "Vietnamese";
+        gameManager.XButtonLanguage();
+    }
 
 
     public string toRoman(int score)
