@@ -130,7 +130,7 @@ public class GameManager : MonoBehaviour
                 newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
             } else
             {
-                if (PercentChance(100))
+                if (PercentChance(2))
                 {
                     int pick = Random.Range(1, 3);
                     if (pick == 1)
@@ -143,57 +143,85 @@ public class GameManager : MonoBehaviour
                         GameObject newpaint = Instantiate(timesTwo);
                         newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
                     }
-                }
-
-                if (obstaclePositions[0] == 0.7)
+                } else if (PercentChance(score/80.0f))
                 {
-                    if (newblock.transform.position.y > newblock2.transform.position.y)
+                    // If AIR is empty
+                    if (obstaclePositions[0] == 0.7f)
                     {
-                        newblock.GetComponent<Block>().moving = 0.5f;
-                    } else
-                    {
-                        newblock2.GetComponent<Block>().moving = 0.5f;
-                    }
-                }
-
-                // If the remaining space is in the air and block2 is on the ground
-                if (obstaclePositions[0] == 0.7) //&& newblock.transform.position.y == -0.9)
-                {
-                    // Move up
-                    Debug.Log(newblock2.transform.position.y);
-                    newblock2.GetComponent<Block>().moving = 0.5f;
-                }
-
-                // If the remaining space is in the water and block2 is on the ground
-                if (obstaclePositions[0].Equals(-0.9) && newblock2.transform.position.y == -0.1)
-                {
-                    // Move down
-                    newblock2.GetComponent<Block>().moving = -0.5f;
-                }
-
-                // If the remaining space is on the ground
-                if (obstaclePositions[0].Equals(-0.1))
-                {
-                    // If block2 is in the air
-                    //if (newblock2.transform.position.y == 0.7)
-                    {
-                        // Move down
-                        newblock2.GetComponent<Block>().moving = -0.5f;
+                        // The block moves up
+                        if (newblock.transform.position.y > newblock2.transform.position.y)
+                        {
+                            newblock.GetComponent<Block>().moving = 0.5f;
+                            newblock.GetComponent<Block>().moveMax = 0.7f;
+                            newblock.GetComponent<Block>().moveMin = -0.1f;
+                        }
+                        else
+                        {
+                            newblock2.GetComponent<Block>().moving = 0.5f;
+                            newblock2.GetComponent<Block>().moveMax = 0.7f;
+                            newblock2.GetComponent<Block>().moveMin = -0.1f;
+                        }
                     }
 
-                    // If block2 is in the water
-                    //if (newblock2.transform.position.y == -0.9)
+                    // If WATER is empty
+                    if (obstaclePositions[0] == -0.9f)
                     {
-                        // Move up
-                        //newblock2.GetComponent<Block>().moving = 0.5f;
+                        // The block moves down
+                        if (newblock.transform.position.y < newblock2.transform.position.y)
+                        {
+                            newblock.GetComponent<Block>().moving = -0.5f;
+                            newblock.GetComponent<Block>().moveMax = -0.1f;
+                            newblock.GetComponent<Block>().moveMin = -0.9f;
+                        }
+                        else
+                        {
+                            newblock2.GetComponent<Block>().moving = -0.5f;
+                            newblock2.GetComponent<Block>().moveMax = -0.1f;
+                            newblock2.GetComponent<Block>().moveMin = -0.9f;
+                        }
+                    }
+
+                    // If GROUND is empty
+                    if (obstaclePositions[0] == -0.1f)
+                    {
+                        // The block moves down
+                        if (newblock.transform.position.y < newblock2.transform.position.y)
+                        {
+                            int pickBlock = Random.Range(1, 2);
+                            if (pickBlock == 1)
+                            {
+                                newblock.GetComponent<Block>().moving = 0.5f;
+                                newblock.GetComponent<Block>().moveMax = -0.1f;
+                                newblock.GetComponent<Block>().moveMin = -0.9f;
+                            } else
+                            {
+                                newblock2.GetComponent<Block>().moving = -0.5f;
+                                newblock2.GetComponent<Block>().moveMax = 0.7f;
+                                newblock2.GetComponent<Block>().moveMin = -0.1f;
+                            }
+                        }
+                        else
+                        {
+                            int pickBlock = Random.Range(1, 2);
+                            if (pickBlock == 1)
+                            {
+                                newblock.GetComponent<Block>().moving = -0.5f;
+                                newblock.GetComponent<Block>().moveMax = 0.7f;
+                                newblock.GetComponent<Block>().moveMin = -0.1f;
+                            }
+                            else
+                            {
+                                newblock2.GetComponent<Block>().moving = 0.5f;
+                                newblock2.GetComponent<Block>().moveMax = -0.1f;
+                                newblock2.GetComponent<Block>().moveMin = -0.9f;
+                            }
+                        }
                     }
                 }
-
             }
+
             timer = 0;
             score += 1;
-            //Debug.Log("remaining: " + obstaclePositions[0]);
-            //Debug.Log("y: " + newblock2.transform.position.y);
         }
         timer += Time.deltaTime;
     }

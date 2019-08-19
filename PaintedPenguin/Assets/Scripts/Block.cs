@@ -10,13 +10,13 @@ public class Block : MonoBehaviour
     public bool hit = false;
     public int price;
     public float moving;
+    public float moveMax;
+    public float moveMin;
 
     private void Start()
     {
         // Set price
         int price = Random.Range(1, 4);
-
-        Invoke("Switch", 1.0f);
 
         // Randomly choose paint's colour
         int roll = Random.Range(1, 7); // Between 1 and 6
@@ -64,19 +64,25 @@ public class Block : MonoBehaviour
         transform.position += Vector3.left * 0.75f * Time.deltaTime;
 
         // Blocks move up and down
-        transform.position += Vector3.up * moving * 1.5f * Time.deltaTime;
+        transform.position += Vector3.up * moving * 1.0f * Time.deltaTime;
 
         // Destroy if out of scene
         if (transform.position.x < -0.9)
         {
             GameObject.Destroy(gameObject);
         }
-    }
 
+        if (moveMax != 0 && moveMin != 0)
+        {
+            if (gameObject.transform.position.y >= moveMax)
+            {
+                moving *= -1;
+            }
 
-    public void Switch()
-    {
-        moving *= -1;
-        Invoke("Switch", 1.0f);
+            if (gameObject.transform.position.y <= moveMin)
+            {
+                moving *= -1;
+            }
+        }
     }
 }
