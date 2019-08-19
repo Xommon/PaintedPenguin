@@ -50,6 +50,7 @@ public class Language : MonoBehaviour
     public Sprite danish;
     public Sprite dutch;
     public Sprite english;
+    public Sprite esperanto;
     public Sprite finnish;
     public Sprite french;
     public Sprite german;
@@ -58,11 +59,12 @@ public class Language : MonoBehaviour
     public Sprite hindi;
     public Sprite hungarian;
     public Sprite icelandic;
-    public Sprite mongolian;
+    public Sprite indonesian;
     public Sprite italian;
     public Sprite japanese;
     public Sprite korean;
     public Sprite latin;
+    public Sprite mongolian;
     public Sprite norwegian;
     public Sprite persian;
     public Sprite polish;
@@ -71,11 +73,11 @@ public class Language : MonoBehaviour
     public Sprite russian;
     public Sprite spanish;
     public Sprite swedish;
+    public Sprite tagalog;
     public Sprite thai;
     public Sprite turkish;
     public Sprite ukranian;
     public Sprite vietnamese;
-    public Sprite esperanto;
 
     // Languages
     public void English()
@@ -703,7 +705,38 @@ public class Language : MonoBehaviour
         gameManager.XButtonLanguage();
     }
 
-    // Inuit
+    public void Indonesian()
+    {
+        // Main Menu
+        GameTitle.text = "Puffin \nYang Dicat";
+        GameTitle.font = lgcFont;
+        StartButton = "MULAI";
+        Score = "SKOR";
+        HelloUsername = "Halo, " + gameManager.playerUsername + "!";
+
+        // Game Over
+        GameOver = "TAMAT";
+        Replay = "ULANGAN";
+        Continue = "TERUS?";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "DIJEDA";
+
+        // High Scores
+        HighScores = "SKOR";
+
+        // Username Input
+        Name = "Nama ...";
+        OK = "Oke";
+        Warning1 = "Tidak dapat memuat spasi atau *.";
+        Warning2 = "Harus antara 1 dan 12 karakter.";
+        Flag.image.overrideSprite = indonesian;
+        gameManager.playerLanguage = "Indonesian";
+        gameManager.XButtonLanguage();
+    }
 
     public void Italian()
     {
@@ -1096,6 +1129,39 @@ public class Language : MonoBehaviour
         Warning2 = "Måste vara mellan 1 och 12 tecken.";
         Flag.image.overrideSprite = swedish;
         gameManager.playerLanguage = "Swedish";
+        gameManager.XButtonLanguage();
+    }
+
+    public void Tagalog()
+    {
+        // Main Menu
+        GameTitle.text = "Ipininta Puffin";
+        GameTitle.font = lgcFont;
+        StartButton = "MAGSIMULA";
+        Score = "MATAAS NA ISKOR";
+        HelloUsername = "Kamusta, " + gameManager.playerUsername + "!";
+
+        // Game Over
+        GameOver = "TAPOS NA ANG LARO";
+        Replay = "SIMULAN MULI";
+        Continue = "NILALAMAN?";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "PAUSTO";
+
+        // High Scores
+        HighScores = "MATAAS NA ISKOR";
+
+        // Username Input
+        Name = "Pangalan ...";
+        OK = "Okey";
+        Warning1 = "Hindi ito maaaring maglaman ng mga puwang o *.";
+        Warning2 = "Kailangang maging 1 at 12 character.";
+        Flag.image.overrideSprite = tagalog;
+        gameManager.playerLanguage = "Tagalog";
         gameManager.XButtonLanguage();
     }
 
