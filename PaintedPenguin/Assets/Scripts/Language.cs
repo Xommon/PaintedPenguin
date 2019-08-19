@@ -75,6 +75,7 @@ public class Language : MonoBehaviour
     public Sprite turkish;
     public Sprite ukranian;
     public Sprite vietnamese;
+    public Sprite esperanto;
 
     // Languages
     public void English()
@@ -1261,6 +1262,38 @@ public class Language : MonoBehaviour
         gameManager.XButtonLanguage();
     }
 
+    public void Esperanto()
+    {
+        // Main Menu
+        GameTitle.text = "Pentrita \nPufino";
+        GameTitle.font = lgcFont;
+        StartButton = "KOMENCU";
+        Score = "SCOROJ";
+        HelloUsername = "Saluton, " + gameManager.playerUsername + "!";
+
+        // Game Over
+        GameOver = "LA LUDO \nFINIĜIS";
+        Replay = "REPARO";
+        Continue = "DAŬRIGU?";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "PAŬZIS";
+
+        // High Scores
+        HighScores = "ALTAJ SCOROJ";
+
+        // Username Input
+        Name = "Nomo ...";
+        OK = "OK";
+        Warning1 = "Ne povas enhavi spacojn aŭ *.";
+        Warning2 = "Devas esti inter 1 kaj 12 signoj.";
+        Flag.image.overrideSprite = esperanto;
+        gameManager.playerLanguage = "Esperanto";
+        gameManager.XButtonLanguage();
+    }
 
     public string toRoman(int score)
     {

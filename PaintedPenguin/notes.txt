@@ -6,11 +6,12 @@ ADDITIONS:
 - Sound effects
 - Intro splash
 - Tutorial
-- Colourblind Mode
+- Colourblind Mode + Save Setting
 - Baby puffin
 
 BUGS:
 - Space at the end of highscore list
+"View your Canvas, and use the four anchors on your UI elements. It'll take some adjusting, but it will resize to any screen. I'd recommend editing these on a 16:9 ratio to ensure it resizes correctly."
 - Some scripts/emojis don't appear on in-game highscore list
 - Some scripts/letters mess with UI placement
 - Arabic and Hebrew fix
