@@ -18,12 +18,12 @@ public class PlayerMovement : MonoBehaviour
     // Swipe controls
     public Vector3 swipeStartPosition;
     public Vector3 swipeEndPosition;
-    public float swipeMinDistance = 1000;
+    public float swipeMinDistance;
     public string swipeDirection;
 
     void Start()
     {
-        //Instantiate(CircleLoadingBar);
+        swipeMinDistance = 10.0f;
         timesTwoMode = 1;
         dead = false;
         animator.SetBool("dead", false);
