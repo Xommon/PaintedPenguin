@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public bool dead;
     public int colour;
     public int timesTwoMode;
-    public GameObject circleLoadingBar;
+    public GameObject loadingBarPrefab;
 
     // Swipe controls
     public Vector3 swipeStartPosition;
@@ -107,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
     {
         // Loading bar position
         Vector3 barPosition = Camera.main.WorldToScreenPoint(this.transform.position);
-        circleLoadingBar.transform.position = barPosition;
+        loadingBarPrefab.transform.position = barPosition;
 
         if (position == "ready")
         {
@@ -223,7 +223,7 @@ public class PlayerMovement : MonoBehaviour
     public void Rainbow(float seconds)
     {
         colour = 7;
-        GameObject loadingBar = Instantiate(circleLoadingBar);
+        GameObject loadingBar = Instantiate(loadingBarPrefab);
         RainbowCycle();
         Invoke("Unrainbow", seconds);
     }
@@ -291,7 +291,7 @@ public class PlayerMovement : MonoBehaviour
     public void TimesTwoMode(float seconds)
     {
         timesTwoMode = 2;
-        GameObject loadingBar = Instantiate(circleLoadingBar);
+        GameObject loadingBar = Instantiate(loadingBarPrefab);
         Invoke("UntimesTwoMode", seconds);
     }
 

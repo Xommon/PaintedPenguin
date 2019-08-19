@@ -130,7 +130,7 @@ public class GameManager : MonoBehaviour
                 newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
             } else
             {
-                if (PercentChance(2))
+                if (PercentChance(100))
                 {
                     int pick = Random.Range(1, 3);
                     if (pick == 1)

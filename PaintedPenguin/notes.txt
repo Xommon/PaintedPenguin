@@ -11,8 +11,6 @@ ADDITIONS:
 - Baby puffin
 
 BUGS:
-- (?) Sprite shaking when score is higher
-- Player shifts when dying ON CONTINUED GAME
 - Circle bar doesn't follow player
 - Space at the end of highscore list
 - Some scripts/emojis don't appear on in-game highscore list

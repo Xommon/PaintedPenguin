@@ -9383,7 +9383,7 @@ Transform:
   m_LocalScale: {x: 1.263087, y: 1.1351581, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1885375890
 GameObject:
@@ -9690,7 +9690,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012592502098, guid: 481cfb28fcec19343b11e4b5249c4c36, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 61000013697923514, guid: 481cfb28fcec19343b11e4b5249c4c36,
         type: 3}
@@ -11464,6 +11464,12 @@ PrefabInstance:
       propertyPath: circleLoadingBar
       value: 
       objectReference: {fileID: 7540035268637291345, guid: 2c897b7ab0f02bf478db429b40018c72,
+        type: 3}
+    - target: {fileID: 5073945571518871174, guid: ec57f4535ec603946a7f03fa5bb07814,
+        type: 3}
+      propertyPath: loadingBarPrefab
+      value: 
+      objectReference: {fileID: 4690267391600531473, guid: eedcd1813fcf52d4eaf6eb86e54028e5,
         type: 3}
     - target: {fileID: 5073945571518871169, guid: ec57f4535ec603946a7f03fa5bb07814,
         type: 3}

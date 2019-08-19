@@ -7,7 +7,8 @@ public class LoadingBar : MonoBehaviour
 {
     public Transform loadingBarValue;
     public GameObject circleLoadingBar;
-    public GameObject player;
+    public PlayerMovement player;
+    public Image selfImage;
     public bool exists;
     [SerializeField] public float currentAmount;
     [SerializeField] public float speed;
@@ -15,7 +16,9 @@ public class LoadingBar : MonoBehaviour
     void Start()
     {
         currentAmount = 100;
+        player = FindObjectOfType<PlayerMovement>();
     }
+
     void Update()
     {
         if (currentAmount > 0)
@@ -27,9 +30,9 @@ public class LoadingBar : MonoBehaviour
         }
 
         loadingBarValue.GetComponent<Image>().fillAmount = currentAmount / 100;
-        
-        //gameObject.transform.position = Camera.main.WorldToScreenPoint(player.transform.position);
 
-        
+        gameObject.transform.position = Camera.main.WorldToScreenPoint(player.transform.position + new Vector3(0.25f, 0, 0));
+
+        selfImage.color = player.sr.color;
     }
 }
