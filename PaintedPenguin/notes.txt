@@ -12,7 +12,6 @@ ADDITIONS:
 
 BUGS:
 - (?) Sprite shaking when score is higher
-- Clipping when landing
 - Player shifts when dying ON CONTINUED GAME
 - Circle bar doesn't follow player
 - Space at the end of highscore list

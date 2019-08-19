@@ -9,12 +9,14 @@ public class Block : MonoBehaviour
     public SpriteRenderer sr;
     public bool hit = false;
     public int price;
-    public int moving;
+    public float moving;
 
     private void Start()
     {
         // Set price
         int price = Random.Range(1, 4);
+
+        Invoke("Switch", 1.0f);
 
         // Randomly choose paint's colour
         int roll = Random.Range(1, 7); // Between 1 and 6
@@ -62,12 +64,19 @@ public class Block : MonoBehaviour
         transform.position += Vector3.left * 0.75f * Time.deltaTime;
 
         // Blocks move up and down
-        transform.position += Vector3.up * moving * Time.deltaTime;
+        transform.position += Vector3.up * moving * 1.5f * Time.deltaTime;
 
         // Destroy if out of scene
         if (transform.position.x < -0.9)
         {
             GameObject.Destroy(gameObject);
         }
+    }
+
+
+    public void Switch()
+    {
+        moving *= -1;
+        Invoke("Switch", 1.0f);
     }
 }

@@ -115,14 +115,12 @@ public class GameManager : MonoBehaviour
             GameObject newblock = Instantiate(block);
             place = obstaclePositions[(Random.Range(0, 3))]; // 0, 1 or 2
             newblock.transform.position = transform.position + new Vector3(1, place, 0);
-            newblock.GetComponent<Block>().moving = 0;
             obstaclePositions.Remove(place);
 
             // Place second block
             GameObject newblock2 = Instantiate(block);
             place = obstaclePositions[(Random.Range(0, 2))]; // 0 or 1
             newblock2.transform.position = transform.position + new Vector3(1, place, 0);
-            newblock2.GetComponent<Block>().moving = 0;
             obstaclePositions.Remove(place);
 
             // Place paint
@@ -132,7 +130,7 @@ public class GameManager : MonoBehaviour
                 newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
             } else
             {
-                if (PercentChance(1.0f))
+                if (PercentChance(2))
                 {
                     int pick = Random.Range(1, 3);
                     if (pick == 1)
@@ -145,13 +143,57 @@ public class GameManager : MonoBehaviour
                         GameObject newpaint = Instantiate(timesTwo);
                         newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
                     }
-
-                    //if (obstaclePositions.Contains())
-                    //newblock2.GetComponent<Block>().moving = 1;
                 }
+
+                if (obstaclePositions[0] == 0.7)
+                {
+                    if (newblock.transform.position.y > newblock2.transform.position.y)
+                    {
+                        newblock.GetComponent<Block>().moving = 0.5f;
+                    } else
+                    {
+                        newblock2.GetComponent<Block>().moving = 0.5f;
+                    }
+                }
+
+                // If the remaining space is in the air and block2 is on the ground
+                if (obstaclePositions[0] == 0.7) //&& newblock.transform.position.y == -0.9)
+                {
+                    // Move up
+                    Debug.Log(newblock2.transform.position.y);
+                    newblock2.GetComponent<Block>().moving = 0.5f;
+                }
+
+                // If the remaining space is in the water and block2 is on the ground
+                if (obstaclePositions[0].Equals(-0.9) && newblock2.transform.position.y == -0.1)
+                {
+                    // Move down
+                    newblock2.GetComponent<Block>().moving = -0.5f;
+                }
+
+                // If the remaining space is on the ground
+                if (obstaclePositions[0].Equals(-0.1))
+                {
+                    // If block2 is in the air
+                    //if (newblock2.transform.position.y == 0.7)
+                    {
+                        // Move down
+                        newblock2.GetComponent<Block>().moving = -0.5f;
+                    }
+
+                    // If block2 is in the water
+                    //if (newblock2.transform.position.y == -0.9)
+                    {
+                        // Move up
+                        //newblock2.GetComponent<Block>().moving = 0.5f;
+                    }
+                }
+
             }
             timer = 0;
             score += 1;
+            //Debug.Log("remaining: " + obstaclePositions[0]);
+            //Debug.Log("y: " + newblock2.transform.position.y);
         }
         timer += Time.deltaTime;
     }

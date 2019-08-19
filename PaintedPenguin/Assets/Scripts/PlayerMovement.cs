@@ -112,7 +112,6 @@ public class PlayerMovement : MonoBehaviour
         if (position == "ready")
         {
             // Player is out of sight, ready to start
-            //transform.position = new Vector3(-1.0f, -0.075f, 0);
             rb.MovePosition(new Vector2(-1.0f, -0.075f));
             animator.SetBool("jumping", false);
             animator.SetBool("falling", false);
@@ -128,7 +127,6 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("dead", false);
 
             // Start game if player is in position, start the game
-            //if (transform.position.x >= -0.33)
             if (rb.position.x >= -0.33)
             {
                 gameManager.on = true;
@@ -140,7 +138,6 @@ public class PlayerMovement : MonoBehaviour
         if (dead == false)
         {
             // Snap to ground if walking
-            //if (transform.position.y != -0.075 && position == "walking")
             if (rb.position.y != -0.075 && position == "walking")
             {
                 //transform.position = new Vector3(-0.33f, -0.075f, 0);
@@ -151,8 +148,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
             // Player starts walking if it falls to the ground or resurfaces from water
-            //if ((transform.position.y <= -0.075 && position == "falling") || ((transform.position.y >= -0.075) && position == "resurfacing"))
-            if ((rb.position.y <= -0.075 && position == "falling") || ((rb.position.y >= -0.075) && position == "resurfacing"))
+            if ((rb.position.y <= -0.010 && position == "falling") || ((rb.position.y >= -0.140) && position == "resurfacing"))
             {
                 position = "walking";
                 animator.SetBool("falling", false);
