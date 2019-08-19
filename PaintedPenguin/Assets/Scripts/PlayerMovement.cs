@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
-        if (gameManager.paused == false && position == "walking")
+        if (gameManager.paused == false && position == "walking" && dead == false)
         {
             //transform.position = new Vector3(-0.33f, -0.075f, 0);
             rb.MovePosition(new Vector2(-0.33f, -0.075f));
@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Dive()
     {
-        if (gameManager.paused == false && position == "walking")
+        if (gameManager.paused == false && position == "walking" && dead == false)
         {
             //transform.position = new Vector3(-0.33f, -0.075f, 0);
             rb.MovePosition(new Vector2(-0.33f, -0.075f));
