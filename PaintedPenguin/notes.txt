@@ -3,11 +3,11 @@ ADDITIONS:
 - Analytics
 - Redo art and background
 	- Collision effect with blocks
+	- Baby puffin
 - Sound effects
-- Intro splash
 - Tutorial
 - Colourblind Mode + Save Setting
-- Baby puffin
+
 
 BUGS:
 - Space at the end of highscore list
