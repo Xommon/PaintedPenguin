@@ -156,7 +156,7 @@ public class GameManager : MonoBehaviour
                         GameObject newpaint = Instantiate(timesTwo);
                         newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
                     }
-                } else if (PercentChance(100))//PercentChance(score/80.0f))
+                } else if (PercentChance(score/80.0f))
                 {
                     // If AIR is empty
                     if (obstaclePositions[0] == 0.7f)
