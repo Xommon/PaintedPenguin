@@ -1267,6 +1267,7 @@ public class Language : MonoBehaviour
     {
         // Main Menu
         GameTitle.text = "Пуффиныг \nбудсан";
+        GameTitle.font = lgcFont;
         StartButton = "СТАРТ";
         Score = "ДЭЭД ОНОО";
         HelloUsername = "Сайн уу, " + gameManager.playerUsername + "!";

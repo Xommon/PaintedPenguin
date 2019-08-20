@@ -6,7 +6,7 @@ ADDITIONS:
 	- Baby puffin
 - Sound effects
 - Tutorial
-- Colourblind Mode + Save Setting
+- Colour Editor + Save Setting
 
 
 BUGS:

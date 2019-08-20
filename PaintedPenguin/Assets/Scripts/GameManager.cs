@@ -98,6 +98,7 @@ public class GameManager : MonoBehaviour
     public GameObject paint;
     public GameObject rainbow;
     public GameObject timesTwo;
+    public GameObject spikeBall;
     float place;
     public List<float> obstaclePositions = new List<float>();
 
@@ -155,7 +156,7 @@ public class GameManager : MonoBehaviour
                         GameObject newpaint = Instantiate(timesTwo);
                         newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
                     }
-                } else if (PercentChance(score/80.0f))
+                } else if (PercentChance(100))//PercentChance(score/80.0f))
                 {
                     // If AIR is empty
                     if (obstaclePositions[0] == 0.7f)
@@ -229,7 +230,43 @@ public class GameManager : MonoBehaviour
                             }
                         }
                     }
+                    else if (PercentChance(100))
+                    {
+                        if (obstaclePositions[0] == -0.1f || obstaclePositions[0] == -0.9f || obstaclePositions[0] == 0.7f)
+                        {
+                            GameObject newpaint = Instantiate(spikeBall);
+                            newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
+
+                            if (obstaclePositions[0] == 0.7f)
+                            {
+                                newpaint.GetComponent<SpikeBall>().moving = -1f;
+                            }
+
+                            if (obstaclePositions[0] == -0.9f)
+                            {
+                                newpaint.GetComponent<SpikeBall>().moving = 1f;
+                            }
+
+                            if (obstaclePositions[0] == -0.1f)
+                            {
+                                int pickSpikeBall = Random.Range(1, 2);
+
+                                if (pickSpikeBall == 1)
+                                {
+                                    newpaint.GetComponent<SpikeBall>().moving = -1f;
+                                }
+                                else
+                                {
+                                    newpaint.GetComponent<SpikeBall>().moving = 1f;
+                                }
+                            }
+
+                            newpaint.GetComponent<SpikeBall>().moveMax = 0.7f;
+                            newpaint.GetComponent<SpikeBall>().moveMin = -0.9f;
+                        }
+                    }
                 }
+                
             }
 
             timer = 0;
@@ -777,6 +814,12 @@ public class GameManager : MonoBehaviour
         {
             Destroy(obstacles[i]);
         }
+
+        obstacles = GameObject.FindGameObjectsWithTag("SpikeBall");
+        for (int i = 0; i < obstacles.Length; i++)
+        {
+            Destroy(obstacles[i]);
+        }
     }
 
     public void ContinueButton()
@@ -784,6 +827,10 @@ public class GameManager : MonoBehaviour
         uploadScoreUI.sprite = null;
         uploadScoreUI.color = new Color(1, 1, 1, 0f);
         ClearObstacles();
+        if (player.colour == 7)
+        {
+            player.colour = 0;
+        }
         canContinue = false;
         Time.timeScale = 1f;
         player.dead = false;

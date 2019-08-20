@@ -340,6 +340,11 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        if (collision.transform.tag == "SpikeBall")
+        {
+            KillPlayer();
+        }
+
         if (collision.transform.tag == "Paint")
         {
             if (colour != 7)

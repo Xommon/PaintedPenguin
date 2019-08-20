@@ -10,6 +10,7 @@ TagManager:
   - TimesTwo
   - LoadingBar
   - Flag
+  - SpikeBall
   layers:
   - Default
   - TransparentFX
