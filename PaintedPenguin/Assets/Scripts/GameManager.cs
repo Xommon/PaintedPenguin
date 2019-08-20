@@ -400,7 +400,7 @@ public class GameManager : MonoBehaviour
         }
         else if (playerRegion == "Catalonia")
         {
-            playerCountry = "catalonia";
+            playerCountry = "ct";
         }
         else if (playerRegion == "Pais Vasco")
         {
@@ -423,7 +423,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Invoke("GetDetails", 1.0f);
-}
+    }
 
     // Code for start of script
     public void Start()
@@ -546,6 +546,7 @@ public class GameManager : MonoBehaviour
 
     public void XButtonLanguage()
     {
+        language.UpdateFontSettings();
         languageTableUI.SetActive(false);
         usernameInputUI.SetActive(true);
     }
@@ -592,6 +593,7 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
+        // Rotate Loading Sprite
         if (uploadScoreUI.sprite == loadingSprite)
         {
             uploadScoreUI.transform.Rotate(0, 0, 10, Space.Self);

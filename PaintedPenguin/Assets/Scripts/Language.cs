@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using RTLTMPro;
 
 public class Language : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class Language : MonoBehaviour
     public GameManager gameManager;
     public TMP_FontAsset lgcFont;
     public TMP_FontAsset cjkFont;
+    public TMP_FontAsset apuFont;
+    public TMP_FontAsset tlbFont;
+    public TMP_FontAsset hindiFont;
     
     // Main Menu
     public TMP_Text GameTitle;
@@ -84,7 +88,6 @@ public class Language : MonoBehaviour
     {
         // Main Menu
         GameTitle.text = "Painted Puffin";
-        GameTitle.font = lgcFont;
         StartButton = "START";
         Score = "SCORE";
         HelloUsername = "Hello, " + gameManager.playerUsername + "!";
@@ -149,7 +152,6 @@ public class Language : MonoBehaviour
     {
         // Main Menu
         GameTitle.text = "Painted Puffin";
-        GameTitle.font = lgcFont;
         StartButton = "START";
         Score = "REZULTATI";
         HelloUsername = "Zdravo, " + gameManager.playerUsername + "!";
@@ -182,7 +184,6 @@ public class Language : MonoBehaviour
     {
         // Main Menu
         GameTitle.text = "Пейнтед \nТупик";
-        GameTitle.font = lgcFont;
         StartButton = "СТАРТ";
         Score = "ВИСОКА ОЦЕНКА";
         HelloUsername = "Здрасти, " + gameManager.playerUsername + "!";
@@ -215,7 +216,6 @@ public class Language : MonoBehaviour
     {
         // Main Menu
         GameTitle.text = "Puffin Pintat";
-        GameTitle.font = lgcFont;
         StartButton = "COMENÇAR";
         Score = "PUNTUACIONS";
         HelloUsername = "Hola, " + gameManager.playerUsername + "!";
@@ -248,7 +248,6 @@ public class Language : MonoBehaviour
     {
         // Main Menu
         GameTitle.text = "彩繪松餅";
-        GameTitle.font = cjkFont;
         StartButton = "初時";
         Score = "高分";
         HelloUsername = "你好, " + gameManager.playerUsername + "！";
@@ -281,7 +280,6 @@ public class Language : MonoBehaviour
     {
         // Main Menu
         GameTitle.text = "画海雀";
-        GameTitle.font = cjkFont;
         StartButton = "开始";
         Score = "高分数";
         HelloUsername = "你好, " + gameManager.playerUsername + "！";
@@ -314,7 +312,6 @@ public class Language : MonoBehaviour
     {
         // Main Menu
         GameTitle.text = "画海雀";
-        GameTitle.font = cjkFont;
         StartButton = "开始";
         Score = "高分数";
         HelloUsername = "你好, " + gameManager.playerUsername + "！";
@@ -347,7 +344,6 @@ public class Language : MonoBehaviour
     {
         // Main Menu
         GameTitle.text = "Malovaný \nPuffin";
-        GameTitle.font = lgcFont;
         StartButton = "START";
         Score = "SKÓRE";
         HelloUsername = "Ahoj, " + gameManager.playerUsername + "!";
@@ -380,7 +376,6 @@ public class Language : MonoBehaviour
     {
         // Main Menu
         GameTitle.text = "Painted \nPuffin";
-        GameTitle.font = lgcFont;
         StartButton = "START";
         Score = "SCORER";
         HelloUsername = "Hej, " + gameManager.playerUsername + "!";
@@ -413,7 +408,6 @@ public class Language : MonoBehaviour
     {
         // Main Menu
         GameTitle.text = "Painted \nPuffin";
-        GameTitle.font = lgcFont;
         StartButton = "START";
         Score = "SCORES";
         HelloUsername = "Hallo, " + gameManager.playerUsername + "!";
@@ -446,7 +440,6 @@ public class Language : MonoBehaviour
     {
         // Main Menu
         GameTitle.text = "Maalattu \nLunni";
-        GameTitle.font = lgcFont;
         StartButton = "ALKAA";
         Score = "TULOKSET";
         HelloUsername = "Hei, " + gameManager.playerUsername + "!";
@@ -479,7 +472,6 @@ public class Language : MonoBehaviour
     {
         // Main Menu
         GameTitle.text = "Macareux Peint";
-        GameTitle.font = lgcFont;
         StartButton = "DÉBUT";
         Score = "SCORES";
         HelloUsername = "Bonjour, " + gameManager.playerUsername + "!";
@@ -512,7 +504,6 @@ public class Language : MonoBehaviour
     {
         // Main Menu
         GameTitle.text = "Painted Puffin";
-        GameTitle.font = lgcFont;
         StartButton = "START";
         Score = "PUNKTZAHLEN";
         HelloUsername = "Hallo, " + gameManager.playerUsername + "!";
@@ -545,7 +536,6 @@ public class Language : MonoBehaviour
     {
         // Main Menu
         GameTitle.text = "Παιντεδ \nΠόφφιν";
-        GameTitle.font = lgcFont;
         StartButton = "ΕΝΑΡΞΗ";
         Score = "ΥΨΗΛΑ ΣΚΟΡ";
         HelloUsername = "Γεια, " + gameManager.playerUsername + "!";
@@ -578,7 +568,6 @@ public class Language : MonoBehaviour
     {
         // Main Menu
         GameTitle.text = "פאפין צבוע";
-        GameTitle.font = lgcFont;
         StartButton = "התחל";
         Score = "ציונים גבוהים";
         HelloUsername = "שלום, " + gameManager.playerUsername + "!";
@@ -643,7 +632,6 @@ public class Language : MonoBehaviour
     {
         // Main Menu
         GameTitle.text = "Festett \nLunda";
-        GameTitle.font = lgcFont;
         StartButton = "START";
         Score = "PONTSZÁMOK";
         HelloUsername = "Szia, " + gameManager.playerUsername + "!";
@@ -676,7 +664,6 @@ public class Language : MonoBehaviour
     {
         // Main Menu
         GameTitle.text = "Máluð \nLunda";
-        GameTitle.font = lgcFont;
         StartButton = "BYRJA";
         Score = "SKORAR";
         HelloUsername = "Halló, " + gameManager.playerUsername + "!";
@@ -709,7 +696,6 @@ public class Language : MonoBehaviour
     {
         // Main Menu
         GameTitle.text = "Puffin \nYang Dicat";
-        GameTitle.font = lgcFont;
         StartButton = "MULAI";
         Score = "SKOR";
         HelloUsername = "Halo, " + gameManager.playerUsername + "!";
@@ -742,7 +728,6 @@ public class Language : MonoBehaviour
     {
         // Main Menu
         GameTitle.text = "Puffino \nDipinto";
-        GameTitle.font = lgcFont;
         StartButton = "INIZIO";
         Score = "PUNTEGGI";
         HelloUsername = "Ciao, " + gameManager.playerUsername + "!";
@@ -775,7 +760,6 @@ public class Language : MonoBehaviour
     {
         // Main Menu
         GameTitle.text = "ツノメドリ\nペイント";
-        GameTitle.font = cjkFont;
         StartButton = "スタート";
         Score = "スコア";
         HelloUsername = "こんにちは, " + gameManager.playerUsername + "！";
@@ -840,7 +824,6 @@ public class Language : MonoBehaviour
     {
         // Main Menu
         GameTitle.text = "Painted Puffin";
-        GameTitle.font = lgcFont;
         StartButton = "INITIUM";
         Score = "GRADUS";
         HelloUsername = "Salve, " + gameManager.playerUsername + "!";
@@ -873,7 +856,6 @@ public class Language : MonoBehaviour
     {
         // Main Menu
         GameTitle.text = "Painted \nPuffin";
-        GameTitle.font = lgcFont;
         StartButton = "START";
         Score = "REKORDER";
         HelloUsername = "Hei, " + gameManager.playerUsername + "!";
@@ -938,7 +920,6 @@ public class Language : MonoBehaviour
     {
         // Main Menu
         GameTitle.text = "Malowane \nMaskonur";
-        GameTitle.font = lgcFont;
         StartButton = "POCZĄTEK";
         Score = "WYSOKI WYNIK";
         HelloUsername = "Cześć, " + gameManager.playerUsername + "!";
@@ -971,7 +952,6 @@ public class Language : MonoBehaviour
     {
         // Main Menu
         GameTitle.text = "Papagaio-do-Mar \nPintado";
-        GameTitle.font = lgcFont;
         StartButton = "COMEÇAR";
         Score = "PONTUAÇÃO";
         HelloUsername = "Olá, " + gameManager.playerUsername + "!";
@@ -1004,7 +984,6 @@ public class Language : MonoBehaviour
     {
         // Main Menu
         GameTitle.text = "Puffin Pictat";
-        GameTitle.font = lgcFont;
         StartButton = "START";
         Score = "SCOR";
         HelloUsername = "Olá, " + gameManager.playerUsername + "!";
@@ -1037,7 +1016,6 @@ public class Language : MonoBehaviour
     {
         // Main Menu
         GameTitle.text = "Окрашенная \nМорская Птица";
-        GameTitle.font = lgcFont;
         StartButton = "СТАРТ";
         Score = "РЕКОРДЫ";
         HelloUsername = "Привет, " + gameManager.playerUsername + "!";
@@ -1070,7 +1048,6 @@ public class Language : MonoBehaviour
     {
         // Main Menu
         GameTitle.text = "Frailecillo \nPintado";
-        GameTitle.font = lgcFont;
         StartButton = "COMIENZO";
         Score = "PUNTUACIÓN";
         HelloUsername = "Hola, " + gameManager.playerUsername + "!";
@@ -1103,7 +1080,6 @@ public class Language : MonoBehaviour
     {
         // Main Menu
         GameTitle.text = "Painted \nPuffin";
-        GameTitle.font = lgcFont;
         StartButton = "START";
         Score = "REKORD";
         HelloUsername = "Hej, " + gameManager.playerUsername + "!";
@@ -1136,7 +1112,6 @@ public class Language : MonoBehaviour
     {
         // Main Menu
         GameTitle.text = "Ipininta Puffin";
-        GameTitle.font = lgcFont;
         StartButton = "MAGSIMULA";
         Score = "MATAAS NA ISKOR";
         HelloUsername = "Kamusta, " + gameManager.playerUsername + "!";
@@ -1168,7 +1143,7 @@ public class Language : MonoBehaviour
     public void Thai()
     {
         // Main Menu
-        GameTitle.text = "นกพัฟฟินท์ทาสี";
+        GameTitle.text = "นกพัฟฟินท์\nทาสี";
         StartButton = "เริ่มต้น";
         Score = "คะแนนสูง";
         HelloUsername = "สวัสดี, " + gameManager.playerUsername + "!";
@@ -1201,7 +1176,6 @@ public class Language : MonoBehaviour
     {
         // Main Menu
         GameTitle.text = "Boyalı \nMartı";
-        GameTitle.font = lgcFont;
         StartButton = "BAŞLAYA";
         Score = "YÜKSEK SKOR";
         HelloUsername = "Merhaba, " + gameManager.playerUsername + "!";
@@ -1234,7 +1208,6 @@ public class Language : MonoBehaviour
     {
         // Main Menu
         GameTitle.text = "Пофарбована \nПуффін";
-        GameTitle.font = lgcFont;
         StartButton = "СТАРТ";
         Score = "ОЦІНКИ";
         HelloUsername = "Здрастуйте, " + gameManager.playerUsername + "!";
@@ -1267,7 +1240,6 @@ public class Language : MonoBehaviour
     {
         // Main Menu
         GameTitle.text = "Пуффиныг \nбудсан";
-        GameTitle.font = lgcFont;
         StartButton = "СТАРТ";
         Score = "ДЭЭД ОНОО";
         HelloUsername = "Сайн уу, " + gameManager.playerUsername + "!";
@@ -1300,7 +1272,6 @@ public class Language : MonoBehaviour
     {
         // Main Menu
         GameTitle.text = "Sơn Puffin";
-        GameTitle.font = lgcFont;
         StartButton = "BẮT ĐẦU";
         Score = "ĐIỂM CAO";
         HelloUsername = "Xin chào, " + gameManager.playerUsername + "!";
@@ -1333,7 +1304,6 @@ public class Language : MonoBehaviour
     {
         // Main Menu
         GameTitle.text = "Pentrita \nPufino";
-        GameTitle.font = lgcFont;
         StartButton = "KOMENCU";
         Score = "SCOROJ";
         HelloUsername = "Saluton, " + gameManager.playerUsername + "!";
@@ -1360,6 +1330,38 @@ public class Language : MonoBehaviour
         Flag.image.overrideSprite = esperanto;
         gameManager.playerLanguage = "Esperanto";
         gameManager.XButtonLanguage();
+    }
+
+    public void UpdateFontSettings()
+    {
+        /// Game Title
+        // Font
+        if (gameManager.playerLanguage == "Mandarin" || gameManager.playerLanguage == "Taiwanese" || gameManager.playerLanguage == "Cantonese" || gameManager.playerLanguage == "Japanese" || gameManager.playerLanguage == "Korean")
+        {
+            gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().font = cjkFont;
+        } else if (gameManager.playerLanguage == "Arabic" || gameManager.playerLanguage == "Persian" || gameManager.playerLanguage == "Urdu")
+        {
+            gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().font = apuFont;
+        } else if (gameManager.playerLanguage == "Thai")
+        {
+            gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().font = tlbFont;
+        }
+        else
+        {
+            gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().font = lgcFont;
+        }
+
+        // LowerCase
+        if (gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().fontStyle != FontStyles.LowerCase)
+        {
+            gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().fontStyle = FontStyles.LowerCase;
+        }
+
+        // Bold
+        if (gameManager.playerLanguage != "Mandarin" && gameManager.playerLanguage != "Cantonese" && gameManager.playerLanguage != "Taiwanese" && gameManager.playerLanguage != "Korean")
+        {
+            gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().fontStyle ^= FontStyles.Bold;
+        }
     }
 
     public string toRoman(int score)

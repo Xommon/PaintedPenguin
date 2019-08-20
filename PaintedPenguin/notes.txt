@@ -15,6 +15,7 @@ BUGS:
 - Arabic and Hebrew fix
 - Perfect anchoring of UI elements
 - Change Libya, Kosovo flags (maybe some others?)
+- Title doesn't remain in language on startup
 
 DON'T FORGET:
 - SWITCH MONETIZATION SWIPE TO FALSE
