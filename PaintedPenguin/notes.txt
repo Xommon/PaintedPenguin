@@ -10,14 +10,11 @@ ADDITIONS:
 
 
 BUGS:
-- Space at the end of highscore list
-"View your Canvas, and use the four anchors on your UI elements. It'll take some adjusting, but it will resize to any screen. I'd recommend editing these on a 16:9 ratio to ensure it resizes correctly."
 - Some scripts/emojis don't appear on in-game highscore list
 - Some scripts/letters mess with UI placement
 - Arabic and Hebrew fix
 - Perfect anchoring of UI elements
-- Flag placement in high score list is inconsistent
-- Change Libya flag (maybe some others?)
+- Change Libya, Kosovo flags (maybe some others?)
 
 DON'T FORGET:
 - SWITCH MONETIZATION SWIPE TO FALSE

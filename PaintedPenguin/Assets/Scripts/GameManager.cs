@@ -60,10 +60,8 @@ public class GameManager : MonoBehaviour
     const string webURL = "dreamlo.com/lb/";
     public Highscore[] highScoresList;
     public GameObject highScoreTableUI;
-    public Text tableScoreUI;
-    public Text tableUsernameUI;
-    public Text tablePlaceUI;
-    public GameObject tableCountryUI;
+    public GameObject tableInfoUI;
+    public GameObject tableScoreUI;
     public Image tableFlagUI;
     public Sprite defaultFlag;
     public GameObject usernameInputUI;
@@ -425,41 +423,38 @@ public class GameManager : MonoBehaviour
     public void OnHighscoresDownloaded(Highscore[] highscoreList)
     {
         // Clear all display text and flags
-        tablePlaceUI.text = "";
-        tableUsernameUI.text = "";
-        tableScoreUI.text = "";
-        tableCountryUI.GetComponent<TMPro.TextMeshProUGUI>().text = "";
+        tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text = "";
+        tableScoreUI.GetComponent<TMPro.TextMeshProUGUI>().text = "";
 
         // Populate the score table
         for (int i = 0; i <= 99; i++)
         {
-            // Score
-            tableScoreUI.text += highscoreList[i].score + "\n";
+            // Place
+            if (i < 9)
+            {
+                tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += "00";
+            } else if (i > 8 && i < 99)
+            {
+                tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += "0";
+            }
 
-            // Username
-            tableUsernameUI.text += highscoreList[i].username + "\n";
+            tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += i + 1 + ": ";
 
             // Country
             if (highscoreList[i].country == null || highscoreList[i].country == "")
             {
-                tableCountryUI.GetComponent<TMPro.TextMeshProUGUI>().text += " \n";
-            } else
+                tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += "<sprite name=" + "\"none\"" + "> ";
+            }
+            else
             {
-                tableCountryUI.GetComponent<TMPro.TextMeshProUGUI>().text += "<sprite name=" + "\"" + highscoreList[i].country.ToLower() + "\"" + "> \n";
+                tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += "<sprite name=" + "\"" + highscoreList[i].country.ToLower() + "\"" + "> ";
             }
 
-            // Place
-            if (i < 9)
-            {
-                tablePlaceUI.text += "00";
-            }
+            // Username
+            tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += highscoreList[i].username + "\n";
 
-            if (i > 8 && i < 99)
-            {
-                tablePlaceUI.text += "0";
-            }
-
-            tablePlaceUI.text += i + 1 + ": \n";
+            // Score
+            tableScoreUI.GetComponent<TMPro.TextMeshProUGUI>().text += highscoreList[i].score + "\n";
         }
     }
 
