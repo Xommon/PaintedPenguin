@@ -17,6 +17,7 @@ BUGS:
 - Arabic and Hebrew fix
 - Perfect anchoring of UI elements
 - Flag placement in high score list is inconsistent
+- Change Libya flag (maybe some others?)
 
 DON'T FORGET:
 - SWITCH MONETIZATION SWIPE TO FALSE

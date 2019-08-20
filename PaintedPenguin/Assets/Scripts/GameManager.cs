@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Networking;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -48,7 +49,6 @@ public class GameManager : MonoBehaviour
     public int score;
     public PlayerMovement player;
     public bool canContinue;
-    public LoadingBar loadingBar;
     public Image uploadScoreUI;
     public Sprite loadingSprite;
     public Sprite uploadedSprite;
@@ -428,11 +428,7 @@ public class GameManager : MonoBehaviour
         tablePlaceUI.text = "";
         tableUsernameUI.text = "";
         tableScoreUI.text = "";
-        GameObject[] flags = GameObject.FindGameObjectsWithTag("Flag");
-        for (int i = 0; i < flags.Length; i++)
-        {
-            Destroy(flags[i]);
-        }
+        tableCountryUI.GetComponent<TMPro.TextMeshProUGUI>().text = "";
 
         // Populate the score table
         for (int i = 0; i <= 99; i++)
@@ -444,17 +440,12 @@ public class GameManager : MonoBehaviour
             tableUsernameUI.text += highscoreList[i].username + "\n";
 
             // Country
-            Image flag = Instantiate(tableFlagUI);
-            flag.transform.SetParent(tableCountryUI.transform);
-            flag.transform.position = new Vector3(39, 347f - (23f * i), 0); //23
-            flag.sprite = Resources.Load<Sprite>("Flags/" + highscoreList[i].country.ToLower());
-            if (flag.sprite == null)
+            if (highscoreList[i].country == null || highscoreList[i].country == "")
             {
-                flag.color = new Color(1, 1, 1, 0);
-            }
-            else
+                tableCountryUI.GetComponent<TMPro.TextMeshProUGUI>().text += " \n";
+            } else
             {
-                flag.color = new Color(1, 1, 1, 1);
+                tableCountryUI.GetComponent<TMPro.TextMeshProUGUI>().text += "<sprite name=" + "\"" + highscoreList[i].country.ToLower() + "\"" + "> \n";
             }
 
             // Place
