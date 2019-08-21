@@ -376,7 +376,7 @@ public class Language : MonoBehaviour
     public void Danish()
     {
         // Main Menu
-        GameTitle.text = "Painted \nPuffin";
+        GameTitle.text = "Malet \nLunde";
         StartButton = "START";
         Score = "SCORER";
         HelloUsername = "Hej, " + gameManager.playerUsername + "!";
@@ -408,7 +408,7 @@ public class Language : MonoBehaviour
     public void Dutch()
     {
         // Main Menu
-        GameTitle.text = "Painted \nPuffin";
+        GameTitle.text = "Geschilderde \nPapegaaiduiker";
         StartButton = "START";
         Score = "SCORES";
         HelloUsername = "Hallo, " + gameManager.playerUsername + "!";
@@ -504,7 +504,7 @@ public class Language : MonoBehaviour
     public void German()
     {
         // Main Menu
-        GameTitle.text = "Painted Puffin";
+        GameTitle.text = "Gemalter \nPapageientaucher";
         StartButton = "START";
         Score = "PUNKTZAHLEN";
         HelloUsername = "Hallo, " + gameManager.playerUsername + "!";
@@ -600,7 +600,8 @@ public class Language : MonoBehaviour
     public void Hindi()
     {
         // Main Menu
-        GameTitle.text = "पेंट पफिन";
+        GameTitle.text = "चित्रित पफिन";
+        GameTitle.text = "चित्रित पफिन";
         StartButton = "शुरु";
         Score = "उच्च स्कोर";
         HelloUsername = "नमस्ते, " + gameManager.playerUsername + "!";
@@ -824,7 +825,7 @@ public class Language : MonoBehaviour
     public void Latin()
     {
         // Main Menu
-        GameTitle.text = "Painted Puffin";
+        GameTitle.text = "Pictis \nMaris Avem";
         StartButton = "INITIUM";
         Score = "GRADUS";
         HelloUsername = "Salve, " + gameManager.playerUsername + "!";
@@ -856,7 +857,7 @@ public class Language : MonoBehaviour
     public void Norwegian()
     {
         // Main Menu
-        GameTitle.text = "Painted \nPuffin";
+        GameTitle.text = "Malt Lunde";
         StartButton = "START";
         Score = "REKORDER";
         HelloUsername = "Hei, " + gameManager.playerUsername + "!";
@@ -953,7 +954,7 @@ public class Language : MonoBehaviour
     public void Portuguese()
     {
         // Main Menu
-        GameTitle.text = "Papagaio-do-Mar \nPintado";
+        GameTitle.text = "Puffin \nPintado";
         StartButton = "COMEÇAR";
         Score = "PONTUAÇÃO";
         HelloUsername = "Olá, " + gameManager.playerUsername + "!";
@@ -1017,7 +1018,7 @@ public class Language : MonoBehaviour
     public void Russian()
     {
         // Main Menu
-        GameTitle.text = "Окрашенная \nМорская Птица";
+        GameTitle.text = "Окрашенная \nПуффин";
         StartButton = "СТАРТ";
         Score = "РЕКОРДЫ";
         HelloUsername = "Привет, " + gameManager.playerUsername + "!";
@@ -1081,7 +1082,7 @@ public class Language : MonoBehaviour
     public void Swedish()
     {
         // Main Menu
-        GameTitle.text = "Painted \nPuffin";
+        GameTitle.text = "Målad \nLunnefågel";
         StartButton = "START";
         Score = "REKORD";
         HelloUsername = "Hej, " + gameManager.playerUsername + "!";
@@ -1349,6 +1350,10 @@ public class Language : MonoBehaviour
         else if (gameManager.playerLanguage == "Thai")
         {
             gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().font = tlbFont;
+        }
+        else if (gameManager.playerLanguage == "Hindi")
+        {
+            gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().font = hindiFont;
         }
         else
         {

@@ -2525,7 +2525,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 153.65}
-  m_SizeDelta: {x: 275, y: 125.28}
+  m_SizeDelta: {x: 284, y: 125.28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &380443280
 MonoBehaviour:
@@ -2547,10 +2547,11 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Painted Puffin
+  m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
-  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: df5435d58f2fb084a81789670ec146e3, type: 2}
+  m_sharedMaterial: {fileID: -1910813151248332881, guid: df5435d58f2fb084a81789670ec146e3,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2575,14 +2576,14 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 62.3
+  m_fontSize: 36
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 36
   m_fontSizeMax: 84
   m_fontStyle: 9
-  m_textAlignment: 544
+  m_textAlignment: 1056
   m_characterSpacing: -2
   m_wordSpacing: 0
   m_lineSpacing: -30
@@ -2613,16 +2614,16 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -0.000001947987, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 380443280}
-    characterCount: 14
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 2
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -2641,7 +2642,7 @@ MonoBehaviour:
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
   preserveNumbers: 0
   farsi: 1
-  originalText: Painted Puffin
+  originalText: 
   fixTags: 1
   forceFix: 0
 --- !u!23 &380443281
@@ -12610,7 +12611,7 @@ MonoBehaviour:
   cjkFont: {fileID: 11400000, guid: 7259f503d0f160b46870fbf0f22a0d07, type: 2}
   apuFont: {fileID: 11400000, guid: 0bf9288488d18f941b89254928c24fda, type: 2}
   tlbFont: {fileID: 11400000, guid: be3e758628eb98141b661178404b353e, type: 2}
-  hindiFont: {fileID: 0}
+  hindiFont: {fileID: 11400000, guid: df5435d58f2fb084a81789670ec146e3, type: 2}
   GameTitle: {fileID: 380443280}
   StartButton: 
   Score: 

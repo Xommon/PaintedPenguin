@@ -414,6 +414,10 @@ public class GameManager : MonoBehaviour
         {
             playerCountry = "xk";
         }
+        else if (playerRegion == "Tibet")
+        {
+            playerCountry = "tb";
+        }
         else
         {
             playerCountry = Localizer.GetDetails["country_code"];
