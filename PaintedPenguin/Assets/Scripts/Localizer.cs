@@ -1,14 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
 
 public class Localizer : MonoBehaviour {
 
 	public static Dictionary<string, string> GetDetails = new Dictionary<string, string>();
-    public GameManager gameManager;
 
-    private void Awake()
+	private void Awake()
 	{
 		StartCoroutine(RequestAPI());
 	}
@@ -17,13 +15,14 @@ public class Localizer : MonoBehaviour {
 	{
 		WWWForm form = new WWWForm();
 		form.AddField("token", "gsbuLw212zicplXyhNS3DUgCs19HcoFG");
-		WWW www = new WWW("https://api.toolwareassets.com/v1/localizer/getlocation", form);
+        /// TEST IP ADDRESS
+        form.AddField("IP", "84.22.61.46");
+        WWW www = new WWW("https://api.toolwareassets.com/v1/localizer/getlocation", form);
 		yield return www;
-
 		if (www.error == "" || www.error == null)
 		{
 			Debug.Log(www.text);
-            string[]  results = www.text.Split('#');
+			string[] results = www.text.Split('#');
 			GetDetails.Add("ip", results[0]);
 			GetDetails.Add("delay", results[1]);
 			GetDetails.Add("city", results[2]);
@@ -38,7 +37,7 @@ public class Localizer : MonoBehaviour {
 			GetDetails.Add("currency_coverter", results[11]);
 			GetDetails.Add("os", SystemInfo.operatingSystem.ToString());
 			GetDetails.Add("device", SystemInfo.deviceType.ToString());
-        }
+		}
 		else
 		{
 			Debug.Log("Connection Error: " + www.error + " Details: " + www.text);

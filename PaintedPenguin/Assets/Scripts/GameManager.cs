@@ -417,6 +417,7 @@ public class GameManager : MonoBehaviour
         else
         {
             playerCountry = Localizer.GetDetails["country_code"];
+            
         }
     }
 
