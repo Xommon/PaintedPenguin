@@ -2524,8 +2524,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0012068, y: 153.65}
-  m_SizeDelta: {x: 301, y: 125.28}
+  m_AnchoredPosition: {x: 0, y: 153.65}
+  m_SizeDelta: {x: 275, y: 125.28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &380443280
 MonoBehaviour:
@@ -2579,8 +2579,8 @@ MonoBehaviour:
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 56
-  m_fontSizeMax: 72
+  m_fontSizeMin: 36
+  m_fontSizeMax: 84
   m_fontStyle: 9
   m_textAlignment: 544
   m_characterSpacing: -2
@@ -12154,7 +12154,7 @@ PrefabInstance:
         type: 3}
       propertyPath: gameTitleText
       value: 
-      objectReference: {fileID: 380443278}
+      objectReference: {fileID: 380443280}
     - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: startButtonText
@@ -12608,7 +12608,7 @@ MonoBehaviour:
   gameManager: {fileID: 1253002816}
   lgcFont: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   cjkFont: {fileID: 11400000, guid: 7259f503d0f160b46870fbf0f22a0d07, type: 2}
-  apuFont: {fileID: 11400000, guid: 2dee20f3a4ccf5c48a11a49076e3afb8, type: 2}
+  apuFont: {fileID: 11400000, guid: 0bf9288488d18f941b89254928c24fda, type: 2}
   tlbFont: {fileID: 11400000, guid: be3e758628eb98141b661178404b353e, type: 2}
   hindiFont: {fileID: 0}
   GameTitle: {fileID: 380443280}

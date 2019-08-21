@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
     public Language language;
     public GameObject languageTableUI;
 
-    public GameObject gameTitleText;
+    public TMP_Text gameTitleText;
     public Text startButtonText;
     public Text scoreButtonText;
     public Text helloUsernameText;

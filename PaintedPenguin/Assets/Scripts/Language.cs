@@ -119,7 +119,8 @@ public class Language : MonoBehaviour
     public void Arabic()
     {
         // Main Menu
-        GameTitle.text = "البفن الملون";
+        //GameTitle.text = "البفن الملون";
+        GameTitle.text = RTLSupport.FixRTL("رسمت البفن", true, false, false);
         StartButton = "البدء";
         Score = "درجة عالية";
         HelloUsername = "سلام, " + gameManager.playerUsername + "!";
@@ -887,7 +888,8 @@ public class Language : MonoBehaviour
     public void Persian()
     {
         // Main Menu
-        GameTitle.text = "پافین رنگ شده";
+        GameTitle.text = RTLSupport.FixRTL("پفین رنگ شده", true, false, true);
+        GameTitle.lineSpacing = -10;
         StartButton = "شروع کن";
         Score = "نمرات بالا";
         HelloUsername = "سلام, " + gameManager.playerUsername + "!";
@@ -1339,10 +1341,12 @@ public class Language : MonoBehaviour
         if (gameManager.playerLanguage == "Mandarin" || gameManager.playerLanguage == "Taiwanese" || gameManager.playerLanguage == "Cantonese" || gameManager.playerLanguage == "Japanese" || gameManager.playerLanguage == "Korean")
         {
             gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().font = cjkFont;
-        } else if (gameManager.playerLanguage == "Arabic" || gameManager.playerLanguage == "Persian" || gameManager.playerLanguage == "Urdu")
+        }
+        else if (gameManager.playerLanguage == "Arabic" || gameManager.playerLanguage == "Persian" || gameManager.playerLanguage == "Urdu")
         {
             gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().font = apuFont;
-        } else if (gameManager.playerLanguage == "Thai")
+        }
+        else if (gameManager.playerLanguage == "Thai")
         {
             gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().font = tlbFont;
         }
