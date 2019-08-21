@@ -8,14 +8,15 @@ ADDITIONS:
 - Tutorial
 - Colour Editor + Save Setting
 
-
 BUGS:
 - Some scripts/emojis don't appear on in-game highscore list
 - Some scripts/letters mess with UI placement
-- Arabic and Hebrew fix
+- Hebrew fix
 - Perfect anchoring of UI elements
 - Change Libya, Kosovo flags (maybe some others?)
 - Title doesn't remain in language on startup
+- Not all country codes have a preset flag
+https://www.iban.com/country-codes
 
 DON'T FORGET:
 - SWITCH MONETIZATION SWIPE TO FALSE

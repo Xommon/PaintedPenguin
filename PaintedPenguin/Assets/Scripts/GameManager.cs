@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public GameObject pauseUI;
     public bool paused = false;
     public GameObject pauseButton;
+    public Text nameSlot;
     public int colourblindMode;
     public Image redImage;
     public Image orangeImage;
@@ -598,6 +599,9 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
+        // Fill in name slot
+        nameSlot.text = playerUsername;
+
         // Rotate Loading Sprite
         if (uploadScoreUI.sprite == loadingSprite)
         {
