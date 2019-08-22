@@ -421,11 +421,19 @@ public class GameManager : MonoBehaviour
         }
         else if (playerRegion == "Scotland")
         {
-            playerCountry = "scotland";
+            playerCountry = "zs";
         }
         else if (playerRegion == "Wales")
         {
             playerCountry = "wa";
+        }
+        else if (playerRegion == "Abkhazia")
+        {
+            playerCountry = "xa";
+        }
+        else if (playerRegion == "South Ossetia")
+        {
+            playerCountry = "xo";
         }
         else
         {
@@ -507,10 +515,6 @@ public class GameManager : MonoBehaviour
                 count = 0;
                 tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += i + 1 + ": ";
             }
-
-            //54i - 55p
-            //55i - 55p
-            //56i - 56p
 
             // Country
             if (highscoreList[i].country == null || highscoreList[i].country == "")
