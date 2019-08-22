@@ -10,13 +10,28 @@ ADDITIONS:
 
 BUGS:
 - Some scripts/emojis don't appear on in-game highscore list
-- Some scripts/letters mess with UI placement
+
+Latin, Greek, Cyrillic, Armenian, Hebrew, Arabic, Devanagari, Bengali, Tamil, Telegu, Thai, Lao, Myanmar, Georgian, Ethiopic, Mongolian, CJK (Chinese, Japanese (Kanji), Korean (Hangul)), Hiragana, Katagana
+
+0020-007F,00A0-00FF,0100-017F,0180-024F,0370-03FF,0400-04FF,0500-052F,0530-058F,0590-05FF,0600-06FF,0900-097F,0980-09FF,0B80-0BFF,0C00-0C7F,0E00-0E7F,0E80-0EFF,1000-109F,10A0-10FF,1200-137F,1800-18AF,1E00-1EFF,3000-303F,3040-309F,30A0-30FF,FE70-FEFF,FB50-FDFF,3400-4DBF,20000-2A6DF,4E00-9FFF
+
+- Change username limit from characters to size
 - Hebrew fix
 - Perfect anchoring of UI elements
-- Change Libya, Kosovo flags (maybe some others?)
 - Title doesn't remain in language on startup
 - Not all country codes have a preset flag
-https://www.iban.com/country-codes
+
+(Change Libya, Kosovo flags (maybe some others?))
+AQ - Antarctica
+BL - Saint Barthélemy
+BQ - Bonaire, Sint Eustatius and Saba
+Replace CS with Kosovo
+CW - Curaçao
+GG - Guernsey
+IM - Isle of Man
+MF - Saint Martin (French Part)
+SS - South Sudan
+SX - Sint Maarten (Dutch Part)
 
 DON'T FORGET:
 - SWITCH MONETIZATION SWIPE TO FALSE

@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
     public GameObject pauseUI;
     public bool paused = false;
     public GameObject pauseButton;
-    public Text nameSlot;
     public int colourblindMode;
     public Image redImage;
     public Image orangeImage;
@@ -91,6 +90,7 @@ public class GameManager : MonoBehaviour
     public Text nameFillInText;
     public Text okButtonText;
     public Text warningBoxText;
+    public Text nameSlot;
 
     // Obstacle creation
     public float maxTime = 1;
@@ -419,6 +419,14 @@ public class GameManager : MonoBehaviour
         {
             playerCountry = "tb";
         }
+        else if (playerRegion == "Scotland")
+        {
+            playerCountry = "scotland";
+        }
+        else if (playerRegion == "Wales")
+        {
+            playerCountry = "wa";
+        }
         else
         {
             playerCountry = Localizer.GetDetails["country_code"];
@@ -468,6 +476,9 @@ public class GameManager : MonoBehaviour
         // Clear all display text and flags
         tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text = "";
         tableScoreUI.GetComponent<TMPro.TextMeshProUGUI>().text = "";
+        int previousScore = 0;
+        int previousPlace = 0;
+        int count = 0;
 
         // Populate the score table
         for (int i = 0; i <= 99; i++)
@@ -481,7 +492,25 @@ public class GameManager : MonoBehaviour
                 tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += "0";
             }
 
-            tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += i + 1 + ": ";
+            if (highscoreList[i].score == previousScore)
+            {
+                if (previousPlace == 0)
+                {
+                    previousPlace = i;
+                } else
+                {
+                    count++;
+                }
+                tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += i - count + 1 + ": ";
+            } else
+            {
+                count = 0;
+                tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += i + 1 + ": ";
+            }
+
+            //54i - 55p
+            //55i - 55p
+            //56i - 56p
 
             // Country
             if (highscoreList[i].country == null || highscoreList[i].country == "")
@@ -497,6 +526,7 @@ public class GameManager : MonoBehaviour
             tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += highscoreList[i].username + "\n";
 
             // Score
+            previousScore = highscoreList[i].score;
             tableScoreUI.GetComponent<TMPro.TextMeshProUGUI>().text += highscoreList[i].score + "\n";
         }
     }
@@ -559,13 +589,16 @@ public class GameManager : MonoBehaviour
 
     public void OKButton()
     {
+        
+
         if (usernameInputUI.activeInHierarchy == true)
         {
             if (playerUsername.Contains(" ") || playerUsername.Contains("*"))
             {
                 warningBoxText.text = language.Warning1;
             }
-            else if (playerUsername.Length < 1 || playerUsername.Length > 12)
+            //else if (playerUsername.Length < 1 || playerUsername.Length > 12)
+            else if (nameSlot.preferredWidth > 168)
             {
                 warningBoxText.text = language.Warning2;
             }
@@ -577,6 +610,8 @@ public class GameManager : MonoBehaviour
                 warningBoxText.text = "";
             }
         }
+
+        Debug.Log(nameSlot.preferredWidth);
     }
 
     public string ToRoman(int score)
@@ -680,6 +715,10 @@ public class GameManager : MonoBehaviour
                 tableFlagUI.sprite = Resources.Load<Sprite>("Flags/xj");
             }
             else if (playerRegion == "Kosovsko-Mitrovacki okrug")
+            {
+                tableFlagUI.sprite = Resources.Load<Sprite>("Flags/xk");
+            }
+            else if (playerRegion == "Scotland")
             {
                 tableFlagUI.sprite = Resources.Load<Sprite>("Flags/xk");
             }

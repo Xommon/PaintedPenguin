@@ -583,7 +583,7 @@ TextureImporter:
     second: sc
   - first:
       213: -3901852002834764888
-    second: sl
+    second: scotland
   - first:
       213: -6813974575168108257
     second: sd
@@ -607,7 +607,7 @@ TextureImporter:
     second: sk
   - first:
       213: -4631087867671088797
-    second: FlagIcons_201
+    second: sl
   - first:
       213: -4102336730390674609
     second: sm
@@ -4907,7 +4907,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sl
+      name: scotland
       rect:
         serializedVersion: 2
         x: 34
@@ -5075,10 +5075,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlagIcons_201
+      name: sl
       rect:
         serializedVersion: 2
-        x: 170
+        x: 171
         y: 61
         width: 16
         height: 11
@@ -6133,7 +6133,7 @@ TextureImporter:
         width: 16
         height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

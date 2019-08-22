@@ -110,7 +110,7 @@ public class Language : MonoBehaviour
         Name = "Name ...";
         OK = "OK";
         Warning1 = "Cannot contain spaces or *.";
-        Warning2 = "Must be between 1 and 12 characters.";
+        Warning2 = "The name is too long.";
         Flag.image.overrideSprite = english;
         gameManager.playerLanguage = "English";
         gameManager.XButtonLanguage();
@@ -143,7 +143,7 @@ public class Language : MonoBehaviour
         Name = "اسم ...";
         OK = "حسنا";
         Warning1 = "لا يمكن أن تحتوي على مسافات أو *.";
-        Warning2 = "يجب أن يكون بين ١ و ١٢ حرفًا.";
+        Warning2 = "اسم طويل جدا.";
         Flag.image.overrideSprite = arabic;
         gameManager.playerLanguage = "Arabic";
         gameManager.XButtonLanguage();
@@ -175,7 +175,7 @@ public class Language : MonoBehaviour
         Name = "Ime ...";
         OK = "Uredu";
         Warning1 = "Ne može sadržavati razmake ili *.";
-        Warning2 = "Mora biti između 1 i 12 znakova.";
+        Warning2 = "Ime je predugo.";
         Flag.image.overrideSprite = bosnian;
         gameManager.playerLanguage = "Bosnian";
         gameManager.XButtonLanguage();
@@ -207,7 +207,7 @@ public class Language : MonoBehaviour
         Name = "Име ...";
         OK = "Добре";
         Warning1 = "Не може да съдържа интервали или *.";
-        Warning2 = "Трябва да е между 1 и 12 знака.";
+        Warning2 = "Името е твърде дълго.";
         Flag.image.overrideSprite = bulgarian;
         gameManager.playerLanguage = "Bulgarian";
         gameManager.XButtonLanguage();
@@ -239,7 +239,7 @@ public class Language : MonoBehaviour
         Name = "Nom ...";
         OK = "D'acord";
         Warning1 = "No pot contenir espais o *.";
-        Warning2 = "Ha de contenir entre 1 i 12 caràcters.";
+        Warning2 = "El nom és massa llarg.";
         Flag.image.overrideSprite = catalan;
         gameManager.playerLanguage = "Catalan";
         gameManager.XButtonLanguage();
@@ -270,8 +270,8 @@ public class Language : MonoBehaviour
         // Username Input
         Name = "名字 。。。";
         OK = "仲可以";
-        Warning1 = "唔包含空格或“*”。";
-        Warning2 = "必須介乎1到12個字符之間。";
+        Warning1 = "唔包含空格或*。";
+        Warning2 = "名稱太長。";
         Flag.image.overrideSprite = cantonese;
         gameManager.playerLanguage = "Cantonese";
         gameManager.XButtonLanguage();
@@ -302,8 +302,8 @@ public class Language : MonoBehaviour
         // Username Input
         Name = "你的名字 。。。";
         OK = "好";
-        Warning1 = "不能包含空格或“*”。";
-        Warning2 = "必须介于1到12个字符之间。";
+        Warning1 = "不能包含空格或*。";
+        Warning2 = "名字太长了。";
         Flag.image.overrideSprite = mandarin;
         gameManager.playerLanguage = "Mandarin";
         gameManager.XButtonLanguage();
@@ -334,8 +334,8 @@ public class Language : MonoBehaviour
         // Username Input
         Name = "你的名字 。。。";
         OK = "好";
-        Warning1 = "不能包含空格或“*”。";
-        Warning2 = "必須介於1到12個字符之間。";
+        Warning1 = "不能包含空格或*。";
+        Warning2 = "名字太長了。";
         Flag.image.overrideSprite = taiwanese;
         gameManager.playerLanguage = "Taiwanese";
         gameManager.XButtonLanguage();
@@ -367,7 +367,7 @@ public class Language : MonoBehaviour
         Name = "Název ...";
         OK = "Dobře";
         Warning1 = "Nelze obsahovat mezery nebo *.";
-        Warning2 = "Musí obsahovat 1 až 12 znaků.";
+        Warning2 = "Název je příliš dlouhý.";
         Flag.image.overrideSprite = czech;
         gameManager.playerLanguage = "Czech";
         gameManager.XButtonLanguage();
@@ -399,7 +399,7 @@ public class Language : MonoBehaviour
         Name = "Navn ...";
         OK = "OK";
         Warning1 = "Kan ikke indeholde mellemrum eller *.";
-        Warning2 = "Skal være mellem 1 og 12 tegn.";
+        Warning2 = "Navnet er for langt.";
         Flag.image.overrideSprite = danish;
         gameManager.playerLanguage = "Danish";
         gameManager.XButtonLanguage();
@@ -431,9 +431,41 @@ public class Language : MonoBehaviour
         Name = "Naam ...";
         OK = "OK";
         Warning1 = "Kan geen spaties of * bevatten.";
-        Warning2 = "Moet tussen 1 en 12 tekens bevatten.";
+        Warning2 = "De naam is te lang.";
         Flag.image.overrideSprite = dutch;
         gameManager.playerLanguage = "Dutch";
+        gameManager.XButtonLanguage();
+    }
+
+    public void Esperanto()
+    {
+        // Main Menu
+        GameTitle.text = "Pentrita \nPufino";
+        StartButton = "KOMENCU";
+        Score = "SCOROJ";
+        HelloUsername = "Saluton, " + gameManager.playerUsername + "!";
+
+        // Game Over
+        GameOver = "LA LUDO \nFINIĜIS";
+        Replay = "REPARO";
+        Continue = "DAŬRIGU?";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "PAŬZIS";
+
+        // High Scores
+        HighScores = "ALTAJ SCOROJ";
+
+        // Username Input
+        Name = "Nomo ...";
+        OK = "OK";
+        Warning1 = "Ne povas enhavi spacojn aŭ *.";
+        Warning2 = "La nomo estas tro longa.";
+        Flag.image.overrideSprite = esperanto;
+        gameManager.playerLanguage = "Esperanto";
         gameManager.XButtonLanguage();
     }
 
@@ -463,7 +495,7 @@ public class Language : MonoBehaviour
         Name = "Nimi ...";
         OK = "Hyvä";
         Warning1 = "Ei voi sisältää välilyöntejä tai *.";
-        Warning2 = "Täytyy olla 1–12 merkkiä.";
+        Warning2 = "Nimi on liian pitkä.";
         Flag.image.overrideSprite = finnish;
         gameManager.playerLanguage = "Finnish";
         gameManager.XButtonLanguage();
@@ -495,7 +527,7 @@ public class Language : MonoBehaviour
         Name = "Nom ...";
         OK = "D'accord";
         Warning1 = "Ne peut pas contenir d'espaces ou *.";
-        Warning2 = "Doit comporter entre 1 et 12 caractères.";
+        Warning2 = "Le nom est trop long.";
         Flag.image.overrideSprite = french;
         gameManager.playerLanguage = "French";
         gameManager.XButtonLanguage();
@@ -527,7 +559,7 @@ public class Language : MonoBehaviour
         Name = "Name ...";
         OK = "OK";
         Warning1 = "Darf keine Leerzeichen oder * enthalten.";
-        Warning2 = "Muss zwischen 1 und 12 Zeichen enthalten.";
+        Warning2 = "Der Name ist zu lang.";
         Flag.image.overrideSprite = german;
         gameManager.playerLanguage = "German";
         gameManager.XButtonLanguage();
@@ -559,7 +591,7 @@ public class Language : MonoBehaviour
         Name = "Ονομα ...";
         OK = "Εντάξει";
         Warning1 = "Δεν μπορεί να περιέχει κενά ή *.";
-        Warning2 = "Πρέπει να είναι μεταξύ 1 και 12 χαρακτήρων.";
+        Warning2 = "Το όνομα είναι υπερβολικά μεγάλο.";
         Flag.image.overrideSprite = greek;
         gameManager.playerLanguage = "Greek";
         gameManager.XButtonLanguage();
@@ -591,7 +623,7 @@ public class Language : MonoBehaviour
         Name = "שם ...";
         OK = "בסדר";
         Warning1 = "לא יכול להכיל רווחים או *.";
-        Warning2 = "חייב להיות בין 1 ל 12 אותיות.";
+        Warning2 = "השם ארוך מדי.";
         Flag.image.overrideSprite = hebrew;
         gameManager.playerLanguage = "Hebrew";
         gameManager.XButtonLanguage();
@@ -624,7 +656,7 @@ public class Language : MonoBehaviour
         Name = "नाम ...";
         OK = "ठीक";
         Warning1 = "रिक्त स्थान या * नहीं हो सकते।";
-        Warning2 = "1 और 12 अक्षरों के बीच होना चाहिए।";
+        Warning2 = "नाम बहुत लंबा है।";
         Flag.image.overrideSprite = hindi;
         gameManager.playerLanguage = "Hindi";
         gameManager.XButtonLanguage();
@@ -656,7 +688,7 @@ public class Language : MonoBehaviour
         Name = "Név ...";
         OK = "Oké";
         Warning1 = "Nem lehet szóköz vagy *.";
-        Warning2 = "1 és 12 karakter között kell lennie.";
+        Warning2 = "A név túl hosszú.";
         Flag.image.overrideSprite = hungarian;
         gameManager.playerLanguage = "Hungarian";
         gameManager.XButtonLanguage();
@@ -688,7 +720,7 @@ public class Language : MonoBehaviour
         Name = "Nafn ...";
         OK = "OK";
         Warning1 = "Get ekki innihaldið bil eða *.";
-        Warning2 = "Verður að vera á milli 1 og 12 stafir.";
+        Warning2 = "Nafnið er of langt.";
         Flag.image.overrideSprite = icelandic;
         gameManager.playerLanguage = "Icelandic";
         gameManager.XButtonLanguage();
@@ -720,7 +752,7 @@ public class Language : MonoBehaviour
         Name = "Nama ...";
         OK = "Oke";
         Warning1 = "Tidak dapat memuat spasi atau *.";
-        Warning2 = "Harus antara 1 dan 12 karakter.";
+        Warning2 = "Namanya terlalu panjang.";
         Flag.image.overrideSprite = indonesian;
         gameManager.playerLanguage = "Indonesian";
         gameManager.XButtonLanguage();
@@ -752,7 +784,7 @@ public class Language : MonoBehaviour
         Name = "Nome ...";
         OK = "OK";
         Warning1 = "Non può contenere spazi o *.";
-        Warning2 = "Deve contenere da 1 a 12 caratteri.";
+        Warning2 = "Il nome è troppo lungo";
         Flag.image.overrideSprite = italian;
         gameManager.playerLanguage = "Italian";
         gameManager.XButtonLanguage();
@@ -784,7 +816,7 @@ public class Language : MonoBehaviour
         Name = "名 ...";
         OK = "オーケー";
         Warning1 = "スペースまたは*を含めることはできません。";
-        Warning2 = "1〜12文字にする必要があります。";
+        Warning2 = "名前が長すぎます。";
         Flag.image.overrideSprite = japanese;
         gameManager.playerLanguage = "Japanese";
         gameManager.XButtonLanguage();
@@ -816,7 +848,7 @@ public class Language : MonoBehaviour
         Name = "이름 ...";
         OK = "괜찮아";
         Warning1 = "공백이나 *를 포함 할 수 없습니다.";
-        Warning2 = "1 ~ 12 자 사이 여야합니다.";
+        Warning2 = "이름이 너무 깁니다.";
         Flag.image.overrideSprite = korean;
         gameManager.playerLanguage = "Korean";
         gameManager.XButtonLanguage();
@@ -848,7 +880,7 @@ public class Language : MonoBehaviour
         Name = "Nomen ...";
         OK = "OK";
         Warning1 = "Non habet spatia vel *";
-        Warning2 = "XII et I oportet inter ingenia.";
+        Warning2 = "Hoc nomen nimis longum..";
         Flag.image.overrideSprite = latin;
         gameManager.playerLanguage = "Latin";
         gameManager.XButtonLanguage();
@@ -880,7 +912,7 @@ public class Language : MonoBehaviour
         Name = "Navn ...";
         OK = "OK";
         Warning1 = "Kan ikke inneholde mellomrom eller *.";
-        Warning2 = "Må være mellom 1 og 12 tegn.";
+        Warning2 = "Navnet er for langt.";
         Flag.image.overrideSprite = norwegian;
         gameManager.playerLanguage = "Norwegian";
         gameManager.XButtonLanguage();
@@ -913,7 +945,7 @@ public class Language : MonoBehaviour
         Name = "نام ...";
         OK = "خوب";
         Warning1 = "هیچ فضا یا * مجاز نیست.";
-        Warning2 = "باید بین 1 تا 12 حرف باشد.";
+        Warning2 = "نام خیلی طولانی است";
         Flag.image.overrideSprite = persian;
         gameManager.playerLanguage = "Persian";
         gameManager.XButtonLanguage();
@@ -945,7 +977,7 @@ public class Language : MonoBehaviour
         Name = "Imię ...";
         OK = "Dobrze";
         Warning1 = "Nie może zawierać spacji ani *.";
-        Warning2 = "Musi mieć od 1 do 12 znaków.";
+        Warning2 = "MNazwa jest za długa.";
         Flag.image.overrideSprite = polish;
         gameManager.playerLanguage = "Polish";
         gameManager.XButtonLanguage();
@@ -977,7 +1009,7 @@ public class Language : MonoBehaviour
         Name = "Nome ...";
         OK = "OK";
         Warning1 = "Não pode conter espaços ou *.";
-        Warning2 = "Deve ter entre 1 e 12 caracteres.";
+        Warning2 = "O nome é muito longo.";
         Flag.image.overrideSprite = portuguese;
         gameManager.playerLanguage = "Portuguese";
         gameManager.XButtonLanguage();
@@ -1009,7 +1041,7 @@ public class Language : MonoBehaviour
         Name = "Nume ...";
         OK = "Bine";
         Warning1 = "Nu poate conține spații sau *.";
-        Warning2 = "Trebuie să aibă între 1 și 12 caractere.";
+        Warning2 = "Numele este prea lung.";
         Flag.image.overrideSprite = romanian;
         gameManager.playerLanguage = "Romanian";
         gameManager.XButtonLanguage();
@@ -1041,7 +1073,7 @@ public class Language : MonoBehaviour
         Name = "Имя ...";
         OK = "Хорошо";
         Warning1 = "Не может содержать пробелы или *.";
-        Warning2 = "Должно быть от 1 до 12 символов.";
+        Warning2 = "Имя слишком длинное.";
         Flag.image.overrideSprite = russian;
         gameManager.playerLanguage = "Russian";
         gameManager.XButtonLanguage();
@@ -1073,7 +1105,7 @@ public class Language : MonoBehaviour
         Name = "Nombre ...";
         OK = "Okay";
         Warning1 = "No puede contener espacios o *.";
-        Warning2 = "Debe tener entre 1 y 12 caracteres.";
+        Warning2 = "El nombre es muy largo.";
         Flag.image.overrideSprite = spanish;
         gameManager.playerLanguage = "Spanish";
         gameManager.XButtonLanguage();
@@ -1105,7 +1137,7 @@ public class Language : MonoBehaviour
         Name = "Namn ...";
         OK = "Okej";
         Warning1 = "Kan inte innehålla mellanslag eller *.";
-        Warning2 = "Måste vara mellan 1 och 12 tecken.";
+        Warning2 = "Namnet är för långt.";
         Flag.image.overrideSprite = swedish;
         gameManager.playerLanguage = "Swedish";
         gameManager.XButtonLanguage();
@@ -1137,7 +1169,7 @@ public class Language : MonoBehaviour
         Name = "Pangalan ...";
         OK = "Okey";
         Warning1 = "Hindi ito maaaring maglaman ng mga puwang o *.";
-        Warning2 = "Kailangang maging 1 at 12 character.";
+        Warning2 = "Ang pangalan ay masyadong mahaba.";
         Flag.image.overrideSprite = tagalog;
         gameManager.playerLanguage = "Tagalog";
         gameManager.XButtonLanguage();
@@ -1169,7 +1201,7 @@ public class Language : MonoBehaviour
         Name = "ชื่อ ...";
         OK = "ตกลง";
         Warning1 = "ไม่สามารถมีช่องว่างหรือ*";
-        Warning2 = "ต้องอยู่ระหว่าง 1 ถึง 12 ตัวอักษร";
+        Warning2 = "ชื่อยาวเกินไป";
         Flag.image.overrideSprite = thai;
         gameManager.playerLanguage = "Thai";
         gameManager.XButtonLanguage();
@@ -1201,7 +1233,7 @@ public class Language : MonoBehaviour
         Name = "Isim ...";
         OK = "Tamam";
         Warning1 = "Boşluk içeremez veya *.";
-        Warning2 = "1 ila 12 karakter arasında olmalıdır.";
+        Warning2 = "İsim çok uzun.";
         Flag.image.overrideSprite = turkish;
         gameManager.playerLanguage = "Turkish";
         gameManager.XButtonLanguage();
@@ -1233,7 +1265,7 @@ public class Language : MonoBehaviour
         Name = "Ім'я ...";
         OK = "Добре";
         Warning1 = "Не може бути пробілів або *.";
-        Warning2 = "Повинно бути від 1 до 12 символів.";
+        Warning2 = "Ім'я задовге.";
         Flag.image.overrideSprite = ukranian;
         gameManager.playerLanguage = "Ukranian";
         gameManager.XButtonLanguage();
@@ -1265,7 +1297,7 @@ public class Language : MonoBehaviour
         Name = "Нэр ...";
         OK = "Тийм Шүү";
         Warning1 = "Хоосон зай буюу * байхгүй.";
-        Warning2 = "1-ээс 12 тэмдэгт байх ёстой.";
+        Warning2 = "Нэр хэтэрхий урт байна.";
         Flag.image.overrideSprite = mongolian;
         gameManager.playerLanguage = "Mongolian";
         gameManager.XButtonLanguage();
@@ -1297,41 +1329,9 @@ public class Language : MonoBehaviour
         Name = "Tên ...";
         OK = "Được";
         Warning1 = "Không thể chứa dấu cách hoặc *.";
-        Warning2 = "Phải có từ 1 đến 12 ký tự.";
+        Warning2 = "Cái tên quá dài.";
         Flag.image.overrideSprite = vietnamese;
         gameManager.playerLanguage = "Vietnamese";
-        gameManager.XButtonLanguage();
-    }
-
-    public void Esperanto()
-    {
-        // Main Menu
-        GameTitle.text = "Pentrita \nPufino";
-        StartButton = "KOMENCU";
-        Score = "SCOROJ";
-        HelloUsername = "Saluton, " + gameManager.playerUsername + "!";
-
-        // Game Over
-        GameOver = "LA LUDO \nFINIĜIS";
-        Replay = "REPARO";
-        Continue = "DAŬRIGU?";
-
-        // Score
-        ScoreUI = gameManager.score.ToString();
-
-        // Pause
-        Paused = "PAŬZIS";
-
-        // High Scores
-        HighScores = "ALTAJ SCOROJ";
-
-        // Username Input
-        Name = "Nomo ...";
-        OK = "OK";
-        Warning1 = "Ne povas enhavi spacojn aŭ *.";
-        Warning2 = "Devas esti inter 1 kaj 12 signoj.";
-        Flag.image.overrideSprite = esperanto;
-        gameManager.playerLanguage = "Esperanto";
         gameManager.XButtonLanguage();
     }
 
