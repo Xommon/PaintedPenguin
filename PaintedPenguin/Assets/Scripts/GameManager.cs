@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
     public PlayerMovement player;
     public bool canContinue;
     public Image uploadScoreUI;
+    public Image downloadScoreUI;
     public Sprite loadingSprite;
     public Sprite uploadedSprite;
     public Sprite errorSprite;
@@ -309,15 +310,24 @@ public class GameManager : MonoBehaviour
 
     IEnumerator DownloadHighScoresFromDatabase()
     {
+        downloadScoreUI.sprite = loadingSprite;
+        downloadScoreUI.color = new Color(1, 1, 1, 0.75f);
+
         UnityWebRequest uwr = UnityWebRequest.Get(webURL + publicCode + "/pipe/");
         yield return uwr.SendWebRequest();
 
         if (uwr.isNetworkError)
         {
+            downloadScoreUI.transform.rotation = Quaternion.identity;
+            downloadScoreUI.sprite = errorSprite;
             Debug.Log("Error Downloading: " + uwr.error);
         }
         else
         {
+            downloadScoreUI.color = new Color(1, 1, 1, 0f);
+            downloadScoreUI.transform.rotation = Quaternion.identity;
+            downloadScoreUI.sprite = null;
+
             FormatHighScores(uwr.downloadHandler.text);
             OnHighscoresDownloaded(highScoresList);
         }
@@ -641,10 +651,15 @@ public class GameManager : MonoBehaviour
         // Fill in name slot
         nameSlot.text = playerUsername;
 
-        // Rotate Loading Sprite
+        // Rotate Uploading and Downloading Sprites
         if (uploadScoreUI.sprite == loadingSprite)
         {
             uploadScoreUI.transform.Rotate(0, 0, 10, Space.Self);
+        }
+
+        if (downloadScoreUI.sprite == loadingSprite)
+        {
+            downloadScoreUI.transform.Rotate(0, 0, 10, Space.Self);
         }
 
         WhiteC = new Color(1f, 1f, 1f, 1f);
