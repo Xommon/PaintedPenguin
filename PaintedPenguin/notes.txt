@@ -10,6 +10,7 @@ ADDITIONS:
 
 BUGS:
 - Hebrew fix
+https://answers.unity.com/questions/1034235/how-to-write-text-from-left-to-right.html
 - Title doesn't remain in language on startup
 - Some scripts/emojis don't appear on in-game highscore list
 

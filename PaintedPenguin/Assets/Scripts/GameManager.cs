@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     public Image greenImage;
     public Image blueImage;
     public Image purpleImage;
+    public FlexibleColorPicker flexibleColourPicker;
+    public GameObject colourPickerUI;
 
     // Location
     public string playerRegion;
@@ -158,7 +160,7 @@ public class GameManager : MonoBehaviour
                         GameObject newpaint = Instantiate(timesTwo);
                         newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
                     }
-                } else if (PercentChance(score/80.0f))
+                } else if (PercentChance(score / 80.0f))
                 {
                     // If AIR is empty
                     if (obstaclePositions[0] == 0.7f)
@@ -268,7 +270,7 @@ public class GameManager : MonoBehaviour
                         }
                     }
                 }
-                
+
             }
 
             timer = 0;
@@ -291,7 +293,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("Error Uploading: " + uwr.error);
             uploadScoreUI.transform.rotation = Quaternion.identity;
             uploadScoreUI.sprite = errorSprite;
-            
+
             yield return new WaitForSeconds(3);
             StartCoroutine(AddNewHighScore(score));
         }
@@ -448,7 +450,7 @@ public class GameManager : MonoBehaviour
         else
         {
             playerCountry = Localizer.GetDetails["country_code"];
-            
+
         }
     }
 
@@ -603,7 +605,7 @@ public class GameManager : MonoBehaviour
 
     public void OKButton()
     {
-        
+
 
         if (usernameInputUI.activeInHierarchy == true)
         {
@@ -662,53 +664,6 @@ public class GameManager : MonoBehaviour
             downloadScoreUI.transform.Rotate(0, 0, 10, Space.Self);
         }
 
-        WhiteC = new Color(1f, 1f, 1f, 1f);
-
-        // Pick colour palette
-        if (colourblindMode == 0)
-        {
-            // Normal Vision
-            RedC = new Color(1f, 0.1f, 0.1f, 1f);
-            OrangeC = new Color(1f, 0.5f, 0.1f, 1f);
-            YellowC = new Color(1f, 1f, 0.1f, 1f);
-            GreenC = new Color(0.1f, 1f, 0.1f, 1f);
-            BlueC = new Color(0.1f, 0.2f, 1f, 1f);
-            PurpleC = new Color(0.7f, 0.1f, 1f, 1f);
-        }
-
-        if (colourblindMode == 1)
-        {
-            // Protanopia (Red/Green)
-            RedC = new Color(0.245283f, 0.243449f, 0f, 1f);
-            OrangeC = new Color(0.3584906f, 0.3584906f, 0.3584906f, 1f);
-            YellowC = new Color(1f, 0.985849f, 0.5613208f, 1f);
-            GreenC = new Color(0.7668899f, 0.7924528f, 0f, 1f);
-            BlueC = new Color(0f, 0.1828625f, 1f, 1f);
-            PurpleC = new Color(0.05743195f, 0.0520648f, 0.245283f, 1f);
-        }
-
-        if (colourblindMode == 2)
-        {
-            // Deuteranopia (Red/Green)
-            RedC = new Color(1f, 0.1f, 0.1f, 1f);
-            OrangeC = new Color(1f, 0.5f, 0.1f, 1f);
-            YellowC = new Color(1f, 1f, 0.1f, 1f);
-            GreenC = new Color(0.1f, 1f, 0.1f, 1f);
-            BlueC = new Color(0.1f, 0.2f, 1f, 1f);
-            PurpleC = new Color(0.7f, 0.1f, 1f, 1f);
-        }
-
-        if (colourblindMode == 3)
-        {
-            // Tritanopia (Blue/Yellow)
-            RedC = new Color(1f, 0.1f, 0.1f, 1f);
-            OrangeC = new Color(1f, 0.5f, 0.1f, 1f);
-            YellowC = new Color(1f, 1f, 0.1f, 1f);
-            GreenC = new Color(0.1f, 1f, 0.1f, 1f);
-            BlueC = new Color(0.1f, 0.2f, 1f, 1f);
-            PurpleC = new Color(0.7f, 0.1f, 1f, 1f);
-        }
-
         // Location settings
         if (playerRegion == "" || playerRegion == null)
         {
@@ -747,14 +702,6 @@ public class GameManager : MonoBehaviour
                 tableFlagUI.color = new Color(1, 1, 1, 1);
             }
         }
-
-        // Render menu colours to match in game colours
-        redImage.color = RedC;
-        orangeImage.color = OrangeC;
-        yellowImage.color = YellowC;
-        greenImage.color = GreenC;
-        blueImage.color = BlueC;
-        purpleImage.color = PurpleC;
 
         // Set up text based on language
         gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().text = language.GameTitle.text;
@@ -905,5 +852,126 @@ public class GameManager : MonoBehaviour
         player.dead = false;
         gameOverCanvas.SetActive(false);
         player.position = "starting";
+    }
+
+    // Colour picker
+    public void OKButtonCP()
+    {
+        RedC = redImage.color;
+        OrangeC = orangeImage.color;
+        YellowC = yellowImage.color;
+        GreenC = greenImage.color;
+        BlueC = blueImage.color;
+        PurpleC = purpleImage.color;
+        colourPickerUI.SetActive(false);
+        usernameInputUI.SetActive(true);
+    }
+
+    public void CloseButtonCP()
+    {
+        colourPickerUI.SetActive(false);
+        usernameInputUI.SetActive(true);
+    }
+
+    public void OpenColourPicker()
+    {
+        redImage.color = RedC;
+        orangeImage.color = OrangeC;
+        yellowImage.color = YellowC;
+        greenImage.color = GreenC;
+        blueImage.color = BlueC;
+        purpleImage.color = PurpleC;
+        
+        usernameInputUI.SetActive(false);
+        colourPickerUI.SetActive(true);
+
+        // Pick colour palette
+        WhiteC = new Color(1f, 1f, 1f, 1f);
+        //RedC = new Color(1f, 0.1f, 0.1f, 1f);
+        //OrangeC = new Color(1f, 0.5f, 0.1f, 1f);
+        //YellowC = new Color(1f, 1f, 0.1f, 1f);
+        //GreenC = new Color(0.1f, 1f, 0.1f, 1f);
+        //BlueC = new Color(0.1f, 0.2f, 1f, 1f);
+        //PurpleC = new Color(0.7f, 0.1f, 1f, 1f);
+    }
+
+    /* PSEUDOCODE
+     LoadUsername();
+     game Awake(): all colours = saved colours;
+     if (savedColours == null): default colours;
+     colourPanel Enable(): colourpicker.color = RedC;
+     onPanel: RedImage = colourpicker.color;
+     onPanel: OrangeImage = colourpicker.color;
+     '' '' '' '' '' '' '' '' '' '' '' '' '' ''
+     OKButtonCP(): RedC = RedImage.color;
+     OKButtonCP(): OrangeC = OrangeImage.color;
+     '' '' '' '' '' '' '' '' '' '' '' '' '' ''
+     SaveUsername();
+    */
+
+    public void RedButton()
+    {
+        flexibleColourPicker.hexInput.text = ColorUtility.ToHtmlStringRGB(redImage.color);
+        redImage.GetComponent<FCP_ExampleScript>().fcp = flexibleColourPicker;
+        orangeImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        yellowImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        greenImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        blueImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        purpleImage.GetComponent<FCP_ExampleScript>().fcp = null;
+    }
+
+    public void OrangeButton()
+    {
+        flexibleColourPicker.hexInput.text = ColorUtility.ToHtmlStringRGB(orangeImage.color);
+        redImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        orangeImage.GetComponent<FCP_ExampleScript>().fcp = flexibleColourPicker;
+        yellowImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        greenImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        blueImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        purpleImage.GetComponent<FCP_ExampleScript>().fcp = null;
+    }
+
+    public void YellowButton()
+    {
+        flexibleColourPicker.hexInput.text = ColorUtility.ToHtmlStringRGB(yellowImage.color);
+        redImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        orangeImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        yellowImage.GetComponent<FCP_ExampleScript>().fcp = flexibleColourPicker;
+        greenImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        blueImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        purpleImage.GetComponent<FCP_ExampleScript>().fcp = null;
+    }
+
+    public void GreenButton()
+    {
+        flexibleColourPicker.hexInput.text = ColorUtility.ToHtmlStringRGB(greenImage.color);
+        redImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        orangeImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        yellowImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        greenImage.GetComponent<FCP_ExampleScript>().fcp = flexibleColourPicker;
+        blueImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        purpleImage.GetComponent<FCP_ExampleScript>().fcp = null;
+    }
+
+    public void BlueButton()
+    {
+        flexibleColourPicker.hexInput.text = ColorUtility.ToHtmlStringRGB(blueImage.color);
+        redImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        orangeImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        yellowImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        greenImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        blueImage.GetComponent<FCP_ExampleScript>().fcp = flexibleColourPicker;
+        purpleImage.GetComponent<FCP_ExampleScript>().fcp = null;
+    }
+
+    public void PurpleButton()
+    {
+        flexibleColourPicker.hexInput.text = ColorUtility.ToHtmlStringRGB(purpleImage.color);
+        redImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        orangeImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        yellowImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        greenImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        blueImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        purpleImage.GetComponent<FCP_ExampleScript>().fcp = flexibleColourPicker;
     }
 }

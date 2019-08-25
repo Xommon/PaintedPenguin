@@ -600,30 +600,30 @@ public class Language : MonoBehaviour
     public void Hebrew()
     {
         // Main Menu
-        GameTitle.text = "פאפין צבוע";
-        StartButton = "התחל";
-        Score = "ציונים גבוהים";
+        GameTitle.text = ("פאפין צבוע");
+        StartButton = ("התחל");
+        Score = ("ציונים גבוהים");
         HelloUsername = "שלום, " + gameManager.playerUsername + "!";
 
         // Game Over
-        GameOver = "סוף משחק";
-        Replay = "שידור חוזר";
-        Continue = "להמשיך?";
+        GameOver = ("סוף משחק");
+        Replay = ("שידור חוזר");
+        Continue = ("להמשיך?");
 
         // Score
         ScoreUI = gameManager.score.ToString();
 
         // Pause
-        Paused = "מושהה";
+        Paused = ("מושהה");
 
         // High Scores
-        HighScores = "ציונים גבוהים";
+        HighScores = ("ציונים גבוהים");
 
         // Username Input
-        Name = "שם ...";
-        OK = "בסדר";
-        Warning1 = "לא יכול להכיל רווחים או *.";
-        Warning2 = "השם ארוך מדי.";
+        Name = ("שם ...");
+        OK = ("בסדר");
+        Warning1 = ("לא יכול להכיל רווחים או *.");
+        Warning2 = ("השם ארוך מדי.");
         Flag.image.overrideSprite = hebrew;
         gameManager.playerLanguage = "Hebrew";
         gameManager.XButtonLanguage();
