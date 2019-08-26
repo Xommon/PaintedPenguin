@@ -9,19 +9,13 @@ ADDITIONS:
 - Colour Editor + Save Setting
 
 BUGS:
-<<<<<<< HEAD
-<<<<<<< HEAD
 - Hebrew fix
 https://answers.unity.com/questions/1034235/how-to-write-text-from-left-to-right.html
 - Title doesn't remain in language on startup
-=======
->>>>>>> parent of 1a0e888... Update Notes and Undo Test Variables
-=======
->>>>>>> parent of 1a0e888... Update Notes and Undo Test Variables
 - Some scripts/emojis don't appear on in-game highscore list
 
 1: Latin, Chinese, Japanese, Korean
-2: Latin, Greek, Cyrillic, Armenian, Hebrew, Arabic, Georgian, Ethiopic, Thai, Lao, Myanmar
+2: Latin, Greek, Cyrillic, Armenian, Hebrew, Arabic, Georgian, Ethiopic, Thai, Lao, Myanmar, Khmer
 3: Latin, Devanagari, Bengali, Tamil, Telegu
 4: Mongolian
 
