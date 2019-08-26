@@ -385,21 +385,33 @@ public class GameManager : MonoBehaviour
         playerUsername = name;
     }
 
-    // Save Username
-    public void SaveUsername(string name, string language)
+    // Save Data
+    public void SaveUsername(string name, string language, Color red, Color orange, Color yellow, Color green, Color blue, Color purple)
     {
         playerUsername = name;
         playerLanguage = language;
+        RedC = red;
+        OrangeC = orange;
+        YellowC = yellow;
+        GreenC = green;
+        BlueC = blue;
+        PurpleC = purple;
         SaveSystem.SaveUsername(this);
     }
 
-    // Load Username
+    // Load Data
     public void LoadUsername()
     {
         SaveData data = SaveSystem.LoadUsername();
 
         playerUsername = data.playerUsername;
         playerLanguage = data.playerLanguage;
+        RedC = data.playerRed;
+        OrangeC = data.playerOrange;
+        YellowC = data.playerYellow;
+        GreenC = data.playerGreen;
+        BlueC = data.playerBlue;
+        PurpleC = data.playerPurple;
     }
 
     // Get location
@@ -462,6 +474,8 @@ public class GameManager : MonoBehaviour
     // Code for start of script
     public void Start()
     {
+        //SaveSystem.DeleteSaveFile();
+
         uploadScoreUI.sprite = null;
         uploadScoreUI.color = new Color(1, 1, 1, 0f);
 
@@ -605,22 +619,19 @@ public class GameManager : MonoBehaviour
 
     public void OKButton()
     {
-
-
         if (usernameInputUI.activeInHierarchy == true)
         {
             if (playerUsername.Contains(" ") || playerUsername.Contains("*"))
             {
                 warningBoxText.text = language.Warning1;
             }
-            //else if (playerUsername.Length < 1 || playerUsername.Length > 12)
             else if (nameSlot.preferredWidth > 168)
             {
                 warningBoxText.text = language.Warning2;
             }
             else
             {
-                SaveUsername(playerUsername, playerLanguage);
+                SaveUsername(playerUsername, playerLanguage, RedC, OrangeC, YellowC, GreenC, BlueC, PurpleC);
                 usernameInputUI.SetActive(false);
                 mainMenuUI.SetActive(true);
                 warningBoxText.text = "";
@@ -875,39 +886,44 @@ public class GameManager : MonoBehaviour
 
     public void OpenColourPicker()
     {
+        // Set default colours
+        WhiteC = new Color(1f, 1f, 1f, 1f);
+        if (RedC.a < 1)
+        {
+            RedC = new Color(1f, 0.1f, 0.1f, 1f);
+        }
+        if (OrangeC.a < 1)
+        {
+            OrangeC = new Color(1f, 0.5f, 0.1f, 1f);
+        }
+        if (YellowC.a < 1)
+        {
+            YellowC = new Color(1f, 1f, 0.1f, 1f);
+        }
+        if (GreenC.a < 1)
+        {
+            GreenC = new Color(0.1f, 1f, 0.1f, 1f);
+        }
+        if (BlueC.a < 1)
+        {
+            BlueC = new Color(0.1f, 0.2f, 1f, 1f);
+        }
+        if (PurpleC.a < 1)
+        {
+            PurpleC = new Color(0.7f, 0.1f, 1f, 1f);
+            CloseButtonCP();
+        }
+
         redImage.color = RedC;
         orangeImage.color = OrangeC;
         yellowImage.color = YellowC;
         greenImage.color = GreenC;
         blueImage.color = BlueC;
         purpleImage.color = PurpleC;
-        
+
         usernameInputUI.SetActive(false);
         colourPickerUI.SetActive(true);
-
-        // Pick colour palette
-        WhiteC = new Color(1f, 1f, 1f, 1f);
-        //RedC = new Color(1f, 0.1f, 0.1f, 1f);
-        //OrangeC = new Color(1f, 0.5f, 0.1f, 1f);
-        //YellowC = new Color(1f, 1f, 0.1f, 1f);
-        //GreenC = new Color(0.1f, 1f, 0.1f, 1f);
-        //BlueC = new Color(0.1f, 0.2f, 1f, 1f);
-        //PurpleC = new Color(0.7f, 0.1f, 1f, 1f);
     }
-
-    /* PSEUDOCODE
-     LoadUsername();
-     game Awake(): all colours = saved colours;
-     if (savedColours == null): default colours;
-     colourPanel Enable(): colourpicker.color = RedC;
-     onPanel: RedImage = colourpicker.color;
-     onPanel: OrangeImage = colourpicker.color;
-     '' '' '' '' '' '' '' '' '' '' '' '' '' ''
-     OKButtonCP(): RedC = RedImage.color;
-     OKButtonCP(): OrangeC = OrangeImage.color;
-     '' '' '' '' '' '' '' '' '' '' '' '' '' ''
-     SaveUsername();
-    */
 
     public void RedButton()
     {
