@@ -387,16 +387,16 @@ public class GameManager : MonoBehaviour
     }
 
     // Save Data
-    public void SaveUsername(string name, string language)
+    public void SaveUsername(string name, string language, Color red, Color orange, Color yellow, Color green, Color blue, Color purple)
     {
         playerUsername = name;
         playerLanguage = language;
-        //RedC = red;
-        //OrangeC = orange;
-        //YellowC = yellow;
-        //GreenC = green;
-        //BlueC = blue;
-        //PurpleC = purple;
+        RedC = red;
+        OrangeC = orange;
+        YellowC = yellow;
+        GreenC = green;
+        BlueC = blue;
+        PurpleC = purple;
         SaveSystem.SaveUsername(this);
     }
 
@@ -407,12 +407,12 @@ public class GameManager : MonoBehaviour
 
         playerUsername = data.playerUsername;
         playerLanguage = data.playerLanguage;
-        //RedC = data.playerRed;
-        //OrangeC = data.playerOrange;
-        //YellowC = data.playerYellow;
-        //GreenC = data.playerGreen;
-        //BlueC = data.playerBlue;
-        //PurpleC = data.playerPurple;
+        RedC = HexToColour(data.playerRed);
+        OrangeC = HexToColour(data.playerOrange);
+        YellowC = HexToColour(data.playerYellow);
+        GreenC = HexToColour(data.playerGreen);
+        BlueC = HexToColour(data.playerBlue);
+        PurpleC = HexToColour(data.playerPurple);
     }
 
     // Get location
@@ -463,7 +463,6 @@ public class GameManager : MonoBehaviour
         else
         {
             playerCountry = Localizer.GetDetails["country_code"];
-
         }
     }
 
@@ -472,16 +471,76 @@ public class GameManager : MonoBehaviour
         Invoke("GetDetails", 1.0f);
     }
 
+    private int HexToDec(string hex)
+    {
+        int dec = System.Convert.ToInt32(hex, 16);
+        return dec;
+    }
+
+    private string DecToHex(int value)
+    {
+        return value.ToString("X2");
+    }
+
+    private string FloatNormalizedToHex(float value)
+    {
+        return DecToHex(Mathf.RoundToInt(value * 255f));
+    }
+
+    private float HexToFloatNormalized(string hex)
+    {
+        return HexToDec(hex) / 255f;
+    }
+
+    public Color HexToColour(string hexString)
+    {
+        float red = HexToFloatNormalized(hexString.Substring(0, 2));
+        float green = HexToFloatNormalized(hexString.Substring(2, 2));
+        float blue = HexToFloatNormalized(hexString.Substring(4, 2));
+        return new Color(red, green, blue);
+    }
+
+    public string ColourToHex(Color colour)
+    {
+        return ColorUtility.ToHtmlStringRGB(colour);
+    }
+
     // Code for start of script
     public void Start()
     {
-        //SaveSystem.DeleteSaveFile();
+        // Load all save data
+        LoadUsername();
+
+        // Set default colours if no colours are saved on file
+        WhiteC = new Color(1f, 1f, 1f, 1f);
+        if (RedC.a < 1)
+        {
+            RedC = new Color(1f, 0.1f, 0.1f, 1f);
+        }
+        if (OrangeC.a < 1)
+        {
+            OrangeC = new Color(1f, 0.5f, 0.1f, 1f);
+        }
+        if (YellowC.a < 1)
+        {
+            YellowC = new Color(1f, 1f, 0.1f, 1f);
+        }
+        if (GreenC.a < 1)
+        {
+            GreenC = new Color(0.1f, 1f, 0.1f, 1f);
+        }
+        if (BlueC.a < 1)
+        {
+            BlueC = new Color(0.1f, 0.2f, 1f, 1f);
+        }
+        if (PurpleC.a < 1)
+        {
+            PurpleC = new Color(0.7f, 0.1f, 1f, 1f);
+        }
 
         uploadScoreUI.sprite = null;
         uploadScoreUI.color = new Color(1, 1, 1, 0f);
-
-        LoadUsername();
-
+        
         if (playerLanguage == "" || playerUsername == null)
         {
             languageTableUI.SetActive(true);
@@ -633,8 +692,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                //SaveUsername(playerUsername, playerLanguage, RedC, OrangeC, YellowC, GreenC, BlueC, PurpleC);
-                SaveUsername(playerUsername, playerLanguage);
+                SaveUsername(playerUsername, playerLanguage, RedC, OrangeC, YellowC, GreenC, BlueC, PurpleC);
                 usernameInputUI.SetActive(false);
                 mainMenuUI.SetActive(true);
                 warningBoxText.text = "";
@@ -889,34 +947,6 @@ public class GameManager : MonoBehaviour
 
     public void OpenColourPicker()
     {
-        // Set default colours
-        WhiteC = new Color(1f, 1f, 1f, 1f);
-        if (RedC.a < 1)
-        {
-            RedC = new Color(1f, 0.1f, 0.1f, 1f);
-        }
-        if (OrangeC.a < 1)
-        {
-            OrangeC = new Color(1f, 0.5f, 0.1f, 1f);
-        }
-        if (YellowC.a < 1)
-        {
-            YellowC = new Color(1f, 1f, 0.1f, 1f);
-        }
-        if (GreenC.a < 1)
-        {
-            GreenC = new Color(0.1f, 1f, 0.1f, 1f);
-        }
-        if (BlueC.a < 1)
-        {
-            BlueC = new Color(0.1f, 0.2f, 1f, 1f);
-        }
-        if (PurpleC.a < 1)
-        {
-            PurpleC = new Color(0.7f, 0.1f, 1f, 1f);
-            CloseButtonCP();
-        }
-
         redImage.color = RedC;
         orangeImage.color = OrangeC;
         yellowImage.color = YellowC;

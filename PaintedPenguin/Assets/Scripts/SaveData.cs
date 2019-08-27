@@ -1,29 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-[System.Serializable]
+[Serializable]
 public class SaveData
 {
     public string playerUsername;
     public string playerLanguage;
-    //public Color playerRed;
-    //public Color playerOrange;
-    //public Color playerYellow;
-    //public Color playerGreen;
-    //public Color playerBlue;
-    //public Color playerPurple;
-
+    public string playerRed;
+    public string playerOrange;
+    public string playerYellow;
+    public string playerGreen;
+    public string playerBlue;
+    public string playerPurple;
 
     public SaveData (GameManager gameManager)
     {
         playerUsername = gameManager.playerUsername;
         playerLanguage = gameManager.playerLanguage;
-        //playerRed = gameManager.RedC;
-        //playerOrange = gameManager.OrangeC;
-        //playerYellow = gameManager.YellowC;
-        //playerGreen = gameManager.GreenC;
-        //playerBlue = gameManager.BlueC;
-        //playerPurple = gameManager.PurpleC;
+        playerRed = gameManager.ColourToHex(gameManager.RedC);
+        playerOrange = gameManager.ColourToHex(gameManager.OrangeC);
+        playerYellow = gameManager.ColourToHex(gameManager.YellowC);
+        playerGreen = gameManager.ColourToHex(gameManager.GreenC);
+        playerBlue = gameManager.ColourToHex(gameManager.BlueC);
+        playerPurple = gameManager.ColourToHex(gameManager.PurpleC);
     }
 }

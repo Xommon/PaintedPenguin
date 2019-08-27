@@ -13581,17 +13581,17 @@ PrefabInstance:
     - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: WhiteC.a
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: RedC.r
-      value: 0.24528301
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: RedC.g
-      value: 0.24344902
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
@@ -13601,57 +13601,57 @@ PrefabInstance:
     - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: RedC.a
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: OrangeC.r
-      value: 0.3584906
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: OrangeC.g
-      value: 0.3584906
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: OrangeC.b
-      value: 0.3584906
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: OrangeC.a
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: YellowC.r
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: YellowC.g
-      value: 0.985849
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: YellowC.b
-      value: 0.5613208
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: YellowC.a
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: GreenC.r
-      value: 0.76688987
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: GreenC.g
-      value: 0.7924528
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
@@ -13661,7 +13661,7 @@ PrefabInstance:
     - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: GreenC.a
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
@@ -13671,37 +13671,37 @@ PrefabInstance:
     - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: BlueC.g
-      value: 0.18286252
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: BlueC.b
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: BlueC.a
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: PurpleC.r
-      value: 0.057431947
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: PurpleC.g
-      value: 0.052064795
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: PurpleC.b
-      value: 0.24528301
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: PurpleC.a
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
