@@ -937,12 +937,24 @@ public class GameManager : MonoBehaviour
         PurpleC = purpleImage.color;
         colourPickerUI.SetActive(false);
         usernameInputUI.SetActive(true);
+        redImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        orangeImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        yellowImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        greenImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        blueImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        purpleImage.GetComponent<FCP_ExampleScript>().fcp = null;
     }
 
     public void CloseButtonCP()
     {
         colourPickerUI.SetActive(false);
         usernameInputUI.SetActive(true);
+        redImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        orangeImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        yellowImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        greenImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        blueImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        purpleImage.GetComponent<FCP_ExampleScript>().fcp = null;
     }
 
     public void OpenColourPicker()
@@ -1022,5 +1034,15 @@ public class GameManager : MonoBehaviour
         greenImage.GetComponent<FCP_ExampleScript>().fcp = null;
         blueImage.GetComponent<FCP_ExampleScript>().fcp = null;
         purpleImage.GetComponent<FCP_ExampleScript>().fcp = flexibleColourPicker;
+    }
+
+    public void DefaultColourButton()
+    {
+        redImage.color = new Color(1f, 0.1f, 0.1f, 1f);
+        orangeImage.color = new Color(1f, 0.5f, 0.1f, 1f);
+        yellowImage.color = new Color(1f, 1f, 0.1f, 1f);
+        greenImage.color = new Color(0.1f, 1f, 0.1f, 1f);
+        blueImage.color = new Color(0.1f, 0.2f, 1f, 1f);
+        purpleImage.color = new Color(0.7f, 0.1f, 1f, 1f);
     }
 }
