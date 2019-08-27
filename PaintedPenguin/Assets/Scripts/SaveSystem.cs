@@ -35,9 +35,4 @@ public static class SaveSystem
             return null;
         }
     }
-
-    public static void DeleteSaveFile()
-    {
-        File.Delete(Application.persistentDataPath + "/save.dork");
-    }
 }

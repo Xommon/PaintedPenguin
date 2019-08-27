@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.Networking;
 using TMPro;
 
+[System.Serializable]
 public class GameManager : MonoBehaviour
 {
     // Menu components
@@ -31,19 +32,19 @@ public class GameManager : MonoBehaviour
     public string playerCountry;
 
     // Colours
-    //[System.NonSerialized]
+    [SerializeField]
     public Color WhiteC;
-    //[System.NonSerialized]
+    [SerializeField]
     public Color RedC;
-    //[System.NonSerialized]
+    [SerializeField]
     public Color OrangeC;
-    //[System.NonSerialized]
+    [SerializeField]
     public Color YellowC;
-    //[System.NonSerialized]
+    [SerializeField]
     public Color GreenC;
-    //[System.NonSerialized]
+    [SerializeField]
     public Color BlueC;
-    //[System.NonSerialized]
+    [SerializeField]
     public Color PurpleC;
 
     // Game components
@@ -386,16 +387,16 @@ public class GameManager : MonoBehaviour
     }
 
     // Save Data
-    public void SaveUsername(string name, string language, Color red, Color orange, Color yellow, Color green, Color blue, Color purple)
+    public void SaveUsername(string name, string language)
     {
         playerUsername = name;
         playerLanguage = language;
-        RedC = red;
-        OrangeC = orange;
-        YellowC = yellow;
-        GreenC = green;
-        BlueC = blue;
-        PurpleC = purple;
+        //RedC = red;
+        //OrangeC = orange;
+        //YellowC = yellow;
+        //GreenC = green;
+        //BlueC = blue;
+        //PurpleC = purple;
         SaveSystem.SaveUsername(this);
     }
 
@@ -406,12 +407,12 @@ public class GameManager : MonoBehaviour
 
         playerUsername = data.playerUsername;
         playerLanguage = data.playerLanguage;
-        RedC = data.playerRed;
-        OrangeC = data.playerOrange;
-        YellowC = data.playerYellow;
-        GreenC = data.playerGreen;
-        BlueC = data.playerBlue;
-        PurpleC = data.playerPurple;
+        //RedC = data.playerRed;
+        //OrangeC = data.playerOrange;
+        //YellowC = data.playerYellow;
+        //GreenC = data.playerGreen;
+        //BlueC = data.playerBlue;
+        //PurpleC = data.playerPurple;
     }
 
     // Get location
@@ -480,6 +481,7 @@ public class GameManager : MonoBehaviour
         uploadScoreUI.color = new Color(1, 1, 1, 0f);
 
         LoadUsername();
+
         if (playerLanguage == "" || playerUsername == null)
         {
             languageTableUI.SetActive(true);
@@ -616,7 +618,7 @@ public class GameManager : MonoBehaviour
         languageTableUI.SetActive(false);
         usernameInputUI.SetActive(true);
     }
-
+    
     public void OKButton()
     {
         if (usernameInputUI.activeInHierarchy == true)
@@ -631,7 +633,8 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                SaveUsername(playerUsername, playerLanguage, RedC, OrangeC, YellowC, GreenC, BlueC, PurpleC);
+                //SaveUsername(playerUsername, playerLanguage, RedC, OrangeC, YellowC, GreenC, BlueC, PurpleC);
+                SaveUsername(playerUsername, playerLanguage);
                 usernameInputUI.SetActive(false);
                 mainMenuUI.SetActive(true);
                 warningBoxText.text = "";
