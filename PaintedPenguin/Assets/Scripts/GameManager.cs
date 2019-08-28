@@ -541,6 +541,7 @@ public class GameManager : MonoBehaviour
         uploadScoreUI.sprite = null;
         uploadScoreUI.color = new Color(1, 1, 1, 0f);
         
+        // Choose what menus open depending on the save file
         if (playerLanguage == "" || playerUsername == null)
         {
             languageTableUI.SetActive(true);
@@ -550,6 +551,7 @@ public class GameManager : MonoBehaviour
         {
             usernameInputUI.SetActive(true);
             mainMenuUI.SetActive(false);
+            languageTableUI.SetActive(false);
         }
         else // If the player's username and language has already been set
         {
@@ -655,9 +657,7 @@ public class GameManager : MonoBehaviour
         mainMenuUI.SetActive(false);
         gameUI.SetActive(true);
     }
-
-
-
+    
     // Score Button pressed
     public void ScoreButton()
     {
@@ -852,6 +852,7 @@ public class GameManager : MonoBehaviour
             XButtonScore();
         }
 
+        // Max score of 9999
         if (score >= 9999)
         {
             score = 9999;

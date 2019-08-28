@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     public SpriteRenderer sr;
     public Animator animator;
     public GameManager gameManager;
@@ -36,7 +36,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (gameManager.paused == false && position == "walking" && dead == false)
         {
-            //transform.position = new Vector3(-0.33f, -0.075f, 0);
             rb.MovePosition(new Vector2(-0.33f, -0.075f));
             position = "jumping";
             rb.gravityScale = 0.5f;
@@ -49,7 +48,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (gameManager.paused == false && position == "walking" && dead == false)
         {
-            //transform.position = new Vector3(-0.33f, -0.075f, 0);
             rb.MovePosition(new Vector2(-0.33f, -0.075f));
             position = "diving";
             rb.gravityScale = -0.5f;
@@ -141,7 +139,6 @@ public class PlayerMovement : MonoBehaviour
             // Snap to ground if walking
             if (rb.position.y != -0.075 && position == "walking")
             {
-                //transform.position = new Vector3(-0.33f, -0.075f, 0);
                 rb.MovePosition(new Vector2(-0.33f, -0.075f));
                 animator.SetBool("jumping", false);
                 animator.SetBool("falling", false);

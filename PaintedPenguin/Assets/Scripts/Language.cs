@@ -113,6 +113,7 @@ public class Language : MonoBehaviour
         Warning2 = "The name is too long.";
         Flag.image.overrideSprite = english;
         gameManager.playerLanguage = "English";
+        Debug.Log("Language set to English");
         gameManager.XButtonLanguage();
     }
 

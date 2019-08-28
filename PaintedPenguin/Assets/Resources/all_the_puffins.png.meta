@@ -1,7 +1,55 @@
 fileFormatVersion: 2
 guid: 8990f9090f55ad54f983d5367c1e3c46
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 2885262205683226385
+    second: all_the_puffins_0
+  - first:
+      213: -3927872144132842629
+    second: all_the_puffins_1
+  - first:
+      213: -4453582630946421200
+    second: all_the_puffins_2
+  - first:
+      213: 1129687053106520964
+    second: all_the_puffins_3
+  - first:
+      213: -4672737665703458875
+    second: all_the_puffins_4
+  - first:
+      213: 8770199859996360271
+    second: all_the_puffins_5
+  - first:
+      213: -4875933496210635487
+    second: all_the_puffins_6
+  - first:
+      213: -3237049261448593460
+    second: all_the_puffins_7
+  - first:
+      213: 4254361692845888556
+    second: all_the_puffins_8
+  - first:
+      213: 6545674462390963780
+    second: all_the_puffins_9
+  - first:
+      213: 5538527081551692396
+    second: all_the_puffins_10
+  - first:
+      213: -7484847697372933163
+    second: all_the_puffins_11
+  - first:
+      213: 6613638800231979674
+    second: all_the_puffins_12
+  - first:
+      213: -6086705871566341633
+    second: all_the_puffins_13
+  - first:
+      213: 6673854532419588595
+    second: all_the_puffins_14
+  - first:
+      213: 6327771735713701824
+    second: all_the_puffins_15
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -31,7 +79,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -40,7 +88,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -70,9 +118,369 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: all_the_puffins_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 216
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf7bce8c6a25d4244bb2af973d94d070
+      internalID: 2885262205683226385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_the_puffins_1
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 216
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ddf8b06b21e7c747a7b1234d5cd0116
+      internalID: -3927872144132842629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_the_puffins_2
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 216
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23e2026f0226d944b85c23c2c58a5638
+      internalID: -4453582630946421200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_the_puffins_3
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 216
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86aef62121bc7cc40a2c1f6ad766f405
+      internalID: 1129687053106520964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_the_puffins_4
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 216
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be64b087cca2629438b693061c3dc49b
+      internalID: -4672737665703458875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_the_puffins_5
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 216
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 097f2f9bc24a64f4494719b915bff91b
+      internalID: 8770199859996360271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_the_puffins_6
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 216
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d842989b414f7447898df679d07930d
+      internalID: -4875933496210635487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_the_puffins_7
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 216
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf23810c40e8d35498ea003085970b1f
+      internalID: -3237049261448593460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_the_puffins_8
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 216
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c93714ff7e3554f48a7a413aead6b913
+      internalID: 4254361692845888556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_the_puffins_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 191
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77a465d58d473aa4cacc7a9920824751
+      internalID: 6545674462390963780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_the_puffins_10
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 191
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6736c57a547e3e849857de30935544b0
+      internalID: 5538527081551692396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_the_puffins_11
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 191
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef7f04e828e11914bb5925762e4ef8e4
+      internalID: -7484847697372933163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_the_puffins_12
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 191
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b8e2ec5e5e0e4d46abc3a3f0f1dc90f
+      internalID: 6613638800231979674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_the_puffins_13
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 191
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6530e5d751eca854389e576f0b06e0c1
+      internalID: -6086705871566341633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_the_puffins_14
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 198
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6b5c3725cb985e43bc8cff0bbc62321
+      internalID: 6673854532419588595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_the_puffins_15
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 191
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 517c3ebe7a3053149845e3994158b021
+      internalID: 6327771735713701824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

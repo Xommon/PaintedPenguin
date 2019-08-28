@@ -1,7 +1,7 @@
 ADDITIONS:
 - Ads
 - Analytics
-- Redo art and background
+- Redo art, UI, and background
 	- Collision effect with blocks
 	- Baby puffin
 - Sound effects
