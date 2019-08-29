@@ -1391,4 +1391,65 @@ public class Language : MonoBehaviour
         if (score >= 1) return "Ⅰ" + toRoman(score - 1);
         return "";
     }
+
+    public Font regularLatin;
+    public Font regularSimplifiedChinese;
+
+    public string UniversalFontCoder(string entry)
+    {
+        string codedEntry = entry;
+
+        for (int i = codedEntry.Length - 1; i > -1; i--)
+        {
+            // Latin
+            if (LatinCharacter(entry.Substring(i, 1))) {
+                codedEntry = codedEntry.Insert(i, "<font=\"Latin SDF\">");
+                Debug.Log(entry.Substring(i, 1) + " is Latin.");
+            } else
+
+            // Simplified Chinese
+            if (SimplifiedChineseCharacter(entry.Substring(i, 1)))
+            {
+                codedEntry = codedEntry.Insert(i, "<font=\"SimplifiedChinese SDF\">");
+                Debug.Log(entry.Substring(i, 1) + " is Simplified Chinese.");
+            }
+        }
+
+        gameManager.gameTitleText.text = codedEntry;
+        return codedEntry;
+    }
+
+    public bool LatinCharacter(string letter)
+    {
+        string charSet = " ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz`1234567890-=~!@#$%^&*()_+[{]}\\|;:'\",<.>/?¡¢£¤¥¦§¨©ª«¬®¯°±²³´µ¶·¸" +
+            "¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿĀāĂăĄąĆćĈĉĊċČčĎďĐđĒēĔĕĖėĘęĚěĜĝĞğĠġĢģĤĥĦħĨĩĪīĬĭĮįİıĲĳĴĵĶķĸĹĺĻļĽľĿ" +
+            "ŀŁłŃńŅņŇňŉŊŋŌōŎŏŐőŒœŔŕŖŗŘřŚśŜŝŞşŠšŢţŤťŦŧŨũŪūŬŭŮůŰűŲųŴŵŶŷŸŹźŻżŽžſƀƁƂƃƄƅƆƇƈƉƊƋƌƍƎƏƐƑƒƓƔƕƖƗƘƙƚƛƜƝƞƟƠơƢƣƤƥƦƧƨƩƪƫƬƭƮƯưƱƲƳƴƵƶƷƸƹƺƻƼƽƾƿǀǁǂǃǄǅǆǇǈǉ" +
+            "ǊǋǌǍǎǏǐǑǒǓǔǕǖǗǘǙǚǛǜǝǞǟǠǡǢǣǤǥǦǧǨǩǪǫǬǭǮǯǰǱǲǳǴǵǶǷǸǹǺǻǼǽǾǿȀȁȂȃȄȅȆȇȈȉȊȋȌȍȎȏȐȑȒȓȔȕȖȗȘșȚțȜȝȞȟȠȡȢȣȤȥȦȧȨȩȪȫȬȭȮȯȰȱȲȳȴȵȶȷȸȹȺȻȼȽȾȿɀɁɂɃɄɅɆɇɈɉɊɋɌɍɎɏ";
+
+        for (int i = 0; i < charSet.Length - 1; i++) {
+            if (charSet.Substring(i, 1) == letter)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public bool SimplifiedChineseCharacter(string letter)
+    {
+        string charSet = "画海雀";
+
+        for (int i = 0; i < charSet.Length - 1; i++)
+        {
+            if (charSet.Substring(i, 1) == letter)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
+
+

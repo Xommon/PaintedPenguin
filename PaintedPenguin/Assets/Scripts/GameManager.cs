@@ -508,6 +508,8 @@ public class GameManager : MonoBehaviour
     // Code for start of script
     public void Start()
     {
+        Debug.Log(language.UniversalFontCoder("ǺǻǼ画海雀"));
+
         // Load all save data
         LoadUsername();
 
