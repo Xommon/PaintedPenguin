@@ -14,6 +14,11 @@ https://answers.unity.com/questions/1034235/how-to-write-text-from-left-to-right
 - Title doesn't remain in language on startup
 - Some scripts/emojis don't appear on in-game highscore list
 - Sprite image rendering error
+- Redo or get rid of zero placements in highscore
+- Scores keep uploading even when recieved
+- First place tier doesn't have the same place as second place
+- scores shifted
 
 DON'T FORGET:
 - SWITCH MONETIZATION SWIPE TO FALSE
+

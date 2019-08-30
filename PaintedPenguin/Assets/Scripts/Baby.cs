@@ -32,7 +32,7 @@ public class Baby : MonoBehaviour
     
     void Update()
     {
-        if (gameManager.paused == false)
+        if (gameManager.paused == false && player.playerPositions.Count > 98)
         {
             transform.position = player.playerPositions[10 * babyValue] - new Vector2(0.28f - (0.06f * babyValue), 0.07f);
         }

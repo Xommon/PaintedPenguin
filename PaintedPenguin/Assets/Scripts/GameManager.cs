@@ -508,7 +508,8 @@ public class GameManager : MonoBehaviour
     // Code for start of script
     public void Start()
     {
-        Debug.Log(language.UniversalFontCoder("ǺǻǼ画海雀"));
+        //Debug.Log();
+        //UnityEngine.Debug.ClearDeveloperConsole();
 
         // Load all save data
         LoadUsername();
@@ -583,6 +584,8 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i <= 99; i++)
         {
             // Place
+            tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += "<font=\"Latin SDF\">";
+
             if (i < 9)
             {
                 tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += "00";
@@ -618,7 +621,7 @@ public class GameManager : MonoBehaviour
             }
 
             // Username
-            tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += highscoreList[i].username + "\n";
+            tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += language.UniversalFontCoder(highscoreList[i].username) + "\n";
 
             // Score
             previousScore = highscoreList[i].score;
