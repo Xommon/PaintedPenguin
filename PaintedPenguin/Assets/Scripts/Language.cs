@@ -125,29 +125,29 @@ public class Language : MonoBehaviour
         // Main Menu
         //GameTitle.text = "البفن الملون";
         GameTitle.text = RTLSupport.FixRTL("رسمت البفن", true, false, false);
-        StartButton = "البدء";
-        Score = "درجة عالية";
+        StartButton = Reverse("اﻟﺒﺪء");
+        Score = Reverse("ﺩﺭﺟﺔ ﻋﺎﻟﻴﺔ");
         HelloUsername = "سلام, " + gameManager.playerUsername + "!";
 
         // Game Over
-        GameOver = "انتهت اللعبة";
-        Replay = "عاد عرض المسرحية";
-        Continue = "إستأنف؟";
+        GameOver = Reverse("ﺍﻧﺘﻬﺖ ﺍﻟﻠﻌﺒﺔ"); // ﺘ
+        Replay = Reverse("ﻋﺎﺩ ﻋﺮﺽ ﺍﻟﻤﺴﺮﺣﻴﺔ");
+        Continue = Reverse("إﺳﺘﺄﺑﻒ؟");
 
         // Score
         ScoreUI = gameManager.score.ToString();
 
         // Pause
-        Paused = "توقف";
+        Paused = Reverse("ﺗﻮﻗﻒ");
 
         // High Scores
-        HighScores = "درجة عالية";
+        HighScores = Reverse("ﺩﺭﺟﺔ ﻋﺎﻟﻴﺔ");
 
         // Username Input
-        Name = "اسم ...";
-        OK = "حسنا";
-        Warning1 = "لا يمكن أن تحتوي على مسافات أو *.";
-        Warning2 = "اسم طويل جدا.";
+        Name = Reverse("... ﺍﺳﻢ");
+        OK = Reverse("ﺣﺴﻨﺎ");
+        Warning1 = ".* " + Reverse("ﻻ ﻳﻤﻜﻦ ﺃﻥ ﺗﺤﺘﻮﻱ ﻋﻠﻰ ﻣﺴﺎﻓﺎﺕ ﺃﻭ");
+        Warning2 = "." + Reverse("ﺍﺳﻢ ﻃﻮﻳﻞ ﺟﺪﺍ");
         Flag.image.overrideSprite = arabic;
         gameManager.playerLanguage = "Arabic";
         gameManager.XButtonLanguage();

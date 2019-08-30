@@ -60,10 +60,13 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         // Add positions to list
-        playerPositions.Add(rb.position);
-        if (playerPositions.Count > 100)
+        if (gameManager.paused == false)
         {
-            playerPositions.RemoveAt(0);
+            playerPositions.Add(rb.position);
+            if (playerPositions.Count > 100)
+            {
+                playerPositions.RemoveAt(0);
+            }
         }
 
         // Swipe controls
