@@ -585,15 +585,8 @@ public class GameManager : MonoBehaviour
         {
             // Place
             tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += "<font=\"Latin SDF\">";
-
-            if (i < 9)
-            {
-                tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += "00";
-            } else if (i > 8 && i < 99)
-            {
-                tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += "0";
-            }
-
+            int place = 0;
+            
             if (highscoreList[i].score == previousScore)
             {
                 if (previousPlace == 0)
@@ -603,12 +596,23 @@ public class GameManager : MonoBehaviour
                 {
                     count++;
                 }
-                tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += i - count + 1 + ": ";
+                place = i - count + 1;
             } else
             {
                 count = 0;
-                tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += i + 1 + ": ";
+                place = i + 1;
             }
+
+            if (place < 9)
+            {
+                tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += "00";
+            }
+            else if (place > 8 && place < 100)
+            {
+                tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += "0";
+            }
+
+            tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += place + ": ";
 
             // Country
             if (highscoreList[i].country == null || highscoreList[i].country == "")
