@@ -12,9 +12,8 @@ BUGS:
 - Hindi title spacing and Thai title bold font 
 - Some scripts/emojis don't appear on in-game highscore list
 - Sprite image colour rendering error
-- Redo or get rid of zero placements in highscore
 - First place tier doesn't have the same place as second place
-- Scores shifted
+- Scores shifted (because of scripts)
 
 TASK:
 - Make it so Arabizer() only reverses Arabic order, nothing else

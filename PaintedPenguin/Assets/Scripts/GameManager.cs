@@ -1046,6 +1046,12 @@ public class GameManager : MonoBehaviour
 
     public void DefaultColourButton()
     {
+        redImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        orangeImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        yellowImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        greenImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        blueImage.GetComponent<FCP_ExampleScript>().fcp = null;
+        purpleImage.GetComponent<FCP_ExampleScript>().fcp = null;
         redImage.color = new Color(1f, 0.1f, 0.1f, 1f);
         orangeImage.color = new Color(1f, 0.5f, 0.1f, 1f);
         yellowImage.color = new Color(1f, 1f, 0.1f, 1f);
