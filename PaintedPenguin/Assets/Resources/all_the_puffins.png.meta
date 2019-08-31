@@ -68,6 +68,42 @@ TextureImporter:
   - first:
       213: -5100421089428844330
     second: all_the_puffins_21
+  - first:
+      213: 9099254347728180006
+    second: all_the_puffins_22
+  - first:
+      213: 8060690093618797124
+    second: all_the_puffins_23
+  - first:
+      213: -1963679148245478271
+    second: all_the_puffins_24
+  - first:
+      213: 1863982081130483394
+    second: all_the_puffins_25
+  - first:
+      213: 5351010543794321728
+    second: all_the_puffins_26
+  - first:
+      213: -1525555931147462612
+    second: all_the_puffins_27
+  - first:
+      213: -9181651142598689369
+    second: all_the_puffins_28
+  - first:
+      213: 1088421284625440972
+    second: all_the_puffins_29
+  - first:
+      213: 606105351012208036
+    second: all_the_puffins_30
+  - first:
+      213: 8685461550797222396
+    second: all_the_puffins_31
+  - first:
+      213: 8087505152921436156
+    second: all_the_puffins_32
+  - first:
+      213: 7148665730820851648
+    second: all_the_puffins_33
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -178,7 +214,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ead023d0cabf8dc42905555d10dc9885
+      spriteID: 562e81b7ac4e0d248a9144b4a86b1e93
       internalID: 2885262205683226385
       vertices: []
       indices: 
@@ -199,7 +235,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e5a14338501d394ba44a5cdeb6fbd1f
+      spriteID: fc828d769343bc847bee051fa028b000
       internalID: -3927872144132842629
       vertices: []
       indices: 
@@ -220,7 +256,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0347f753711deee43a587318e11331cf
+      spriteID: c2933e7a6b9623941907a7579ae26181
       internalID: -4453582630946421200
       vertices: []
       indices: 
@@ -241,7 +277,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54b453d4f6a8cc146a9b7f4211df77aa
+      spriteID: 6b32b36ee8379e548a4c2f463b0f977c
       internalID: 1129687053106520964
       vertices: []
       indices: 
@@ -262,7 +298,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3cb55e1b3c4bce4caf795e9a7724730
+      spriteID: f9b3e285a17cea94fa3452c35b13bdcc
       internalID: -4672737665703458875
       vertices: []
       indices: 
@@ -283,7 +319,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1a882d99e929464eac79258c478676a
+      spriteID: 0443f77b07f16c0418ce041d8d9a4eba
       internalID: 8770199859996360271
       vertices: []
       indices: 
@@ -304,7 +340,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f02a9be808e21f747b7ea126fab56407
+      spriteID: 5cd804ed0a2e2374097a1aca8b51cd05
       internalID: -4875933496210635487
       vertices: []
       indices: 
@@ -325,7 +361,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6bdcfdd48af9410479034aa99eafc275
+      spriteID: 0dce3b618fb39894bb1b6840e27d5086
       internalID: -3237049261448593460
       vertices: []
       indices: 
@@ -346,7 +382,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39ad0ed764a3e8242bef3a23f4456d5b
+      spriteID: 414d1ca51e1d096428d533375b094d0f
       internalID: 4254361692845888556
       vertices: []
       indices: 
@@ -354,6 +390,48 @@ TextureImporter:
       weights: []
     - serializedVersion: 2
       name: all_the_puffins_9
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 217
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a63ac6126162cb843b944298c44e555d
+      internalID: 6545674462390963780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_the_puffins_10
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 215
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c31b8810389d82849a8b58463bc7b80e
+      internalID: 5538527081551692396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_the_puffins_11
       rect:
         serializedVersion: 2
         x: 0
@@ -367,14 +445,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8c54b0c50935374e8e9a5a70b31faef
-      internalID: 6545674462390963780
+      spriteID: 1f9fb7586cd346d418420616771fe24e
+      internalID: -7484847697372933163
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_the_puffins_10
+      name: all_the_puffins_12
       rect:
         serializedVersion: 2
         x: 21
@@ -388,14 +466,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e584afea9064b847a82d0281f83d360
-      internalID: 5538527081551692396
+      spriteID: 7c23e3b5f29b7094fa1f3bf9aabee217
+      internalID: 6613638800231979674
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_the_puffins_11
+      name: all_the_puffins_13
       rect:
         serializedVersion: 2
         x: 42
@@ -409,14 +487,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8cd2783ee5eeb6f4d87e164ea727c6dd
-      internalID: -7484847697372933163
+      spriteID: 03889e1d7c7ff18499b8a7a24dfb99e4
+      internalID: -6086705871566341633
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_the_puffins_12
+      name: all_the_puffins_14
       rect:
         serializedVersion: 2
         x: 63
@@ -430,14 +508,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b57104130f0dbb43879ee9e4e1d8fff
-      internalID: 6613638800231979674
+      spriteID: 994584f1b919cde498450ad559528a79
+      internalID: 6673854532419588595
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_the_puffins_13
+      name: all_the_puffins_15
       rect:
         serializedVersion: 2
         x: 85
@@ -451,20 +529,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60e9c9d427f64484b916a2776c1c9a76
-      internalID: -6086705871566341633
+      spriteID: 30038f322f82dc9449abea19d4106fe6
+      internalID: 6327771735713701824
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_the_puffins_14
+      name: all_the_puffins_16
       rect:
         serializedVersion: 2
-        x: 119
-        y: 198
-        width: 7
-        height: 5
+        x: 114
+        y: 202
+        width: 9
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -472,18 +550,60 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1c4026bb41ffb040bb54ce69fb8d3db
-      internalID: 6673854532419588595
+      spriteID: e815ad1d967ee6541be0ba4f3ab73fa0
+      internalID: 47979481842855852
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_the_puffins_15
+      name: all_the_puffins_17
       rect:
         serializedVersion: 2
-        x: 135
-        y: 191
+        x: 126
+        y: 202
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bd90ab669558da4990938e553a7afe5
+      internalID: 6675212914987247503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_the_puffins_18
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 202
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad379bcd4658ccb4a87ec323ac3e32be
+      internalID: -7320514341946726083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_the_puffins_19
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 188
         width: 11
         height: 11
       alignment: 0
@@ -493,14 +613,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 602226c043c89e04d948e83f248687d4
-      internalID: 6327771735713701824
+      spriteID: d224cb9eee8655b489daa204854d4d74
+      internalID: 3802093415386833212
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_the_puffins_16
+      name: all_the_puffins_20
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 167
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 558659461853eb747aa756161cb905c3
+      internalID: -6097470604102293926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_the_puffins_21
       rect:
         serializedVersion: 2
         x: 0
@@ -514,14 +655,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a11160d2f73114540a8df9d2906c0dfe
-      internalID: 47979481842855852
+      spriteID: bab8772c8dc0998458f2692c479e7554
+      internalID: -5100421089428844330
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_the_puffins_17
+      name: all_the_puffins_22
       rect:
         serializedVersion: 2
         x: 24
@@ -535,14 +676,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49c7a050265170b438a4a336a10f3a87
-      internalID: 6675212914987247503
+      spriteID: e0ea861102ee0af42abb1bf8c23b423f
+      internalID: 9099254347728180006
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_the_puffins_18
+      name: all_the_puffins_23
       rect:
         serializedVersion: 2
         x: 48
@@ -556,14 +697,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f634e72ce69f7a94fbccd8baeaafee3e
-      internalID: -7320514341946726083
+      spriteID: dbb8284c5eb5bcc428698b4b607079ea
+      internalID: 8060690093618797124
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_the_puffins_19
+      name: all_the_puffins_24
       rect:
         serializedVersion: 2
         x: 73
@@ -577,14 +718,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee7dfe4eba9dd1441a8d84224c0a79cd
-      internalID: 3802093415386833212
+      spriteID: ac3f4a61d097dcc48b2d87108ccc0ee5
+      internalID: -1963679148245478271
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_the_puffins_20
+      name: all_the_puffins_25
       rect:
         serializedVersion: 2
         x: 98
@@ -598,14 +739,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6babb88d5a53d94b96bccea659dc71b
-      internalID: -6097470604102293926
+      spriteID: bf32e340b76fb5c4485a80df2c0c6957
+      internalID: 1863982081130483394
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: all_the_puffins_21
+      name: all_the_puffins_26
       rect:
         serializedVersion: 2
         x: 123
@@ -619,8 +760,155 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd75ff72908a7fc43ba8b5977dbfe52c
-      internalID: -5100421089428844330
+      spriteID: 8c9503f64803e424cbec95abc11c8a31
+      internalID: 5351010543794321728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_the_puffins_27
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 170
+        width: 16
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f83713ef7a4f6146bd46436b8868bff
+      internalID: -1525555931147462612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_the_puffins_28
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 133
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 505d888cf1cc37247a5e4e381f1c4374
+      internalID: -9181651142598689369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_the_puffins_29
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 133
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 185eb6b5aef4d4b499c0ce9f59478146
+      internalID: 1088421284625440972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_the_puffins_30
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 132
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e21877ce2c1403f4a9ce9804cac2f9d6
+      internalID: 606105351012208036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_the_puffins_31
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 133
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 083046e0a51295949bbbcc4331adcaaf
+      internalID: 8685461550797222396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_the_puffins_32
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 133
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca8df0e917df97945b0f2ae0aa561367
+      internalID: 8087505152921436156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all_the_puffins_33
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 132
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88aa28b90b8b2e3469c8841de2aa6ceb
+      internalID: 7148665730820851648
       vertices: []
       indices: 
       edges: []

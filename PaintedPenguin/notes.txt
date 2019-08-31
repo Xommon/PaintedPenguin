@@ -6,15 +6,19 @@ ADDITIONS:
 	- Baby puffin
 - Sound effects
 - Tutorial
+- Arabizer
 
 BUGS:
-- Title doesn't remain in language on startup
+- Hindi title spacing and Thai title bold font 
 - Some scripts/emojis don't appear on in-game highscore list
-- Sprite image rendering error
+- Sprite image colour rendering error
 - Redo or get rid of zero placements in highscore
-- Scores keep uploading even when recieved
 - First place tier doesn't have the same place as second place
-- scores shifted
+- Scores shifted
+
+TASK:
+- Make it so Arabizer() only reverses Arabic order, nothing else
+- Do something similar for the name displays in-game
 
 DON'T FORGET:
 - SWITCH MONETIZATION SWIPE TO FALSE

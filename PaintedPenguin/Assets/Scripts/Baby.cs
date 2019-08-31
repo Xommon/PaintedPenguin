@@ -28,13 +28,45 @@ public class Baby : MonoBehaviour
             babyValue = 3;
             animator.SetInteger("Baby", babyValue);
         }
+
+        if (player.position == "walking")
+        {
+            animator.SetBool("Jumping", false);
+            animator.SetBool("Swimming", false);
+
+            if (gameObject.name == "Baby")
+            {
+                animator.SetInteger("Baby", babyValue);
+            }
+
+            if (gameObject.name == "Baby2")
+            {
+                animator.SetInteger("Baby", babyValue);
+            }
+
+            if (gameObject.name == "Baby3")
+            {
+                animator.SetInteger("Baby", babyValue);
+            }
+        }
+
+        if (player.position == "jumping")
+        {
+            animator.SetBool("Jumping", true);
+        }
+
+        if (player.position == "diving")
+        {
+            animator.SetBool("Swimming", true);
+        }
+
     }
     
     void Update()
     {
         if (gameManager.paused == false && player.playerPositions.Count > 98)
         {
-            transform.position = player.playerPositions[10 * babyValue] - new Vector2(0.28f - (0.06f * babyValue), 0.07f);
+            transform.position = player.playerPositions[45 + (15 * babyValue)] - new Vector2(0.28f - (0.06f * babyValue), 0.07f);
         }
     }
 }

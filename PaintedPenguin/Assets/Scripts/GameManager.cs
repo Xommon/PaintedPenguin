@@ -508,7 +508,7 @@ public class GameManager : MonoBehaviour
     // Code for start of script
     public void Start()
     {
-        //Debug.Log();
+        Debug.Log(language.Arabizer("اثتاباث!؟"));
         //UnityEngine.Debug.ClearDeveloperConsole();
 
         // Load all save data
@@ -621,7 +621,7 @@ public class GameManager : MonoBehaviour
             }
 
             // Username
-            tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += language.UniversalFontCoder(highscoreList[i].username) + "\n";
+            tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += highscoreList[i].username + "\n";
 
             // Score
             previousScore = highscoreList[i].score;
@@ -703,8 +703,6 @@ public class GameManager : MonoBehaviour
                 warningBoxText.text = "";
             }
         }
-
-        Debug.Log(nameSlot.preferredWidth);
     }
 
     public string ToRoman(int score)
@@ -781,7 +779,7 @@ public class GameManager : MonoBehaviour
         }
 
         // Set up text based on language
-        gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().text = language.GameTitle.text;
+        gameTitleText.text = language.GameTitle;
         startButtonText.text = language.StartButton;
         scoreButtonText.text = language.Score;
         helloUsernameText.text = playerUsername;
