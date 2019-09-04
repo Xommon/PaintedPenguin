@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour
     public GameObject pauseUI;
     public bool paused = false;
     public GameObject pauseButton;
-    public int colourblindMode;
     public Image redImage;
     public Image orangeImage;
     public Image yellowImage;
@@ -513,7 +512,6 @@ public class GameManager : MonoBehaviour
     // Code for start of script
     public void Start()
     {
-        //Debug.Log(language.Arabizer("nommoX"));
 
         // Load all save data
         LoadUsername();
@@ -807,14 +805,15 @@ public class GameManager : MonoBehaviour
         replayButtonText.text = language.Replay;
         continueButtonText.text = language.Continue;
 
-        if (playerLanguage != "Latin")
-        {
-            scoreText.text = score.ToString();
-        } else
+        if (playerLanguage == "Latin")
         {
             scoreText.text = ToRoman(score);
         }
-
+        else
+        {
+            scoreText.text = score.ToString();
+        }
+        
         pauseText.text = language.Paused;
 
         highScoresText.text = language.HighScores;

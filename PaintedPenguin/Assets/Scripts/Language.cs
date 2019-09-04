@@ -1738,7 +1738,7 @@ public class Language : MonoBehaviour
                 }
             }
 
-            if (ArabicCharacter(charArray[i].ToString()))
+            if (ArabicLetter(charArray[i].ToString()))
             {
                 containsArabic = true;
 
