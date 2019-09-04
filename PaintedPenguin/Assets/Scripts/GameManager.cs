@@ -27,6 +27,10 @@ public class GameManager : MonoBehaviour
     public FlexibleColorPicker flexibleColourPicker;
     public GameObject colourPickerUI;
 
+    // TEST
+    public float screenHeight;
+    public float screenWidth;
+
     // Location
     public string playerRegion;
     public string playerCountry;
@@ -65,6 +69,7 @@ public class GameManager : MonoBehaviour
     public Highscore[] highScoresList;
     public GameObject highScoreTableUI;
     public GameObject tableInfoUI;
+    public Text tableUsernameUI;
     public GameObject tableScoreUI;
     public Image tableFlagUI;
     public Sprite defaultFlag;
@@ -508,8 +513,7 @@ public class GameManager : MonoBehaviour
     // Code for start of script
     public void Start()
     {
-        Debug.Log(language.Arabizer("اثتاباث!؟"));
-        //UnityEngine.Debug.ClearDeveloperConsole();
+        //Debug.Log(language.Arabizer("nommoX"));
 
         // Load all save data
         LoadUsername();
@@ -584,7 +588,6 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i <= 99; i++)
         {
             // Place
-            tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += "<font=\"Latin SDF\">";
             int place = 0;
             
             if (highscoreList[i].score == previousScore)
@@ -621,11 +624,19 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += "<sprite name=" + "\"" + highscoreList[i].country.ToLower() + "\"" + "> ";
+                tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += "<sprite name=" + "\"" + highscoreList[i].country.ToLower() + "\"" + ">";
             }
 
+            tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += "\n";
+
             // Username
-            tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += highscoreList[i].username + "\n";
+            tableUsernameUI.text += language.Arabizer(highscoreList[i].username) + "\n";
+            //tableUsernameUI.text += highscoreList[i].username + "\n";
+
+            if (i == 99)
+            {
+                tableUsernameUI.text += "\n\n\n\n\n";
+            }
 
             // Score
             previousScore = highscoreList[i].score;
@@ -729,6 +740,10 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
+        // TEST
+        screenHeight = Screen.height;
+        screenWidth = Screen.width;
+
         // Fill in name slot
         nameSlot.text = playerUsername;
 
@@ -786,7 +801,7 @@ public class GameManager : MonoBehaviour
         gameTitleText.text = language.GameTitle;
         startButtonText.text = language.StartButton;
         scoreButtonText.text = language.Score;
-        helloUsernameText.text = playerUsername;
+        helloUsernameText.text = language.Arabizer(playerUsername);
 
         gameOverText.text = language.GameOver;
         replayButtonText.text = language.Replay;

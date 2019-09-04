@@ -603,7 +603,7 @@ public class Language : MonoBehaviour
     public void Hebrew()
     {
         // Main Menu
-        GameTitle = Reverse("פאפין") + " " + Reverse("צבוע");
+        GameTitle = Reverse("צבוע") + " " + Reverse("פאפין");
         StartButton = Reverse("התחל");
         Score = Reverse("גבוהים") + " " + Reverse("ציונים");
         HelloUsername = "שלום, " + gameManager.playerUsername + "!";
@@ -1373,6 +1373,15 @@ public class Language : MonoBehaviour
         {
             gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().fontStyle ^= FontStyles.Bold;
         }
+
+        // Spacing
+        if (gameManager.playerLanguage == "Hindi")
+        {
+            gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().lineSpacing = -20;
+        } else
+        {
+            gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().lineSpacing = -30;
+        }
     }
 
     public string toRoman(int score)
@@ -1627,6 +1636,9 @@ public class Language : MonoBehaviour
     {
         char[] charArray = entry.ToCharArray();
         int position = 1;
+        string nonArabic = "";
+        bool containsArabic = false;
+        List<string> newEntry = new List<string>();
 
         for (int i = 0; i < entry.Length - 1; i ++)
         {
@@ -1635,7 +1647,7 @@ public class Language : MonoBehaviour
                 if (i + 1 <= entry.Length - 1)
                 {
                     // Preserve non-Arabic characters.
-                    string nonArabic = "";
+                    nonArabic = "";
 
                     // If the next char is an Arabic letter
                     if (ArabicLetter(charArray[i + 1].ToString()))
@@ -1726,25 +1738,63 @@ public class Language : MonoBehaviour
                 }
             }
 
-            if (charArray[i] == 'ا')
+            if (ArabicCharacter(charArray[i].ToString()))
             {
-                TwoFormLetter('ﺎ', 'ﺍ');
-            }
+                containsArabic = true;
 
-            if (charArray[i] == 'ب')
-            {
-                FourFormLetter('ﺑ', 'ﺒ', 'ﺐ', 'ﺏ');
-            }
+                // Reverse nonArabic and put it back into the string
+                if (nonArabic != "")
+                {
+                    for (int i2 = 0; i2 < nonArabic.Length; i2 ++)
+                    {
+                        charArray[i - nonArabic.Length + i2] = nonArabic.Substring(nonArabic.Length - (i2 + 1), 1)[0];
+                    }
 
-            if (charArray[i] == 'ت')
-            {
-                FourFormLetter('ﺗ', 'ﺘ', 'ﺖ', 'ﺕ');
-            }
+                    nonArabic = "";
+                }
 
-            if (charArray[i] == 'ث')
-            {
-                FourFormLetter('ﺛ', 'ﺜ', 'ﺚ', 'ﺙ');
+                if (charArray[i] == 'ا')
+                {
+                    TwoFormLetter('ﺎ', 'ﺍ');
+                }
+                else if (charArray[i] == 'ب')
+                {
+                    FourFormLetter('ﺑ', 'ﺒ', 'ﺐ', 'ﺏ');
+                }
+                else if (charArray[i] == 'ت')
+                {
+                    FourFormLetter('ﺗ', 'ﺘ', 'ﺖ', 'ﺕ');
+                }
+                else if (charArray[i] == 'ث')
+                {
+                    FourFormLetter('ﺛ', 'ﺜ', 'ﺚ', 'ﺙ');
+                }
             }
+            else if (HebrewCharacter(charArray[i].ToString()))
+            {
+                containsArabic = true;
+
+                if (nonArabic != "")
+                {
+                    for (int i2 = 0; i2 < nonArabic.Length; i2++)
+                    {
+                        charArray[i - nonArabic.Length + i2] = nonArabic.Substring(nonArabic.Length - (i2 + 1), 1)[0];
+                    }
+
+                    nonArabic = "";
+                }
+            }
+            else
+            {
+                // Non-Arabic Character detected
+                nonArabic += charArray[i].ToString();
+            }
+        }
+
+        if (containsArabic == false)
+        {
+            Array.Reverse(charArray);
+            nonArabic = "";
         }
 
         Array.Reverse(charArray);

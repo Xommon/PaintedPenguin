@@ -9,15 +9,14 @@ ADDITIONS:
 - Arabizer
 
 BUGS:
-- Hindi title spacing and Thai title bold font 
-- Some scripts/emojis don't appear on in-game highscore list
 - Sprite image colour rendering error
 - First place tier doesn't have the same place as second place
-- Scores shifted (because of scripts)
+- Some language's Game Title are too long
 
 TASK:
-- Make it so Arabizer() only reverses Arabic order, nothing else
-- Do something similar for the name displays in-game
 
 DON'T FORGET:
 - SWITCH MONETIZATION SWIPE TO FALSE
+
+123456
+nommoX
