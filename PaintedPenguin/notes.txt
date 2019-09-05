@@ -6,17 +6,17 @@ ADDITIONS:
 	- Baby puffin
 - Sound effects
 - Tutorial
-- Arabizer
 
 BUGS:
 - Sprite image colour rendering error
 - First place tier doesn't have the same place as second place
 - Some language's Game Title are too long
 - Final ی not forming
+- Redo water
 
 TASK:
 
 DON'T FORGET:
-- SWITCH MONETIZATION SWIPE TO FALSE
+- SWITCH MONETIZATION TO FALSE
 
 

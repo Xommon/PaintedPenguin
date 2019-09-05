@@ -104,9 +104,11 @@ public class GameManager : MonoBehaviour
     public float maxTime = 1;
     private float timer = 0;
     public GameObject block;
+    public GameObject clearBlock;
     public GameObject paint;
     public GameObject rainbow;
     public GameObject timesTwo;
+    public GameObject timesThree;
     public GameObject spikeBall;
     float place;
     public List<float> obstaclePositions = new List<float>();
@@ -150,17 +152,31 @@ public class GameManager : MonoBehaviour
             {
                 GameObject newpaint = Instantiate(paint);
                 newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
-            } else
+            }
+            else
             {
-                if (PercentChance(2))
+                if (PercentChance(100)) //2
                 {
-                    int pick = Random.Range(1, 3);
+                    int pick;
+                    if (player.babyPuffins < 3)
+                    {
+                        pick = Random.Range(1, 4);
+                    }
+                    else
+                    {
+                        pick = Random.Range(1, 3);
+                    }
                     if (pick == 1)
                     {
                         GameObject newpaint = Instantiate(rainbow);
                         newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
                     }
                     if (pick == 2)
+                    {
+                        GameObject newpaint = Instantiate(timesTwo);
+                        newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
+                    }
+                    if (pick == 3)
                     {
                         GameObject newpaint = Instantiate(timesTwo);
                         newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
@@ -629,7 +645,6 @@ public class GameManager : MonoBehaviour
 
             // Username
             tableUsernameUI.text += language.Arabizer(highscoreList[i].username) + "\n";
-            //tableUsernameUI.text += highscoreList[i].username + "\n";
 
             if (i == 99)
             {

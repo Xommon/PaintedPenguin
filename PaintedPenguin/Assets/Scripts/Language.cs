@@ -1928,7 +1928,158 @@ public class Language : MonoBehaviour
                 {
                     FourFormLetter('ﺋ', 'ﺌ', 'ﺊ', 'ﺉ');
                 }
-
+                else if (charArray[i] == 'ٱ')
+                {
+                    TwoFormLetter('ﭑ', 'ﭐ');
+                }
+                else if (charArray[i] == 'ٻ')
+                {
+                    FourFormLetter('ﭔ', 'ﭕ', 'ﭓ', 'ﭒ');
+                }
+                else if (charArray[i] == 'پ')
+                {
+                    FourFormLetter('ﭘ', 'ﭙ', 'ﭗ', 'ﭖ');
+                }
+                else if (charArray[i] == 'ڀ')
+                {
+                    FourFormLetter('ﭜ', 'ﭝ', 'ﭛ', 'ﭚ');
+                }
+                else if (charArray[i] == 'ٺ')
+                {
+                    FourFormLetter('ﭠ', 'ﭡ', 'ﭟ', 'ﭞ');
+                }
+                else if (charArray[i] == 'ٿ')
+                {
+                    FourFormLetter('ﭤ', 'ﭥ', 'ﭣ', 'ﭢ');
+                }
+                else if (charArray[i] == 'ٹ')
+                {
+                    FourFormLetter('ﭨ', 'ﭩ', 'ﭧ', 'ﭦ');
+                }
+                else if (charArray[i] == 'ڤ')
+                {
+                    FourFormLetter('ﭬ', 'ﭭ', 'ﭫ', 'ﭪ');
+                }
+                else if (charArray[i] == 'ڦ')
+                {
+                    FourFormLetter('ﭰ', 'ﭱ', 'ﭯ', 'ﭮ');
+                }
+                else if (charArray[i] == 'ڄ')
+                {
+                    FourFormLetter('ﭴ', 'ﭵ', 'ﭳ', 'ﭲ');
+                }
+                else if (charArray[i] == 'ڃ')
+                {
+                    FourFormLetter('ﭸ', 'ﭹ', 'ﭷ', 'ﭶ');
+                }
+                else if (charArray[i] == 'چ')
+                {
+                    FourFormLetter('ﭼ', 'ﭽ', 'ﭻ', 'ﭺ');
+                }
+                else if (charArray[i] == 'ڇ')
+                {
+                    FourFormLetter('ﮀ', 'ﮁ', 'ﭿ', 'ﭾ');
+                }
+                else if (charArray[i] == 'ڍ')
+                {
+                    TwoFormLetter('ﮃ', 'ﮂ');
+                }
+                else if (charArray[i] == 'ڌ')
+                {
+                    TwoFormLetter('ﮅ', 'ﮄ');
+                }
+                else if (charArray[i] == 'ڎ')
+                {
+                    TwoFormLetter('ﮇ', 'ﮆ');
+                }
+                else if (charArray[i] == 'ڈ')
+                {
+                    TwoFormLetter('ﮉ', 'ﮈ');
+                }
+                else if (charArray[i] == 'ژ')
+                {
+                    TwoFormLetter('ﮋ', 'ﮊ');
+                }
+                else if (charArray[i] == 'ڑ')
+                {
+                    TwoFormLetter('ﮍ', 'ﮌ');
+                }
+                else if (charArray[i] == 'ک')
+                {
+                    FourFormLetter('ﮐ', 'ﮑ', 'ﮏ', 'ﮎ');
+                }
+                else if (charArray[i] == 'گ')
+                {
+                    FourFormLetter('ﮔ', 'ﮕ', 'ﮓ', 'ﮒ');
+                }
+                else if (charArray[i] == 'ڳ')
+                {
+                    FourFormLetter('ﮘ', 'ﮙ', 'ﮗ', 'ﮖ');
+                }
+                else if (charArray[i] == 'ڱ')
+                {
+                    FourFormLetter('ﮜ', 'ﮝ', 'ﮛ', 'ﮚ');
+                }
+                else if (charArray[i] == 'ں')
+                {
+                    TwoFormLetter('ﮟ', 'ﮞ');
+                }
+                else if (charArray[i] == 'ڻ')
+                {
+                    FourFormLetter('ﮢ', 'ﮣ', 'ﮡ', 'ﮠ');
+                }
+                else if (charArray[i] == 'ہ')
+                {
+                    FourFormLetter('ﮨ', 'ﮩ', 'ﮧ', 'ﮦ');
+                }
+                else if (charArray[i] == 'ھ')
+                {
+                    FourFormLetter('ﮬ', 'ﮭ', 'ﮫ', 'ﮪ');
+                }
+                else if (charArray[i] == 'ے')
+                {
+                    TwoFormLetter('ﮯ', 'ے');
+                }
+                else if (charArray[i] == 'ۓ')
+                {
+                    TwoFormLetter('ﮱ', 'ﮰ');
+                }
+                else if (charArray[i] == 'ڭ')
+                {
+                    FourFormLetter('ﯕ', 'ﯖ', 'ﯔ', 'ﯓ');
+                }
+                else if (charArray[i] == 'ۇ')
+                {
+                    TwoFormLetter('ﯘ', 'ﯗ');
+                }
+                else if (charArray[i] == 'ۆ')
+                {
+                    TwoFormLetter('ﯚ', 'ﯙ');
+                }
+                else if (charArray[i] == 'ۈ')
+                {
+                    TwoFormLetter('ﯜ', 'ﯛ');
+                }
+                else if (charArray[i] == 'ۋ')
+                {
+                    TwoFormLetter('ﯟ', 'ﯞ');
+                }
+                else if (charArray[i] == 'ۅ')
+                {
+                    TwoFormLetter('ﯡ', 'ﯠ');
+                }
+                else if (charArray[i] == 'ۉ')
+                {
+                    TwoFormLetter('ﯣ', 'ﯢ');
+                }
+                else if (charArray[i] == 'ې')
+                {
+                    FourFormLetter('ﯦ', 'ﯧ', 'ﯥ', 'ﯤ');
+                }
+                else if (charArray[i] == 'ی')
+                {
+                    FourFormLetter('ﯾ', 'ﯿ', 'ﯽ', 'ﯼ');
+                }
             }
             else if (HebrewCharacter(charArray[i].ToString()))
             {

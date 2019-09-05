@@ -11,6 +11,7 @@ TagManager:
   - LoadingBar
   - Flag
   - SpikeBall
+  - ClearBlock
   layers:
   - Default
   - TransparentFX
