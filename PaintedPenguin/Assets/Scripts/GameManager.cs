@@ -138,13 +138,78 @@ public class GameManager : MonoBehaviour
             obstaclePositions.Add(-0.9f);
 
             // Place first block
-            GameObject newblock = Instantiate(block);
+            GameObject newblock = null;
+            if (score >= 400)
+            {
+                if ((score / 66.66f) <= 60)
+                {
+                    if (PercentChance(score / 66.66f))
+                    {
+                        if (PercentChance(95))
+                        {
+                            newblock = Instantiate(blockWithPaint);
+                        }
+                        else
+                        {
+                            newblock = Instantiate(blockWithTimesThree);
+                        }
+                    }
+                    else
+                    {
+                        newblock = Instantiate(block);
+                    }
+                }
+                else
+                {
+                    if (PercentChance(60))
+                    {
+                        if (PercentChance(95))
+                        {
+                            newblock = Instantiate(blockWithPaint);
+                        }
+                        else
+                        {
+                            newblock = Instantiate(blockWithTimesThree);
+                        }
+                    }
+                    else
+                    {
+                        newblock = Instantiate(block);
+                    }
+                }
+            } else
+            {
+                newblock = Instantiate(block);
+            }
             place = obstaclePositions[(Random.Range(0, 3))]; // 0, 1 or 2
             newblock.transform.position = transform.position + new Vector3(1, place, 0);
             obstaclePositions.Remove(place);
 
             // Place second block
-            GameObject newblock2 = Instantiate(block);
+            GameObject newblock2 = null;
+            if (score >= 1000)
+            {
+                if (PercentChance(5))
+                {
+                    if (PercentChance(75))
+                    {
+                        newblock2 = Instantiate(blockWithRainbow);
+                    }
+                    else
+                    {
+                        newblock2 = Instantiate(blockWithTimesThree);
+                    }
+                }
+                else
+                {
+                    newblock2 = Instantiate(block);
+                }
+            } else
+            {
+                newblock2 = Instantiate(block);
+            }
+                
+            //Instantiate(block);
             place = obstaclePositions[(Random.Range(0, 2))]; // 0 or 1
             newblock2.transform.position = transform.position + new Vector3(1, place, 0);
             obstaclePositions.Remove(place);
@@ -157,7 +222,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                if (PercentChance(100)) // TEST 2%
+                if (PercentChance(2)) // TEST 2%
                 {
                     int pick;
                     if (player.babyPuffins < 3)

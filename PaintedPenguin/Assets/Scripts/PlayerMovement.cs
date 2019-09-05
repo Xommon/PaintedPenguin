@@ -344,7 +344,7 @@ public class PlayerMovement : MonoBehaviour
                 //collision.gameObject.GetComponent<Explodable>().explode();
             } else if (collision.gameObject.GetComponent<Block>().hit == false && dead == false)
             {
-                if (collision.transform.name == "BlockWithPaint(Clone)" && dead == false)
+                if (collision.transform.name == "BlockWithPaint(Clone)" && colour != 7 && dead == false)
                 {
                     colour = collision.gameObject.GetComponent<Block>().colour2;
                 }

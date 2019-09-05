@@ -5,13 +5,14 @@ ADDITIONS:
 	- Collision effect with blocks
 	- Baby puffin
 - Sound effects
-- Redo obstacles
+- Combo points
+- Point visual indicator
 - Tutorial
 
 BUGS:
 - Sprite image colour rendering error
 - First place tier doesn't have the same place as second place
-- Final ي/ی not forming
+- Final ي/ی not forming SOMETIMES
 - Redo water
 
 TASK:
