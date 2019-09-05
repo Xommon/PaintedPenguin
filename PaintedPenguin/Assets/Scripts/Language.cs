@@ -155,7 +155,7 @@ public class Language : MonoBehaviour
     public void Bosnian()
     {
         // Main Menu
-        GameTitle = "Painted Puffin";
+        GameTitle = "Ofarbani Puffin";
         StartButton = "START";
         Score = "REZULTATI";
         HelloUsername = "Zdravo, " + gameManager.playerUsername + "!";
@@ -219,7 +219,7 @@ public class Language : MonoBehaviour
     public void Catalan()
     {
         // Main Menu
-        GameTitle = "Puffin Pintat";
+        GameTitle = "Fraret Pintat";
         StartButton = "COMENÇAR";
         Score = "PUNTUACIONS";
         HelloUsername = "Hola, " + gameManager.playerUsername + "!";
@@ -411,7 +411,7 @@ public class Language : MonoBehaviour
     public void Dutch()
     {
         // Main Menu
-        GameTitle = "Geschilderde \nPapegaaiduiker";
+        GameTitle = "Geschilderde \nPuffin";
         StartButton = "START";
         Score = "SCORES";
         HelloUsername = "Hallo, " + gameManager.playerUsername + "!";
@@ -539,7 +539,7 @@ public class Language : MonoBehaviour
     public void German()
     {
         // Main Menu
-        GameTitle = "Gemalter \nPapageientaucher";
+        GameTitle = "Gemalter \nPuffin";
         StartButton = "START";
         Score = "PUNKTZAHLEN";
         HelloUsername = "Hallo, " + gameManager.playerUsername + "!";
@@ -924,7 +924,7 @@ public class Language : MonoBehaviour
     public void Persian()
     {
         // Main Menu
-        GameTitle = "پفین رنگ شده";
+        GameTitle = Arabizer("پفین رنگ شده");
         StartButton = Reverse("ﺷﺮﻭﻉ ﻛﻦ");
         Score = Reverse("ﻧﻤﺮﺍﺕ ﺑﺎﻻ");
         HelloUsername = "سلام, " + gameManager.playerUsername + "!";
