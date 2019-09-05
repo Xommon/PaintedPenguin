@@ -5,6 +5,7 @@ ADDITIONS:
 	- Collision effect with blocks
 	- Baby puffin
 - Sound effects
+- Redo obstacles
 - Tutorial
 
 BUGS:

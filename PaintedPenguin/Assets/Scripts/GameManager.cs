@@ -104,6 +104,7 @@ public class GameManager : MonoBehaviour
     public float maxTime = 1;
     private float timer = 0;
     public GameObject block;
+    public GameObject blockWithPaint;
     public GameObject clearBlock;
     public GameObject paint;
     public GameObject rainbow;
@@ -155,17 +156,17 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                if (PercentChance(100)) // TEST 2%
+                if (PercentChance(2)) // TEST 2%
                 {
-                    int pick;
-                    if (player.babyPuffins < 3)
+                    int pick = 3;
+                    /*if (player.babyPuffins < 3)
                     {
                         pick = Random.Range(1, 4);
                     }
                     else
                     {
                         pick = Random.Range(1, 3);
-                    }
+                    }*/
                     if (pick == 1)
                     {
                         GameObject newpaint = Instantiate(rainbow);
@@ -178,7 +179,7 @@ public class GameManager : MonoBehaviour
                     }
                     if (pick == 3)
                     {
-                        GameObject newpaint = Instantiate(timesTwo);
+                        GameObject newpaint = Instantiate(blockWithPaint);
                         newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
                     }
                 } else if (PercentChance(score / 80.0f))

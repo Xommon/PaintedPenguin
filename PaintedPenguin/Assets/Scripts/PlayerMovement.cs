@@ -334,17 +334,23 @@ public class PlayerMovement : MonoBehaviour
     // End the game if collision with an obstacle occurs
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.name == "Block(Clone)")
+        if (collision.transform.tag == "Block")
         {
             if (collision.gameObject.GetComponent<Block>().colour != colour && colour != 7 && dead == false)
             {
                 KillPlayer();
                 Destroy(collision.gameObject);
+                //collision.gameObject.GetComponent<Explodable>().explode();
             } else if (collision.gameObject.GetComponent<Block>().hit == false && dead == false)
             {
+                if (collision.transform.name == "BlockWithPaint(Clone)")
+                {
+                    colour = collision.gameObject.GetComponent<Block>().colour2;
+                }
                 gameManager.score += (5 * timesTwoMode);
                 collision.gameObject.GetComponent<Block>().hit = true;
                 Destroy(collision.gameObject);
+                //collision.gameObject.GetComponent<Explodable>().explode();
             }
         }
 
