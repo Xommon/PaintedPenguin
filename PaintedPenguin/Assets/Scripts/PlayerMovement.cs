@@ -347,6 +347,11 @@ public class PlayerMovement : MonoBehaviour
                 {
                     colour = collision.gameObject.GetComponent<Block>().colour2;
                 }
+                else if (collision.transform.name == "BlockWithRainbow(Clone)" && colour != 7 && timesTwoMode == 1 && dead == false)
+                {
+                    colour = 7;
+                    Rainbow(8.33f);
+                }
                 gameManager.score += (5 * timesTwoMode);
                 collision.gameObject.GetComponent<Block>().hit = true;
                 Destroy(collision.gameObject);

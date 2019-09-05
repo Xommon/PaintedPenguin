@@ -14337,6 +14337,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6912182656722656618, guid: 0a672bcb4c7e67845bb90f7e8c01a9c6,
         type: 3}
+    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
+        type: 3}
+      propertyPath: blockWithRainbow
+      value: 
+      objectReference: {fileID: 6912182656722656618, guid: 85193c8858424734e9e31e123382d9e2,
+        type: 3}
     - target: {fileID: 814642394577855561, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: m_LocalPosition.x
