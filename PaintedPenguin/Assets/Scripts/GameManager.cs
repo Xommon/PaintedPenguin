@@ -106,6 +106,7 @@ public class GameManager : MonoBehaviour
     public GameObject block;
     public GameObject blockWithPaint;
     public GameObject blockWithRainbow;
+    public GameObject blockWithTimesThree;
     public GameObject clearBlock;
     public GameObject paint;
     public GameObject rainbow;
@@ -180,7 +181,7 @@ public class GameManager : MonoBehaviour
                     }
                     if (pick == 3)
                     {
-                        GameObject newpaint = Instantiate(blockWithRainbow);
+                        GameObject newpaint = Instantiate(blockWithTimesThree);
                         newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
                     }
                 } else if (PercentChance(score / 80.0f))

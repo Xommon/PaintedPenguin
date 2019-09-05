@@ -299,7 +299,6 @@ public class PlayerMovement : MonoBehaviour
     // TimesTwo
     public void TimesTwoMode(float seconds)
     {
-        timesTwoMode = 2;
         GameObject loadingBar = Instantiate(loadingBarPrefab);
         Invoke("UntimesTwoMode", seconds);
     }
@@ -351,6 +350,11 @@ public class PlayerMovement : MonoBehaviour
                 {
                     colour = 7;
                     Rainbow(8.33f);
+                }
+                else if (collision.transform.name == "BlockWithX3(Clone)" && colour != 7 && timesTwoMode == 1 && dead == false)
+                {
+                    timesTwoMode = 3;
+                    TimesTwoMode(8.33f);
                 }
                 gameManager.score += (5 * timesTwoMode);
                 collision.gameObject.GetComponent<Block>().hit = true;

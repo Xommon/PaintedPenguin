@@ -14343,6 +14343,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6912182656722656618, guid: 85193c8858424734e9e31e123382d9e2,
         type: 3}
+    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
+        type: 3}
+      propertyPath: blockWithTimesThree
+      value: 
+      objectReference: {fileID: 6912182656722656618, guid: 23fba2256ec0edb4c86449d81ce8ab72,
+        type: 3}
     - target: {fileID: 814642394577855561, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: m_LocalPosition.x
