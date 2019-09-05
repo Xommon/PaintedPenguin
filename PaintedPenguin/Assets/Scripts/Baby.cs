@@ -11,19 +11,19 @@ public class Baby : MonoBehaviour
 
     void Start()
     {
-        if (gameObject.name == "Baby")
+        if (gameObject.name == "Baby(Clone)")
         {
             babyValue = 1;
             animator.SetInteger("Baby", babyValue);
         }
 
-        if (gameObject.name == "Baby2")
+        if (gameObject.name == "Baby2(Clone)")
         {
             babyValue = 2;
             animator.SetInteger("Baby", babyValue);
         }
 
-        if (gameObject.name == "Baby3")
+        if (gameObject.name == "Baby3(Clone)")
         {
             babyValue = 3;
             animator.SetInteger("Baby", babyValue);
@@ -64,7 +64,7 @@ public class Baby : MonoBehaviour
     
     void Update()
     {
-        if (gameManager.paused == false && player.playerPositions.Count > 98)
+        if (gameManager.paused == false && player.playerPositions.Count > (45 + (15 * babyValue)))
         {
             transform.position = player.playerPositions[45 + (15 * babyValue)] - new Vector2(0.28f - (0.06f * babyValue), 0.07f);
         }

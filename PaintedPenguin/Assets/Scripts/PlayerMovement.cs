@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     public GameObject loadingBarPrefab;
     public int babyPuffins;
     public List<Vector2> playerPositions = new List<Vector2>();
+    public List<GameObject> babies = new List<GameObject>();
+    public GameObject testBaby;
 
     // Swipe controls
     public Vector3 swipeStartPosition;
@@ -342,7 +344,7 @@ public class PlayerMovement : MonoBehaviour
                 //collision.gameObject.GetComponent<Explodable>().explode();
             } else if (collision.gameObject.GetComponent<Block>().hit == false && dead == false)
             {
-                if (collision.transform.name == "BlockWithPaint(Clone)")
+                if (collision.transform.name == "BlockWithPaint(Clone)" && dead == false)
                 {
                     colour = collision.gameObject.GetComponent<Block>().colour2;
                 }
@@ -356,6 +358,14 @@ public class PlayerMovement : MonoBehaviour
                     timesTwoMode = 3;
                     TimesTwoMode(8.33f);
                 }
+                else if (collision.transform.name == "BlockWithBaby(Clone)" && dead == false && babyPuffins < 3)
+                {
+                    Instantiate(babies[0]);
+                    //Instantiate(testBaby);
+                    babies.RemoveAt(0);
+                    babyPuffins++;
+                }
+
                 gameManager.score += (5 * timesTwoMode);
                 collision.gameObject.GetComponent<Block>().hit = true;
                 Destroy(collision.gameObject);

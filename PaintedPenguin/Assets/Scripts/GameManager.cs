@@ -107,11 +107,10 @@ public class GameManager : MonoBehaviour
     public GameObject blockWithPaint;
     public GameObject blockWithRainbow;
     public GameObject blockWithTimesThree;
-    public GameObject clearBlock;
+    public GameObject blockWithBaby;
     public GameObject paint;
     public GameObject rainbow;
     public GameObject timesTwo;
-    public GameObject timesThree;
     public GameObject spikeBall;
     float place;
     public List<float> obstaclePositions = new List<float>();
@@ -160,15 +159,15 @@ public class GameManager : MonoBehaviour
             {
                 if (PercentChance(100)) // TEST 2%
                 {
-                    int pick = 3;
-                    /*if (player.babyPuffins < 3)
+                    int pick;
+                    if (player.babyPuffins < 3)
                     {
                         pick = Random.Range(1, 4);
                     }
                     else
                     {
                         pick = Random.Range(1, 3);
-                    }*/
+                    }
                     if (pick == 1)
                     {
                         GameObject newpaint = Instantiate(rainbow);
@@ -181,7 +180,7 @@ public class GameManager : MonoBehaviour
                     }
                     if (pick == 3)
                     {
-                        GameObject newpaint = Instantiate(blockWithTimesThree);
+                        GameObject newpaint = Instantiate(blockWithBaby);
                         newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
                     }
                 } else if (PercentChance(score / 80.0f))

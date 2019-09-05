@@ -96,11 +96,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 950571755183832516}
-  player: {fileID: 0}
+  player: {fileID: 5073945571518871174, guid: ec57f4535ec603946a7f03fa5bb07814, type: 3}
+  gameManager: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
+    type: 3}
   babyValue: 0
-  previousPosition1: {x: 0, y: 0}
-  previousPosition2: {x: 0, y: 0}
-  previousPosition3: {x: 0, y: 0}
 --- !u!95 &950571755183832516
 Animator:
   serializedVersion: 3
@@ -109,7 +108,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 950571755183832569}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: df5f56bee1fb16a4283b2cb0cbc949b3, type: 2}
   m_CullingMode: 0

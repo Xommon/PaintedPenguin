@@ -12155,7 +12155,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1928262227
 PrefabInstance:
@@ -14348,6 +14348,12 @@ PrefabInstance:
       propertyPath: blockWithTimesThree
       value: 
       objectReference: {fileID: 6912182656722656618, guid: 23fba2256ec0edb4c86449d81ce8ab72,
+        type: 3}
+    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
+        type: 3}
+      propertyPath: blockWithBaby
+      value: 
+      objectReference: {fileID: 6912182656722656618, guid: 436dbfd5f2c0d664a8132a05687fd69e,
         type: 3}
     - target: {fileID: 814642394577855561, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
@@ -22214,6 +22220,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5073945571518871174, guid: ec57f4535ec603946a7f03fa5bb07814,
         type: 3}
+      propertyPath: babies.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073945571518871174, guid: ec57f4535ec603946a7f03fa5bb07814,
+        type: 3}
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 1253002816}
@@ -22228,6 +22239,30 @@ PrefabInstance:
       propertyPath: loadingBarPrefab
       value: 
       objectReference: {fileID: 4690267391600531473, guid: eedcd1813fcf52d4eaf6eb86e54028e5,
+        type: 3}
+    - target: {fileID: 5073945571518871174, guid: ec57f4535ec603946a7f03fa5bb07814,
+        type: 3}
+      propertyPath: babies.Array.data[0]
+      value: 
+      objectReference: {fileID: 950571755183832569, guid: 8983dabda896d2a49baec5496644978f,
+        type: 3}
+    - target: {fileID: 5073945571518871174, guid: ec57f4535ec603946a7f03fa5bb07814,
+        type: 3}
+      propertyPath: babies.Array.data[1]
+      value: 
+      objectReference: {fileID: 8599103292821790520, guid: 10db62c837ee14b45b45298e67505ce6,
+        type: 3}
+    - target: {fileID: 5073945571518871174, guid: ec57f4535ec603946a7f03fa5bb07814,
+        type: 3}
+      propertyPath: babies.Array.data[2]
+      value: 
+      objectReference: {fileID: 402438195682197757, guid: f4b084d62af50b04ebb51b0b7041e040,
+        type: 3}
+    - target: {fileID: 5073945571518871174, guid: ec57f4535ec603946a7f03fa5bb07814,
+        type: 3}
+      propertyPath: testBaby
+      value: 
+      objectReference: {fileID: 950571755183832569, guid: 8983dabda896d2a49baec5496644978f,
         type: 3}
     - target: {fileID: 5073945571518871169, guid: ec57f4535ec603946a7f03fa5bb07814,
         type: 3}
@@ -22645,7 +22680,7 @@ PrefabInstance:
     - target: {fileID: 8384673512741271491, guid: 20a2161188ae6804e9fc56ba980e8a8d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8384673512741271491, guid: 20a2161188ae6804e9fc56ba980e8a8d,
         type: 3}
