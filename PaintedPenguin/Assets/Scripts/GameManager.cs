@@ -155,7 +155,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                if (PercentChance(100)) //2
+                if (PercentChance(100)) // TEST 2%
                 {
                     int pick;
                     if (player.babyPuffins < 3)
