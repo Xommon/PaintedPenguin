@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     public List<GameObject> babies = new List<GameObject>();
     public GameObject testBaby;
     public GameObject floatingText;
+    public GameObject touchGuide;
+    public bool tutorial;
 
     // Swipe controls
     public Vector3 swipeStartPosition;
@@ -28,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        tutorial = true;
         swipeMinDistance = 10.0f;
         timesTwoMode = 1;
         dead = false;
@@ -61,6 +64,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void TutorialOff()
+    {
+        tutorial = false;
+    }
+
     private void Update()
     {
         // Add positions to list
@@ -86,13 +94,13 @@ public class PlayerMovement : MonoBehaviour
             // If the swipe was long enough
             if (Mathf.Abs(swipeStartPosition.y - swipeEndPosition.y) >= swipeMinDistance)
             {
-                if (swipeStartPosition.y > swipeEndPosition.y)
+                if (swipeStartPosition.y > swipeEndPosition.y && tutorial == false)
                 {
                     swipeDirection = "down";
                     Dive();
                 }
 
-                if (swipeStartPosition.y < swipeEndPosition.y)
+                if (swipeStartPosition.y < swipeEndPosition.y && tutorial == false)
                 {
                     swipeDirection = "up";
                     Jump();
@@ -115,6 +123,11 @@ public class PlayerMovement : MonoBehaviour
                 Dive();
             }
         }
+    }
+
+    public void SwitchGameOn()
+    {
+        gameManager.on = true;
     }
 
     void FixedUpdate()
@@ -143,9 +156,15 @@ public class PlayerMovement : MonoBehaviour
             // Start game if player is in position, start the game
             if (rb.position.x >= -0.33)
             {
-                gameManager.on = true;
+                if (gameManager.canContinue == true)
+                {
+                    Invoke("SwitchGameOn", 2.5f);
+                    Invoke("Jump", 0.5f);
+                    Invoke("Dive", 2.2f);
+                    Instantiate(touchGuide);
+                    Invoke("TutorialOff", 3.0f);
+                }
                 position = ("walking");
-                
             }
         }
 

@@ -1803,11 +1803,14 @@ MonoBehaviour:
   gameManager: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
     type: 3}
   colour: 0
+  colour2: 0
   sr: {fileID: 6912182656722656614}
+  sr2: {fileID: 0}
   hit: 0
   moving: 0
   moveMax: 0
   moveMin: 0
+  colours: 
 --- !u!50 &6912182656722656619
 Rigidbody2D:
   serializedVersion: 4

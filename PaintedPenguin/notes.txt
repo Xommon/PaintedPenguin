@@ -5,21 +5,23 @@ ADDITIONS:
 	- Collision effect with blocks
 	- Baby puffin
 - Sound effects
-- Combo points
-- Point visual indicator
-- Tutorial
 
 BUGS:
 - Sprite image colour rendering error
 - First place tier doesn't have the same place as second place
-- Final ي/ی not forming SOMETIMES
+- Final ي/ی not forming UNLESS something follows it
 - Redo water
 - Spikeball sprite
 - Spikeball too predictable
+- Latin score overflows over in the 8000ish(?)
+- Moving blocks (water -> up) stop on the ground
 
 TASK:
+- Baby puffin
 
 DON'T FORGET:
 - SWITCH MONETIZATION TO FALSE
 
 
+Navnið er ov langt.
+Eingin hvít rúmdar ella *.

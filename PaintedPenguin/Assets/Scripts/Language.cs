@@ -1901,7 +1901,7 @@ public class Language : MonoBehaviour
                 }
                 else if (charArray[i] == 'ى')
                 {
-                    TwoFormLetter('ﻰ', 'ﻯ');
+                    TwoFormLetter('ﻰ', 'ﻰ'); //ﻯ
                 }
                 else if (charArray[i] == 'ء')
                 {

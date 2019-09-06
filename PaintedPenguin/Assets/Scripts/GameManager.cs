@@ -191,25 +191,54 @@ public class GameManager : MonoBehaviour
             {
                 if (PercentChance(5))
                 {
-                    if (PercentChance(75))
+                    if (PercentChance(50))
                     {
                         newblock2 = Instantiate(blockWithRainbow);
                     }
-                    else
+                    else if (PercentChance(50))
                     {
                         newblock2 = Instantiate(blockWithTimesThree);
+                    }
+                    else
+                    {
+                        if (player.babyPuffins < 3)
+                        {
+                            newblock2 = Instantiate(blockWithBaby);
+                        }
+                        else
+                        {
+                            newblock2 = Instantiate(block);
+                        }
                     }
                 }
                 else
                 {
                     newblock2 = Instantiate(block);
                 }
-            } else
+            }
+            else if (score >= 400 && score < 1000)
+            {
+                if (PercentChance(1))
+                {
+                    if (player.babyPuffins < 3)
+                    {
+                        newblock2 = Instantiate(blockWithBaby);
+                    }
+                    else
+                    {
+                        newblock2 = Instantiate(block);
+                    }
+                }
+                else
+                {
+                    newblock2 = Instantiate(block);
+                }
+            }
+            else
             {
                 newblock2 = Instantiate(block);
             }
-                
-            //Instantiate(block);
+
             place = obstaclePositions[(Random.Range(0, 2))]; // 0 or 1
             newblock2.transform.position = transform.position + new Vector3(1, place, 0);
             obstaclePositions.Remove(place);
@@ -225,14 +254,8 @@ public class GameManager : MonoBehaviour
                 if (PercentChance(2)) // TEST 2%
                 {
                     int pick;
-                    if (player.babyPuffins < 3)
-                    {
-                        pick = Random.Range(1, 4);
-                    }
-                    else
-                    {
-                        pick = Random.Range(1, 3);
-                    }
+                    pick = Random.Range(1, 3);
+
                     if (pick == 1)
                     {
                         GameObject newpaint = Instantiate(rainbow);
@@ -241,11 +264,6 @@ public class GameManager : MonoBehaviour
                     if (pick == 2)
                     {
                         GameObject newpaint = Instantiate(timesTwo);
-                        newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
-                    }
-                    if (pick == 3)
-                    {
-                        GameObject newpaint = Instantiate(blockWithBaby);
                         newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
                     }
                 } else if (PercentChance(score / 80.0f))
