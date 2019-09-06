@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public List<Vector2> playerPositions = new List<Vector2>();
     public List<GameObject> babies = new List<GameObject>();
     public GameObject testBaby;
+    public GameObject floatingText;
 
     // Swipe controls
     public Vector3 swipeStartPosition;
@@ -366,9 +368,20 @@ public class PlayerMovement : MonoBehaviour
                     babyPuffins++;
                 }
 
+                GameObject floatText = Instantiate(floatingText, collision.transform.position, Quaternion.identity);
+                floatText.GetComponent<TextMeshPro>().color = collision.gameObject.GetComponent<Block>().sr.color;
+                if (gameManager.playerLanguage != "Latin")
+                {
+                    floatText.GetComponent<TextMeshPro>().text = (5 * timesTwoMode).ToString();
+                }
+                else
+                {
+                    floatText.GetComponent<TextMeshPro>().text = gameManager.language.toRoman(5 * timesTwoMode);
+                }
                 gameManager.score += (5 * timesTwoMode);
                 collision.gameObject.GetComponent<Block>().hit = true;
                 Destroy(collision.gameObject);
+                Destroy(floatText, 1.0f);
                 //collision.gameObject.GetComponent<Explodable>().explode();
             }
         }

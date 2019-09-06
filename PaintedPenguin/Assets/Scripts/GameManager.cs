@@ -331,12 +331,12 @@ public class GameManager : MonoBehaviour
 
                             if (obstaclePositions[0] == 0.7f)
                             {
-                                newpaint.GetComponent<SpikeBall>().moving = -1f;
+                                newpaint.GetComponent<SpikeBall>().moving = Random.Range(-1, 0);
                             }
 
                             if (obstaclePositions[0] == -0.9f)
                             {
-                                newpaint.GetComponent<SpikeBall>().moving = 1f;
+                                newpaint.GetComponent<SpikeBall>().moving = Random.Range(0, 1);
                             }
 
                             if (obstaclePositions[0] == -0.1f)
@@ -345,11 +345,11 @@ public class GameManager : MonoBehaviour
 
                                 if (pickSpikeBall == 1)
                                 {
-                                    newpaint.GetComponent<SpikeBall>().moving = -1f;
+                                    newpaint.GetComponent<SpikeBall>().moving = Random.Range(-1, 0);
                                 }
                                 else
                                 {
-                                    newpaint.GetComponent<SpikeBall>().moving = 1f;
+                                    newpaint.GetComponent<SpikeBall>().moving = Random.Range(0, 1);
                                 }
                             }
 

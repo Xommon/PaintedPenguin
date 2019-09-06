@@ -1385,19 +1385,19 @@ public class Language : MonoBehaviour
 
     public string toRoman(int score)
     {
-        if (score >= 1000) return "Ⅿ" + toRoman(score - 1000);
-        if (score >= 900) return "ⅭⅯ" + toRoman(score - 900);
-        if (score >= 500) return "Ⅾ" + toRoman(score - 500);
-        if (score >= 400) return "ⅭⅮ" + toRoman(score - 400);
-        if (score >= 100) return "Ⅽ" + toRoman(score - 100);
-        if (score >= 90) return "ⅩⅭ" + toRoman(score - 90);
-        if (score >= 50) return "Ⅼ" + toRoman(score - 50);
-        if (score >= 40) return "ⅩⅬ" + toRoman(score - 40);
-        if (score >= 10) return "Ⅹ" + toRoman(score - 10);
-        if (score >= 9) return "Ⅸ" + toRoman(score - 9);
-        if (score >= 5) return "Ⅴ" + toRoman(score - 5);
-        if (score >= 4) return "Ⅳ" + toRoman(score - 4);
-        if (score >= 1) return "Ⅰ" + toRoman(score - 1);
+        if (score >= 1000) return "M" + toRoman(score - 1000);
+        if (score >= 900) return "CM" + toRoman(score - 900);
+        if (score >= 500) return "D" + toRoman(score - 500);
+        if (score >= 400) return "CD" + toRoman(score - 400);
+        if (score >= 100) return "C" + toRoman(score - 100);
+        if (score >= 90) return "XC" + toRoman(score - 90);
+        if (score >= 50) return "L" + toRoman(score - 50);
+        if (score >= 40) return "XL" + toRoman(score - 40);
+        if (score >= 10) return "X" + toRoman(score - 10);
+        if (score >= 9) return "IX" + toRoman(score - 9);
+        if (score >= 5) return "V" + toRoman(score - 5);
+        if (score >= 4) return "IV" + toRoman(score - 4);
+        if (score >= 1) return "I" + toRoman(score - 1);
         return "";
     }
 

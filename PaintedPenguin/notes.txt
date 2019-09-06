@@ -14,6 +14,8 @@ BUGS:
 - First place tier doesn't have the same place as second place
 - Final ي/ی not forming SOMETIMES
 - Redo water
+- Spikeball sprite
+- Spikeball too predictable
 
 TASK:
 

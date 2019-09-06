@@ -12,6 +12,13 @@ TagManager:
   - Flag
   - SpikeBall
   - ClearBlock
+  - Enemy
+  - ExplosionFX
+  - ground
+  - Obstacle
+  - Bullet
+  - HealthBar
+  - BombPickup
   layers:
   - Default
   - TransparentFX

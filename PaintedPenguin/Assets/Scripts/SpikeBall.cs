@@ -54,27 +54,7 @@ public class SpikeBall : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.name == "Block(Clone)")
-        {
-            Destroy(collision.gameObject);
-        }
-
-        if (collision.transform.name == "Paint(Clone)")
-        {
-            Destroy(collision.gameObject);
-        }
-
-        if (collision.transform.name == "Rainbow(Clone)")
-        {
-            Destroy(collision.gameObject);
-        }
-
-        if (collision.transform.name == "TimesTwo(Clone)")
-        {
-            Destroy(collision.gameObject);
-        }
-
-        if (collision.transform.name == "TimesThree(Clone)")
+        if (collision.transform.name != "Player")
         {
             Destroy(collision.gameObject);
         }
