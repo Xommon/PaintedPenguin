@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
     public GameObject floatingText;
     public GameObject touchGuide;
     public bool tutorial;
+    public bool earlyJump = false;
+    public bool earlyDive = false;
 
     // Swipe controls
     public Vector3 swipeStartPosition;
@@ -42,25 +44,45 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
-        if (gameManager.paused == false && position == "walking" && dead == false)
+        if (gameManager.paused == false && dead == false)
         {
-            rb.MovePosition(new Vector2(-0.33f, -0.075f));
-            position = "jumping";
-            rb.gravityScale = 0.5f;
-            rb.velocity = new Vector2(0, 2.9f);
-            animator.SetBool("jumping", true);
+            if (position == "walking")
+            {
+                rb.MovePosition(new Vector2(-0.33f, -0.075f));
+                position = "jumping";
+                rb.gravityScale = 0.5f;
+                rb.velocity = new Vector2(0, 2.9f);
+                animator.SetBool("jumping", true);
+            }
+            else
+            {
+                if (earlyDive == false && rb.position.y <= (-0.075f + 0.3f))
+                {
+                    earlyJump = true;
+                }
+            }
         }
     }
 
     public void Dive()
     {
-        if (gameManager.paused == false && position == "walking" && dead == false)
+        if (gameManager.paused == false && dead == false)
         {
-            rb.MovePosition(new Vector2(-0.33f, -0.075f));
-            position = "diving";
-            rb.gravityScale = -0.5f;
-            rb.velocity = new Vector2(0, -2.9f);
-            animator.SetBool("swimming", true);
+            if (position == "walking")
+            {
+                rb.MovePosition(new Vector2(-0.33f, -0.075f));
+                position = "diving";
+                rb.gravityScale = -0.5f;
+                rb.velocity = new Vector2(0, -2.9f);
+                animator.SetBool("swimming", true);
+            }
+            else
+            {
+                if (earlyJump == false && rb.position.y >= (-0.075f - 0.3f))
+                {
+                    earlyDive = true;
+                }
+            }
         }
     }
 
@@ -106,22 +128,38 @@ public class PlayerMovement : MonoBehaviour
                     Jump();
                 }
             }
+
+            if (colour == 7)
+            {
+                RainbowCycle();
+            }
         }
 
         // Jump or swim only on the ground
-        if (position == "walking")
+        //Jump
+        if (Input.GetKeyDown("up"))
         {
-            //Jump
-            if (Input.GetKeyDown("up"))
-            {
-                Jump();
-            }
+            Jump();
+        }
 
-            // Swim
-            if (Input.GetKeyDown("down"))
-            {
-                Dive();
-            }
+        // Swim
+        if (Input.GetKeyDown("down"))
+        {
+            Dive();
+        }
+
+        // Early Jump
+        if (earlyDive == false && earlyJump == true && position == "walking")
+        {
+            Jump();
+            earlyJump = false;
+        }
+
+        // Early Dive
+        if (earlyJump == false && earlyDive == true && position == "walking")
+        {
+            Dive();
+            earlyDive = false;
         }
     }
 

@@ -407,7 +407,7 @@ public class Language : MonoBehaviour
         gameManager.XButtonLanguage();
     }
 
-    public void Dutch()
+    public void Dutch() // VERIFIED
     {
         // Main Menu
         GameTitle = "Geschilderde \nPuffin";
@@ -417,7 +417,7 @@ public class Language : MonoBehaviour
 
         // Game Over
         GameOver = "GAME OVER";
-        Replay = "SPEEL OPNIEUW";
+        Replay = "OPNIEUW SPELEN";
         Continue = "DOORGAAN?";
 
         // Score
@@ -469,7 +469,7 @@ public class Language : MonoBehaviour
         Flag.image.overrideSprite = esperanto;
         gameManager.playerLanguage = "Esperanto";
         gameManager.XButtonLanguage();
-    }
+    } // APPROXIMATED
 
     public void Finnish()
     {

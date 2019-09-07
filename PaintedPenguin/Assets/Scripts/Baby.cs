@@ -11,53 +11,24 @@ public class Baby : MonoBehaviour
 
     void Start()
     {
-        if (gameObject.name == "Baby(Clone)")
-        {
-            babyValue = 1;
-            animator.SetInteger("Baby", babyValue);
-        }
-
-        if (gameObject.name == "Baby2(Clone)")
-        {
-            babyValue = 2;
-            animator.SetInteger("Baby", babyValue);
-        }
-
-        if (gameObject.name == "Baby3(Clone)")
-        {
-            babyValue = 3;
-            animator.SetInteger("Baby", babyValue);
-        }
+        animator.SetInteger("Baby", babyValue);
 
         if (player.position == "walking")
         {
             animator.SetBool("Jumping", false);
             animator.SetBool("Swimming", false);
-
-            if (gameObject.name == "Baby")
-            {
-                animator.SetInteger("Baby", babyValue);
-            }
-
-            if (gameObject.name == "Baby2")
-            {
-                animator.SetInteger("Baby", babyValue);
-            }
-
-            if (gameObject.name == "Baby3")
-            {
-                animator.SetInteger("Baby", babyValue);
-            }
         }
 
         if (player.position == "jumping")
         {
             animator.SetBool("Jumping", true);
+            animator.SetBool("Swimming", false);
         }
 
         if (player.position == "diving")
         {
             animator.SetBool("Swimming", true);
+            animator.SetBool("Jumping", false);
         }
 
     }

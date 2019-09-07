@@ -99,7 +99,7 @@ MonoBehaviour:
   player: {fileID: 5073945571518871174, guid: ec57f4535ec603946a7f03fa5bb07814, type: 3}
   gameManager: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
     type: 3}
-  babyValue: 0
+  babyValue: 2
 --- !u!95 &8599103292821790521
 Animator:
   serializedVersion: 3

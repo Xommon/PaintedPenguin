@@ -968,10 +968,11 @@ public class GameManager : MonoBehaviour
             Pause();
         }
 
-        if (Input.GetKeyDown("escape"))
+        /*if (Input.GetKeyDown("escape"))
         {
+            // IF THE BUTTON EXISTS
             XButtonScore();
-        }
+        }*/
 
         // Max score of 9999
         if (score >= 9999)
@@ -996,7 +997,7 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         gameUI.SetActive(false);
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("PaintedPuffin");
     }
 
     public void ClearObstacles()
