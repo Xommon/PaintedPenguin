@@ -16,14 +16,13 @@ BUGS:
 - Spikeball too predictable
 - Latin score overflows over in the 8000ish(?)
 - Moving blocks (water -> up) stop on the ground
-- Keep testing early jump/dive
+- Mobile back button
+- Words clipping (Tagalog warnings)
+- Missing Key ID error
+- Bold floating numbers, unbold game title
 
 TASK:
-- Baby puffin
+- Feathers
 
 DON'T FORGET:
 - SWITCH MONETIZATION TO FALSE
-
-
-Navnið er ov langt.
-Eingin hvít rúmdar ella *.

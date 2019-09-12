@@ -10314,6 +10314,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1744647932}
   m_CullTransparentMesh: 0
+--- !u!50 &1749842256 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 5073945571518871173, guid: ec57f4535ec603946a7f03fa5bb07814,
+    type: 3}
+  m_PrefabInstance: {fileID: 5073945570788641196}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1750719421
 GameObject:
   m_ObjectHideFlags: 0
@@ -21830,6 +21836,17 @@ PrefabInstance:
       propertyPath: touchGuide
       value: 
       objectReference: {fileID: 878490400191766386, guid: f93fe67fc2a567e4398b976ea6462406,
+        type: 3}
+    - target: {fileID: 5073945571518871174, guid: ec57f4535ec603946a7f03fa5bb07814,
+        type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 1749842256}
+    - target: {fileID: 5073945571518871174, guid: ec57f4535ec603946a7f03fa5bb07814,
+        type: 3}
+      propertyPath: featherBurst
+      value: 
+      objectReference: {fileID: 6307229286178853558, guid: 03238cf09c8834c4596723c9886e841e,
         type: 3}
     - target: {fileID: 5073945571518871169, guid: ec57f4535ec603946a7f03fa5bb07814,
         type: 3}

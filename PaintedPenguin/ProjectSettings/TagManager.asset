@@ -19,6 +19,7 @@ TagManager:
   - Bullet
   - HealthBar
   - BombPickup
+  - Feather
   layers:
   - Default
   - TransparentFX

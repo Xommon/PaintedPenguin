@@ -1031,6 +1031,12 @@ public class GameManager : MonoBehaviour
         {
             Destroy(obstacles[i]);
         }
+
+        obstacles = GameObject.FindGameObjectsWithTag("Feather");
+        for (int i = 0; i < obstacles.Length; i++)
+        {
+            Destroy(obstacles[i]);
+        }
     }
 
     public void ContinueButton()

@@ -28,7 +28,7 @@ public class Language : MonoBehaviour
     public string GameOver;
     public string Replay;
     public string Continue;
-
+    
     // Score
     public string ScoreUI;
 
@@ -117,7 +117,7 @@ public class Language : MonoBehaviour
         Flag.image.overrideSprite = english;
         gameManager.playerLanguage = "English";
         gameManager.XButtonLanguage();
-    }
+    } // Verified
 
     public void Arabic()
     {
@@ -182,7 +182,7 @@ public class Language : MonoBehaviour
         gameManager.playerLanguage = "Bosnian";
         gameManager.XButtonLanguage();
     }
-
+    
     public void Bulgarian()
     {
         // Main Menu
@@ -309,7 +309,7 @@ public class Language : MonoBehaviour
         Flag.image.overrideSprite = mandarin;
         gameManager.playerLanguage = "Mandarin";
         gameManager.XButtonLanguage();
-    }
+    } // Verified
 
     public void Taiwanese()
     {
@@ -407,10 +407,10 @@ public class Language : MonoBehaviour
         gameManager.XButtonLanguage();
     }
 
-    public void Dutch() // VERIFIED
+    public void Dutch() // Verified
     {
         // Main Menu
-        GameTitle = "Geschilderde \nPuffin";
+        GameTitle = "Geschilderde \nPapegaaiduiker";
         StartButton = "START";
         Score = "SCORES";
         HelloUsername = "Hallo, " + gameManager.playerUsername + "!";
@@ -469,7 +469,7 @@ public class Language : MonoBehaviour
         Flag.image.overrideSprite = esperanto;
         gameManager.playerLanguage = "Esperanto";
         gameManager.XButtonLanguage();
-    } // APPROXIMATED
+    } // Approximated
 
     public void Finnish()
     {
@@ -533,12 +533,12 @@ public class Language : MonoBehaviour
         Flag.image.overrideSprite = french;
         gameManager.playerLanguage = "French";
         gameManager.XButtonLanguage();
-    }
+    } // Verified
 
     public void German()
     {
         // Main Menu
-        GameTitle = "Gemalter \nPuffin";
+        GameTitle = "Gemalter \nPapageientaucher";
         StartButton = "START";
         Score = "PUNKTZAHLEN";
         HelloUsername = "Hallo, " + gameManager.playerUsername + "!";
@@ -888,10 +888,10 @@ public class Language : MonoBehaviour
         gameManager.XButtonLanguage();
     }
 
-    public void Norwegian()
+    public void Norwegian() // Verified
     {
         // Main Menu
-        GameTitle = "Malt Lunde";
+        GameTitle = "Malt Lundefugl";
         StartButton = "START";
         Score = "REKORDER";
         HelloUsername = "Hei, " + gameManager.playerUsername + "!";
@@ -905,7 +905,7 @@ public class Language : MonoBehaviour
         ScoreUI = gameManager.score.ToString();
 
         // Pause
-        Paused = "PAUSET";
+        Paused = "STANSET";
 
         // High Scores
         HighScores = "REKORDER";
@@ -987,7 +987,7 @@ public class Language : MonoBehaviour
     public void Portuguese()
     {
         // Main Menu
-        GameTitle = "Puffin \nPintado";
+        GameTitle = "Papagaio-do-Mar \nPintado";
         StartButton = "COMEÇAR";
         Score = "PONTUAÇÃO";
         HelloUsername = "Olá, " + gameManager.playerUsername + "!";
@@ -1014,7 +1014,7 @@ public class Language : MonoBehaviour
         Flag.image.overrideSprite = portuguese;
         gameManager.playerLanguage = "Portuguese";
         gameManager.XButtonLanguage();
-    }
+    } // Verified
 
     public void Romanian()
     {
@@ -1046,12 +1046,12 @@ public class Language : MonoBehaviour
         Flag.image.overrideSprite = romanian;
         gameManager.playerLanguage = "Romanian";
         gameManager.XButtonLanguage();
-    }
+    } // Verified
 
-    public void Russian()
+    public void Russian() // Verified
     {
         // Main Menu
-        GameTitle = "Окрашенная \nПуффин";
+        GameTitle = "Окрашенный \nТупик";
         StartButton = "СТАРТ";
         Score = "РЕКОРДЫ";
         HelloUsername = "Привет, " + gameManager.playerUsername + "!";
@@ -1072,7 +1072,7 @@ public class Language : MonoBehaviour
 
         // Username Input
         Name = "Имя ...";
-        OK = "Хорошо";
+        OK = "Подтвердить";
         Warning1 = "Не может содержать пробелы или *.";
         Warning2 = "Имя слишком длинное.";
         Flag.image.overrideSprite = russian;

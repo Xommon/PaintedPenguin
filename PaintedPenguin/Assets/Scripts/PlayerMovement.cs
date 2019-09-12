@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     public bool tutorial;
     public bool earlyJump = false;
     public bool earlyDive = false;
+    public GameObject featherBurst;
 
     // Swipe controls
     public Vector3 swipeStartPosition;
@@ -56,9 +57,19 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                if (earlyDive == false && rb.position.y <= (-0.075f + 0.3f))
+                float margin = 0.7f;
+
+                if (rb.position.y < (-0.075f + margin) && rb.position.y > -0.075f && position == "falling")
                 {
                     earlyJump = true;
+                    earlyDive = false;
+                    Debug.Log("Early Jump from Jump");
+                }
+                else if (rb.position.y > (-0.075f - margin) && rb.position.y < -0.075f && position == "resurfacing")
+                {
+                    earlyJump = true;
+                    earlyDive = false;
+                    Debug.Log("Early Jump from Dive");
                 }
             }
         }
@@ -78,9 +89,19 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                if (earlyJump == false && rb.position.y >= (-0.075f - 0.3f))
+                float margin = 0.7f;
+
+                if (rb.position.y < (-0.075f + margin) && rb.position.y > -0.075f && position == "falling")
                 {
+                    earlyJump = false;
                     earlyDive = true;
+                    Debug.Log("Early Dive from Jump");
+                }
+                else if (rb.position.y > (-0.075f - margin) && rb.position.y < -0.075f && position == "resurfacing")
+                {
+                    earlyJump = false;
+                    earlyDive = true;
+                    Debug.Log("Early Dive from Dive");
                 }
             }
         }
@@ -371,7 +392,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void KillPlayer()
     {
-        
+        Instantiate(featherBurst, gameObject.transform.position, Quaternion.identity, null);
         StartCoroutine(gameManager.AddNewHighScore(gameManager.score));
         rb.gravityScale = 0;
         dead = true;
