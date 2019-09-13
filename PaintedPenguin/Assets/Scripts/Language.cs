@@ -760,17 +760,17 @@ public class Language : MonoBehaviour
         gameManager.XButtonLanguage();
     }
 
-    public void Italian()
+    public void Italian() // Verified
     {
         // Main Menu
-        GameTitle = "Puffino \nDipinto";
+        GameTitle = "Painted \nPuffin";
         StartButton = "INIZIO";
-        Score = "PUNTEGGI";
+        Score = "CLASSIFICA";
         HelloUsername = "Ciao, " + gameManager.playerUsername + "!";
 
         // Game Over
         GameOver = "FINE PARTITA";
-        Replay = "RIGIOCA";
+        Replay = "GIOCA DI NUOVO";
         Continue = "CONTINUA?";
 
         // Score
