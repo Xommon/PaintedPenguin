@@ -117,8 +117,6 @@ MonoBehaviour:
   count: 0
   burst: 0
   time: 240
-  speed: 1
-  burstSpeed: 1
   sr: {fileID: 6307229284796069541}
   player: {fileID: 5073945571518871174, guid: ec57f4535ec603946a7f03fa5bb07814, type: 3}
 --- !u!1 &6307229284928270259
@@ -238,8 +236,6 @@ MonoBehaviour:
   count: 0
   burst: 0
   time: 240
-  speed: 1
-  burstSpeed: 1
   sr: {fileID: 6307229284928270271}
   player: {fileID: 5073945571518871174, guid: ec57f4535ec603946a7f03fa5bb07814, type: 3}
 --- !u!1 &6307229285535676860
@@ -260,7 +256,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6307229285535676861
 Transform:
   m_ObjectHideFlags: 0
@@ -359,8 +355,6 @@ MonoBehaviour:
   count: 0
   burst: 0
   time: 240
-  speed: 1
-  burstSpeed: 1
   sr: {fileID: 6307229285535676856}
   player: {fileID: 5073945571518871174, guid: ec57f4535ec603946a7f03fa5bb07814, type: 3}
 --- !u!1 &6307229285629253268
@@ -480,8 +474,6 @@ MonoBehaviour:
   count: 0
   burst: 0
   time: 240
-  speed: 1
-  burstSpeed: 1
   sr: {fileID: 6307229285629253266}
   player: {fileID: 5073945571518871174, guid: ec57f4535ec603946a7f03fa5bb07814, type: 3}
 --- !u!1 &6307229285911093879
@@ -502,7 +494,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6307229285911093876
 Transform:
   m_ObjectHideFlags: 0
@@ -601,8 +593,6 @@ MonoBehaviour:
   count: 0
   burst: 0
   time: 240
-  speed: 1
-  burstSpeed: 1
   sr: {fileID: 6307229285911093875}
   player: {fileID: 5073945571518871174, guid: ec57f4535ec603946a7f03fa5bb07814, type: 3}
 --- !u!1 &6307229286178853558
