@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1591272323}
   - component: {fileID: 1591272324}
   m_Layer: 0
-  m_Name: all_the_puffins_34
+  m_Name: block_clear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,7 +69,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -3645314343967500694, guid: 8990f9090f55ad54f983d5367c1e3c46,
+  m_Sprite: {fileID: 3310570069754387660, guid: 2c2755ded95982b46871353738c21df4,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 6765253879817555391}
   - component: {fileID: 8841098832760227523}
   m_Layer: 0
-  m_Name: all_the_puffins_16
+  m_Name: egg1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,7 +150,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 8770199859996360271, guid: 8990f9090f55ad54f983d5367c1e3c46,
+  m_Sprite: {fileID: -3152518756181695805, guid: 2c2755ded95982b46871353738c21df4,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -238,11 +238,14 @@ MonoBehaviour:
   gameManager: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
     type: 3}
   colour: 0
+  colour2: 0
   sr: {fileID: 0}
+  sr2: {fileID: 0}
   hit: 0
   moving: 0
   moveMax: 0
   moveMin: 0
+  colours: 
 --- !u!50 &6912182656722656619
 Rigidbody2D:
   serializedVersion: 4

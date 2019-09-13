@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
     public bool earlyJump = false;
     public bool earlyDive = false;
     public GameObject featherBurst;
+    public ParticleSystem blockBurst;
+    public ParticleSystem dustBurst;
 
     // Swipe controls
     public Vector3 swipeStartPosition;
@@ -417,12 +419,19 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.transform.tag == "Block")
         {
+            ParticleSystem ps = Instantiate(blockBurst, collision.transform.position, Quaternion.identity) as ParticleSystem;
+            ParticleSystem ps2 = Instantiate(dustBurst, collision.transform.position, Quaternion.identity) as ParticleSystem;
+            ps.startColor = collision.gameObject.GetComponent<Block>().sr.color;
+            //ps2.startColor = collision.gameObject.GetComponent<Block>().sr.color;
+            Destroy(ps.gameObject, 1);
+            Destroy(ps2.gameObject, 1);
+
             if (collision.gameObject.GetComponent<Block>().colour != colour && colour != 7 && dead == false)
             {
                 KillPlayer();
                 Destroy(collision.gameObject);
-                //collision.gameObject.GetComponent<Explodable>().explode();
-            } else if (collision.gameObject.GetComponent<Block>().hit == false && dead == false)
+            }
+            else if (collision.gameObject.GetComponent<Block>().hit == false && dead == false)
             {
                 if (collision.transform.name == "BlockWithPaint(Clone)" && colour != 7 && dead == false)
                 {
@@ -441,7 +450,6 @@ public class PlayerMovement : MonoBehaviour
                 else if (collision.transform.name == "BlockWithBaby(Clone)" && dead == false && babyPuffins < 3)
                 {
                     Instantiate(babies[0]);
-                    //Instantiate(testBaby);
                     babies.RemoveAt(0);
                     babyPuffins++;
                 }
@@ -460,7 +468,6 @@ public class PlayerMovement : MonoBehaviour
                 collision.gameObject.GetComponent<Block>().hit = true;
                 Destroy(collision.gameObject);
                 Destroy(floatText, 1.0f);
-                //collision.gameObject.GetComponent<Explodable>().explode();
             }
         }
 

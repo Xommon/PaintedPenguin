@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1591272323}
   - component: {fileID: 1591272324}
   m_Layer: 0
-  m_Name: all_the_puffins_34
+  m_Name: block_clear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,7 +69,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: -3645314343967500694, guid: 8990f9090f55ad54f983d5367c1e3c46,
+  m_Sprite: {fileID: 3310570069754387660, guid: 2c2755ded95982b46871353738c21df4,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 5121556503418096352}
   - component: {fileID: 816865251966469900}
   m_Layer: 0
-  m_Name: brick
+  m_Name: block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,7 +150,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 652d0579584d4c94f8586478e0b8c2e6, type: 3}
+  m_Sprite: {fileID: 1913240228536503722, guid: 2c2755ded95982b46871353738c21df4,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -230,7 +231,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: c6b5394d24ad84c48b206596a0452cb6, type: 3}
+  m_Sprite: {fileID: 2202430556587515302, guid: 2c2755ded95982b46871353738c21df4,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

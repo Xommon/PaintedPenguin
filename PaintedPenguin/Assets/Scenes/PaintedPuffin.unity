@@ -10146,7 +10146,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 5919692980906161365, guid: 2c2755ded95982b46871353738c21df4,
+  m_Sprite: {fileID: -2123565520327793586, guid: 2c2755ded95982b46871353738c21df4,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -21913,6 +21913,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5073945571518871179, guid: ec57f4535ec603946a7f03fa5bb07814,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5073945571518871174, guid: ec57f4535ec603946a7f03fa5bb07814,
         type: 3}
       propertyPath: gameManager
@@ -21934,6 +21939,24 @@ PrefabInstance:
       propertyPath: featherBurst
       value: 
       objectReference: {fileID: 6307229286178853558, guid: 03238cf09c8834c4596723c9886e841e,
+        type: 3}
+    - target: {fileID: 5073945571518871174, guid: ec57f4535ec603946a7f03fa5bb07814,
+        type: 3}
+      propertyPath: floatingText
+      value: 
+      objectReference: {fileID: 3637404768749131866, guid: 9691179a16a4aff40bd19d9177d7d3f3,
+        type: 3}
+    - target: {fileID: 5073945571518871174, guid: ec57f4535ec603946a7f03fa5bb07814,
+        type: 3}
+      propertyPath: blockBurst
+      value: 
+      objectReference: {fileID: 5373672204583788577, guid: 97d76d863d019c948b72dd115c7d3a6d,
+        type: 3}
+    - target: {fileID: 5073945571518871174, guid: ec57f4535ec603946a7f03fa5bb07814,
+        type: 3}
+      propertyPath: dustBurst
+      value: 
+      objectReference: {fileID: 4340356459535035228, guid: 4c26e12bf1559594e972ec87d97be09b,
         type: 3}
     - target: {fileID: 5073945571518871169, guid: ec57f4535ec603946a7f03fa5bb07814,
         type: 3}
@@ -22003,6 +22026,27 @@ PrefabInstance:
     - target: {fileID: 5073945571518871168, guid: ec57f4535ec603946a7f03fa5bb07814,
         type: 3}
       propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073945571518871168, guid: ec57f4535ec603946a7f03fa5bb07814,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2267648402382099951, guid: 2c2755ded95982b46871353738c21df4,
+        type: 3}
+    - target: {fileID: 5073945571518871168, guid: ec57f4535ec603946a7f03fa5bb07814,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073945571518871168, guid: ec57f4535ec603946a7f03fa5bb07814,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073945571518871168, guid: ec57f4535ec603946a7f03fa5bb07814,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5073945571518871172, guid: ec57f4535ec603946a7f03fa5bb07814,

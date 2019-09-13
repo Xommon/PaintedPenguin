@@ -1,11 +1,7 @@
 ADDITIONS:
 - Ads
 - Analytics
-- Redo art, UI, and background
-	- Collision effect with blocks
-	- Baby puffin
 - Sound effects
-- Feathers
 
 BUGS:
 - Sprite image colour rendering error
@@ -20,9 +16,9 @@ BUGS:
 - Words clipping (Tagalog warnings)
 - Missing Key ID error
 - Bold floating numbers, unbold game title
-
-TASK:
-- Feathers
+- Baby puffin
+- Redo UI and background
+- Longer x2 and x3 sessions
 
 DON'T FORGET:
 - SWITCH MONETIZATION TO FALSE

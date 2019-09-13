@@ -4,10 +4,10 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -7108424757887663624
-    second: idle_front
+    second: fall2_front
   - first:
       213: 3735536255531282551
-    second: fall1_front
+    second: fall2_front
   - first:
       213: 5919692980906161365
     second: dead_front
@@ -19,10 +19,10 @@ TextureImporter:
     second: jump2_front
   - first:
       213: -260289136790680178
-    second: idle_back
+    second: fall2_back
   - first:
       213: -303804391928606162
-    second: fall1_back
+    second: fall2_back
   - first:
       213: 189498161126131273
     second: dead_back
@@ -245,11 +245,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: idle_front
+      name: fall1_front
       rect:
         serializedVersion: 2
-        x: 2
-        y: 475
+        x: 4
+        y: 474
         width: 21
         height: 24
       alignment: 0
@@ -266,11 +266,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fall1_front
+      name: fall2_front
       rect:
         serializedVersion: 2
-        x: 25
-        y: 475
+        x: 27
+        y: 474
         width: 21
         height: 24
       alignment: 0
@@ -350,11 +350,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_back
+      name: fall1_back
       rect:
         serializedVersion: 2
-        x: 2
-        y: 447
+        x: 4
+        y: 446
         width: 21
         height: 24
       alignment: 0
@@ -371,11 +371,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fall1_back
+      name: fall2_back
       rect:
         serializedVersion: 2
-        x: 25
-        y: 447
+        x: 27
+        y: 446
         width: 21
         height: 24
       alignment: 0
