@@ -150,7 +150,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 33
   m_textAlignment: 514
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -243,3 +243,5 @@ MonoBehaviour:
   player: {fileID: 5073945571518871174, guid: ec57f4535ec603946a7f03fa5bb07814, type: 3}
   gameManager: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
     type: 3}
+  verticalSpeed: 0
+  horizontalSpeed: 0

@@ -4,11 +4,9 @@ ADDITIONS:
 - Sound effects
 
 BUGS:
-- Sprite image colour rendering error
 - First place tier doesn't have the same place as second place
 - Final ي/ی not forming UNLESS something follows it
-- Redo water
-- Spikeball sprite
+- Spikeball sprite is awful
 - Spikeball too predictable
 - Latin score overflows over in the 8000ish(?)
 - Moving blocks (water -> up) stop on the ground
@@ -20,9 +18,6 @@ BUGS:
 - Redo UI and background
 - Longer x2 and x3 sessions
 - Feathers not operating correctly
-- Paint splatter weak
 - Combo in different languages
 - Score button should match highscore title in every language
-
-DON'T FORGET:
-- SWITCH MONETIZATION TO FALSE
+- Cut back resources

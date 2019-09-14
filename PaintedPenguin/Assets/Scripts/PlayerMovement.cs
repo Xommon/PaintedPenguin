@@ -29,6 +29,8 @@ public class PlayerMovement : MonoBehaviour
     public ParticleSystem paintBurst;
     public int combo;
     public Language language;
+    public TMP_FontAsset apu_title;
+    public TMP_FontAsset roboto;
 
     // Swipe controls
     public Vector3 swipeStartPosition;
@@ -458,6 +460,7 @@ public class PlayerMovement : MonoBehaviour
 
                 GameObject floatText = Instantiate(floatingText, collision.transform.position, Quaternion.identity);
                 floatText.GetComponent<TextMeshPro>().color = collision.gameObject.GetComponent<Block>().sr.color;
+                floatText.GetComponent<TextMeshPro>().font = apu_title;
                 if (gameManager.playerLanguage != "Latin")
                 {
                     floatText.GetComponent<TextMeshPro>().text = (5 * timesTwoMode).ToString();
@@ -480,6 +483,7 @@ public class PlayerMovement : MonoBehaviour
                     floatText2.GetComponent<FloatingText>().horizontalSpeed = 0f;
                     floatText2.GetComponent<TextMeshPro>().color = collision.gameObject.GetComponent<Block>().sr.color;
                     floatText2.GetComponent<TextMeshPro>().text = "combo";
+                    floatText2.GetComponent<TextMeshPro>().font = roboto;
                     Destroy(floatText2, 1.0f);
 
                     GameObject floatText3 = Instantiate(floatingText, collision.transform.position, Quaternion.identity);
@@ -487,6 +491,7 @@ public class PlayerMovement : MonoBehaviour
                     floatText3.GetComponent<FloatingText>().horizontalSpeed = 0.5f;
                     floatText3.GetComponent<TextMeshPro>().color = collision.gameObject.GetComponent<Block>().sr.color;
                     floatText3.GetComponent<TextMeshPro>().text = (5 * (1 + babyPuffins)).ToString();
+                    floatText3.GetComponent<TextMeshPro>().font = apu_title;
                     gameManager.score += (5 * (1 + babyPuffins));
                     Destroy(floatText3, 1.0f);
                 }
