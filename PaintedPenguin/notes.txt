@@ -21,6 +21,7 @@ BUGS:
 - Longer x2 and x3 sessions
 - Feathers not operating correctly
 - Paint splatter weak
+- Combo in different languages
 
 DON'T FORGET:
 - SWITCH MONETIZATION TO FALSE
