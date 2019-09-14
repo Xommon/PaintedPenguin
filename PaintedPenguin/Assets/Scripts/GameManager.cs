@@ -103,6 +103,7 @@ public class GameManager : MonoBehaviour
     // Obstacle creation
     public float maxTime = 1;
     private float timer = 0;
+    public int wave;
     public GameObject block;
     public GameObject blockWithPaint;
     public GameObject blockWithRainbow;
@@ -136,6 +137,9 @@ public class GameManager : MonoBehaviour
             obstaclePositions.Add(-0.1f);
             obstaclePositions.Add(0.7f);
             obstaclePositions.Add(-0.9f);
+
+            // Increment wave
+            wave++;
 
             // Place first block
             GameObject newblock = null;
@@ -181,6 +185,7 @@ public class GameManager : MonoBehaviour
             {
                 newblock = Instantiate(block);
             }
+            newblock.GetComponent<Block>().wave = wave;
             place = obstaclePositions[(Random.Range(0, 3))]; // 0, 1 or 2
             newblock.transform.position = transform.position + new Vector3(1, place, 0);
             obstaclePositions.Remove(place);
@@ -239,14 +244,16 @@ public class GameManager : MonoBehaviour
                 newblock2 = Instantiate(block);
             }
 
+            newblock2.GetComponent<Block>().wave = wave;
             place = obstaclePositions[(Random.Range(0, 2))]; // 0 or 1
             newblock2.transform.position = transform.position + new Vector3(1, place, 0);
             obstaclePositions.Remove(place);
 
             // Place paint
+            GameObject newpaint = null;
             if (PercentChance(25))
             {
-                GameObject newpaint = Instantiate(paint);
+                newpaint = Instantiate(paint);
                 newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
             }
             else
@@ -258,12 +265,12 @@ public class GameManager : MonoBehaviour
 
                     if (pick == 1)
                     {
-                        GameObject newpaint = Instantiate(rainbow);
+                        newpaint = Instantiate(rainbow);
                         newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
                     }
                     if (pick == 2)
                     {
-                        GameObject newpaint = Instantiate(timesTwo);
+                        newpaint = Instantiate(timesTwo);
                         newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
                     }
                 } else if (PercentChance(score / 80.0f))
@@ -344,7 +351,7 @@ public class GameManager : MonoBehaviour
                     {
                         if (obstaclePositions[0] == -0.1f || obstaclePositions[0] == -0.9f || obstaclePositions[0] == 0.7f)
                         {
-                            GameObject newpaint = Instantiate(spikeBall);
+                            newpaint = Instantiate(spikeBall);
                             newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
 
                             if (obstaclePositions[0] == 0.7f)
@@ -376,8 +383,9 @@ public class GameManager : MonoBehaviour
                         }
                     }
                 }
-
             }
+            
+            newblock.GetComponent<Block>().wave = wave;
 
             timer = 0;
             score += 1 + player.babyPuffins;
@@ -575,6 +583,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Invoke("GetDetails", 1.0f);
+        wave = 0;
     }
 
     private int HexToDec(string hex)

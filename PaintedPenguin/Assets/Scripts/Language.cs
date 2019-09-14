@@ -538,13 +538,13 @@ public class Language : MonoBehaviour
     public void German()
     {
         // Main Menu
-        GameTitle = "Gemalter \nPapageientaucher";
+        GameTitle = "Painted \nPuffin";
         StartButton = "START";
-        Score = "PUNKTZAHLEN";
+        Score = "PUNKTE";
         HelloUsername = "Hallo, " + gameManager.playerUsername + "!";
 
         // Game Over
-        GameOver = "SPIEL VORBEI";
+        GameOver = "SPIEL BEENDET";
         Replay = "NEUSTART";
         Continue = "FORTSETZEN?";
 
@@ -555,7 +555,7 @@ public class Language : MonoBehaviour
         Paused = "PAUSIERT";
 
         // High Scores
-        HighScores = "HIGHSCORES";
+        HighScores = "PUNKTE";
 
         // Username Input
         Name = "Name ...";

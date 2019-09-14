@@ -66,14 +66,12 @@ public class PlayerMovement : MonoBehaviour
 
                 if (rb.position.y < (-0.075f + margin) && rb.position.y > -0.075f && position == "falling")
                 {
-                    combo = 0;
                     earlyJump = true;
                     earlyDive = false;
                     Debug.Log("Early Jump from Jump");
                 }
                 else if (rb.position.y > (-0.075f - margin) && rb.position.y < -0.075f && position == "resurfacing")
                 {
-                    combo = 0;
                     earlyJump = true;
                     earlyDive = false;
                     Debug.Log("Early Jump from Dive");
@@ -179,7 +177,6 @@ public class PlayerMovement : MonoBehaviour
         // Early Jump
         if (earlyDive == false && earlyJump == true && position == "walking")
         {
-            combo = 0;
             Jump();
             earlyJump = false;
         }
@@ -187,7 +184,6 @@ public class PlayerMovement : MonoBehaviour
         // Early Dive
         if (earlyJump == false && earlyDive == true && position == "walking")
         {
-            combo = 0;
             Dive();
             earlyDive = false;
         }
@@ -245,11 +241,6 @@ public class PlayerMovement : MonoBehaviour
                 animator.SetBool("jumping", false);
                 animator.SetBool("falling", false);
                 animator.SetBool("swimming", false);
-            }
-
-            if (position == "walking" || rb.position.y == -0.075)
-            {
-                combo = 0;
             }
 
             // Player starts walking if it falls to the ground or resurfaces from water
@@ -430,8 +421,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.transform.tag == "Block")
         {
-            combo++;
-
             if (collision.gameObject.GetComponent<Block>().colour != colour && colour != 7 && dead == false)
             {
                 collision.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
@@ -484,7 +473,7 @@ public class PlayerMovement : MonoBehaviour
                 Destroy(collision.gameObject);
                 Destroy(floatText, 1.0f);
                 
-                if (combo > 1)
+                if (combo == collision.gameObject.GetComponent<Block>().wave)
                 {
                     GameObject floatText2 = Instantiate(floatingText, collision.transform.position, Quaternion.identity);
                     floatText2.GetComponent<FloatingText>().verticalSpeed = 0f;
@@ -500,6 +489,10 @@ public class PlayerMovement : MonoBehaviour
                     floatText3.GetComponent<TextMeshPro>().text = (5 * (1 + babyPuffins)).ToString();
                     gameManager.score += (5 * (1 + babyPuffins));
                     Destroy(floatText3, 1.0f);
+                }
+                else
+                {
+                    combo = collision.gameObject.GetComponent<Block>().wave;
                 }
             }
         }

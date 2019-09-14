@@ -22,6 +22,7 @@ BUGS:
 - Feathers not operating correctly
 - Paint splatter weak
 - Combo in different languages
+- Score button should match highscore title in every language
 
 DON'T FORGET:
 - SWITCH MONETIZATION TO FALSE

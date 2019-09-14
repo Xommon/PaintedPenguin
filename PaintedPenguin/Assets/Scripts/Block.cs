@@ -13,6 +13,7 @@ public class Block : MonoBehaviour
     public float moving;
     public float moveMax;
     public float moveMin;
+    public int wave;
     public List<int> colours = new List<int>();
 
     private void Start()
