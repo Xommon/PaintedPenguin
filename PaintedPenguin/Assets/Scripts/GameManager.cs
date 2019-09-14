@@ -400,6 +400,7 @@ public class GameManager : MonoBehaviour
             uploadScoreUI.transform.rotation = Quaternion.identity;
             uploadScoreUI.sprite = errorSprite;
 
+            // If there's an error, keep retrying to submit score every 3 seconds
             yield return new WaitForSeconds(3);
             StartCoroutine(AddNewHighScore(score));
         }
@@ -613,7 +614,6 @@ public class GameManager : MonoBehaviour
     // Code for start of script
     public void Start()
     {
-
         // Load all save data
         LoadUsername();
 
@@ -669,9 +669,9 @@ public class GameManager : MonoBehaviour
 
         canContinue = true;
         score = 0;
-        DownloadHighScores();
+        //DownloadHighScores();
 
-        StartCoroutine("RefreshHighscores");
+        //StartCoroutine("RefreshHighscores");
     }
 
     public void OnHighscoresDownloaded(Highscore[] highscoreList)
@@ -731,11 +731,6 @@ public class GameManager : MonoBehaviour
             // Username
             tableUsernameUI.text += language.Arabizer(highscoreList[i].username) + "\n";
 
-            if (i == 99)
-            {
-                tableUsernameUI.text += "\n\n\n\n\n";
-            }
-
             // Score
             previousScore = highscoreList[i].score;
             tableScoreUI.GetComponent<TMPro.TextMeshProUGUI>().text += highscoreList[i].score + "\n";
@@ -747,7 +742,7 @@ public class GameManager : MonoBehaviour
         while (true)
         {
             DownloadHighScores();
-            yield return new WaitForSeconds(30);
+            //yield return new WaitForSeconds(30);
         }
     }
 
@@ -781,6 +776,7 @@ public class GameManager : MonoBehaviour
     {
         mainMenuUI.SetActive(false);
         highScoreTableUI.SetActive(true);
+        StartCoroutine("RefreshHighscores");
     }
 
     public void XButtonScore()
@@ -1037,10 +1033,18 @@ public class GameManager : MonoBehaviour
         {
             Destroy(obstacles[i]);
         }
+
+        obstacles = GameObject.FindGameObjectsWithTag("ExplosionFX");
+        for (int i = 0; i < obstacles.Length; i++)
+        {
+            Destroy(obstacles[i]);
+        }
     }
 
     public void ContinueButton()
     {
+        player.rb.gravityScale = 0;
+        player.rb.MovePosition(new Vector2(-1.0f, -0.075f));
         uploadScoreUI.sprite = null;
         uploadScoreUI.color = new Color(1, 1, 1, 0f);
         ClearObstacles();
@@ -1051,8 +1055,8 @@ public class GameManager : MonoBehaviour
         canContinue = false;
         Time.timeScale = 1f;
         player.dead = false;
-        gameOverCanvas.SetActive(false);
         player.position = "starting";
+        gameOverCanvas.SetActive(false);
     }
 
     // Colour picker

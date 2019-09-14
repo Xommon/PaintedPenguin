@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject featherBurst;
     public ParticleSystem blockBurst;
     public ParticleSystem dustBurst;
+    public ParticleSystem paintBurst;
 
     // Swipe controls
     public Vector3 swipeStartPosition;
@@ -419,17 +420,13 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.transform.tag == "Block")
         {
-            ParticleSystem ps = Instantiate(blockBurst, collision.transform.position, Quaternion.identity) as ParticleSystem;
-            ParticleSystem ps2 = Instantiate(dustBurst, collision.transform.position, Quaternion.identity) as ParticleSystem;
-            ps.startColor = collision.gameObject.GetComponent<Block>().sr.color;
-            //ps2.startColor = collision.gameObject.GetComponent<Block>().sr.color;
-            Destroy(ps.gameObject, 1);
-            Destroy(ps2.gameObject, 1);
+            
 
             if (collision.gameObject.GetComponent<Block>().colour != colour && colour != 7 && dead == false)
             {
+                collision.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+                collision.gameObject.GetComponent<Block>().transform.rotation = Quaternion.identity;
                 KillPlayer();
-                Destroy(collision.gameObject);
             }
             else if (collision.gameObject.GetComponent<Block>().hit == false && dead == false)
             {
@@ -453,6 +450,12 @@ public class PlayerMovement : MonoBehaviour
                     babies.RemoveAt(0);
                     babyPuffins++;
                 }
+
+                ParticleSystem ps = Instantiate(blockBurst, collision.transform.position, Quaternion.identity) as ParticleSystem;
+                ParticleSystem ps2 = Instantiate(dustBurst, collision.transform.position, Quaternion.identity) as ParticleSystem;
+                ps.startColor = collision.gameObject.GetComponent<Block>().sr.color;
+                Destroy(ps.gameObject, ps.startLifetime);
+                Destroy(ps2.gameObject, ps2.startLifetime);
 
                 GameObject floatText = Instantiate(floatingText, collision.transform.position, Quaternion.identity);
                 floatText.GetComponent<TextMeshPro>().color = collision.gameObject.GetComponent<Block>().sr.color;
@@ -478,20 +481,30 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.transform.tag == "Paint")
         {
+            ParticleSystem ps3 = Instantiate(paintBurst, collision.transform.position, Quaternion.identity) as ParticleSystem;
+            ps3.startColor = collision.gameObject.GetComponent<Paint>().sr.color;
+            Destroy(ps3.gameObject, ps3.startLifetime);
+
             if (colour != 7)
             {
                 colour = collision.gameObject.GetComponent<Paint>().colour;
             }
+
             Destroy(collision.gameObject);
         }
 
         if (collision.transform.tag == "Rainbow")
         {
+            ParticleSystem ps3 = Instantiate(paintBurst, collision.transform.position, Quaternion.identity) as ParticleSystem;
+            ps3.startColor = sr.color;
+            Destroy(ps3.gameObject, ps3.startLifetime);
+
             if (colour != 7 && timesTwoMode == 1 && dead == false)
             {
                 colour = 7;
                 Rainbow(8.33f);
             }
+
             Destroy(collision.gameObject);
         }
 
