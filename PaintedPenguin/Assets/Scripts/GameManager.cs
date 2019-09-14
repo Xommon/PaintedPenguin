@@ -731,6 +731,11 @@ public class GameManager : MonoBehaviour
             // Username
             tableUsernameUI.text += language.Arabizer(highscoreList[i].username) + "\n";
 
+            if (i == 99)
+            {
+                tableUsernameUI.text += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+            }
+
             // Score
             previousScore = highscoreList[i].score;
             tableScoreUI.GetComponent<TMPro.TextMeshProUGUI>().text += highscoreList[i].score + "\n";
@@ -742,7 +747,7 @@ public class GameManager : MonoBehaviour
         while (true)
         {
             DownloadHighScores();
-            //yield return new WaitForSeconds(30);
+            yield return new WaitForSeconds(30);
         }
     }
 

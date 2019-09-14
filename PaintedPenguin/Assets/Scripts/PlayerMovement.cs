@@ -27,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
     public ParticleSystem blockBurst;
     public ParticleSystem dustBurst;
     public ParticleSystem paintBurst;
+    public int combo;
+    public Language language;
 
     // Swipe controls
     public Vector3 swipeStartPosition;
@@ -64,12 +66,14 @@ public class PlayerMovement : MonoBehaviour
 
                 if (rb.position.y < (-0.075f + margin) && rb.position.y > -0.075f && position == "falling")
                 {
+                    combo = 0;
                     earlyJump = true;
                     earlyDive = false;
                     Debug.Log("Early Jump from Jump");
                 }
                 else if (rb.position.y > (-0.075f - margin) && rb.position.y < -0.075f && position == "resurfacing")
                 {
+                    combo = 0;
                     earlyJump = true;
                     earlyDive = false;
                     Debug.Log("Early Jump from Dive");
@@ -175,6 +179,7 @@ public class PlayerMovement : MonoBehaviour
         // Early Jump
         if (earlyDive == false && earlyJump == true && position == "walking")
         {
+            combo = 0;
             Jump();
             earlyJump = false;
         }
@@ -182,6 +187,7 @@ public class PlayerMovement : MonoBehaviour
         // Early Dive
         if (earlyJump == false && earlyDive == true && position == "walking")
         {
+            combo = 0;
             Dive();
             earlyDive = false;
         }
@@ -241,13 +247,17 @@ public class PlayerMovement : MonoBehaviour
                 animator.SetBool("swimming", false);
             }
 
+            if (position == "walking" || rb.position.y == -0.075)
+            {
+                combo = 0;
+            }
+
             // Player starts walking if it falls to the ground or resurfaces from water
             if ((rb.position.y <= -0.010 && position == "falling") || ((rb.position.y >= -0.140) && position == "resurfacing"))
             {
                 position = "walking";
                 animator.SetBool("falling", false);
                 animator.SetBool("swimming", false);
-
             }
 
             // Mark player as falling
@@ -420,7 +430,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.transform.tag == "Block")
         {
-            
+            combo++;
 
             if (collision.gameObject.GetComponent<Block>().colour != colour && colour != 7 && dead == false)
             {
@@ -467,10 +477,30 @@ public class PlayerMovement : MonoBehaviour
                 {
                     floatText.GetComponent<TextMeshPro>().text = gameManager.language.toRoman(5 * timesTwoMode);
                 }
+                floatText.GetComponent<FloatingText>().verticalSpeed = 0.5f;
+                floatText.GetComponent<FloatingText>().horizontalSpeed = 0f;
                 gameManager.score += (5 * timesTwoMode);
                 collision.gameObject.GetComponent<Block>().hit = true;
                 Destroy(collision.gameObject);
                 Destroy(floatText, 1.0f);
+                
+                if (combo > 1)
+                {
+                    GameObject floatText2 = Instantiate(floatingText, collision.transform.position, Quaternion.identity);
+                    floatText2.GetComponent<FloatingText>().verticalSpeed = 0f;
+                    floatText2.GetComponent<FloatingText>().horizontalSpeed = 0f;
+                    floatText2.GetComponent<TextMeshPro>().color = collision.gameObject.GetComponent<Block>().sr.color;
+                    floatText2.GetComponent<TextMeshPro>().text = "combo";
+                    Destroy(floatText2, 1.0f);
+
+                    GameObject floatText3 = Instantiate(floatingText, collision.transform.position, Quaternion.identity);
+                    floatText3.GetComponent<FloatingText>().verticalSpeed = 0.25f;
+                    floatText3.GetComponent<FloatingText>().horizontalSpeed = 0.5f;
+                    floatText3.GetComponent<TextMeshPro>().color = collision.gameObject.GetComponent<Block>().sr.color;
+                    floatText3.GetComponent<TextMeshPro>().text = (5 * (1 + babyPuffins)).ToString();
+                    gameManager.score += (5 * (1 + babyPuffins));
+                    Destroy(floatText3, 1.0f);
+                }
             }
         }
 

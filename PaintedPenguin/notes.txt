@@ -19,6 +19,8 @@ BUGS:
 - Baby puffin
 - Redo UI and background
 - Longer x2 and x3 sessions
+- Feathers not operating correctly
+- Paint splatter weak
 
 DON'T FORGET:
 - SWITCH MONETIZATION TO FALSE
