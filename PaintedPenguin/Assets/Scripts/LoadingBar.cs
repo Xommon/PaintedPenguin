@@ -10,7 +10,7 @@ public class LoadingBar : MonoBehaviour
     public PlayerMovement player;
     public Image selfImage;
     public bool exists;
-    [SerializeField] public float currentAmount;
+    public float currentAmount;
     public float speed;
 
     void Start()
@@ -21,11 +21,28 @@ public class LoadingBar : MonoBehaviour
 
     void Update()
     {
+        if (player.timesTwoMode > 1)
+        {
+            speed = 6;
+        }
+        else if (player.colour == 7)
+        {
+            speed = 12;
+        }
+
         if (currentAmount > 0)
         {
             currentAmount -= speed * Time.deltaTime;
         } else
         {
+            if (player.timesTwoMode > 1)
+            {
+                player.timesTwoMode = 1;
+            }
+            else
+            {
+                player.colour = 0;
+            }
             Destroy(transform.parent.gameObject);
         }
 

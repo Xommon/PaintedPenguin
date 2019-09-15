@@ -65,7 +65,7 @@ MonoBehaviour:
   selfImage: {fileID: 4690267391212639618}
   exists: 0
   currentAmount: 0
-  speed: 12
+  speed: 0
 --- !u!114 &4690267391212639618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,7 +147,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -106.41014, y: 374.01923}
+  m_AnchoredPosition: {x: 125.684654, y: 584.52026}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!223 &4690267391600531476

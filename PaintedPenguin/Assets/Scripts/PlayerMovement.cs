@@ -317,13 +317,11 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Rainbow
-    public void Rainbow(float seconds)
+    public void Rainbow()
     {
         colour = 7;
         GameObject loadingBar = Instantiate(loadingBarPrefab);
-        loadingBar.GetComponent<LoadingBar>().speed = 12;
         RainbowCycle();
-        Invoke("Unrainbow", seconds);
     }
 
     public void RainbowCycle()
@@ -380,22 +378,10 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void Unrainbow()
-    {
-        colour = 0;
-    }
-
     // TimesTwo
-    public void TimesTwoMode(float seconds)
+    public void TimesTwoMode()
     {
         GameObject loadingBar = Instantiate(loadingBarPrefab);
-        loadingBar.GetComponent<LoadingBar>().speed = 8;
-        Invoke("UntimesTwoMode", seconds);
-    }
-
-    public void UntimesTwoMode()
-    {
-        timesTwoMode = 1;
     }
 
     public void KillPlayer()
@@ -440,12 +426,12 @@ public class PlayerMovement : MonoBehaviour
                 else if (collision.transform.name == "BlockWithRainbow(Clone)" && colour != 7 && timesTwoMode == 1 && dead == false)
                 {
                     colour = 7;
-                    Rainbow(8.33f);
+                    Rainbow();
                 }
                 else if (collision.transform.name == "BlockWithX3(Clone)" && colour != 7 && timesTwoMode == 1 && dead == false)
                 {
                     timesTwoMode = 3;
-                    TimesTwoMode(8.33f * 1.5f);
+                    TimesTwoMode();
                 }
                 else if (collision.transform.name == "BlockWithBaby(Clone)" && dead == false && babyPuffins < 3)
                 {
@@ -532,7 +518,7 @@ public class PlayerMovement : MonoBehaviour
             if (colour != 7 && timesTwoMode == 1 && dead == false)
             {
                 colour = 7;
-                Rainbow(8.33f);
+                Rainbow();
             }
 
             Destroy(collision.gameObject);
@@ -543,7 +529,7 @@ public class PlayerMovement : MonoBehaviour
             if (timesTwoMode == 1 && colour != 7 && dead == false)
             {
                 timesTwoMode = 2;
-                TimesTwoMode(8.33f * 1.5f);
+                TimesTwoMode();
             }
             Destroy(collision.gameObject);
         }
