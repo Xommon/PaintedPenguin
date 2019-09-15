@@ -11,7 +11,7 @@ public class LoadingBar : MonoBehaviour
     public Image selfImage;
     public bool exists;
     [SerializeField] public float currentAmount;
-    [SerializeField] public float speed;
+    public float speed;
 
     void Start()
     {

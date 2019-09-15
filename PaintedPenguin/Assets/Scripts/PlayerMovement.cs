@@ -321,6 +321,7 @@ public class PlayerMovement : MonoBehaviour
     {
         colour = 7;
         GameObject loadingBar = Instantiate(loadingBarPrefab);
+        loadingBar.GetComponent<LoadingBar>().speed = 12;
         RainbowCycle();
         Invoke("Unrainbow", seconds);
     }
@@ -388,6 +389,7 @@ public class PlayerMovement : MonoBehaviour
     public void TimesTwoMode(float seconds)
     {
         GameObject loadingBar = Instantiate(loadingBarPrefab);
+        loadingBar.GetComponent<LoadingBar>().speed = 8;
         Invoke("UntimesTwoMode", seconds);
     }
 
@@ -443,7 +445,7 @@ public class PlayerMovement : MonoBehaviour
                 else if (collision.transform.name == "BlockWithX3(Clone)" && colour != 7 && timesTwoMode == 1 && dead == false)
                 {
                     timesTwoMode = 3;
-                    TimesTwoMode(8.33f);
+                    TimesTwoMode(8.33f * 1.5f);
                 }
                 else if (collision.transform.name == "BlockWithBaby(Clone)" && dead == false && babyPuffins < 3)
                 {
@@ -541,7 +543,7 @@ public class PlayerMovement : MonoBehaviour
             if (timesTwoMode == 1 && colour != 7 && dead == false)
             {
                 timesTwoMode = 2;
-                TimesTwoMode(8.33f);
+                TimesTwoMode(8.33f * 1.5f);
             }
             Destroy(collision.gameObject);
         }
