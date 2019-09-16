@@ -9,7 +9,6 @@ BUGS:
 - Spikeball too predictable
 - Latin score overflows over in the 8000ish(?)
 - Moving blocks (water -> up) stop on the ground
-- Mobile back button
 - Words clipping (Tagalog warnings)
 - Missing Key ID error
 - Baby puffin

@@ -979,9 +979,9 @@ public class GameManager : MonoBehaviour
             Pause();
         }
 
+        // Mobile back button
         if (Input.GetKeyDown("escape"))
         {
-            // IF THE BUTTON EXISTS
             if (highScoreTableUI.activeInHierarchy == true)
             {
                 XButtonScore();
@@ -989,6 +989,14 @@ public class GameManager : MonoBehaviour
             else if (colourPickerUI.activeInHierarchy == true)
             {
                 CloseButtonCP();
+            }
+            else if (languageTableUI.activeInHierarchy == true)
+            {
+                XButtonLanguage();
+            }
+            else if (gameUI.activeInHierarchy == true)
+            {
+                Pause();
             }
         }
 
