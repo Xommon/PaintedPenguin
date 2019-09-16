@@ -12,9 +12,11 @@ public class LoadingBar : MonoBehaviour
     public bool exists;
     public float currentAmount;
     public float speed;
+    public bool soundPlayed;
 
     void Start()
     {
+        soundPlayed = false;
         currentAmount = 100;
         player = FindObjectOfType<PlayerMovement>();
     }
@@ -43,7 +45,15 @@ public class LoadingBar : MonoBehaviour
             {
                 player.colour = 0;
             }
-            Destroy(transform.parent.gameObject);
+
+            AudioSource audio = GetComponent<AudioSource>();
+            if (soundPlayed == false)
+            {
+                audio.Play();
+                soundPlayed = true;
+            }
+
+            Destroy(transform.parent.gameObject, 2f);
         }
 
         loadingBarValue.GetComponent<Image>().fillAmount = currentAmount / 100;

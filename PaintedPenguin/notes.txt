@@ -1,7 +1,6 @@
 ADDITIONS:
 - Ads
 - Analytics
-- Sound effects
 
 BUGS:
 - First place tier doesn't have the same place as second place
@@ -13,11 +12,12 @@ BUGS:
 - Mobile back button
 - Words clipping (Tagalog warnings)
 - Missing Key ID error
-- Bold floating numbers, unbold game title
 - Baby puffin
 - Redo UI and background
-- Longer x2 and x3 sessions
 - Feathers not operating correctly
 - Combo in different languages
 - Score button should match highscore title in every language
 - Cut back resources
+- x2/x3 modes reset colours when they're done
+- Sounds don't pause with game
+- Sound effects

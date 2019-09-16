@@ -5,11 +5,15 @@ using UnityEngine;
 public class SpikeBall : MonoBehaviour
 {
     public GameManager gameManager;
+    public PlayerMovement player;
     public SpriteRenderer sr;
     public bool hit = false;
     public float moving;
     public float moveMax;
     public float moveMin;
+    public ParticleSystem blockBurst;
+    public ParticleSystem dustBurst;
+    public ParticleSystem paintBurst;
 
     private void Start()
     {
@@ -56,6 +60,26 @@ public class SpikeBall : MonoBehaviour
     {
         if (collision.transform.name != "Player")
         {
+            if (collision.transform.tag == "Block")
+            {
+                ParticleSystem ps = Instantiate(blockBurst, collision.transform.position, Quaternion.identity) as ParticleSystem;
+                ParticleSystem ps2 = Instantiate(dustBurst, collision.transform.position, Quaternion.identity) as ParticleSystem;
+                ps.startColor = collision.gameObject.GetComponent<Block>().sr.color;
+                Destroy(ps.gameObject, ps.startLifetime);
+                Destroy(ps2.gameObject, ps2.startLifetime);
+            }
+            else if (collision.transform.tag == "Paint")
+            {
+                ParticleSystem ps3 = Instantiate(paintBurst, collision.transform.position, Quaternion.identity) as ParticleSystem;
+                ps3.startColor = collision.gameObject.GetComponent<Paint>().sr.color;
+                Destroy(ps3.gameObject, ps3.startLifetime);
+            }
+            else if (collision.transform.tag == "Rainbow")
+            {
+                ParticleSystem ps3 = Instantiate(paintBurst, collision.transform.position, Quaternion.identity) as ParticleSystem;
+                ps3.startColor = sr.color;
+                Destroy(ps3.gameObject, ps3.startLifetime);
+            }
             Destroy(collision.gameObject);
         }
     }

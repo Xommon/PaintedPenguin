@@ -13,6 +13,7 @@ public class FloatingText : MonoBehaviour
 
     void Update()
     {
+        floatingText.outlineWidth = 0.23f;
         transform.position += Vector3.up * verticalSpeed * Time.deltaTime;
         transform.position += Vector3.right * horizontalSpeed * Time.deltaTime;
     }

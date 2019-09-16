@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7330548077470288660}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.4220502, y: -0.026728347, z: -0.5}
+  m_LocalPosition: {x: 1.4220502, y: -0.026728347, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -116,12 +116,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1c951e47155614daff34fa74c403a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
+  gameManager: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
+    type: 3}
+  player: {fileID: 5073945571518871174, guid: ec57f4535ec603946a7f03fa5bb07814, type: 3}
   sr: {fileID: 7330548077470288656}
   hit: 0
   moving: 0
   moveMax: 0
   moveMin: 0
+  blockBurst: {fileID: 5373672204583788577, guid: 97d76d863d019c948b72dd115c7d3a6d,
+    type: 3}
+  dustBurst: {fileID: 4340356459535035228, guid: 4c26e12bf1559594e972ec87d97be09b,
+    type: 3}
+  paintBurst: {fileID: 8894676606133846632, guid: 20d6599abd4d72a4a9c7e08e61d54c08,
+    type: 3}
 --- !u!58 &7330548077470288657
 CircleCollider2D:
   m_ObjectHideFlags: 0

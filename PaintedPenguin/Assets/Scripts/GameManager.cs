@@ -906,6 +906,7 @@ public class GameManager : MonoBehaviour
         }
 
         // Set up text based on language
+        gameTitleText.outlineWidth = 0;
         gameTitleText.text = language.GameTitle;
         startButtonText.text = language.StartButton;
         scoreButtonText.text = language.Score;
@@ -978,11 +979,18 @@ public class GameManager : MonoBehaviour
             Pause();
         }
 
-        /*if (Input.GetKeyDown("escape"))
+        if (Input.GetKeyDown("escape"))
         {
             // IF THE BUTTON EXISTS
-            XButtonScore();
-        }*/
+            if (highScoreTableUI.activeInHierarchy == true)
+            {
+                XButtonScore();
+            }
+            else if (colourPickerUI.activeInHierarchy == true)
+            {
+                CloseButtonCP();
+            }
+        }
 
         // Max score of 9999
         if (score >= 9999)

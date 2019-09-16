@@ -73,13 +73,13 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -3378974416564506321, guid: b25ced897c510d04f9ae82041c06baf3,
+  m_Sprite: {fileID: 3196821319666181649, guid: 2c2755ded95982b46871353738c21df4,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.26, y: 0.23}
+  m_Size: {x: 0.21, y: 0.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -135,6 +135,18 @@ MonoBehaviour:
   testBaby: {fileID: 950571755183832569, guid: 8983dabda896d2a49baec5496644978f, type: 3}
   floatingText: {fileID: 3637404768749131866, guid: 9691179a16a4aff40bd19d9177d7d3f3,
     type: 3}
+  touchGuide: {fileID: 0}
+  tutorial: 0
+  earlyJump: 0
+  earlyDive: 0
+  featherBurst: {fileID: 0}
+  blockBurst: {fileID: 0}
+  dustBurst: {fileID: 0}
+  paintBurst: {fileID: 0}
+  combo: 0
+  language: {fileID: 0}
+  apu_title: {fileID: 0}
+  roboto: {fileID: 0}
   swipeStartPosition: {x: 0, y: 0, z: 0}
   swipeEndPosition: {x: 0, y: 0, z: 0}
   swipeMinDistance: 0

@@ -70,13 +70,11 @@ public class PlayerMovement : MonoBehaviour
                 {
                     earlyJump = true;
                     earlyDive = false;
-                    Debug.Log("Early Jump from Jump");
                 }
                 else if (rb.position.y > (-0.075f - margin) && rb.position.y < -0.075f && position == "resurfacing")
                 {
                     earlyJump = true;
                     earlyDive = false;
-                    Debug.Log("Early Jump from Dive");
                 }
             }
         }
@@ -102,13 +100,11 @@ public class PlayerMovement : MonoBehaviour
                 {
                     earlyJump = false;
                     earlyDive = true;
-                    Debug.Log("Early Dive from Jump");
                 }
                 else if (rb.position.y > (-0.075f - margin) && rb.position.y < -0.075f && position == "resurfacing")
                 {
                     earlyJump = false;
                     earlyDive = true;
-                    Debug.Log("Early Dive from Dive");
                 }
             }
         }
