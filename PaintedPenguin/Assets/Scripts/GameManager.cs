@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
     public Text replayButtonText;
     public Text continueButtonText;
 
-    public Text scoreText;
+    public TMP_Text scoreText;
 
     public Text pauseText;
 
@@ -347,41 +347,14 @@ public class GameManager : MonoBehaviour
                             }
                         }
                     }
-                    else if (PercentChance(100))
+                    /*else if (PercentChance(100))
                     {
                         if (obstaclePositions[0] == -0.1f || obstaclePositions[0] == -0.9f || obstaclePositions[0] == 0.7f)
                         {
                             newpaint = Instantiate(spikeBall);
                             newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
-
-                            if (obstaclePositions[0] == 0.7f)
-                            {
-                                newpaint.GetComponent<SpikeBall>().moving = Random.Range(-1, 0);
-                            }
-
-                            if (obstaclePositions[0] == -0.9f)
-                            {
-                                newpaint.GetComponent<SpikeBall>().moving = Random.Range(0, 1);
-                            }
-
-                            if (obstaclePositions[0] == -0.1f)
-                            {
-                                int pickSpikeBall = Random.Range(1, 2);
-
-                                if (pickSpikeBall == 1)
-                                {
-                                    newpaint.GetComponent<SpikeBall>().moving = Random.Range(-1, 0);
-                                }
-                                else
-                                {
-                                    newpaint.GetComponent<SpikeBall>().moving = Random.Range(0, 1);
-                                }
-                            }
-
-                            newpaint.GetComponent<SpikeBall>().moveMax = 0.7f;
-                            newpaint.GetComponent<SpikeBall>().moveMin = -0.9f;
                         }
-                    }
+                    }*/
                 }
             }
             
@@ -830,19 +803,19 @@ public class GameManager : MonoBehaviour
 
     public string ToRoman(int score)
     {
-        if (score >= 1000) return "Ⅿ" + ToRoman(score - 1000);
-        if (score >= 900) return "ⅭⅯ" + ToRoman(score - 900);
-        if (score >= 500) return "Ⅾ" + ToRoman(score - 500);
-        if (score >= 400) return "ⅭⅮ" + ToRoman(score - 400);
-        if (score >= 100) return "Ⅽ" + ToRoman(score - 100);
-        if (score >= 90) return "ⅩⅭ" + ToRoman(score - 90);
-        if (score >= 50) return "Ⅼ" + ToRoman(score - 50);
-        if (score >= 40) return "ⅩⅬ" + ToRoman(score - 40);
-        if (score >= 10) return "Ⅹ" + ToRoman(score - 10);
-        if (score >= 9) return "Ⅸ" + ToRoman(score - 9);
-        if (score >= 5) return "Ⅴ" + ToRoman(score - 5);
-        if (score >= 4) return "Ⅳ" + ToRoman(score - 4);
-        if (score >= 1) return "Ⅰ" + ToRoman(score - 1);
+        if (score >= 1000) return "M" + ToRoman(score - 1000);
+        if (score >= 900) return "CM" + ToRoman(score - 900);
+        if (score >= 500) return "D" + ToRoman(score - 500);
+        if (score >= 400) return "CD" + ToRoman(score - 400);
+        if (score >= 100) return "C" + ToRoman(score - 100);
+        if (score >= 90) return "XC" + ToRoman(score - 90);
+        if (score >= 50) return "L" + ToRoman(score - 50);
+        if (score >= 40) return "XL" + ToRoman(score - 40);
+        if (score >= 10) return "X" + ToRoman(score - 10);
+        if (score >= 9) return "IX" + ToRoman(score - 9);
+        if (score >= 5) return "V" + ToRoman(score - 5);
+        if (score >= 4) return "IV" + ToRoman(score - 4);
+        if (score >= 1) return "I" + ToRoman(score - 1);
         return "";
     }
 

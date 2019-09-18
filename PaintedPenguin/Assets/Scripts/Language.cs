@@ -363,7 +363,7 @@ public class Language : MonoBehaviour
         Paused = "POZASTAVENO";
 
         // High Scores
-        HighScores = "VYSOKÉ SKÓRE";
+        HighScores = "SKÓRE";
 
         // Username Input
         Name = "Název ...";
@@ -395,7 +395,7 @@ public class Language : MonoBehaviour
         Paused = "PAUSET";
 
         // High Scores
-        HighScores = "HØJE SCORER";
+        HighScores = "SCORER";
 
         // Username Input
         Name = "Navn ...";
@@ -427,7 +427,7 @@ public class Language : MonoBehaviour
         Paused = "GEPAUZEERD";
 
         // High Scores
-        HighScores = "HOGE SCORES";
+        HighScores = "SCORES";
 
         // Username Input
         Name = "Naam ...";
@@ -459,7 +459,7 @@ public class Language : MonoBehaviour
         Paused = "PAŬZIS";
 
         // High Scores
-        HighScores = "ALTAJ SCOROJ";
+        HighScores = "SCOROJ";
 
         // Username Input
         Name = "Nomo ...";
@@ -491,7 +491,7 @@ public class Language : MonoBehaviour
         Paused = "PYSÄYTETTY";
 
         // High Scores
-        HighScores = "HUIPPUPISTEET";
+        HighScores = "TULOKSET";
 
         // Username Input
         Name = "Nimi ...";
@@ -523,7 +523,7 @@ public class Language : MonoBehaviour
         Paused = "EN PAUSE";
 
         // High Scores
-        HighScores = "SCORES ÉLEVÉS";
+        HighScores = "SCORES";
 
         // Username Input
         Name = "Nom ...";
@@ -565,7 +565,7 @@ public class Language : MonoBehaviour
         Flag.image.overrideSprite = german;
         gameManager.playerLanguage = "German";
         gameManager.XButtonLanguage();
-    }
+    } // Verified
 
     public void Greek()
     {
@@ -619,7 +619,7 @@ public class Language : MonoBehaviour
         Paused = Reverse("מושהה");
 
         // High Scores
-        HighScores = Reverse("ציונים") + " " + Reverse("גבוהים");
+        HighScores = Reverse("גבוהים") + " " + Reverse("ציונים");
 
         // Username Input
         Name = Reverse("שם ...");
@@ -684,7 +684,7 @@ public class Language : MonoBehaviour
         Paused = "SZÜNETEL";
 
         // High Scores
-        HighScores = "MAGAS PONTSZÁM";
+        HighScores = "PONTSZÁMOK";
 
         // Username Input
         Name = "Név ...";
@@ -716,7 +716,7 @@ public class Language : MonoBehaviour
         Paused = "GERT HLÉ";
 
         // High Scores
-        HighScores = "HÁR SKORAR";
+        HighScores = "SKORAR";
 
         // Username Input
         Name = "Nafn ...";
@@ -780,7 +780,7 @@ public class Language : MonoBehaviour
         Paused = "IN PAUSA";
 
         // High Scores
-        HighScores = "PUNTEGGI";
+        HighScores = "CLASSIFICA";
 
         // Username Input
         Name = "Nome ...";
@@ -812,7 +812,7 @@ public class Language : MonoBehaviour
         Paused = "ポーズ中";
 
         // High Scores
-        HighScores = "ハイスコア";
+        HighScores = "スコア";
 
         // Username Input
         Name = "名 ...";
@@ -870,7 +870,7 @@ public class Language : MonoBehaviour
         Continue = " RESUMO?";
 
         // Score
-        ScoreUI = toRoman(gameManager.score);
+        ScoreUI = gameManager.ToRoman(gameManager.score);
 
         // Pause
         Paused = "PAULUM";
@@ -1004,7 +1004,7 @@ public class Language : MonoBehaviour
         Paused = "EM PAUSA";
 
         // High Scores
-        HighScores = "PONTUAÇÃO MÁXIMAS";
+        HighScores = "PONTUAÇÃO";
 
         // Username Input
         Name = "Nome ...";
@@ -1036,7 +1036,7 @@ public class Language : MonoBehaviour
         Paused = "SUSPENDAT";
 
         // High Scores
-        HighScores = "CEL MAI MARE SCOR";
+        HighScores = "SCOR";
 
         // Username Input
         Name = "Nume ...";
@@ -1068,7 +1068,7 @@ public class Language : MonoBehaviour
         Paused = "ПАУЗА";
 
         // High Scores
-        HighScores = "ЛУЧШИЕ РЕЗУЛЬТАТЫ";
+        HighScores = "РЕКОРДЫ";
 
         // Username Input
         Name = "Имя ...";
@@ -1100,7 +1100,7 @@ public class Language : MonoBehaviour
         Paused = "PAUSADO";
 
         // High Scores
-        HighScores = "PUNTUACIONES ALTAS";
+        HighScores = "PUNTUACIÓN";
 
         // Username Input
         Name = "Nombre ...";
@@ -1132,7 +1132,7 @@ public class Language : MonoBehaviour
         Paused = "PAUSAT";
 
         // High Scores
-        HighScores = "HÖGA POÄNG";
+        HighScores = "REKORD";
 
         // Username Input
         Name = "Namn ...";
@@ -1381,24 +1381,6 @@ public class Language : MonoBehaviour
         {
             gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().lineSpacing = -30;
         }
-    }
-
-    public string toRoman(int score)
-    {
-        if (score >= 1000) return "M" + toRoman(score - 1000);
-        if (score >= 900) return "CM" + toRoman(score - 900);
-        if (score >= 500) return "D" + toRoman(score - 500);
-        if (score >= 400) return "CD" + toRoman(score - 400);
-        if (score >= 100) return "C" + toRoman(score - 100);
-        if (score >= 90) return "XC" + toRoman(score - 90);
-        if (score >= 50) return "L" + toRoman(score - 50);
-        if (score >= 40) return "XL" + toRoman(score - 40);
-        if (score >= 10) return "X" + toRoman(score - 10);
-        if (score >= 9) return "IX" + toRoman(score - 9);
-        if (score >= 5) return "V" + toRoman(score - 5);
-        if (score >= 4) return "IV" + toRoman(score - 4);
-        if (score >= 1) return "I" + toRoman(score - 1);
-        return "";
     }
 
     public Font regularLatin;

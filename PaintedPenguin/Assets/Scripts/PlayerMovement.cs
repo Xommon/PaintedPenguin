@@ -451,7 +451,7 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else
                 {
-                    floatText.GetComponent<TextMeshPro>().text = gameManager.language.toRoman(5 * timesTwoMode);
+                    floatText.GetComponent<TextMeshPro>().text = gameManager.ToRoman(5 * timesTwoMode);
                 }
                 floatText.GetComponent<FloatingText>().verticalSpeed = 0.5f;
                 floatText.GetComponent<FloatingText>().horizontalSpeed = 0f;
@@ -474,7 +474,14 @@ public class PlayerMovement : MonoBehaviour
                     floatText3.GetComponent<FloatingText>().verticalSpeed = 0.25f;
                     floatText3.GetComponent<FloatingText>().horizontalSpeed = 0.5f;
                     floatText3.GetComponent<TextMeshPro>().color = collision.gameObject.GetComponent<Block>().sr.color;
-                    floatText3.GetComponent<TextMeshPro>().text = (5 * (1 + babyPuffins)).ToString();
+                    if (gameManager.playerLanguage == "Latin")
+                    {
+                        floatText3.GetComponent<TextMeshPro>().text = gameManager.ToRoman((5 * (1 + babyPuffins)));
+                    }
+                    else
+                    {
+                        floatText3.GetComponent<TextMeshPro>().text = (5 * (1 + babyPuffins)).ToString();
+                    }
                     floatText3.GetComponent<TextMeshPro>().font = apu_title;
                     gameManager.score += (5 * (1 + babyPuffins));
                     Destroy(floatText3, 1.0f);

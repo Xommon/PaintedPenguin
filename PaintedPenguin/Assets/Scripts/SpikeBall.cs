@@ -34,7 +34,7 @@ public class SpikeBall : MonoBehaviour
         transform.position += Vector3.left * 0.75f * Time.deltaTime;
 
         // SpikeBalls move up and down
-        transform.position += Vector3.up * moving * 1.0f * Time.deltaTime;
+        //transform.position += Vector3.up * moving * 1.0f * Time.deltaTime;
 
         // Destroy if out of scene
         if (transform.position.x < -0.9)
