@@ -791,6 +791,9 @@ TextureImporter:
   - first:
       213: -3330830099283890223
     second: bc
+  - first:
+      213: 7123293575159901664
+    second: ep
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -6405,6 +6408,27 @@ TextureImporter:
       bones: []
       spriteID: c48a8cb3a2488d045905d6f7da69688e
       internalID: -3330830099283890223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ep
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 1
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d84bb285eb8c354ebc63d22a3d37318
+      internalID: 7123293575159901664
       vertices: []
       indices: 
       edges: []

@@ -24,7 +24,7 @@ public class SpikeBall : MonoBehaviour
     {
         if (Time.timeScale != 0)
         {
-            transform.Rotate(0, 0, 5);
+            transform.Rotate(0, 0, 4);
         } else
         {
             transform.Rotate(0, 0, 0);

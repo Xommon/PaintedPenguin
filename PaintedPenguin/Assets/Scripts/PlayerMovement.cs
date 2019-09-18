@@ -488,6 +488,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.transform.tag == "SpikeBall")
         {
+            collision.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            collision.gameObject.GetComponent<SpikeBall>().transform.rotation = Quaternion.identity;
             KillPlayer();
         }
 
