@@ -13,7 +13,6 @@ BUGS:
 - Baby puffin
 - Redo UI and background
 - Feathers not operating correctly
-- x2/x3 modes reset colours when they're done
 - Sounds don't pause with game
 - High Score doesn't size to all screens
 - Game freezes when sounds play

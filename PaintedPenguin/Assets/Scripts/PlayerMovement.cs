@@ -396,12 +396,6 @@ public class PlayerMovement : MonoBehaviour
         Invoke("Death", 0.5f);
     }
 
-    public void TimesUp()
-    {
-        colour = 0;
-        timesTwoMode = 1;
-    }
-
     // End the game if collision with an obstacle occurs
     public void OnCollisionEnter2D(Collision2D collision)
     {
@@ -467,7 +461,6 @@ public class PlayerMovement : MonoBehaviour
                     floatText2.GetComponent<FloatingText>().horizontalSpeed = 0f;
                     floatText2.GetComponent<TextMeshPro>().color = collision.gameObject.GetComponent<Block>().sr.color;
                     floatText2.GetComponent<TextMeshPro>().text = language.Combo;
-                    //floatText2.GetComponent<TextMeshPro>().font = roboto;
                     Destroy(floatText2, 1.0f);
 
                     GameObject floatText3 = Instantiate(floatingText, collision.transform.position, Quaternion.identity);

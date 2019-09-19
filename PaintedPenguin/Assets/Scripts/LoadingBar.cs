@@ -53,7 +53,7 @@ public class LoadingBar : MonoBehaviour
                 soundPlayed = true;
             }
 
-            Destroy(transform.parent.gameObject, 2f);
+            Destroy(transform.parent.gameObject);
         }
 
         loadingBarValue.GetComponent<Image>().fillAmount = currentAmount / 100;
