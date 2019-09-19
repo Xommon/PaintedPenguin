@@ -2762,7 +2762,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &351294079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4205,7 +4205,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 673480267}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4031, y: -0.2, z: 0}
+  m_LocalPosition: {x: 0.4031, y: -0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6859,7 +6859,7 @@ GameObject:
   - component: {fileID: 1237786064}
   - component: {fileID: 1237786063}
   m_Layer: 5
-  m_Name: Hello
+  m_Name: UsernameDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9985,7 +9985,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 120}
+  m_AnchoredPosition: {x: 0, y: 135.85}
   m_SizeDelta: {x: 284, y: 125.28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1690552615
@@ -14357,6 +14357,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6912182656722656618, guid: 436dbfd5f2c0d664a8132a05687fd69e,
         type: 3}
+    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
+        type: 3}
+      propertyPath: comboText
+      value: 
+      objectReference: {fileID: 3637404768749131867, guid: 9691179a16a4aff40bd19d9177d7d3f3,
+        type: 3}
+    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
+        type: 3}
+      propertyPath: usernameDisplayText
+      value: 
+      objectReference: {fileID: 1237786063}
     - target: {fileID: 814642394577855561, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14454,14 +14465,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1253002816}
   lgcFont: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
-  cjkFont: {fileID: 11400000, guid: 7259f503d0f160b46870fbf0f22a0d07, type: 2}
+  cjkFont: {fileID: 11400000, guid: cfb026a602d2b8a4197c6118cfcd8988, type: 2}
   apuFont: {fileID: 11400000, guid: 0bf9288488d18f941b89254928c24fda, type: 2}
   tlbFont: {fileID: 11400000, guid: be3e758628eb98141b661178404b353e, type: 2}
   hindiFont: {fileID: 11400000, guid: df5435d58f2fb084a81789670ec146e3, type: 2}
+  hebrewFont: {fileID: 11400000, guid: 8ea8272df96344b4faed3419675d35ee, type: 2}
   GameTitle: 
   StartButton: 
   Score: 
-  HelloUsername: 
+  Combo: 
   GameOver: 
   Replay: 
   Continue: 
@@ -22244,6 +22256,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5073945571518871179, guid: ec57f4535ec603946a7f03fa5bb07814,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5073945571518871174, guid: ec57f4535ec603946a7f03fa5bb07814,
         type: 3}
       propertyPath: gameManager
@@ -22650,7 +22667,7 @@ PrefabInstance:
     - target: {fileID: 8384673512741271491, guid: 20a2161188ae6804e9fc56ba980e8a8d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.2
+      value: -0.25
       objectReference: {fileID: 0}
     - target: {fileID: 8384673512741271491, guid: 20a2161188ae6804e9fc56ba980e8a8d,
         type: 3}

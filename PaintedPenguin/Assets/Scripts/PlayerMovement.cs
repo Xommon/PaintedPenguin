@@ -466,8 +466,8 @@ public class PlayerMovement : MonoBehaviour
                     floatText2.GetComponent<FloatingText>().verticalSpeed = 0f;
                     floatText2.GetComponent<FloatingText>().horizontalSpeed = 0f;
                     floatText2.GetComponent<TextMeshPro>().color = collision.gameObject.GetComponent<Block>().sr.color;
-                    floatText2.GetComponent<TextMeshPro>().text = "combo";
-                    floatText2.GetComponent<TextMeshPro>().font = roboto;
+                    floatText2.GetComponent<TextMeshPro>().text = language.Combo;
+                    //floatText2.GetComponent<TextMeshPro>().font = roboto;
                     Destroy(floatText2, 1.0f);
 
                     GameObject floatText3 = Instantiate(floatingText, collision.transform.position, Quaternion.identity);

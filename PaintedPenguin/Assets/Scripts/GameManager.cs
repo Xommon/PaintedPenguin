@@ -83,7 +83,8 @@ public class GameManager : MonoBehaviour
     public TMP_Text gameTitleText;
     public Text startButtonText;
     public Text scoreButtonText;
-    public Text helloUsernameText;
+    public Text usernameDisplayText;
+    public TMP_Text comboText;
 
     public Text gameOverText;
     public Text replayButtonText;
@@ -883,7 +884,8 @@ public class GameManager : MonoBehaviour
         gameTitleText.text = language.GameTitle;
         startButtonText.text = language.StartButton;
         scoreButtonText.text = language.Score;
-        helloUsernameText.text = language.Arabizer(playerUsername);
+        usernameDisplayText.text = playerUsername;
+        comboText.text = language.Combo;
 
         gameOverText.text = language.GameOver;
         replayButtonText.text = language.Replay;

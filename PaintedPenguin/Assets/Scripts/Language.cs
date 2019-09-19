@@ -17,12 +17,13 @@ public class Language : MonoBehaviour
     public TMP_FontAsset apuFont;
     public TMP_FontAsset tlbFont;
     public TMP_FontAsset hindiFont;
+    public TMP_FontAsset hebrewFont;
 
     // Main Menu
     public string GameTitle;
     public string StartButton;
     public string Score;
-    public string HelloUsername;
+    public string Combo;
 
     // Game Over
     public string GameOver;
@@ -93,7 +94,7 @@ public class Language : MonoBehaviour
         GameTitle = "Painted Puffin";
         StartButton = "START";
         Score = "SCORE";
-        HelloUsername = "Hello, " + gameManager.playerUsername + "!";
+        Combo = "combo";
 
         // Game Over
         GameOver = "GAME OVER";
@@ -125,7 +126,7 @@ public class Language : MonoBehaviour
         GameTitle = RTLSupport.FixRTL("رسمت البفن", true, false, false);
         StartButton = Reverse("اﻟﺒﺪء");
         Score = Reverse("ﺩﺭﺟﺔ ﻋﺎﻟﻴﺔ");
-        HelloUsername = "سلام, " + gameManager.playerUsername + "!";
+        Combo = Arabizer("مزدوج");
 
         // Game Over
         GameOver = Reverse("ﺍﻧﺘﻬﺖ ﺍﻟﻠﻌﺒﺔ"); // ﺘ
@@ -157,7 +158,7 @@ public class Language : MonoBehaviour
         GameTitle = "Ofarbani Puffin";
         StartButton = "START";
         Score = "REZULTATI";
-        HelloUsername = "Zdravo, " + gameManager.playerUsername + "!";
+        Combo = "kombo";
 
         // Game Over
         GameOver = "KRAJ IGRE";
@@ -189,7 +190,7 @@ public class Language : MonoBehaviour
         GameTitle = "Пейнтед \nТупик";
         StartButton = "СТАРТ";
         Score = "ВИСОКА ОЦЕНКА";
-        HelloUsername = "Здрасти, " + gameManager.playerUsername + "!";
+        Combo = "комбо";
 
         // Game Over
         GameOver = "КРАЙ \nНА ИГРАТА";
@@ -221,7 +222,7 @@ public class Language : MonoBehaviour
         GameTitle = "Fraret Pintat";
         StartButton = "COMENÇAR";
         Score = "PUNTUACIONS";
-        HelloUsername = "Hola, " + gameManager.playerUsername + "!";
+        Combo = "combo";
 
         // Game Over
         GameOver = "FI DEL JOC";
@@ -253,7 +254,7 @@ public class Language : MonoBehaviour
         GameTitle = "彩繪松餅";
         StartButton = "初時";
         Score = "高分";
-        HelloUsername = "你好, " + gameManager.playerUsername + "！";
+        Combo = "二合一";
 
         // Game Over
         GameOver = "遊戲結束";
@@ -285,7 +286,7 @@ public class Language : MonoBehaviour
         GameTitle = "画海雀";
         StartButton = "开始";
         Score = "高分数";
-        HelloUsername = "你好, " + gameManager.playerUsername + "！";
+        Combo = "二合一";
 
         // Game Over
         GameOver = "游戏结束";
@@ -317,7 +318,7 @@ public class Language : MonoBehaviour
         GameTitle = "画海雀";
         StartButton = "开始";
         Score = "高分数";
-        HelloUsername = "你好, " + gameManager.playerUsername + "！";
+        Combo = "二合一";
 
         // Game Over
         GameOver = "游戏结束";
@@ -349,7 +350,7 @@ public class Language : MonoBehaviour
         GameTitle = "Malovaný \nPuffin";
         StartButton = "START";
         Score = "SKÓRE";
-        HelloUsername = "Ahoj, " + gameManager.playerUsername + "!";
+        Combo = "combo";
 
         // Game Over
         GameOver = "KONEC HRY";
@@ -381,7 +382,7 @@ public class Language : MonoBehaviour
         GameTitle = "Malet \nLunde";
         StartButton = "START";
         Score = "SCORER";
-        HelloUsername = "Hej, " + gameManager.playerUsername + "!";
+        Combo = "combo";
 
         // Game Over
         GameOver = "GAME OVER";
@@ -413,7 +414,7 @@ public class Language : MonoBehaviour
         GameTitle = "Geschilderde \nPapegaaiduiker";
         StartButton = "START";
         Score = "SCORES";
-        HelloUsername = "Hallo, " + gameManager.playerUsername + "!";
+        Combo = "combo";
 
         // Game Over
         GameOver = "GAME OVER";
@@ -445,7 +446,7 @@ public class Language : MonoBehaviour
         GameTitle = "Pentrita \nPufino";
         StartButton = "KOMENCU";
         Score = "SCOROJ";
-        HelloUsername = "Saluton, " + gameManager.playerUsername + "!";
+        Combo = "kombo";
 
         // Game Over
         GameOver = "LA LUDO \nFINIĜIS";
@@ -477,7 +478,7 @@ public class Language : MonoBehaviour
         GameTitle = "Maalattu \nLunni";
         StartButton = "ALKAA";
         Score = "TULOKSET";
-        HelloUsername = "Hei, " + gameManager.playerUsername + "!";
+        Combo = "combo";
 
         // Game Over
         GameOver = "PELI LOPPU";
@@ -509,7 +510,7 @@ public class Language : MonoBehaviour
         GameTitle = "Macareux Peint";
         StartButton = "DÉBUT";
         Score = "SCORES";
-        HelloUsername = "Bonjour, " + gameManager.playerUsername + "!";
+        Combo = "combo";
 
         // Game Over
         GameOver = "JEU TERMINÉ";
@@ -541,7 +542,7 @@ public class Language : MonoBehaviour
         GameTitle = "Painted \nPuffin";
         StartButton = "START";
         Score = "PUNKTE";
-        HelloUsername = "Hallo, " + gameManager.playerUsername + "!";
+        Combo = "combo";
 
         // Game Over
         GameOver = "SPIEL BEENDET";
@@ -573,7 +574,7 @@ public class Language : MonoBehaviour
         GameTitle = "Παιντεδ \nΠόφφιν";
         StartButton = "ΕΝΑΡΞΗ";
         Score = "ΥΨΗΛΑ ΣΚΟΡ";
-        HelloUsername = "Γεια, " + gameManager.playerUsername + "!";
+        Combo = "διπλό";
 
         // Game Over
         GameOver = "ΤΕΛΟΣ \nΠΑΙΧΝΙΔΙΟΥ";
@@ -605,7 +606,7 @@ public class Language : MonoBehaviour
         GameTitle = Reverse("צבוע") + " " + Reverse("פאפין");
         StartButton = Reverse("התחל");
         Score = Reverse("גבוהים") + " " + Reverse("ציונים");
-        HelloUsername = "שלום, " + gameManager.playerUsername + "!";
+        Combo = Reverse("כפול");
 
         // Game Over
         GameOver = Reverse("משחק") + " " + Reverse("סוף");
@@ -638,7 +639,7 @@ public class Language : MonoBehaviour
         GameTitle = "चित्रित पफिन";
         StartButton = "शुरु";
         Score = "उच्च स्कोर";
-        HelloUsername = "नमस्ते, " + gameManager.playerUsername + "!";
+        Combo = "कॉम्बो";
 
         // Game Over
         GameOver = "खेल खत्म";
@@ -670,7 +671,7 @@ public class Language : MonoBehaviour
         GameTitle = "Festett \nLunda";
         StartButton = "START";
         Score = "PONTSZÁMOK";
-        HelloUsername = "Szia, " + gameManager.playerUsername + "!";
+        Combo = "combo";
 
         // Game Over
         GameOver = "JÁTÉK VÉGE";
@@ -702,7 +703,7 @@ public class Language : MonoBehaviour
         GameTitle = "Máluð \nLunda";
         StartButton = "BYRJA";
         Score = "SKORAR";
-        HelloUsername = "Halló, " + gameManager.playerUsername + "!";
+        Combo = "tvöfalt";
 
         // Game Over
         GameOver = "LEIK LOKIÐ";
@@ -734,7 +735,7 @@ public class Language : MonoBehaviour
         GameTitle = "Puffin \nYang Dicat";
         StartButton = "MULAI";
         Score = "SKOR";
-        HelloUsername = "Halo, " + gameManager.playerUsername + "!";
+        Combo = "kombo";
 
         // Game Over
         GameOver = "TAMAT";
@@ -766,7 +767,7 @@ public class Language : MonoBehaviour
         GameTitle = "Painted \nPuffin";
         StartButton = "INIZIO";
         Score = "CLASSIFICA";
-        HelloUsername = "Ciao, " + gameManager.playerUsername + "!";
+        Combo = "combo";
 
         // Game Over
         GameOver = "FINE PARTITA";
@@ -798,7 +799,7 @@ public class Language : MonoBehaviour
         GameTitle = "ツノメドリ\nペイント";
         StartButton = "スタート";
         Score = "スコア";
-        HelloUsername = "こんにちは, " + gameManager.playerUsername + "！";
+        Combo = "コンボ";
 
         // Game Over
         GameOver = "ゲーム\nオーバー";
@@ -830,7 +831,7 @@ public class Language : MonoBehaviour
         GameTitle = "그린 퍼핀";
         StartButton = "시작";
         Score = "고득점";
-        HelloUsername = "안녕하세요, " + gameManager.playerUsername + "!";
+        Combo = "콤보";
 
         // Game Over
         GameOver = "게임 오버";
@@ -862,7 +863,7 @@ public class Language : MonoBehaviour
         GameTitle = "Pictis \nMaris Avem";
         StartButton = "INITIUM";
         Score = "GRADUS";
-        HelloUsername = "Salve, " + gameManager.playerUsername + "!";
+        Combo = "duplus";
 
         // Game Over
         GameOver = "FINIS";
@@ -888,13 +889,45 @@ public class Language : MonoBehaviour
         gameManager.XButtonLanguage();
     }
 
+    public void Mongolian()
+    {
+        // Main Menu
+        GameTitle = "Пуффиныг \nбудсан";
+        StartButton = "СТАРТ";
+        Score = "ДЭЭД ОНОО";
+        Combo = "комбо";
+
+        // Game Over
+        GameOver = "ТОГЛОЛТ \nДУУСЛАА";
+        Replay = "ДАХИН АЧААЛЛАХ";
+        Continue = "ҮРГЭЛЖЛҮҮЛ";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "ТҮР ЗОГСООВ";
+
+        // High Scores
+        HighScores = "ДЭЭД ОНОО";
+
+        // Username Input
+        Name = "Нэр ...";
+        OK = "Тийм Шүү";
+        Warning1 = "Хоосон зай буюу * байхгүй.";
+        Warning2 = "Нэр хэтэрхий урт байна.";
+        Flag.image.overrideSprite = mongolian;
+        gameManager.playerLanguage = "Mongolian";
+        gameManager.XButtonLanguage();
+    }
+
     public void Norwegian() // Verified
     {
         // Main Menu
         GameTitle = "Malt Lundefugl";
         StartButton = "START";
         Score = "REKORDER";
-        HelloUsername = "Hei, " + gameManager.playerUsername + "!";
+        Combo = "combo";
 
         // Game Over
         GameOver = "GAME OVER";
@@ -926,7 +959,7 @@ public class Language : MonoBehaviour
         GameTitle = Arabizer("پفین رنگ شده");
         StartButton = Reverse("ﺷﺮﻭﻉ ﻛﻦ");
         Score = Reverse("ﻧﻤﺮﺍﺕ ﺑﺎﻻ");
-        HelloUsername = "سلام, " + gameManager.playerUsername + "!";
+        Combo = Arabizer("دو برابر");
 
         // Game Over
         GameOver = Reverse("ﺑﺎﺯﻯ ﺗﻤﺎﻡ ﺷﺩ");
@@ -958,7 +991,7 @@ public class Language : MonoBehaviour
         GameTitle = "Malowane \nMaskonur";
         StartButton = "POCZĄTEK";
         Score = "WYSOKI WYNIK";
-        HelloUsername = "Cześć, " + gameManager.playerUsername + "!";
+        Combo = "podwójnie";
 
         // Game Over
         GameOver = "KONIEC GRY";
@@ -990,7 +1023,7 @@ public class Language : MonoBehaviour
         GameTitle = "Papagaio-do-Mar \nPintado";
         StartButton = "COMEÇAR";
         Score = "PONTUAÇÃO";
-        HelloUsername = "Olá, " + gameManager.playerUsername + "!";
+        Combo = "combo";
 
         // Game Over
         GameOver = "FIM DE JOGO";
@@ -1022,7 +1055,7 @@ public class Language : MonoBehaviour
         GameTitle = "Puffin Pictat";
         StartButton = "START";
         Score = "SCOR";
-        HelloUsername = "Olá, " + gameManager.playerUsername + "!";
+        Combo = "combo";
 
         // Game Over
         GameOver = "JOC TERMINAT";
@@ -1054,7 +1087,7 @@ public class Language : MonoBehaviour
         GameTitle = "Окрашенный \nТупик";
         StartButton = "СТАРТ";
         Score = "РЕКОРДЫ";
-        HelloUsername = "Привет, " + gameManager.playerUsername + "!";
+        Combo = "комбо";
 
         // Game Over
         GameOver = "ИГРА ОКОНЧЕНА";
@@ -1086,7 +1119,7 @@ public class Language : MonoBehaviour
         GameTitle = "Frailecillo \nPintado";
         StartButton = "COMIENZO";
         Score = "PUNTUACIÓN";
-        HelloUsername = "Hola, " + gameManager.playerUsername + "!";
+        Combo = "combo";
 
         // Game Over
         GameOver = "FIN \nDEL JUEGO";
@@ -1118,7 +1151,7 @@ public class Language : MonoBehaviour
         GameTitle = "Målad \nLunnefågel";
         StartButton = "START";
         Score = "REKORD";
-        HelloUsername = "Hej, " + gameManager.playerUsername + "!";
+        Combo = "combo";
 
         // Game Over
         GameOver = "GAME OVER";
@@ -1150,7 +1183,7 @@ public class Language : MonoBehaviour
         GameTitle = "Ipininta Puffin";
         StartButton = "MAGSIMULA";
         Score = "MATAAS NA ISKOR";
-        HelloUsername = "Kamusta, " + gameManager.playerUsername + "!";
+        Combo = "combo";
 
         // Game Over
         GameOver = "TAPOS NA ANG LARO";
@@ -1182,7 +1215,7 @@ public class Language : MonoBehaviour
         GameTitle = "นกพัฟฟินท์\nทาสี";
         StartButton = "เริ่มต้น";
         Score = "คะแนนสูง";
-        HelloUsername = "สวัสดี, " + gameManager.playerUsername + "!";
+        Combo = "โบนัส";
 
         // Game Over
         GameOver = "เกมโอเวอร์";
@@ -1214,7 +1247,7 @@ public class Language : MonoBehaviour
         GameTitle = "Boyalı \nMartı";
         StartButton = "BAŞLAYA";
         Score = "YÜKSEK SKOR";
-        HelloUsername = "Merhaba, " + gameManager.playerUsername + "!";
+        Combo = "kombo";
 
         // Game Over
         GameOver = "OYUN BİTTİ";
@@ -1246,7 +1279,7 @@ public class Language : MonoBehaviour
         GameTitle = "Пофарбована \nПуффін";
         StartButton = "СТАРТ";
         Score = "ОЦІНКИ";
-        HelloUsername = "Здрастуйте, " + gameManager.playerUsername + "!";
+        Combo = "комбо";
 
         // Game Over
         GameOver = "ГРА \nЗАВЕРШЕНА";
@@ -1272,45 +1305,13 @@ public class Language : MonoBehaviour
         gameManager.XButtonLanguage();
     }
 
-    public void Mongolian()
-    {
-        // Main Menu
-        GameTitle = "Пуффиныг \nбудсан";
-        StartButton = "СТАРТ";
-        Score = "ДЭЭД ОНОО";
-        HelloUsername = "Сайн уу, " + gameManager.playerUsername + "!";
-
-        // Game Over
-        GameOver = "ТОГЛОЛТ \nДУУСЛАА";
-        Replay = "ДАХИН АЧААЛЛАХ";
-        Continue = "ҮРГЭЛЖЛҮҮЛ";
-
-        // Score
-        ScoreUI = gameManager.score.ToString();
-
-        // Pause
-        Paused = "ТҮР ЗОГСООВ";
-
-        // High Scores
-        HighScores = "ДЭЭД ОНОО";
-
-        // Username Input
-        Name = "Нэр ...";
-        OK = "Тийм Шүү";
-        Warning1 = "Хоосон зай буюу * байхгүй.";
-        Warning2 = "Нэр хэтэрхий урт байна.";
-        Flag.image.overrideSprite = mongolian;
-        gameManager.playerLanguage = "Mongolian";
-        gameManager.XButtonLanguage();
-    }
-
     public void Vietnamese()
     {
         // Main Menu
         GameTitle = "Sơn Puffin";
         StartButton = "BẮT ĐẦU";
         Score = "ĐIỂM CAO";
-        HelloUsername = "Xin chào, " + gameManager.playerUsername + "!";
+        Combo = "gấp đôi";
 
         // Game Over
         GameOver = "TRÒ CHƠI \nKẾT THÚC";
@@ -1343,22 +1344,32 @@ public class Language : MonoBehaviour
         if (gameManager.playerLanguage == "Mandarin" || gameManager.playerLanguage == "Taiwanese" || gameManager.playerLanguage == "Cantonese" || gameManager.playerLanguage == "Japanese" || gameManager.playerLanguage == "Korean")
         {
             gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().font = cjkFont;
+            gameManager.comboText.GetComponent<TMPro.TextMeshPro>().font = cjkFont;
         }
         else if (gameManager.playerLanguage == "Arabic" || gameManager.playerLanguage == "Persian" || gameManager.playerLanguage == "Urdu")
         {
             gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().font = apuFont;
+            gameManager.comboText.GetComponent<TMPro.TextMeshPro>().font = apuFont;
+        }
+        else if (gameManager.playerLanguage == "Hebrew" || gameManager.playerLanguage == "Yiddish")
+        {
+            gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().font = hebrewFont;
+            gameManager.comboText.GetComponent<TMPro.TextMeshPro>().font = hebrewFont;
         }
         else if (gameManager.playerLanguage == "Thai")
         {
             gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().font = tlbFont;
+            gameManager.comboText.GetComponent<TMPro.TextMeshPro>().font = tlbFont;
         }
         else if (gameManager.playerLanguage == "Hindi")
         {
             gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().font = hindiFont;
+            gameManager.comboText.GetComponent<TMPro.TextMeshPro>().font = hindiFont;
         }
         else
         {
             gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().font = lgcFont;
+            gameManager.comboText.GetComponent<TMPro.TextMeshPro>().font = lgcFont;
         }
 
         // LowerCase
