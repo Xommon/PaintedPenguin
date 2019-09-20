@@ -3,16 +3,27 @@ ADDITIONS:
 - Analytics
 - Sound effects
 
-BUGS:
-- First place tier doesn't have the same place as second place
+TO DO:
 - Final ي/ی not forming UNLESS something follows it
 - Spikeball too predictable
-- Moving blocks (water -> up) stop on the ground
 - Words clipping (Tagalog warnings)
-- Missing Key ID error
 - Baby puffin
 - Redo UI and background
-- Feathers not operating correctly
 - Sounds don't pause with game
-- High Score doesn't size to all screens
+
+BUGS:
+- First place tier doesn't have the same place as second place
+- Moving blocks (water -> up) stop on the ground
+- Missing Key ID error
 - Game freezes when sounds play
+- High Score doesn't size to all screens
+
+800x480: 16
+1280x720: 25
+1920x1080: 10.9 / 1.78
+2160x1080: 11.6 / 1.78
+2560x1440: 11.75 / 
+2960x1440: 10.7
+(16:9) 477x268: 4.67
+(18:9) 477x238: 4.67
+800x = 1781
