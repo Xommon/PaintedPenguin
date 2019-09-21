@@ -6,7 +6,7 @@ public class Feather : MonoBehaviour
 {
     public int count;
     public bool burst;
-    public int time;
+    public float time;
     [System.NonSerialized]
     public float speed;
     [System.NonSerialized]
@@ -18,13 +18,10 @@ public class Feather : MonoBehaviour
     void Start()
     {
         player = FindObjectOfType<PlayerMovement>();
-        count = time / 2;
+        count = Mathf.RoundToInt(time / 2);
         burst = true;
         speed  = Random.Range(0.5f, 1.1f);
-<<<<<<< HEAD
         time *= speed;
-=======
->>>>>>> parent of 29f4773... Feathers Fixed
 
         burstSpeed = Random.Range(0.5f, 1.1f);
         sr.color = player.sr.color;

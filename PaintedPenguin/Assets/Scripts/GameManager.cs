@@ -25,6 +25,9 @@ public class GameManager : MonoBehaviour
     public Image purpleImage;
     public FlexibleColorPicker flexibleColourPicker;
     public GameObject colourPickerUI;
+    public CanvasScaler canvasScaler;
+    public float scaleRatio;
+    public GameObject textContainer;
 
     // TEST
     public float screenHeight;
@@ -68,7 +71,8 @@ public class GameManager : MonoBehaviour
     public Highscore[] highScoresList;
     public GameObject highScoreTableUI;
     public GameObject tableInfoUI;
-    public Text tableUsernameUI;
+    public TMP_Text tableUsernameUI;
+    //public Text tableUsernameUI;
     public GameObject tableScoreUI;
     public Image tableFlagUI;
     public Sprite defaultFlag;
@@ -708,11 +712,11 @@ public class GameManager : MonoBehaviour
             {
                 tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += "<sprite name=" + "\"" + highscoreList[i].country.ToLower() + "\"" + ">";
             }
-
-            tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += "\n";
+            
+            //tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += "\n";
 
             // Username
-            tableUsernameUI.text += language.Arabizer(highscoreList[i].username) + "\n";
+            tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += " " + language.Arabizer(highscoreList[i].username) + "\n";
 
             if (i == 99)
             {
@@ -825,6 +829,10 @@ public class GameManager : MonoBehaviour
         // TEST
         screenHeight = Screen.height;
         screenWidth = Screen.width;
+
+        scaleRatio = screenHeight / 800;
+        //canvasScaler.GetComponent<CanvasScaler>().scaleFactor = scaleFactor;
+        //textContainer.transform.localScale = new Vector2(scaleRatio, scaleRatio);
 
         // Fill in name slot
         nameSlot.text = playerUsername;
