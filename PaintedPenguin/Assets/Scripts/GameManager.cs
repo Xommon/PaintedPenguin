@@ -25,8 +25,6 @@ public class GameManager : MonoBehaviour
     public Image purpleImage;
     public FlexibleColorPicker flexibleColourPicker;
     public GameObject colourPickerUI;
-    public Scrollbar scoreScrollbar;
-    public Scrollbar usernameScrollbar;
 
     // TEST
     public float screenHeight;
@@ -77,9 +75,6 @@ public class GameManager : MonoBehaviour
     public GameObject usernameInputUI;
     public string playerUsername;
     public string playerLanguage;
-    public Text usernameEntryUI;
-    public GameObject usernameEntryHolder;
-    public List<Text> usernameEntries = new List<Text>();
 
     // Languages
     public Language language;
@@ -602,13 +597,6 @@ public class GameManager : MonoBehaviour
     // Code for start of script
     public void Start()
     {
-        for (int i = 0; i <= 99; i++)
-        {
-            //Text newEntry = Instantiate(usernameEntryUI, new Vector2(usernameEntryHolder.transform.position.x + 3, usernameEntryHolder.transform.position.y + ((Screen.height * 2.22625f) - Screen.height / 80) - ((i + 1) * 32)), Quaternion.identity, usernameEntryHolder.transform);
-            Text newEntry = Instantiate(usernameEntryUI, new Vector3(268, 673 + i * -32), Quaternion.identity, usernameEntryHolder.transform);
-            usernameEntries.Add(newEntry);
-        }
-
         // Load all save data
         LoadUsername();
 
@@ -664,6 +652,9 @@ public class GameManager : MonoBehaviour
 
         canContinue = true;
         score = 0;
+        //DownloadHighScores();
+
+        //StartCoroutine("RefreshHighscores");
     }
 
     public void OnHighscoresDownloaded(Highscore[] highscoreList)
@@ -674,7 +665,6 @@ public class GameManager : MonoBehaviour
         int previousScore = 0;
         int previousPlace = 0;
         int count = 0;
-        int entry = 0;
 
         // Populate the score table
         for (int i = 0; i <= 99; i++)
@@ -722,8 +712,7 @@ public class GameManager : MonoBehaviour
             tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += "\n";
 
             // Username
-            //tableUsernameUI.text += language.Arabizer(highscoreList[i].username) + "\n";
-            usernameEntries[i].text = language.Arabizer(highscoreList[i].username);
+            tableUsernameUI.text += language.Arabizer(highscoreList[i].username) + "\n";
 
             if (i == 99)
             {
@@ -836,8 +825,6 @@ public class GameManager : MonoBehaviour
         // TEST
         screenHeight = Screen.height;
         screenWidth = Screen.width;
-
-        scoreScrollbar.value = usernameScrollbar.value;
 
         // Fill in name slot
         nameSlot.text = playerUsername;

@@ -1322,10 +1322,10 @@ TextureImporter:
       name: sprite_sheet_44
       rect:
         serializedVersion: 2
-        x: 79
-        y: 276
-        width: 46
-        height: 46
+        x: 80
+        y: 277
+        width: 45
+        height: 45
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
