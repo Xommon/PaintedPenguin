@@ -1632,7 +1632,7 @@ public class Language : MonoBehaviour
         bool containsArabic = false;
         List<string> newEntry = new List<string>();
 
-        for (int i = 0; i < entry.Length - 1; i ++)
+        for (int i = 0; i < entry.Length - 1; i++)
         {
             void FourFormLetter(char initial, char middle, char end, char isolate)
             {
@@ -1737,7 +1737,7 @@ public class Language : MonoBehaviour
                 // Reverse nonArabic and put it back into the string
                 if (nonArabic != "")
                 {
-                    for (int i2 = 0; i2 < nonArabic.Length; i2 ++)
+                    for (int i2 = 0; i2 < nonArabic.Length; i2++)
                     {
                         charArray[i - nonArabic.Length + i2] = nonArabic.Substring(nonArabic.Length - (i2 + 1), 1)[0];
                     }
@@ -1753,7 +1753,8 @@ public class Language : MonoBehaviour
                         charArray[i + 1] = '​';
                         charArray[i + 2] = '​';
                         charArray[i + 3] = '​';
-                    } else
+                    }
+                    else
                     {
                         TwoFormLetter('ﺎ', 'ﺍ');
                     }
@@ -1844,7 +1845,8 @@ public class Language : MonoBehaviour
                 }
                 else if (charArray[i] == 'ل')
                 {
-                    if (charArray[i + 1] == 'ا') {
+                    if (charArray[i + 1] == 'ا')
+                    {
                         TwoFormLetter('ﻼ', 'ﻻ');
                         charArray[i + 1] = '​';
                     }
@@ -2104,5 +2106,3 @@ public class Language : MonoBehaviour
         return new string(charArray);
     }
 }
-
-

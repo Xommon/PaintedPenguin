@@ -21,7 +21,6 @@ public class Feather : MonoBehaviour
         count = Mathf.RoundToInt(time / 2);
         burst = true;
         speed  = Random.Range(0.5f, 1.1f);
-        //transform.Rotate(0, 0, -45);
         time *= speed;
 
         burstSpeed = Random.Range(0.5f, 1.1f);
