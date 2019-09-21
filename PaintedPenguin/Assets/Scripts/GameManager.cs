@@ -605,7 +605,7 @@ public class GameManager : MonoBehaviour
         LoadUsername();
 
         // Set default colours if no colours are saved on file
-        WhiteC = new Color(1f, 1f, 1f, 1f);
+        WhiteC = new Color(1f, 1f, 1f, 0f);
         if (RedC.a < 1)
         {
             RedC = new Color(1f, 0.1f, 0.1f, 1f);

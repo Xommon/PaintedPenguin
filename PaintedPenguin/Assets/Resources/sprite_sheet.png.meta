@@ -277,7 +277,7 @@ TextureImporter:
     second: sprite_sheet_42
   - first:
       213: 6359139797314527829
-    second: sprite_sheet_43
+    second: pie_graph
   - first:
       213: -1156686595678756679
     second: sprite_sheet_44
@@ -1503,6 +1503,27 @@ TextureImporter:
       bones: []
       spriteID: ba9b377443815104ba8df96c1b3421f6
       internalID: -5350391624179469894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pie_graph
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 18
+        width: 48
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c05c4f6be2533a048af62e0e9daf28c1
+      internalID: 6359139797314527829
       vertices: []
       indices: 
       edges: []
