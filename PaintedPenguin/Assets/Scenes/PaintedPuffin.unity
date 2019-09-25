@@ -1442,8 +1442,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 14
@@ -1452,7 +1452,7 @@ MonoBehaviour:
   m_textAlignment: 260
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 12.3
+  m_lineSpacing: 21.5
   m_lineSpacingMax: -2
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -4378,8 +4378,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 14
@@ -4388,7 +4388,7 @@ MonoBehaviour:
   m_textAlignment: 257
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 12.3
+  m_lineSpacing: 21.5
   m_lineSpacingMax: -2
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -10869,8 +10869,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 14
@@ -14649,6 +14649,7 @@ MonoBehaviour:
   ScoreUI: 
   Paused: 
   HighScores: 
+  numberSeparator: 
   Name: 
   OK: 
   Warning1: 
@@ -22440,6 +22441,11 @@ PrefabInstance:
       propertyPath: language
       value: 
       objectReference: {fileID: 814642395745757707}
+    - target: {fileID: 5073945571518871168, guid: ec57f4535ec603946a7f03fa5bb07814,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 5073945571518871169, guid: ec57f4535ec603946a7f03fa5bb07814,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -22498,11 +22504,6 @@ PrefabInstance:
     - target: {fileID: 1739469003, guid: ec57f4535ec603946a7f03fa5bb07814, type: 3}
       propertyPath: m_SortingOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5073945571518871168, guid: ec57f4535ec603946a7f03fa5bb07814,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec57f4535ec603946a7f03fa5bb07814, type: 3}

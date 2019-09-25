@@ -1,18 +1,18 @@
-ADDITIONS:
+TO RELEASE:
 - Ads
 - Analytics
 - Sound effects
-
-BUGS:
-- First place tier doesn't have the same place as second place
 - Spikeball too predictable
-- Moving blocks (water -> up) stop on the ground
-- Words clipping (Tagalog warnings)
-- Missing Key ID error
 - Baby puffin
 - Redo UI and background
 - Sounds don't pause with game
 - Game freezes when sounds play
+
+BUGS:
+- First place tier doesn't have the same place as second place
+- Moving blocks (water -> up) stop on the ground
+- Words clipping (Tagalog warnings)
+- Missing Key ID error
 
 width*1.666666666666667/800
 

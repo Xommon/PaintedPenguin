@@ -38,6 +38,7 @@ public class Language : MonoBehaviour
 
     // High Scores
     public string HighScores;
+    public string numberSeparator;
 
     // Username Input
     public string Name;
@@ -1372,8 +1373,26 @@ public class Language : MonoBehaviour
             gameManager.comboText.GetComponent<TMPro.TextMeshPro>().font = lgcFont;
         }
 
-        // LowerCase
-        if (gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().fontStyle != FontStyles.LowerCase)
+        // Number Separator
+        if (gameManager.playerLanguage == "Arabic" || gameManager.playerLanguage == "Persian")
+        {
+            numberSeparator = "";
+        }
+        else if (gameManager.playerLanguage == "French" || gameManager.playerLanguage == "Czech" || gameManager.playerLanguage == "Finnish" || gameManager.playerLanguage == "Hungarian" || gameManager.playerLanguage == "Latin" || gameManager.playerLanguage == "Norwegian" || gameManager.playerLanguage == "Polish" || gameManager.playerLanguage == "Portugese" || gameManager.playerLanguage == "Russian" || gameManager.playerLanguage == "Swedish" || gameManager.playerLanguage == "Ukranian")
+        {
+            numberSeparator = " ";
+        }
+        else if (gameManager.playerLanguage == "English" || gameManager.playerLanguage == "Tagalog" || gameManager.playerLanguage == "Taiwanese" || gameManager.playerLanguage == "Mandarin" || gameManager.playerLanguage == "Cantonese" || gameManager.playerLanguage == "Hebrew" || gameManager.playerLanguage == "Yiddish" || gameManager.playerLanguage == "Japanese" || gameManager.playerLanguage == "Korean" || gameManager.playerLanguage == "Urdu" || gameManager.playerLanguage == "Thai")
+        {
+            numberSeparator = ",";
+        }
+        else
+        {
+            numberSeparator = ".";
+        }
+
+            // LowerCase
+            if (gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().fontStyle != FontStyles.LowerCase)
         {
             gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().fontStyle = FontStyles.LowerCase;
         }

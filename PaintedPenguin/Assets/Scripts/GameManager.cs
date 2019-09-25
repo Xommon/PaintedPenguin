@@ -692,11 +692,11 @@ public class GameManager : MonoBehaviour
                 place = i + 1;
             }
 
-            if (place < 9)
+            if (place < 10)
             {
                 tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += "00";
             }
-            else if (place > 8 && place < 100)
+            else if (place > 9 && place < 100)
             {
                 tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += "0";
             }
@@ -725,7 +725,24 @@ public class GameManager : MonoBehaviour
 
             // Score
             previousScore = highscoreList[i].score;
-            tableScoreUI.GetComponent<TMPro.TextMeshProUGUI>().text += highscoreList[i].score + "\n";
+            if (highscoreList[i].score < 999)
+            {
+                tableScoreUI.GetComponent<TMPro.TextMeshProUGUI>().text += highscoreList[i].score;
+            }
+            else if (highscoreList[i].score > 999 && highscoreList[i].score < 9999)
+            {
+                tableScoreUI.GetComponent<TMPro.TextMeshProUGUI>().text += highscoreList[i].score.ToString().Substring(0, 1) + language.numberSeparator + highscoreList[i].score.ToString().Substring(1, 3);
+            }
+            else if (highscoreList[i].score > 9999 && highscoreList[i].score < 99999)
+            {
+                tableScoreUI.GetComponent<TMPro.TextMeshProUGUI>().text += highscoreList[i].score.ToString().Substring(0, 2) + language.numberSeparator + highscoreList[i].score.ToString().Substring(2, 3);
+            }
+            else
+            {
+                tableScoreUI.GetComponent<TMPro.TextMeshProUGUI>().text += "MAX";
+            }
+
+            tableScoreUI.GetComponent<TMPro.TextMeshProUGUI>().text += "\n";
         }
     }
 
@@ -889,7 +906,7 @@ public class GameManager : MonoBehaviour
 
         // Set up text based on language
         gameTitleText.outlineWidth = 0;
-        gameTitleText.text = language.GameTitle;
+        gameTitleText.text = "Painted Puffin";
         startButtonText.text = language.StartButton;
         scoreButtonText.text = language.Score;
         usernameDisplayText.text = playerUsername;
