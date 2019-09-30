@@ -40,6 +40,12 @@ public class Language : MonoBehaviour
     public string HighScores;
     public string numberSeparator;
 
+    // Colour Picker
+    public string ColourPickerText;
+
+    // Language Prompt
+    public string LanguagePrompt;
+
     // Username Input
     public string Name;
     public string OK;
@@ -111,6 +117,12 @@ public class Language : MonoBehaviour
         // High Scores
         HighScores = "HIGH SCORES";
 
+        // Colour Picker
+        ColourPickerText = "COLOUR PICKER";
+
+        // Language Prompt
+        LanguagePrompt = "LANGUAGE";
+
         // Username Input
         Name = "Name ...";
         OK = "OK";
@@ -142,6 +154,12 @@ public class Language : MonoBehaviour
 
         // High Scores
         HighScores = Reverse("ﺩﺭﺟﺔ ﻋﺎﻟﻴﺔ");
+
+        // Colour Picker
+        ColourPickerText = Arabizer("منتقي الألوان");
+
+        // Language Prompt
+        LanguagePrompt = Arabizer("لغة");
 
         // Username Input
         Name = "... " + Reverse("ﺍﺳﻢ");
@@ -175,6 +193,12 @@ public class Language : MonoBehaviour
         // High Scores
         HighScores = "REZULTATI";
 
+        // Colour Picker
+        ColourPickerText = "Birač boja";
+
+        // Language Prompt
+        LanguagePrompt = "JEZIK";
+
         // Username Input
         Name = "Ime ...";
         OK = "Uredu";
@@ -206,6 +230,12 @@ public class Language : MonoBehaviour
 
         // High Scores
         HighScores = "ВИСОКА ОЦЕНКА";
+
+        // Colour Picker
+        ColourPickerText = "избор на цвят";
+
+        // Language Prompt
+        LanguagePrompt = "език";
 
         // Username Input
         Name = "Име ...";

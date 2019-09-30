@@ -100,6 +100,10 @@ public class GameManager : MonoBehaviour
 
     public Text highScoresText;
 
+    public Text colourPickerText;
+
+    public Text languagePromptText;
+
     public Text nameFillInText;
     public Text okButtonText;
     public Text warningBoxText;
@@ -943,6 +947,10 @@ public class GameManager : MonoBehaviour
         pauseText.text = language.Paused;
 
         highScoresText.text = language.HighScores;
+
+        colourPickerText.text = language.ColourPickerText.ToUpper();
+
+        languagePromptText.text = language.LanguagePrompt.ToUpper();
 
         nameFillInText.text = language.Name;
         okButtonText.text = language.OK;
