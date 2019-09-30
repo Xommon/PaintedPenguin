@@ -1391,14 +1391,14 @@ public class Language : MonoBehaviour
             numberSeparator = ".";
         }
 
-            // LowerCase
-            if (gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().fontStyle != FontStyles.LowerCase)
+        // LowerCase
+        if (gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().fontStyle != FontStyles.LowerCase)
         {
             gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().fontStyle = FontStyles.LowerCase;
         }
 
         // Bold
-        if (gameManager.playerLanguage != "Mandarin" && gameManager.playerLanguage != "Cantonese" && gameManager.playerLanguage != "Taiwanese" && gameManager.playerLanguage != "Korean")
+        //if (gameManager.playerLanguage != "Mandarin" && gameManager.playerLanguage != "Cantonese" && gameManager.playerLanguage != "Taiwanese" && gameManager.playerLanguage != "Korean")
         {
             gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().fontStyle ^= FontStyles.Bold;
         }

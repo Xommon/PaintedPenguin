@@ -4,7 +4,7 @@ TO RELEASE:
 - Sound effects
 - Spikeball too predictable
 - Baby puffin
-- Redo UI and background
+- Background
 - Sounds don't pause with game
 - Game freezes when sounds play
 
