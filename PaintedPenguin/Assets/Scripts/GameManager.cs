@@ -656,9 +656,6 @@ public class GameManager : MonoBehaviour
 
         canContinue = true;
         score = 0;
-        //DownloadHighScores();
-
-        //StartCoroutine("RefreshHighscores");
     }
 
     public void OnHighscoresDownloaded(Highscore[] highscoreList)
@@ -675,7 +672,16 @@ public class GameManager : MonoBehaviour
         {
             // Place
             int place = 0;
-            
+
+            if (highscoreList[i].username == playerUsername)
+            {
+                tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += "<color=yellow>";
+            }
+            else
+            {
+                tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += "<color=black>";
+            }
+
             if (highscoreList[i].score == previousScore)
             {
                 if (previousPlace == 0)
@@ -724,6 +730,15 @@ public class GameManager : MonoBehaviour
             }
 
             // Score
+            if (highscoreList[i].username == playerUsername)
+            {
+                tableScoreUI.GetComponent<TMPro.TextMeshProUGUI>().text += "<color=yellow>";
+            }
+            else
+            {
+                tableScoreUI.GetComponent<TMPro.TextMeshProUGUI>().text += "<color=black>";
+            }
+
             previousScore = highscoreList[i].score;
             if (highscoreList[i].score < 999)
             {

@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject loadingBarPrefab;
     public int babyPuffins;
     public List<Vector2> playerPositions = new List<Vector2>();
+    public List<string> playerPositions2 = new List<string>();
     public List<GameObject> babies = new List<GameObject>();
     public GameObject testBaby;
     public GameObject floatingText;
@@ -56,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (position == "walking")
             {
-                rb.MovePosition(new Vector2(-0.33f, -0.075f));
+                rb.MovePosition(new Vector2(-0.23f, -0.075f));
                 position = "jumping";
                 rb.gravityScale = 0.5f;
                 rb.velocity = new Vector2(0, 2.9f);
@@ -86,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (position == "walking")
             {
-                rb.MovePosition(new Vector2(-0.33f, -0.075f));
+                rb.MovePosition(new Vector2(-0.23f, -0.075f));
                 position = "diving";
                 rb.gravityScale = -0.5f;
                 rb.velocity = new Vector2(0, -2.9f);
@@ -121,9 +122,18 @@ public class PlayerMovement : MonoBehaviour
         if (gameManager.paused == false)
         {
             playerPositions.Add(rb.position);
+            if (dead == false)
+            {
+                playerPositions2.Add(position);
+            }
+            else
+            {
+                playerPositions2.Add("dead");
+            }
             if (playerPositions.Count > 100)
             {
                 playerPositions.RemoveAt(0);
+                playerPositions2.RemoveAt(0);
             }
         }
 
@@ -235,7 +245,7 @@ public class PlayerMovement : MonoBehaviour
             // Snap to ground if walking
             if (rb.position.y != -0.075 && position == "walking")
             {
-                rb.MovePosition(new Vector2(-0.33f, -0.075f));
+                rb.MovePosition(new Vector2(-0.23f, -0.075f));
                 animator.SetBool("jumping", false);
                 animator.SetBool("falling", false);
                 animator.SetBool("swimming", false);
