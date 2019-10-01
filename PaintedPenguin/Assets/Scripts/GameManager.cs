@@ -28,6 +28,11 @@ public class GameManager : MonoBehaviour
     public CanvasScaler canvasScaler;
     public float scaleRatio;
     public GameObject textContainer;
+    public GameObject pauseButtonImage;
+
+    // Buttons
+    public GameObject startButton;
+    public GameObject scoreButton;
 
     // TEST
     public float screenHeight;
@@ -862,6 +867,15 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
+        if (paused == true)
+        {
+            pauseButtonImage.transform.Rotate(0, 1, 0);
+        }
+        else
+        {
+            pauseButtonImage.transform.rotation = Quaternion.identity;
+        }
+
         // TEST
         screenHeight = Screen.height;
         screenWidth = Screen.width;

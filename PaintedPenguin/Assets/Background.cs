@@ -9,27 +9,27 @@ public class Background : MonoBehaviour
     {
         if (transform.name == "bg_clouds_BG")
         {
-            transform.position -= new Vector3 (0.00005f, 0, 0);
+            transform.position -= new Vector3 (0.005f * Time.deltaTime, 0, 0);
         }
         else if (transform.name == "bg_mountains_lightened")
         {
-            transform.position -= new Vector3(0.00012f, 0, 0);
+            transform.position -= new Vector3(0.048f * Time.deltaTime, 0, 0);
         }
         else if (transform.name == "bg_clouds_MG_1_lightened")
         {
-            transform.position -= new Vector3(0.0015f, 0, 0);
+            transform.position -= new Vector3(0.15f * Time.deltaTime, 0, 0);
         }
         else if (transform.name == "bg_clouds_MG_2")
         {
-            transform.position -= new Vector3(0.001f, 0, 0);
+            transform.position -= new Vector3(0.1f * Time.deltaTime, 0, 0);
         }
         else if (transform.name == "bg_clouds_MG_3")
         {
-            transform.position -= new Vector3(0.0005f, 0, 0);
+            transform.position -= new Vector3(0.05f * Time.deltaTime, 0, 0);
         }
         else if (transform.name == "bg_cloud_lonely")
         {
-            transform.position -= new Vector3(0.0001f, 0, 0);
+            transform.position -= new Vector3(0.06f * Time.deltaTime, 0, 0);
         }
 
         if (transform.position.x <= -3.03f)
