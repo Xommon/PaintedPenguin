@@ -4,7 +4,6 @@ TO RELEASE:
 - Sound effects
 - Spikeball too predictable
 - Baby puffin
-- Background
 - Sounds don't pause with game
 - Game freezes when sounds play
 - Fix titles in language
@@ -15,6 +14,10 @@ BUGS:
 - Words clipping (Tagalog warnings)
 - Missing Key ID error
 - Arabizer is broken
+
+CREDITS:
+https://vnitti.itch.io/glacial-mountains-parallax-background
+
 
 width*1.666666666666667/800
 
