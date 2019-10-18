@@ -7,6 +7,7 @@ public class Baby : MonoBehaviour
     public Animator animator;
     public PlayerMovement player;
     public GameManager gameManager;
+    public Rigidbody2D rigidBody;
     public int babyValue;
 
     void Start()
@@ -16,32 +17,34 @@ public class Baby : MonoBehaviour
     
     void Update()
     {
-        if (gameManager.paused == false && player.playerPositions.Count > (45 + (15 * babyValue)))
+        if (gameManager.paused == false && player.playerPositions.Count > (25 + (15 * babyValue)))
         {
-            if (player.playerPositions2[45 + (15 * babyValue)] != "walking")
+            //if (player.playerPositions2[45 + (15 * babyValue)] != "walking")
             {
-                transform.position = player.playerPositions[45 + (15 * babyValue)] - new Vector2(0.28f - (0.06f * babyValue), 0.07f);
+                transform.position = player.playerPositions[25 + (15 * babyValue)] - new Vector2(0.28f - (0.06f * babyValue), 0.07f);
             }
 
-            if (player.playerPositions2[45 + (15 * babyValue)] == "walking")
+            if (player.playerPositions2[25 + (15 * babyValue)] == "walking")
             {
                 animator.SetBool("Jumping", false);
                 animator.SetBool("Swimming", false);
                 animator.SetBool("Dead", false);
+
+
             }
-            else if (player.playerPositions2[45 + (15 * babyValue)] == "jumping")
+            else if (player.playerPositions2[25 + (15 * babyValue)] == "jumping")
             {
                 animator.SetBool("Jumping", true);
                 animator.SetBool("Swimming", false);
                 animator.SetBool("Dead", false);
             }
-            else if (player.playerPositions2[45 + (15 * babyValue)] == "diving")
+            else if (player.playerPositions2[25 + (15 * babyValue)] == "diving")
             {
                 animator.SetBool("Swimming", true);
                 animator.SetBool("Jumping", false);
                 animator.SetBool("Dead", false);
             }
-            else if (player.playerPositions2[45 + (15 * babyValue)] == "dead")
+            else if (player.playerPositions2[25 + (15 * babyValue)] == "dead")
             {
                 animator.SetBool("Swimming", false);
                 animator.SetBool("Jumping", false);

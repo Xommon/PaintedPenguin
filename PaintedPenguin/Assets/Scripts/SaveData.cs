@@ -14,6 +14,8 @@ public class SaveData
     public string playerGreen;
     public string playerBlue;
     public string playerPurple;
+    public float playerSound;
+    public float playerMusic;
 
     public SaveData (GameManager gameManager)
     {
@@ -25,5 +27,7 @@ public class SaveData
         playerGreen = gameManager.ColourToHex(gameManager.GreenC);
         playerBlue = gameManager.ColourToHex(gameManager.BlueC);
         playerPurple = gameManager.ColourToHex(gameManager.PurpleC);
+        playerSound = gameManager.playerSound;
+        playerMusic = gameManager.playerMusic;
     }
 }

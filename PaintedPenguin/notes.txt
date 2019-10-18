@@ -7,6 +7,14 @@ TO RELEASE:
 - Sounds don't pause with game
 - Game freezes when sounds play
 - Fix titles in language
+- Credits 
+
+5531006517734657
+
+0.5082541270635318
+
+1016x1042
+1999x1150
 
 BUGS:
 - First place tier doesn't have the same place as second place
@@ -15,9 +23,13 @@ BUGS:
 - Missing Key ID error
 - Arabizer is broken
 
+724
+474
+250
+
 CREDITS:
 https://vnitti.itch.io/glacial-mountains-parallax-background
-
+(sound by Icons8)
 
 width*1.666666666666667/800
 

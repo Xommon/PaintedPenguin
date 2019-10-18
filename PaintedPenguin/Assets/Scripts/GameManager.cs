@@ -30,6 +30,14 @@ public class GameManager : MonoBehaviour
     public GameObject textContainer;
     public GameObject pauseButtonImage;
 
+    // Volume
+    public float playerSound;
+    public float playerMusic;
+    public float tempPlayerSound;
+    public float tempPlayerMusic;
+    public Slider soundSlider;
+    public Slider musicSlider;
+
     // Buttons
     public GameObject startButton;
     public GameObject scoreButton;
@@ -361,14 +369,14 @@ public class GameManager : MonoBehaviour
                             }
                         }
                     }
-                    /*else if (PercentChance(100))
+                    else if (PercentChance(100))
                     {
                         if (obstaclePositions[0] == -0.1f || obstaclePositions[0] == -0.9f || obstaclePositions[0] == 0.7f)
                         {
                             newpaint = Instantiate(spikeBall);
                             newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
                         }
-                    }*/
+                    }
                 }
             }
             
@@ -471,6 +479,8 @@ public class GameManager : MonoBehaviour
     // Opens Language prompt
     public void OpenLanguagePrompt()
     {
+        playerSound = tempPlayerSound;
+        playerMusic = tempPlayerMusic;
         usernameInputUI.SetActive(false);
         languageTableUI.SetActive(true);
     }
@@ -480,6 +490,8 @@ public class GameManager : MonoBehaviour
     {
         usernameInputUI.SetActive(true);
         mainMenuUI.SetActive(false);
+        tempPlayerSound = playerSound;
+        tempPlayerMusic = playerMusic;
     }
 
     public void GetUsername(string name)
@@ -488,7 +500,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Save Data
-    public void SaveUsername(string name, string language, Color red, Color orange, Color yellow, Color green, Color blue, Color purple)
+    public void SaveUsername(string name, string language, Color red, Color orange, Color yellow, Color green, Color blue, Color purple, float sound, float music)
     {
         playerUsername = name;
         playerLanguage = language;
@@ -498,6 +510,8 @@ public class GameManager : MonoBehaviour
         GreenC = green;
         BlueC = blue;
         PurpleC = purple;
+        playerSound = sound;
+        playerMusic = music;
         SaveSystem.SaveUsername(this);
     }
 
@@ -514,6 +528,10 @@ public class GameManager : MonoBehaviour
         GreenC = HexToColour(data.playerGreen);
         BlueC = HexToColour(data.playerBlue);
         PurpleC = HexToColour(data.playerPurple);
+        playerSound = data.playerSound;
+        playerMusic = data.playerMusic;
+        soundSlider.value = data.playerSound;
+        musicSlider.value = data.playerMusic;
     }
 
     // Get location
@@ -654,6 +672,8 @@ public class GameManager : MonoBehaviour
             usernameInputUI.SetActive(true);
             mainMenuUI.SetActive(false);
             languageTableUI.SetActive(false);
+            tempPlayerSound = playerSound;
+            tempPlayerMusic = playerMusic;
         }
         else // If the player's username and language has already been set
         {
@@ -753,15 +773,15 @@ public class GameManager : MonoBehaviour
             {
                 tableScoreUI.GetComponent<TMPro.TextMeshProUGUI>().text += highscoreList[i].score;
             }
-            else if (highscoreList[i].score > 999 && highscoreList[i].score < 9999)
+            else if (highscoreList[i].score > 999 && highscoreList[i].score <= 9999)
             {
                 tableScoreUI.GetComponent<TMPro.TextMeshProUGUI>().text += highscoreList[i].score.ToString().Substring(0, 1) + language.numberSeparator + highscoreList[i].score.ToString().Substring(1, 3);
             }
-            else if (highscoreList[i].score > 9999 && highscoreList[i].score < 99999)
+            else if (highscoreList[i].score > 9999 && highscoreList[i].score <= 99999)
             {
                 tableScoreUI.GetComponent<TMPro.TextMeshProUGUI>().text += highscoreList[i].score.ToString().Substring(0, 2) + language.numberSeparator + highscoreList[i].score.ToString().Substring(2, 3);
             }
-            else
+            else if (highscoreList[i].score > 99999)
             {
                 tableScoreUI.GetComponent<TMPro.TextMeshProUGUI>().text += "MAX";
             }
@@ -818,11 +838,21 @@ public class GameManager : MonoBehaviour
         mainMenuUI.SetActive(true);
     }
 
+    public void XButtonSettings()
+    {
+        usernameInputUI.SetActive(false);
+        mainMenuUI.SetActive(true);
+        playerSound = tempPlayerSound;
+        playerMusic = tempPlayerMusic;
+    }
+
     public void XButtonLanguage()
     {
         language.UpdateFontSettings();
         languageTableUI.SetActive(false);
         usernameInputUI.SetActive(true);
+        tempPlayerSound = playerSound;
+        tempPlayerMusic = playerMusic;
     }
     
     public void OKButton()
@@ -839,10 +869,12 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                SaveUsername(playerUsername, playerLanguage, RedC, OrangeC, YellowC, GreenC, BlueC, PurpleC);
+                SaveUsername(playerUsername, playerLanguage, RedC, OrangeC, YellowC, GreenC, BlueC, PurpleC, playerSound, playerMusic);
                 usernameInputUI.SetActive(false);
                 mainMenuUI.SetActive(true);
                 warningBoxText.text = "";
+                playerSound = soundSlider.value;
+                playerMusic = musicSlider.value;
             }
         }
     }
@@ -867,9 +899,17 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
+        // Update volume
+        if (usernameInputUI.activeInHierarchy)
+        {
+            playerSound = soundSlider.value;
+            playerMusic = musicSlider.value;
+        }
+
+        // Spin the pause button when the game is paused
         if (paused == true)
         {
-            pauseButtonImage.transform.Rotate(0, 1, 0);
+            pauseButtonImage.transform.Rotate(0, 1.5f, 0);
         }
         else
         {
@@ -971,7 +1011,7 @@ public class GameManager : MonoBehaviour
 
         if (paused == false)
         {
-            Time.timeScale = 1.0f + (score / 9999.0f);
+            Time.timeScale = 1.0f + (score / 99999.0f);
         }
 
         // Obstacles
@@ -1037,10 +1077,10 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        // Max score of 9999
-        if (score >= 9999)
+        // Max score of 99.999
+        if (score >= 100000)
         {
-            score = 9999;
+            score = 100000;
             ClearObstacles();
             canContinue = false;
             player.KillPlayer();
@@ -1137,6 +1177,8 @@ public class GameManager : MonoBehaviour
         PurpleC = purpleImage.color;
         colourPickerUI.SetActive(false);
         usernameInputUI.SetActive(true);
+        tempPlayerSound = playerSound;
+        tempPlayerMusic = playerMusic;
         redImage.GetComponent<FCP_ExampleScript>().fcp = null;
         orangeImage.GetComponent<FCP_ExampleScript>().fcp = null;
         yellowImage.GetComponent<FCP_ExampleScript>().fcp = null;
@@ -1149,6 +1191,8 @@ public class GameManager : MonoBehaviour
     {
         colourPickerUI.SetActive(false);
         usernameInputUI.SetActive(true);
+        tempPlayerSound = playerSound;
+        tempPlayerMusic = playerMusic;
         redImage.GetComponent<FCP_ExampleScript>().fcp = null;
         orangeImage.GetComponent<FCP_ExampleScript>().fcp = null;
         yellowImage.GetComponent<FCP_ExampleScript>().fcp = null;
