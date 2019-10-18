@@ -2,12 +2,12 @@ TO RELEASE:
 - Ads
 - Analytics
 - Sound effects
-- Spikeball too predictable
 - Baby puffin
 - Sounds don't pause with game
 - Game freezes when sounds play
 - Fix titles in language
 - Credits 
+- Background Clouds jump
 
 5531006517734657
 

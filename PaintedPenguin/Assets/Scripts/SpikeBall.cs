@@ -56,7 +56,7 @@ public class SpikeBall : MonoBehaviour
         }
     }
 
-    public void OnCollisionEnter2D(Collision2D collision)
+    /*public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.name != "Player")
         {
@@ -82,5 +82,5 @@ public class SpikeBall : MonoBehaviour
             }
             Destroy(collision.gameObject);
         }
-    }
+    }*/
 }

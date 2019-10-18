@@ -17,34 +17,32 @@ public class Baby : MonoBehaviour
     
     void Update()
     {
-        if (gameManager.paused == false && player.playerPositions.Count > (25 + (15 * babyValue)))
+        if (gameManager.paused == false && player.playerPositions.Count > (5 + (15 * babyValue)))
         {
             //if (player.playerPositions2[45 + (15 * babyValue)] != "walking")
             {
-                transform.position = player.playerPositions[25 + (15 * babyValue)] - new Vector2(0.28f - (0.06f * babyValue), 0.07f);
+                transform.position = player.playerPositions[5 + (15 * babyValue)] - new Vector2(0.28f - (0.06f * babyValue), 0.07f);
             }
 
-            if (player.playerPositions2[25 + (15 * babyValue)] == "walking")
+            if (player.playerPositions2[15 + (5 * babyValue)] == "walking")
             {
                 animator.SetBool("Jumping", false);
                 animator.SetBool("Swimming", false);
                 animator.SetBool("Dead", false);
-
-
             }
-            else if (player.playerPositions2[25 + (15 * babyValue)] == "jumping")
+            else if (player.playerPositions2[5 + (15 * babyValue)] == "jumping")
             {
                 animator.SetBool("Jumping", true);
                 animator.SetBool("Swimming", false);
                 animator.SetBool("Dead", false);
             }
-            else if (player.playerPositions2[25 + (15 * babyValue)] == "diving")
+            else if (player.playerPositions2[5 + (15 * babyValue)] == "diving")
             {
                 animator.SetBool("Swimming", true);
                 animator.SetBool("Jumping", false);
                 animator.SetBool("Dead", false);
             }
-            else if (player.playerPositions2[25 + (15 * babyValue)] == "dead")
+            else if (player.playerPositions2[5 + (15 * babyValue)] == "dead")
             {
                 animator.SetBool("Swimming", false);
                 animator.SetBool("Jumping", false);
@@ -54,6 +52,10 @@ public class Baby : MonoBehaviour
 
         if (babyValue == 1)
         {
+            if (rigidBody.position.y < -0.1454418)
+            {
+                rigidBody.position = new Vector2(-0.49f, - 0.1454418f);
+            }
             //if (player.playerPositions2[45 + (15 * babyValue)] == "walking")
             {
                 //transform.position = new Vector2(-0.49f, -0.1454418f);

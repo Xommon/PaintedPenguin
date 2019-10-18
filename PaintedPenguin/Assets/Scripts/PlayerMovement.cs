@@ -226,7 +226,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("dead", false);
 
             // Start game if player is in position, start the game
-            if (rb.position.x >= -0.33)
+            if (rb.position.x >= -0.23)
             {
                 if (gameManager.canContinue == true)
                 {

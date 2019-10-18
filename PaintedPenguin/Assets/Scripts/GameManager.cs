@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     public float scaleRatio;
     public GameObject textContainer;
     public GameObject pauseButtonImage;
+    public Text currentNameFieldUI;
 
     // Volume
     public float playerSound;
@@ -140,6 +141,15 @@ public class GameManager : MonoBehaviour
 
     public bool PercentChance(float percent)
     {
+        if (percent > 100)
+        {
+            percent = 100;
+        }
+        else if (percent < 0)
+        {
+            percent = 0;
+        }
+
         float selection = Random.Range(0.0f, 101.0f);
         if (selection <= percent)
         {
@@ -216,13 +226,13 @@ public class GameManager : MonoBehaviour
             GameObject newblock2 = null;
             if (score >= 1000)
             {
-                if (PercentChance(5))
+                if (PercentChance(5.0f))
                 {
-                    if (PercentChance(50))
+                    if (PercentChance(33.33f))
                     {
                         newblock2 = Instantiate(blockWithRainbow);
                     }
-                    else if (PercentChance(50))
+                    else if (PercentChance(50.0f))
                     {
                         newblock2 = Instantiate(blockWithTimesThree);
                     }
@@ -237,6 +247,19 @@ public class GameManager : MonoBehaviour
                             newblock2 = Instantiate(block);
                         }
                     }
+                }
+                // Spikeball
+                else if (PercentChance(SpikeballEquation()))
+                {
+                    newblock2 = Instantiate(spikeBall);
+                    //if (obstaclePositions[0] == -0.1f || obstaclePositions[0] == -0.9f || obstaclePositions[0] == 0.7f)
+                    //{
+                    //    //newblock2.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
+                    //}
+                }
+                else if (PercentChance(score / 750.0f))
+                {
+                    newblock2 = Instantiate(blockWithPaint);
                 }
                 else
                 {
@@ -266,9 +289,15 @@ public class GameManager : MonoBehaviour
                 newblock2 = Instantiate(block);
             }
 
-            newblock2.GetComponent<Block>().wave = wave;
+            if (newblock2.tag == "Block")
+            {
+                newblock2.GetComponent<Block>().wave = wave;
+            }
             place = obstaclePositions[(Random.Range(0, 2))]; // 0 or 1
+            //if (newblock2.tag == "Block")
+            //{
             newblock2.transform.position = transform.position + new Vector3(1, place, 0);
+            //}
             obstaclePositions.Remove(place);
 
             // Place paint
@@ -278,7 +307,7 @@ public class GameManager : MonoBehaviour
                 newpaint = Instantiate(paint);
                 newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
             }
-            else
+            else //75%
             {
                 if (PercentChance(2)) // TEST 2%
                 {
@@ -295,7 +324,8 @@ public class GameManager : MonoBehaviour
                         newpaint = Instantiate(timesTwo);
                         newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
                     }
-                } else if (PercentChance(score / 80.0f))
+                }
+                else if (PercentChance(score / 80.0f) && newblock2.tag == "Block")
                 {
                     // If AIR is empty
                     if (obstaclePositions[0] == 0.7f)
@@ -367,14 +397,6 @@ public class GameManager : MonoBehaviour
                                 newblock2.GetComponent<Block>().moveMax = -0.1f;
                                 newblock2.GetComponent<Block>().moveMin = -0.9f;
                             }
-                        }
-                    }
-                    else if (PercentChance(100))
-                    {
-                        if (obstaclePositions[0] == -0.1f || obstaclePositions[0] == -0.9f || obstaclePositions[0] == 0.7f)
-                        {
-                            newpaint = Instantiate(spikeBall);
-                            newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
                         }
                     }
                 }
@@ -488,6 +510,7 @@ public class GameManager : MonoBehaviour
     // Open username prompt
     public void OpenUsernamePrompt()
     {
+        currentNameFieldUI.text = playerUsername;
         usernameInputUI.SetActive(true);
         mainMenuUI.SetActive(false);
         tempPlayerSound = playerSound;
@@ -853,6 +876,7 @@ public class GameManager : MonoBehaviour
         usernameInputUI.SetActive(true);
         tempPlayerSound = playerSound;
         tempPlayerMusic = playerMusic;
+        currentNameFieldUI.text = playerUsername;
     }
     
     public void OKButton()
@@ -895,6 +919,25 @@ public class GameManager : MonoBehaviour
         if (score >= 4) return "IV" + ToRoman(score - 4);
         if (score >= 1) return "I" + ToRoman(score - 1);
         return "";
+    }
+
+    public float SpikeballEquation()
+    {
+        if (score > 1350)
+        {
+            if (score / 333.33f < 75.0f)
+            {
+                return (score / 333.33f);
+            }
+            else
+            {
+                return 75.0f;
+            }
+        }
+        else
+        {
+            return 0.0f;
+        }
     }
 
     public void Update()
