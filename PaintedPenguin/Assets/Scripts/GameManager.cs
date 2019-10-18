@@ -248,14 +248,9 @@ public class GameManager : MonoBehaviour
                         }
                     }
                 }
-                // Spikeball
                 else if (PercentChance(SpikeballEquation()))
                 {
                     newblock2 = Instantiate(spikeBall);
-                    //if (obstaclePositions[0] == -0.1f || obstaclePositions[0] == -0.9f || obstaclePositions[0] == 0.7f)
-                    //{
-                    //    //newblock2.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
-                    //}
                 }
                 else if (PercentChance(score / 750.0f))
                 {
@@ -294,10 +289,7 @@ public class GameManager : MonoBehaviour
                 newblock2.GetComponent<Block>().wave = wave;
             }
             place = obstaclePositions[(Random.Range(0, 2))]; // 0 or 1
-            //if (newblock2.tag == "Block")
-            //{
             newblock2.transform.position = transform.position + new Vector3(1, place, 0);
-            //}
             obstaclePositions.Remove(place);
 
             // Place paint
@@ -923,15 +915,15 @@ public class GameManager : MonoBehaviour
 
     public float SpikeballEquation()
     {
-        if (score > 1350)
+        if (score > 1750)
         {
-            if (score / 333.33f < 75.0f)
+            if (score / 1166.67f < 45.0f)
             {
                 return (score / 333.33f);
             }
             else
             {
-                return 75.0f;
+                return 45.0f;
             }
         }
         else
