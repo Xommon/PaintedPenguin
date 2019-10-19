@@ -1017,7 +1017,7 @@ public class GameManager : MonoBehaviour
         gameTitleText.text = "Painted Puffin";
         startButtonText.text = language.StartButton;
         scoreButtonText.text = language.Score;
-        usernameDisplayText.text = playerUsername;
+        usernameDisplayText.text = " " + playerUsername;
         comboText.text = language.Combo;
 
         gameOverText.text = language.GameOver;

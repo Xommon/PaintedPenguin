@@ -6,15 +6,7 @@ TO RELEASE:
 - Sounds don't pause with game
 - Game freezes when sounds play
 - Fix titles in language
-- Credits 
 - Background Clouds jump
-
-5531006517734657
-
-0.5082541270635318
-
-1016x1042
-1999x1150
 
 BUGS:
 - First place tier doesn't have the same place as second place
@@ -23,22 +15,5 @@ BUGS:
 - Missing Key ID error
 - Arabizer is broken
 
-724
-474
-250
-
 CREDITS:
 https://vnitti.itch.io/glacial-mountains-parallax-background
-Cloud Background by Vicente Nitti (vnitti)
-Puffin Graphics by Chris Ambroziak
-Icon Graphics by Icons8
-
-width*1.666666666666667/800
-
- 800/ 480: 1.000 | 1.0000 (0/1.333) 1.666666666666667
-1280x 720: 1.010 | 0.9958 (-0.008/2.125) 1.777777777777778
-1920x1080: 1.024 | 0.9730 (0.05/3.25) 1.777777777777778
-2160x1080: 1.010 | 0.9958 (-0.018/3.582) 2
-2560x1440: 1.009 | 0.9958 (-0.017/4.25) 1.777777777777778
-2960x1440: 0.9800 (-0.058/4.875) 2.055555555555556
-   Mobile: 0.9330
