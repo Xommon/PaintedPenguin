@@ -518,7 +518,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Save Data
-    public void SaveUsername(string name, string language, Color red, Color orange, Color yellow, Color green, Color blue, Color purple, float sound, float music, bool tutorial)
+    public void SaveUsername(string name, string language, Color red, Color orange, Color yellow, Color green, Color blue, Color purple, float sound, float music/*, bool tutorial*/)
     {
         playerUsername = name;
         playerLanguage = language;
@@ -530,7 +530,7 @@ public class GameManager : MonoBehaviour
         PurpleC = purple;
         playerSound = sound;
         playerMusic = music;
-        playerTutorialEnabled = tutorial;
+        //playerTutorialEnabled = tutorial;
         SaveSystem.SaveUsername(this);
     }
 
@@ -540,6 +540,7 @@ public class GameManager : MonoBehaviour
         SaveData data = SaveSystem.LoadUsername();
 
         playerUsername = data.playerUsername;
+        nameFillInText.text = data.playerUsername;
         playerLanguage = data.playerLanguage;
         RedC = HexToColour(data.playerRed);
         OrangeC = HexToColour(data.playerOrange);
@@ -551,7 +552,7 @@ public class GameManager : MonoBehaviour
         playerMusic = data.playerMusic;
         soundSlider.value = data.playerSound;
         musicSlider.value = data.playerMusic;
-        tutorialToggle.enabled = data.playerTutorialEnabled;
+        //tutorialToggle.enabled = data.playerTutorialEnabled;
     }
 
     // Get location
@@ -893,13 +894,13 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                SaveUsername(playerUsername, playerLanguage, RedC, OrangeC, YellowC, GreenC, BlueC, PurpleC, playerSound, playerMusic, playerTutorialEnabled);
+                SaveUsername(playerUsername, playerLanguage, RedC, OrangeC, YellowC, GreenC, BlueC, PurpleC, playerSound, playerMusic/*, playerTutorialEnabled*/);
                 usernameInputUI.SetActive(false);
                 mainMenuUI.SetActive(true);
                 warningBoxText.text = "";
                 playerSound = soundSlider.value;
                 playerMusic = musicSlider.value;
-                playerTutorialEnabled = tutorialToggle.enabled;
+                //playerTutorialEnabled = tutorialToggle.enabled;
             }
         }
     }
@@ -939,6 +940,11 @@ public class GameManager : MonoBehaviour
         {
             return 0.0f;
         }
+    }
+
+    public void ToggleChanged(bool newValue)
+    {
+        playerTutorialEnabled = newValue;
     }
 
     public void Update()
@@ -1050,7 +1056,11 @@ public class GameManager : MonoBehaviour
 
         languagePromptText.text = language.LanguagePrompt.ToUpper();
 
-        nameFillInText.text = language.Name;
+        if (language.Name == "" || language.Name == null)
+        {
+            nameFillInText.text = language.Name;
+        }
+        
         okButtonText.text = language.OK;
 
         if (paused == false)

@@ -6,6 +6,11 @@ TO RELEASE:
 - Expand tutorial
 - Tutorial button doesn't work at all
 - Volume sliders may not work (???)
+- Scribbles flies away after tutorial
+- Close button on settings still saves name
+- Credits not working again lmfao
+- Double check all credits
+- Get credits for those hands you used
 
 - Sound effects
 {
