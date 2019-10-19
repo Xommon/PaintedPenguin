@@ -29,7 +29,9 @@ BUGS:
 
 CREDITS:
 https://vnitti.itch.io/glacial-mountains-parallax-background
-(sound by Icons8)
+Cloud Background by Vicente Nitti (vnitti)
+Puffin Graphics by Chris Ambroziak
+Icon Graphics by Icons8
 
 width*1.666666666666667/800
 
