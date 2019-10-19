@@ -1,22 +1,26 @@
 TO RELEASE:
-- Ads
-- Analytics
 - Baby puffin
 - Background Clouds jump
-- Expand tutorial
-- Tutorial button doesn't work at all
-- Volume sliders may not work (???)
-- Scribbles flies away after tutorial
-- Close button on settings still saves name
+
+:: CREDITS ::
 - Credits not working again lmfao
 - Double check all credits
 - Get credits for those hands you used
+https://vnitti.itch.io/glacial-mountains-parallax-background
 
-- Sound effects
-{
+:: TUTORIAL ::
+- Scribbles flies away after tutorial
+- Tutorial button doesn't work at all
+
+:: SOUND ::
 - Sounds don't pause with game
 - Game freezes when sounds play
-}
+- Volume sliders may not work (???)
+
+:: FINAL TOUCH ::
+- Ads
+- Analytics
+
 
 BUGS:
 - First place tier doesn't have the same place as second place
@@ -25,6 +29,3 @@ BUGS:
 - Missing Key ID error
 - Arabizer is broken
 - Fix titles in language
-
-CREDITS:
-https://vnitti.itch.io/glacial-mountains-parallax-background

@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour
     public bool playerTutorialEnabled;
     public Toggle tutorialToggle;
     public GameObject tutorialWindow;
+    public InputField usernameInputField;
+    public Text usernameInputFieldText;
 
     // Volume
     public float playerSound;
@@ -518,7 +520,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Save Data
-    public void SaveUsername(string name, string language, Color red, Color orange, Color yellow, Color green, Color blue, Color purple, float sound, float music/*, bool tutorial*/)
+    public void SaveUsername(string name, string language, Color red, Color orange, Color yellow, Color green, Color blue, Color purple, float sound, float music, bool tutorial)
     {
         playerUsername = name;
         playerLanguage = language;
@@ -530,7 +532,7 @@ public class GameManager : MonoBehaviour
         PurpleC = purple;
         playerSound = sound;
         playerMusic = music;
-        //playerTutorialEnabled = tutorial;
+        playerTutorialEnabled = tutorial;
         SaveSystem.SaveUsername(this);
     }
 
@@ -771,8 +773,6 @@ public class GameManager : MonoBehaviour
             {
                 tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += "<sprite name=" + "\"" + highscoreList[i].country.ToLower() + "\"" + ">";
             }
-            
-            //tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += "\n";
 
             // Username
             tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += " " + language.Arabizer(highscoreList[i].username) + "\n";
@@ -894,13 +894,14 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                SaveUsername(playerUsername, playerLanguage, RedC, OrangeC, YellowC, GreenC, BlueC, PurpleC, playerSound, playerMusic/*, playerTutorialEnabled*/);
                 usernameInputUI.SetActive(false);
                 mainMenuUI.SetActive(true);
                 warningBoxText.text = "";
                 playerSound = soundSlider.value;
                 playerMusic = musicSlider.value;
-                //playerTutorialEnabled = tutorialToggle.enabled;
+                playerTutorialEnabled = tutorialToggle.enabled;
+                GetUsername(usernameInputFieldText.text);
+                SaveUsername(playerUsername, playerLanguage, RedC, OrangeC, YellowC, GreenC, BlueC, PurpleC, playerSound, playerMusic, playerTutorialEnabled);
             }
         }
     }
