@@ -51,6 +51,7 @@ public class Language : MonoBehaviour
     public string OK;
     public string Warning1;
     public string Warning2;
+    public string Warning3;
     public Button Flag;
 
     // Flags
@@ -128,6 +129,7 @@ public class Language : MonoBehaviour
         OK = "OK";
         Warning1 = "Cannot contain spaces or *.";
         Warning2 = "The name is too long.";
+        Warning3 = "Name cannot be blank.";
         Flag.image.overrideSprite = english;
         gameManager.playerLanguage = "English";
         gameManager.XButtonLanguage();

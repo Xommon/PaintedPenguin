@@ -1,12 +1,6 @@
 TO RELEASE:
 - Baby puffin
 
-:: CREDITS ::
-- Credits not working again lmfao
-- Double check all credits
-- Get credits for those hands you used
-https://vnitti.itch.io/glacial-mountains-parallax-background
-
 :: TUTORIAL ::
 - Scribbles flies away after tutorial
 - Tutorial button doesn't work at all
@@ -19,7 +13,7 @@ https://vnitti.itch.io/glacial-mountains-parallax-background
 :: FINAL TOUCH ::
 - Ads
 - Analytics
-
+- Double check all credits
 
 BUGS:
 - First place tier doesn't have the same place as second place

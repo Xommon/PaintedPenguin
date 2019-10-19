@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     public GameObject tutorialWindow;
     public InputField usernameInputField;
     public Text usernameInputFieldText;
+    public GameObject credits;
 
     // Volume
     public float playerSound;
@@ -706,6 +707,7 @@ public class GameManager : MonoBehaviour
             language.SendMessage(playerLanguage, null, SendMessageOptions.DontRequireReceiver);
             usernameInputUI.SetActive(false);
             mainMenuUI.SetActive(true);
+            credits.GetComponent<Credits>().count = 0;
             Time.timeScale = 1;
         }
 
@@ -860,14 +862,19 @@ public class GameManager : MonoBehaviour
     {
         highScoreTableUI.SetActive(false);
         mainMenuUI.SetActive(true);
+        credits.GetComponent<Credits>().count = 0;
     }
 
     public void XButtonSettings()
     {
-        usernameInputUI.SetActive(false);
-        mainMenuUI.SetActive(true);
-        playerSound = tempPlayerSound;
-        playerMusic = tempPlayerMusic;
+        if ((playerUsername != "" && playerUsername != null) || (usernameInputFieldText.text == "" || usernameInputFieldText.text == null))
+        {
+            usernameInputUI.SetActive(false);
+            mainMenuUI.SetActive(true);
+            credits.GetComponent<Credits>().count = 0;
+            playerSound = tempPlayerSound;
+            playerMusic = tempPlayerMusic;
+        }
     }
 
     public void XButtonLanguage()
@@ -892,15 +899,27 @@ public class GameManager : MonoBehaviour
             {
                 warningBoxText.text = language.Warning2;
             }
+            else if ((nameSlot.text == "" || nameSlot.text == null) && (playerUsername == "" || playerUsername == null))
+            {
+                warningBoxText.text = language.Warning3;
+            }
             else
             {
                 usernameInputUI.SetActive(false);
                 mainMenuUI.SetActive(true);
+                credits.GetComponent<Credits>().count = 0;
                 warningBoxText.text = "";
                 playerSound = soundSlider.value;
                 playerMusic = musicSlider.value;
                 playerTutorialEnabled = tutorialToggle.enabled;
-                GetUsername(usernameInputFieldText.text);
+                if (usernameInputFieldText.text == "" || usernameInputFieldText.text == null)
+                {
+                    GetUsername(playerUsername);
+                }
+                else
+                {
+                    GetUsername(usernameInputFieldText.text);
+                }
                 SaveUsername(playerUsername, playerLanguage, RedC, OrangeC, YellowC, GreenC, BlueC, PurpleC, playerSound, playerMusic, playerTutorialEnabled);
             }
         }
