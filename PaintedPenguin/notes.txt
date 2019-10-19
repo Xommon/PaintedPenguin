@@ -1,6 +1,5 @@
 TO RELEASE:
 - Baby puffin
-- Background Clouds jump
 
 :: CREDITS ::
 - Credits not working again lmfao
