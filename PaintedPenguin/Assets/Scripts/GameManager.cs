@@ -30,6 +30,9 @@ public class GameManager : MonoBehaviour
     public GameObject textContainer;
     public GameObject pauseButtonImage;
     public Text currentNameFieldUI;
+    public bool playerTutorialEnabled;
+    public Toggle tutorialToggle;
+    public GameObject tutorialWindow;
 
     // Volume
     public float playerSound;
@@ -515,7 +518,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Save Data
-    public void SaveUsername(string name, string language, Color red, Color orange, Color yellow, Color green, Color blue, Color purple, float sound, float music)
+    public void SaveUsername(string name, string language, Color red, Color orange, Color yellow, Color green, Color blue, Color purple, float sound, float music, bool tutorial)
     {
         playerUsername = name;
         playerLanguage = language;
@@ -527,6 +530,7 @@ public class GameManager : MonoBehaviour
         PurpleC = purple;
         playerSound = sound;
         playerMusic = music;
+        playerTutorialEnabled = tutorial;
         SaveSystem.SaveUsername(this);
     }
 
@@ -547,6 +551,7 @@ public class GameManager : MonoBehaviour
         playerMusic = data.playerMusic;
         soundSlider.value = data.playerSound;
         musicSlider.value = data.playerMusic;
+        tutorialToggle.enabled = data.playerTutorialEnabled;
     }
 
     // Get location
@@ -643,6 +648,9 @@ public class GameManager : MonoBehaviour
     // Code for start of script
     public void Start()
     {
+        // Load game in English
+        language.English();
+
         // Load all save data
         LoadUsername();
 
@@ -885,12 +893,13 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                SaveUsername(playerUsername, playerLanguage, RedC, OrangeC, YellowC, GreenC, BlueC, PurpleC, playerSound, playerMusic);
+                SaveUsername(playerUsername, playerLanguage, RedC, OrangeC, YellowC, GreenC, BlueC, PurpleC, playerSound, playerMusic, playerTutorialEnabled);
                 usernameInputUI.SetActive(false);
                 mainMenuUI.SetActive(true);
                 warningBoxText.text = "";
                 playerSound = soundSlider.value;
                 playerMusic = musicSlider.value;
+                playerTutorialEnabled = tutorialToggle.enabled;
             }
         }
     }

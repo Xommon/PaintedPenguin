@@ -1,12 +1,17 @@
 TO RELEASE:
 - Ads
 - Analytics
-- Sound effects
 - Baby puffin
+- Background Clouds jump
+- Expand tutorial
+- Tutorial button doesn't work at all
+- Volume sliders may not work (???)
+
+- Sound effects
+{
 - Sounds don't pause with game
 - Game freezes when sounds play
-- Fix titles in language
-- Background Clouds jump
+}
 
 BUGS:
 - First place tier doesn't have the same place as second place
@@ -14,6 +19,7 @@ BUGS:
 - Words clipping (Tagalog warnings)
 - Missing Key ID error
 - Arabizer is broken
+- Fix titles in language
 
 CREDITS:
 https://vnitti.itch.io/glacial-mountains-parallax-background

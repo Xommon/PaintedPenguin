@@ -202,6 +202,13 @@ public class PlayerMovement : MonoBehaviour
         gameManager.on = true;
     }
 
+    public void StartWalking()
+    {
+        rb.velocity = transform.right;
+        gameManager.tutorialWindow.SetActive(false);
+        animator.SetBool("dead", false);
+    }
+
     void FixedUpdate()
     {
         // Loading bar position
@@ -222,19 +229,31 @@ public class PlayerMovement : MonoBehaviour
         // Player walks to starting position
         if (position == "starting" && dead == false)
         {
-            rb.velocity = transform.right;
-            animator.SetBool("dead", false);
+            if (gameManager.playerTutorialEnabled == true)
+            {
+                gameManager.tutorialWindow.SetActive(true);
+                Invoke("StartWalking", 29.0f);
+            }
+            else
+            {
+                StartWalking();
+            }
 
             // Start game if player is in position, start the game
             if (rb.position.x >= -0.23)
             {
-                if (gameManager.canContinue == true)
+                if (gameManager.canContinue == true && gameManager.playerTutorialEnabled == true)
                 {
                     Invoke("SwitchGameOn", 2.5f);
                     Invoke("Jump", 0.5f);
                     Invoke("Dive", 2.2f);
                     Instantiate(touchGuide);
                     Invoke("TutorialOff", 3.0f);
+                }
+                if (gameManager.playerTutorialEnabled == false)
+                {
+                    tutorial = false;
+                    SwitchGameOn();
                 }
                 position = ("walking");
             }
