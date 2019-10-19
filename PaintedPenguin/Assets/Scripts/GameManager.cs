@@ -555,7 +555,7 @@ public class GameManager : MonoBehaviour
         playerMusic = data.playerMusic;
         soundSlider.value = data.playerSound;
         musicSlider.value = data.playerMusic;
-        //tutorialToggle.enabled = data.playerTutorialEnabled;
+        tutorialToggle.enabled = data.playerTutorialEnabled;
     }
 
     // Get location
@@ -920,7 +920,7 @@ public class GameManager : MonoBehaviour
                 {
                     GetUsername(usernameInputFieldText.text);
                 }
-                SaveUsername(playerUsername, playerLanguage, RedC, OrangeC, YellowC, GreenC, BlueC, PurpleC, playerSound, playerMusic, playerTutorialEnabled);
+                SaveUsername(playerUsername, playerLanguage, RedC, OrangeC, YellowC, GreenC, BlueC, PurpleC, playerSound, playerMusic, tutorialToggle.enabled);
             }
         }
     }

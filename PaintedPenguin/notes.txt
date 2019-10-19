@@ -2,13 +2,13 @@ TO RELEASE:
 - Baby puffin
 
 :: TUTORIAL ::
-- Scribbles flies away after tutorial
+- Scribble can't move after touch tutorial/game remains off
 - Tutorial button doesn't work at all
+- Tutorial is just terrible, c'mon
 
 :: SOUND ::
 - Sounds don't pause with game
 - Game freezes when sounds play
-- Volume sliders may not work (???)
 
 :: FINAL TOUCH ::
 - Ads
