@@ -651,11 +651,11 @@ public class GameManager : MonoBehaviour
     // Code for start of script
     public void Start()
     {
-        // Load game in English
-        language.English();
-
         // Load all save data
         LoadUsername();
+
+        // Load game in English
+        language.English();
 
         // Set default colours if no colours are saved on file
         WhiteC = new Color(1f, 1f, 1f, 0f);
@@ -847,7 +847,7 @@ public class GameManager : MonoBehaviour
         if (playerTutorialEnabled == true)
         {
             tutorialWindow.SetActive(true);
-            player.Invoke("StartWalking", 29.0f);
+            player.Invoke("StartWalking", 24.0f);
         }
         else
         {

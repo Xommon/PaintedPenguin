@@ -248,7 +248,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (gameManager.canContinue == true && gameManager.playerTutorialEnabled == true)
                 {
-                    Invoke("SwitchGameOn", 2.5f);
+                    Invoke("SwitchGameOn", 3.5f);
                     Invoke("Jump", 0.5f);
                     Invoke("Dive", 2.2f);
                     Instantiate(touchGuide);
