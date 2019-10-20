@@ -232,10 +232,12 @@ public class PlayerMovement : MonoBehaviour
             if (gameManager.playerTutorialEnabled == true)
             {
                 gameManager.tutorialWindow.SetActive(true);
-                Invoke("StartWalking", 29.0f);
+                Invoke("StartWalking", 0.5f);
+                Debug.Log("Tutorial starting");
             }
             else
             {
+                gameManager.tutorialWindow.SetActive(false);
                 StartWalking();
             }
 
@@ -244,13 +246,13 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (gameManager.canContinue == true && gameManager.playerTutorialEnabled == true)
                 {
-                    Invoke("SwitchGameOn", 31.5f);
-                    Invoke("Jump", 29.5f);
-                    Invoke("Dive", 31.2f);
+                    Invoke("SwitchGameOn", 2.5f);
+                    Invoke("Jump", 0.5f);
+                    Invoke("Dive", 2.2f);
                     Instantiate(touchGuide);
-                    Invoke("TutorialOff", 32.0f);
+                    Invoke("TutorialOff", 3.0f);
                 }
-                if (gameManager.playerTutorialEnabled == false)
+                else if (gameManager.playerTutorialEnabled == false)
                 {
                     tutorial = false;
                     SwitchGameOn();

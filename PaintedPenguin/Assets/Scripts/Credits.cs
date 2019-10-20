@@ -20,12 +20,12 @@ public class Credits : MonoBehaviour
         topTexts.Add("art by");
         topTexts.Add("background by");
         topTexts.Add("icons by");
-        topTexts.Add("hand gesture art by");
+        topTexts.Add("hand art by");
 
         bottomTexts.Add("micheal quentin");
         bottomTexts.Add("chris ambroziak");
         bottomTexts.Add("vicente nitti");
-        bottomTexts.Add("icons8.com");
+        bottomTexts.Add("https://icons8.com");
         bottomTexts.Add("jeff portaro");
 
         topText.text = topTexts[0];

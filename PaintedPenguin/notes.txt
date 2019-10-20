@@ -2,8 +2,8 @@ TO RELEASE:
 - Baby puffin
 
 :: TUTORIAL ::
-- Scribble can't move after touch tutorial/game remains off
-- Tutorial button doesn't work at all
+- Scribble flies away when tutorial ends
+	but not when StartWalking is = 0.5f
 - Tutorial is just terrible, c'mon
 
 :: SOUND ::
@@ -13,7 +13,7 @@ TO RELEASE:
 :: FINAL TOUCH ::
 - Ads
 - Analytics
-- Double check all credits
+(https://icons8.com in store description)
 
 BUGS:
 - First place tier doesn't have the same place as second place

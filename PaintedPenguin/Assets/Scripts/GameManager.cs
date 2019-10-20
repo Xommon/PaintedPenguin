@@ -92,7 +92,6 @@ public class GameManager : MonoBehaviour
     public GameObject highScoreTableUI;
     public GameObject tableInfoUI;
     public TMP_Text tableUsernameUI;
-    //public Text tableUsernameUI;
     public GameObject tableScoreUI;
     public Image tableFlagUI;
     public Sprite defaultFlag;
@@ -555,7 +554,7 @@ public class GameManager : MonoBehaviour
         playerMusic = data.playerMusic;
         soundSlider.value = data.playerSound;
         musicSlider.value = data.playerMusic;
-        tutorialToggle.enabled = data.playerTutorialEnabled;
+        tutorialToggle.isOn = data.playerTutorialEnabled;
     }
 
     // Get location
@@ -911,7 +910,7 @@ public class GameManager : MonoBehaviour
                 warningBoxText.text = "";
                 playerSound = soundSlider.value;
                 playerMusic = musicSlider.value;
-                playerTutorialEnabled = tutorialToggle.enabled;
+                playerTutorialEnabled = tutorialToggle.isOn;
                 if (usernameInputFieldText.text == "" || usernameInputFieldText.text == null)
                 {
                     GetUsername(playerUsername);
@@ -920,7 +919,7 @@ public class GameManager : MonoBehaviour
                 {
                     GetUsername(usernameInputFieldText.text);
                 }
-                SaveUsername(playerUsername, playerLanguage, RedC, OrangeC, YellowC, GreenC, BlueC, PurpleC, playerSound, playerMusic, tutorialToggle.enabled);
+                SaveUsername(playerUsername, playerLanguage, RedC, OrangeC, YellowC, GreenC, BlueC, PurpleC, playerSound, playerMusic, playerTutorialEnabled);
             }
         }
     }
