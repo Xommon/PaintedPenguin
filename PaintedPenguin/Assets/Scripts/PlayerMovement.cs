@@ -18,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
     public List<Vector2> playerPositions = new List<Vector2>();
     public List<string> playerPositions2 = new List<string>();
     public List<GameObject> babies = new List<GameObject>();
-    public GameObject testBaby;
     public GameObject floatingText;
     public GameObject touchGuide;
     public bool tutorial;
@@ -57,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (position == "walking")
             {
-                rb.MovePosition(new Vector2(-0.23f, -0.075f));
+                rb.MovePosition(new Vector2(-0.16f, -0.075f));
                 position = "jumping";
                 rb.gravityScale = 0.5f;
                 rb.velocity = new Vector2(0, 2.9f);
@@ -87,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (position == "walking")
             {
-                rb.MovePosition(new Vector2(-0.23f, -0.075f));
+                rb.MovePosition(new Vector2(-0.16f, -0.075f));
                 position = "diving";
                 rb.gravityScale = -0.5f;
                 rb.velocity = new Vector2(0, -2.9f);
@@ -244,7 +243,7 @@ public class PlayerMovement : MonoBehaviour
             }*/
 
             // Start game if player is in position, start the game
-            if (rb.position.x >= -0.23)
+            if (rb.position.x >= -0.16)
             {
                 if (gameManager.canContinue == true && gameManager.playerTutorialEnabled == true)
                 {
@@ -268,7 +267,7 @@ public class PlayerMovement : MonoBehaviour
             // Snap to ground if walking
             if (rb.position.y != -0.075 && position == "walking")
             {
-                rb.MovePosition(new Vector2(-0.23f, -0.075f));
+                rb.MovePosition(new Vector2(-0.16f, -0.075f));
                 animator.SetBool("jumping", false);
                 animator.SetBool("falling", false);
                 animator.SetBool("swimming", false);
@@ -456,7 +455,7 @@ public class PlayerMovement : MonoBehaviour
                     timesTwoMode = 3;
                     TimesTwoMode();
                 }
-                else if (collision.transform.name == "BlockWithBaby(Clone)" && dead == false && babyPuffins < 3)
+                else if (collision.transform.name == "BlockWithBaby" && dead == false && babyPuffins < 3)
                 {
                     Instantiate(babies[0]);
                     babies.RemoveAt(0);

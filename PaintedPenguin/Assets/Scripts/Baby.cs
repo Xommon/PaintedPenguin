@@ -7,58 +7,75 @@ public class Baby : MonoBehaviour
     public Animator animator;
     public PlayerMovement player;
     public GameManager gameManager;
-    public Rigidbody2D rigidBody;
+    public SpriteRenderer sr;
     public int babyValue;
+    public int offset;
+    public int spacing;
+    public int count;
+    public float flightAngle;
 
     void Start()
     {
+        count = 0;
+        sr.flipX = false;
         animator.SetInteger("Baby", babyValue);
+        player = FindObjectOfType<PlayerMovement>();
+        flightAngle = Random.Range(0.6f, -0.6f);
     }
     
     void Update()
     {
-        if (gameManager.paused == false && player.playerPositions.Count > (5 + (15 * babyValue)))
+        if (player.position == "starting")
         {
-            //if (player.playerPositions2[45 + (15 * babyValue)] != "walking")
-            {
-                transform.position = player.playerPositions[5 + (15 * babyValue)] - new Vector2(0.28f - (0.06f * babyValue), 0.07f);
-            }
+            sr.flipX = false;
+        }
 
-            if (player.playerPositions2[15 + (5 * babyValue)] == "walking")
+        if (gameManager.paused == false && player.playerPositions.Count > (offset + (spacing * babyValue)))
+        {
+            if (player.dead == false)
             {
-                animator.SetBool("Jumping", false);
-                animator.SetBool("Swimming", false);
-                animator.SetBool("Dead", false);
+                transform.position = player.playerPositions[offset + (spacing * babyValue)] - new Vector2(0.44f - (0.1f * babyValue), 0.07f);
+
+                if (player.playerPositions2[offset + (spacing * babyValue)] == "walking")
+                {
+                    animator.SetBool("Jumping", false);
+                    animator.SetBool("Swimming", false);
+                    animator.SetBool("Dead", false);
+                }
+                else if (player.playerPositions2[offset + (spacing * babyValue)] == "jumping")
+                {
+                    animator.SetBool("Jumping", true);
+                    animator.SetBool("Swimming", false);
+                    animator.SetBool("Dead", false);
+                }
+                else if (player.playerPositions2[offset + (spacing * babyValue)] == "diving")
+                {
+                    animator.SetBool("Swimming", true);
+                    animator.SetBool("Jumping", false);
+                    animator.SetBool("Dead", false);
+                }
+                /*else if (player.playerPositions2[offset + (spacing * babyValue)] == "dead")
+                {
+                    animator.SetBool("Swimming", false);
+                    animator.SetBool("Jumping", false);
+                    animator.SetBool("Dead", true);
+                }*/
             }
-            else if (player.playerPositions2[5 + (15 * babyValue)] == "jumping")
+            else
             {
+                transform.position += new Vector3(flightAngle * Time.deltaTime, 0.6f * Time.deltaTime, 0);
+                if (flightAngle < 0)
+                {
+                    sr.flipX = true;
+                }
+                else
+                {
+                    sr.flipX = false;
+                }
                 animator.SetBool("Jumping", true);
                 animator.SetBool("Swimming", false);
                 animator.SetBool("Dead", false);
-            }
-            else if (player.playerPositions2[5 + (15 * babyValue)] == "diving")
-            {
-                animator.SetBool("Swimming", true);
-                animator.SetBool("Jumping", false);
-                animator.SetBool("Dead", false);
-            }
-            else if (player.playerPositions2[5 + (15 * babyValue)] == "dead")
-            {
-                animator.SetBool("Swimming", false);
-                animator.SetBool("Jumping", false);
-                animator.SetBool("Dead", true);
-            }
-        }
 
-        if (babyValue == 1)
-        {
-            if (rigidBody.position.y < -0.1454418)
-            {
-                rigidBody.position = new Vector2(-0.49f, - 0.1454418f);
-            }
-            //if (player.playerPositions2[45 + (15 * babyValue)] == "walking")
-            {
-                //transform.position = new Vector2(-0.49f, -0.1454418f);
             }
         }
     }

@@ -5,6 +5,8 @@ using UnityEngine;
 public class Block : MonoBehaviour
 {
     public GameManager gameManager;
+    public GameObject block;
+    public PlayerMovement player;
     public int colour;
     public int colour2;
     public SpriteRenderer sr;

@@ -206,6 +206,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
     type: 3}
+  block: {fileID: 6912182656722656618}
+  player: {fileID: 0}
   colour: 0
   colour2: 0
   sr: {fileID: 6912182656722656614}

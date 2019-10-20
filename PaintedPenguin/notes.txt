@@ -1,6 +1,3 @@
-TO RELEASE:
-- Baby puffin
-
 :: SOUND ::
 - Sounds don't pause with game
 - Game freezes when sounds play
@@ -17,3 +14,5 @@ BUGS:
 - Missing Key ID error
 - Arabizer is broken
 - Fix titles in language
+- Snow piling
+- Babies don't always show up when you hit block (???)
