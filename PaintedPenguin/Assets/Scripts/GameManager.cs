@@ -83,6 +83,7 @@ public class GameManager : MonoBehaviour
     public Sprite loadingSprite;
     public Sprite uploadedSprite;
     public Sprite errorSprite;
+    public ParticleSystem snow;
 
     // High scores
     const string privateCode = "cQ87T8a7BUGRQmQNMDB6iwWUTDoSubyUOyfJ9_43b3_g";
@@ -656,6 +657,29 @@ public class GameManager : MonoBehaviour
 
         // Load game in English
         language.English();
+
+        // Set weather
+        string date = System.DateTime.Now.ToString("ddMM");
+        if (date.Substring(2, 2) == "11")
+        {
+            snow.emissionRate = float.Parse(date.Substring(0, 2)) * 3.33f;
+        }
+        else if (date.Substring(2, 2) == "12")
+        {
+            snow.emissionRate = float.Parse(date.Substring(0, 2)) * 3.33f + 100.0f;
+        }
+        else if (date.Substring(2, 2) == "01")
+        {
+            snow.emissionRate = 200.0f - float.Parse(date.Substring(0, 2)) * 3.33f;
+        }
+        else if (date.Substring(2, 2) == "02")
+        {
+            snow.emissionRate = 100.0f - float.Parse(date.Substring(0, 2)) * 3.33f;
+        }
+        else
+        {
+            snow.emissionRate = 0;
+        }
 
         // Set default colours if no colours are saved on file
         WhiteC = new Color(1f, 1f, 1f, 0f);

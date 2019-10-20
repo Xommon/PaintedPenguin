@@ -1,14 +1,11 @@
 TO RELEASE:
 - Baby puffin
 
-:: TUTORIAL ::
-- Tutorial is just terrible, c'mon
-
 :: SOUND ::
 - Sounds don't pause with game
 - Game freezes when sounds play
 
-:: FINAL TOUCH ::
+:: FINAL TOUCHES ::
 - Ads
 - Analytics
 (https://icons8.com in store description)
