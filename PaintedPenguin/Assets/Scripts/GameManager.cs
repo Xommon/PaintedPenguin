@@ -844,7 +844,16 @@ public class GameManager : MonoBehaviour
     // Start Button pressed
     public void StartGame()
     {
-        player.position = "starting";
+        if (playerTutorialEnabled == true)
+        {
+            tutorialWindow.SetActive(true);
+            player.Invoke("StartWalking", 29.0f);
+        }
+        else
+        {
+            tutorialWindow.SetActive(false);
+            player.StartWalking();
+        }
         mainMenuUI.SetActive(false);
         gameUI.SetActive(true);
     }
@@ -1223,6 +1232,7 @@ public class GameManager : MonoBehaviour
 
     public void ContinueButton()
     {
+        player.dead = false;
         player.rb.gravityScale = 0;
         player.rb.MovePosition(new Vector2(-1.0f, -0.075f));
         uploadScoreUI.sprite = null;
@@ -1234,8 +1244,8 @@ public class GameManager : MonoBehaviour
         }
         canContinue = false;
         Time.timeScale = 1f;
-        player.dead = false;
-        player.position = "starting";
+        player.position = "ready";
+        player.StartWalking();
         gameOverCanvas.SetActive(false);
     }
 

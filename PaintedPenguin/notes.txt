@@ -2,8 +2,6 @@ TO RELEASE:
 - Baby puffin
 
 :: TUTORIAL ::
-- Scribble flies away when tutorial ends
-	but not when StartWalking is = 0.5f
 - Tutorial is just terrible, c'mon
 
 :: SOUND ::
