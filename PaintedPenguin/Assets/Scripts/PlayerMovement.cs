@@ -61,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
                 rb.gravityScale = 0.5f;
                 rb.velocity = new Vector2(0, 2.9f);
                 animator.SetBool("jumping", true);
+                FindObjectOfType<AudioManager>().Play("jump");
             }
             else
             {

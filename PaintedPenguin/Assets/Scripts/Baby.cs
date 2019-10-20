@@ -21,6 +21,7 @@ public class Baby : MonoBehaviour
         animator.SetInteger("Baby", babyValue);
         player = FindObjectOfType<PlayerMovement>();
         flightAngle = Random.Range(0.6f, -0.6f);
+        FindObjectOfType<AudioManager>().Play("peep");
     }
     
     void Update()
