@@ -408,7 +408,11 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_AnchoredPosition: {x: 542.638, y: 1196.8616}
+=======
+  m_AnchoredPosition: {x: 0, y: 0}
+>>>>>>> parent of 6395369... GUI Background Updated
 =======
   m_AnchoredPosition: {x: 0, y: 0}
 >>>>>>> parent of 6395369... GUI Background Updated
