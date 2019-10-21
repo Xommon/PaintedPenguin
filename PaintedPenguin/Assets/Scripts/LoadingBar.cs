@@ -47,6 +47,7 @@ public class LoadingBar : MonoBehaviour
         else
         {
             player.timesTwoMode = 1;
+            player.magnet = false;
             if (player.colour == 7)
             {
                 player.colour = 0;
@@ -57,16 +58,16 @@ public class LoadingBar : MonoBehaviour
 
         if (player.magnet == true)
         {
-            //tinyMagnet.enabled = true;
+            tinyMagnet.transform.localScale = new Vector3(1, 1, 1);
         }
         else
         {
-            //tinyMagnet.enabled = false;
+            tinyMagnet.transform.localScale = new Vector3(0, 0, 0);
         }
 
         loadingBarValue.GetComponent<Image>().fillAmount = currentAmount / 100;
 
-        gameObject.transform.position = Camera.main.WorldToScreenPoint(player.transform.position + new Vector3(0.15f, 0, 0));
+        gameObject.transform.position = Camera.main.WorldToScreenPoint(player.transform.position + new Vector3(0.2f, 0, 0));
         
         if (player.colour != 0)
         {

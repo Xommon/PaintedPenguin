@@ -1402,7 +1402,7 @@ public class Language : MonoBehaviour
         else
         {
             gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().font = lgcFont;
-            gameManager.comboText.GetComponent<TMPro.TextMeshPro>().font = lgcFont;
+            //gameManager.comboText.GetComponent<TMPro.TextMeshPro>().font = lgcFont;
         }
 
         // Number Separator

@@ -138,6 +138,7 @@ public class GameManager : MonoBehaviour
     public GameObject blockWithRainbow;
     public GameObject blockWithTimesThree;
     public GameObject blockWithBaby;
+    public GameObject blockWithMagnet;
     public GameObject paint;
     public GameObject rainbow;
     public GameObject timesTwo;
@@ -234,13 +235,17 @@ public class GameManager : MonoBehaviour
             {
                 if (PercentChance(5.0f))
                 {
-                    if (PercentChance(33.33f))
+                    if (PercentChance(25.0f))
                     {
                         newblock2 = Instantiate(blockWithRainbow);
                     }
-                    else if (PercentChance(50.0f))
+                    else if (PercentChance(33.33f))
                     {
                         newblock2 = Instantiate(blockWithTimesThree);
+                    }
+                    else if (PercentChance(50.0f))
+                    {
+                        newblock2 = Instantiate(blockWithMagnet);
                     }
                     else
                     {
@@ -1023,8 +1028,6 @@ public class GameManager : MonoBehaviour
         screenWidth = Screen.width;
 
         scaleRatio = screenHeight / 800;
-        //canvasScaler.GetComponent<CanvasScaler>().scaleFactor = scaleFactor;
-        //textContainer.transform.localScale = new Vector2(scaleRatio, scaleRatio);
 
         // Fill in name slot
         nameSlot.text = playerUsername;
