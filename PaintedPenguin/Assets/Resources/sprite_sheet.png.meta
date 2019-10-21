@@ -295,7 +295,7 @@ TextureImporter:
     second: sprite_bad
   - first:
       213: 8484208907087211763
-    second: sprite_sheet_49
+    second: sprite_magnet
   - first:
       213: 2634232102882855827
     second: sprite_sheet_50
@@ -329,6 +329,9 @@ TextureImporter:
   - first:
       213: 2544560368119496199
     second: sprite_sheet_48
+  - first:
+      213: 6160866511706337852
+    second: sprite_tiny-magnet
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -1680,6 +1683,48 @@ TextureImporter:
       bones: []
       spriteID: aa787abb1d2e52f4bbf52a0d9cf73e7d
       internalID: 2544560368119496199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_magnet
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 623
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ee6651a8323068439c7d7844004a091
+      internalID: 8484208907087211763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_tiny-magnet
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 615
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fe6b6c0e05b91f42a084df4c2f5f45d
+      internalID: 6160866511706337852
       vertices: []
       indices: 
       edges: []

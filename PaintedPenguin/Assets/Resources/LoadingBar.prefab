@@ -224,6 +224,7 @@ MonoBehaviour:
   player: {fileID: 5073945571518871174, guid: ec57f4535ec603946a7f03fa5bb07814, type: 3}
   selfImage: {fileID: 4690267391212639618}
   visualMultiplier: {fileID: 1333788061}
+  tinyMagnet: {fileID: 0}
   exists: 0
   currentAmount: 0
   speed: 0
@@ -406,7 +407,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -106.41017, y: 374.01923}
+  m_AnchoredPosition: {x: 542.638, y: 1196.8616}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!223 &4690267391600531476

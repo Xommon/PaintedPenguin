@@ -11,6 +11,7 @@ public class LoadingBar : MonoBehaviour
     public PlayerMovement player;
     public Image selfImage;
     public TMP_Text visualMultiplier;
+    public Image tinyMagnet;
     public bool exists;
     public float currentAmount;
     public float speed;
@@ -54,10 +55,26 @@ public class LoadingBar : MonoBehaviour
             Destroy(transform.parent.gameObject);
         }
 
+        if (player.magnet == true)
+        {
+            //tinyMagnet.enabled = true;
+        }
+        else
+        {
+            //tinyMagnet.enabled = false;
+        }
+
         loadingBarValue.GetComponent<Image>().fillAmount = currentAmount / 100;
 
-        gameObject.transform.position = Camera.main.WorldToScreenPoint(player.transform.position + new Vector3(0.25f, 0, 0));
+        gameObject.transform.position = Camera.main.WorldToScreenPoint(player.transform.position + new Vector3(0.15f, 0, 0));
         
-        selfImage.color = new Color(player.sr.color.r, player.sr.color.g, player.sr.color.b, 0.6f);
+        if (player.colour != 0)
+        {
+            selfImage.color = new Color(player.sr.color.r, player.sr.color.g, player.sr.color.b, 0.6f);
+        }
+        else
+        {
+            selfImage.color = new Color(player.sr.color.r, player.sr.color.g, player.sr.color.b, 0.0f);
+        }
     }
 }

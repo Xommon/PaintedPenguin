@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     public Language language;
     public TMP_FontAsset apu_title;
     public TMP_FontAsset roboto;
+    public bool magnet;
 
     // Swipe controls
     public Vector3 swipeStartPosition;
@@ -43,6 +44,8 @@ public class PlayerMovement : MonoBehaviour
         tutorial = true;
         swipeMinDistance = 10.0f;
         timesTwoMode = 1;
+        magnet = false;
+        colour = 0;
         dead = false;
         animator.SetBool("dead", false);
         rb = GetComponent<Rigidbody2D>();
@@ -338,8 +341,21 @@ public class PlayerMovement : MonoBehaviour
     public void Rainbow()
     {
         colour = 7;
-        GameObject loadingBar = Instantiate(loadingBarPrefab);
+        if (FindObjectOfType<LoadingBar>() == null)
+        {
+            GameObject loadingBar = Instantiate(loadingBarPrefab);
+        }
         RainbowCycle();
+    }
+
+    // Magnet
+    public void Magnet()
+    {
+        magnet = true;
+        if (FindObjectOfType<LoadingBar>() == null)
+        {
+            GameObject loadingBar = Instantiate(loadingBarPrefab);
+        }
     }
 
     public void RainbowCycle()
@@ -453,6 +469,10 @@ public class PlayerMovement : MonoBehaviour
                     Instantiate(babies[0]);
                     babies.RemoveAt(0);
                     babyPuffins++;
+                }
+                else if ((collision.transform.name == "BlockWithMagnet" || collision.transform.name == "BlockWithMagnet(Clone)") && dead == false)
+                {
+                    Magnet();
                 }
 
                 ParticleSystem ps = Instantiate(blockBurst, collision.transform.position, Quaternion.identity) as ParticleSystem;
