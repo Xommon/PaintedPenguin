@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using TMPro;
 
 public class LoadingBar : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class LoadingBar : MonoBehaviour
     public GameObject circleLoadingBar;
     public PlayerMovement player;
     public Image selfImage;
+    public TMP_Text visualMultiplier;
     public bool exists;
     public float currentAmount;
     public float speed;
@@ -23,11 +25,16 @@ public class LoadingBar : MonoBehaviour
 
     void Update()
     {
-        if (player.timesTwoMode > 1)
+        if (player.timesTwoMode != 1)
+        {
+            visualMultiplier.text = "×" + player.timesTwoMode;
+        }
+
+        if (player.colour != 7)
         {
             speed = 6;
         }
-        else if (player.colour == 7)
+        else
         {
             speed = 12;
         }
@@ -35,22 +42,22 @@ public class LoadingBar : MonoBehaviour
         if (currentAmount > 0)
         {
             currentAmount -= speed * Time.deltaTime;
-        } else
+        }
+        else
         {
-            if (player.timesTwoMode > 1)
+            /*if (player.timesTwoMode > 1)
             {
                 player.timesTwoMode = 1;
             }
             else
             {
                 player.colour = 0;
-            }
+            }*/
 
-            AudioSource audio = GetComponent<AudioSource>();
-            if (soundPlayed == false)
+            player.timesTwoMode = 1;
+            if (player.colour == 7)
             {
-                audio.Play();
-                soundPlayed = true;
+                player.colour = 0;
             }
 
             Destroy(transform.parent.gameObject);

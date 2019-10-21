@@ -410,7 +410,10 @@ public class PlayerMovement : MonoBehaviour
     // TimesTwo
     public void TimesTwoMode()
     {
-        GameObject loadingBar = Instantiate(loadingBarPrefab);
+        if (FindObjectOfType<LoadingBar>() == null)
+        {
+            GameObject loadingBar = Instantiate(loadingBarPrefab);
+        }
     }
 
     public void KillPlayer()
@@ -446,17 +449,17 @@ public class PlayerMovement : MonoBehaviour
                 {
                     colour = collision.gameObject.GetComponent<Block>().colour2;
                 }
-                else if (collision.transform.name == "BlockWithRainbow(Clone)" && colour != 7 && timesTwoMode == 1 && dead == false)
+                else if (collision.transform.name == "BlockWithRainbow(Clone)" && colour != 7 && dead == false)
                 {
                     colour = 7;
                     Rainbow();
                 }
-                else if (collision.transform.name == "BlockWithX3(Clone)" && colour != 7 && timesTwoMode == 1 && dead == false)
+                else if (collision.transform.name.Substring(0, 11) == "BlockWithX3" && dead == false)
                 {
-                    timesTwoMode = 3;
+                    timesTwoMode *= 3;
                     TimesTwoMode();
                 }
-                else if (collision.transform.name == "BlockWithBaby" && dead == false && babyPuffins < 3)
+                else if (collision.transform.name.Substring(0, 13) == "BlockWithBaby" && dead == false && babyPuffins < 3)
                 {
                     Instantiate(babies[0]);
                     babies.RemoveAt(0);
@@ -546,7 +549,7 @@ public class PlayerMovement : MonoBehaviour
             ps3.startColor = sr.color;
             Destroy(ps3.gameObject, ps3.startLifetime);
 
-            if (colour != 7 && timesTwoMode == 1 && dead == false)
+            if (colour != 7 && dead == false)
             {
                 colour = 7;
                 Rainbow();
@@ -557,9 +560,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.transform.tag == "TimesTwo")
         {
-            if (timesTwoMode == 1 && colour != 7 && dead == false)
+            if (dead == false)
             {
-                timesTwoMode = 2;
+                timesTwoMode *= 2;
                 TimesTwoMode();
             }
             Destroy(collision.gameObject);
