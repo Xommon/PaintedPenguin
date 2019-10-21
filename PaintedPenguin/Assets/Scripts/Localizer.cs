@@ -16,7 +16,7 @@ public class Localizer : MonoBehaviour {
 		WWWForm form = new WWWForm();
 		form.AddField("token", "gsbuLw212zicplXyhNS3DUgCs19HcoFG");
         /// TEST IP ADDRESS
-        // form.AddField("IP", "165.16.105.186");
+        // form.AddField("IP", "27.122.26.0");
         WWW www = new WWW("https://api.toolwareassets.com/v1/localizer/getlocation", form);
 		yield return www;
 		if (www.error == "" || www.error == null)
