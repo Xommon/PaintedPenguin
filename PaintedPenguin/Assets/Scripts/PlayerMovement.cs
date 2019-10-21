@@ -231,17 +231,6 @@ public class PlayerMovement : MonoBehaviour
         if (position == "starting" && dead == false)
         {
             StartWalking();
-            /*if (gameManager.playerTutorialEnabled == true)
-            {
-                //gameManager.tutorialWindow.SetActive(true);
-                //Invoke("StartWalking", 0.5f);
-                //Debug.Log("Tutorial starting");
-            }
-            else
-            {
-                //gameManager.tutorialWindow.SetActive(false);
-                //StartWalking();
-            }*/
 
             // Start game if player is in position, start the game
             if (rb.position.x >= -0.16)
@@ -454,12 +443,12 @@ public class PlayerMovement : MonoBehaviour
                     colour = 7;
                     Rainbow();
                 }
-                else if (collision.transform.name.Substring(0, 11) == "BlockWithX3" && dead == false)
+                else if ((collision.transform.name == "BlockWithX3" || collision.transform.name == "BlockWithX3(Clone)") && dead == false)
                 {
                     timesTwoMode *= 3;
                     TimesTwoMode();
                 }
-                else if (collision.transform.name.Substring(0, 13) == "BlockWithBaby" && dead == false && babyPuffins < 3)
+                else if ((collision.transform.name == "BlockWithBaby" || collision.transform.name == "BlockWithBaby(Clone)") && dead == false && babyPuffins < 3)
                 {
                     Instantiate(babies[0]);
                     babies.RemoveAt(0);

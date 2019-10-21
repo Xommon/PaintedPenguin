@@ -45,15 +45,6 @@ public class LoadingBar : MonoBehaviour
         }
         else
         {
-            /*if (player.timesTwoMode > 1)
-            {
-                player.timesTwoMode = 1;
-            }
-            else
-            {
-                player.colour = 0;
-            }*/
-
             player.timesTwoMode = 1;
             if (player.colour == 7)
             {
