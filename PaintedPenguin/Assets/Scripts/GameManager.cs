@@ -928,7 +928,7 @@ public class GameManager : MonoBehaviour
     {
         if (usernameInputUI.activeInHierarchy == true)
         {
-            if (playerUsername.Contains(" ") || playerUsername.Contains("*"))
+            if (nameSlot.text.Contains(" ") || nameSlot.text.Contains("*"))
             {
                 warningBoxText.text = language.Warning1;
             }
