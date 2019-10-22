@@ -33,11 +33,11 @@ public class LoadingBar : MonoBehaviour
 
         if (player.colour != 7)
         {
-            speed = 6;
+            speed = 3;
         }
         else
         {
-            speed = 12;
+            speed = 6;
         }
 
         if (currentAmount > 0)
