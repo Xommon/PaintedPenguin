@@ -75,7 +75,8 @@ public class LoadingBar : MonoBehaviour
         }
         else
         {
-            selfImage.color = new Color(player.sr.color.r, player.sr.color.g, player.sr.color.b, 0.0f);
+            // Colourless colour
+            selfImage.color = new Color(player.sr.color.r, player.sr.color.g, player.sr.color.b, 0.6f);
         }
     }
 }

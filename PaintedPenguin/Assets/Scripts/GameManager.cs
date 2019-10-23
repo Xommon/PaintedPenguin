@@ -144,6 +144,7 @@ public class GameManager : MonoBehaviour
     public GameObject rainbow;
     public GameObject timesTwo;
     public GameObject spikeBall;
+    public float blockWithFistPercent;
     float place;
     public List<float> obstaclePositions = new List<float>();
 
@@ -183,7 +184,7 @@ public class GameManager : MonoBehaviour
 
             // Place first block
             GameObject newblock = null;
-            if (score >= 400)
+            if (score >= 500)
             {
                 if ((score / 66.66f) <= 60)
                 {
@@ -216,7 +217,7 @@ public class GameManager : MonoBehaviour
                             newblock = Instantiate(blockWithTimesThree);
                         }
                     }
-                    else if (PercentChance(100)) // <-- 50% [TEST]
+                    else if (score > 3150 && PercentChance(blockWithFistPercent))
                     {
                         newblock = Instantiate(blockWithFist);
                     }
@@ -1070,6 +1071,16 @@ public class GameManager : MonoBehaviour
         if (downloadScoreUI.sprite == loadingSprite)
         {
             downloadScoreUI.transform.Rotate(0, 0, 10, Space.Self);
+        }
+
+        // BlockWithFist percent
+        if ((score - 3150.0f) / 69.0f <= 70.0f)
+        {
+            blockWithFistPercent = (score - 3150.0f) / 69.0f;
+        }
+        else
+        {
+            blockWithFistPercent = 70.0f;
         }
 
         // Location settings
