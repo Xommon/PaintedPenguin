@@ -139,6 +139,7 @@ public class GameManager : MonoBehaviour
     public GameObject blockWithTimesThree;
     public GameObject blockWithBaby;
     public GameObject blockWithMagnet;
+    public GameObject blockWithFist;
     public GameObject paint;
     public GameObject rainbow;
     public GameObject timesTwo;
@@ -206,7 +207,7 @@ public class GameManager : MonoBehaviour
                 {
                     if (PercentChance(60))
                     {
-                        if (PercentChance(95))
+                        if (PercentChance(92))
                         {
                             newblock = Instantiate(blockWithPaint);
                         }
@@ -215,12 +216,17 @@ public class GameManager : MonoBehaviour
                             newblock = Instantiate(blockWithTimesThree);
                         }
                     }
+                    else if (PercentChance(100)) // <-- 50% [TEST]
+                    {
+                        newblock = Instantiate(blockWithFist);
+                    }
                     else
                     {
                         newblock = Instantiate(block);
                     }
                 }
-            } else
+            }
+            else
             {
                 newblock = Instantiate(block);
             }
@@ -231,23 +237,57 @@ public class GameManager : MonoBehaviour
 
             // Place second block
             GameObject newblock2 = null;
-            if (score >= 1000)
+
+            if (newblock.name == "BlockWithFist" || newblock.name == "BlockWithFist(Clone)")
             {
-                if (PercentChance(5.0f))
+                newblock2 = null;
+            }
+            else
+            {
+                if (score >= 1000)
                 {
-                    if (PercentChance(25.0f))
+                    if (PercentChance(5.0f))
                     {
-                        newblock2 = Instantiate(blockWithRainbow);
+                        if (PercentChance(25.0f))
+                        {
+                            newblock2 = Instantiate(blockWithRainbow);
+                        }
+                        else if (PercentChance(33.33f))
+                        {
+                            newblock2 = Instantiate(blockWithTimesThree);
+                        }
+                        else if (PercentChance(50.0f))
+                        {
+                            newblock2 = Instantiate(blockWithMagnet);
+                        }
+                        else
+                        {
+                            if (player.babyPuffins < 3)
+                            {
+                                newblock2 = Instantiate(blockWithBaby);
+                            }
+                            else
+                            {
+                                newblock2 = Instantiate(block);
+                            }
+                        }
                     }
-                    else if (PercentChance(33.33f))
+                    else if (PercentChance(SpikeballEquation()))
                     {
-                        newblock2 = Instantiate(blockWithTimesThree);
+                        newblock2 = Instantiate(spikeBall);
                     }
-                    else if (PercentChance(50.0f))
+                    else if (PercentChance(score / 750.0f))
                     {
-                        newblock2 = Instantiate(blockWithMagnet);
+                        newblock2 = Instantiate(blockWithPaint);
                     }
                     else
+                    {
+                        newblock2 = Instantiate(block);
+                    }
+                }
+                else if (score >= 400 && score < 1000)
+                {
+                    if (PercentChance(1))
                     {
                         if (player.babyPuffins < 3)
                         {
@@ -257,28 +297,6 @@ public class GameManager : MonoBehaviour
                         {
                             newblock2 = Instantiate(block);
                         }
-                    }
-                }
-                else if (PercentChance(SpikeballEquation()))
-                {
-                    newblock2 = Instantiate(spikeBall);
-                }
-                else if (PercentChance(score / 750.0f))
-                {
-                    newblock2 = Instantiate(blockWithPaint);
-                }
-                else
-                {
-                    newblock2 = Instantiate(block);
-                }
-            }
-            else if (score >= 400 && score < 1000)
-            {
-                if (PercentChance(1))
-                {
-                    if (player.babyPuffins < 3)
-                    {
-                        newblock2 = Instantiate(blockWithBaby);
                     }
                     else
                     {
@@ -290,115 +308,126 @@ public class GameManager : MonoBehaviour
                     newblock2 = Instantiate(block);
                 }
             }
-            else
-            {
-                newblock2 = Instantiate(block);
-            }
 
-            if (newblock2.tag == "Block")
+            if (newblock2 != null)
             {
-                newblock2.GetComponent<Block>().wave = wave;
+                if (newblock2.tag == "Block")
+                {
+                    newblock2.GetComponent<Block>().wave = wave;
+                }
+                place = obstaclePositions[(Random.Range(0, 2))]; // 0 or 1
+                newblock2.transform.position = transform.position + new Vector3(1, place, 0);
+                obstaclePositions.Remove(place);
             }
-            place = obstaclePositions[(Random.Range(0, 2))]; // 0 or 1
-            newblock2.transform.position = transform.position + new Vector3(1, place, 0);
-            obstaclePositions.Remove(place);
 
             // Place paint
             GameObject newpaint = null;
-            if (PercentChance(25))
+            if (newblock.name == "BlockWithFist" || newblock.name == "BlockWithFist(Clone)")
             {
                 newpaint = Instantiate(paint);
                 newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
             }
-            else //75%
+            else
             {
-                if (PercentChance(2)) // TEST 2%
+                if (PercentChance(25))
                 {
-                    int pick;
-                    pick = Random.Range(1, 3);
-
-                    if (pick == 1)
-                    {
-                        newpaint = Instantiate(rainbow);
-                        newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
-                    }
-                    if (pick == 2)
-                    {
-                        newpaint = Instantiate(timesTwo);
-                        newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
-                    }
+                    newpaint = Instantiate(paint);
+                    newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
                 }
-                else if (PercentChance(score / 80.0f) && newblock2.tag == "Block")
+                else //75%
                 {
-                    // If AIR is empty
-                    if (obstaclePositions[0] == 0.7f)
+                    if (PercentChance(2)) // TEST 2%
                     {
-                        // The block moves up
-                        if (newblock.transform.position.y > newblock2.transform.position.y)
+                        int pick;
+                        pick = Random.Range(1, 3);
+
+                        if (pick == 1)
                         {
-                            newblock.GetComponent<Block>().moving = 0.5f;
-                            newblock.GetComponent<Block>().moveMax = 0.7f;
-                            newblock.GetComponent<Block>().moveMin = -0.1f;
+                            newpaint = Instantiate(rainbow);
+                            newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
                         }
-                        else
+                        if (pick == 2)
                         {
-                            newblock2.GetComponent<Block>().moving = 0.5f;
-                            newblock2.GetComponent<Block>().moveMax = 0.7f;
-                            newblock2.GetComponent<Block>().moveMin = -0.1f;
+                            newpaint = Instantiate(timesTwo);
+                            newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
                         }
                     }
-
-                    // If WATER is empty
-                    if (obstaclePositions[0] == -0.9f)
+                    else if (newblock2 != null && PercentChance(score / 80.0f))
                     {
-                        // The block moves down
-                        if (newblock.transform.position.y < newblock2.transform.position.y)
+                        if (newblock2.tag == "Block")
                         {
-                            newblock.GetComponent<Block>().moving = -0.5f;
-                            newblock.GetComponent<Block>().moveMax = -0.1f;
-                            newblock.GetComponent<Block>().moveMin = -0.9f;
-                        }
-                        else
-                        {
-                            newblock2.GetComponent<Block>().moving = -0.5f;
-                            newblock2.GetComponent<Block>().moveMax = -0.1f;
-                            newblock2.GetComponent<Block>().moveMin = -0.9f;
-                        }
-                    }
+                            // If AIR is empty
+                            if (obstaclePositions[0] == 0.7f)
+                            {
+                                // The block moves up
+                                if (newblock.transform.position.y > newblock2.transform.position.y)
+                                {
+                                    newblock.GetComponent<Block>().moving = 0.5f;
+                                    newblock.GetComponent<Block>().moveMax = 0.7f;
+                                    newblock.GetComponent<Block>().moveMin = -0.1f;
+                                }
+                                else
+                                {
+                                    newblock2.GetComponent<Block>().moving = 0.5f;
+                                    newblock2.GetComponent<Block>().moveMax = 0.7f;
+                                    newblock2.GetComponent<Block>().moveMin = -0.1f;
+                                }
+                            }
 
-                    // If GROUND is empty
-                    if (obstaclePositions[0] == -0.1f)
-                    {
-                        // The block moves down
-                        if (newblock.transform.position.y < newblock2.transform.position.y)
-                        {
-                            int pickBlock = Random.Range(1, 2);
-                            if (pickBlock == 1)
+                            // If WATER is empty
+                            if (obstaclePositions[0] == -0.9f)
                             {
-                                newblock.GetComponent<Block>().moving = 0.5f;
-                                newblock.GetComponent<Block>().moveMax = -0.1f;
-                                newblock.GetComponent<Block>().moveMin = -0.9f;
-                            } else
-                            {
-                                newblock2.GetComponent<Block>().moving = -0.5f;
-                                newblock2.GetComponent<Block>().moveMax = 0.7f;
-                                newblock2.GetComponent<Block>().moveMin = -0.1f;
+                                // The block moves down
+                                if (newblock.transform.position.y < newblock2.transform.position.y)
+                                {
+                                    newblock.GetComponent<Block>().moving = -0.5f;
+                                    newblock.GetComponent<Block>().moveMax = -0.1f;
+                                    newblock.GetComponent<Block>().moveMin = -0.9f;
+                                }
+                                else
+                                {
+                                    newblock2.GetComponent<Block>().moving = -0.5f;
+                                    newblock2.GetComponent<Block>().moveMax = -0.1f;
+                                    newblock2.GetComponent<Block>().moveMin = -0.9f;
+                                }
                             }
-                        }
-                        else
-                        {
-                            int pickBlock = Random.Range(1, 2);
-                            if (pickBlock == 1)
+
+                            // If GROUND is empty
+                            if (obstaclePositions[0] == -0.1f)
                             {
-                                newblock.GetComponent<Block>().moving = -0.5f;
-                                newblock.GetComponent<Block>().moveMax = 0.7f;
-                                newblock.GetComponent<Block>().moveMin = -0.1f;
-                            }
-                            else
-                            {
-                                newblock2.GetComponent<Block>().moving = 0.5f;
-                                newblock2.GetComponent<Block>().moveMax = -0.1f;
-                                newblock2.GetComponent<Block>().moveMin = -0.9f;
+                                // The block moves down
+                                if (newblock.transform.position.y < newblock2.transform.position.y)
+                                {
+                                    int pickBlock = Random.Range(1, 2);
+                                    if (pickBlock == 1)
+                                    {
+                                        newblock.GetComponent<Block>().moving = 0.5f;
+                                        newblock.GetComponent<Block>().moveMax = -0.1f;
+                                        newblock.GetComponent<Block>().moveMin = -0.9f;
+                                    }
+                                    else
+                                    {
+                                        newblock2.GetComponent<Block>().moving = -0.5f;
+                                        newblock2.GetComponent<Block>().moveMax = 0.7f;
+                                        newblock2.GetComponent<Block>().moveMin = -0.1f;
+                                    }
+                                }
+                                else
+                                {
+                                    int pickBlock = Random.Range(1, 2);
+                                    if (pickBlock == 1)
+                                    {
+                                        newblock.GetComponent<Block>().moving = -0.5f;
+                                        newblock.GetComponent<Block>().moveMax = 0.7f;
+                                        newblock.GetComponent<Block>().moveMin = -0.1f;
+                                    }
+                                    else
+                                    {
+                                        newblock2.GetComponent<Block>().moving = 0.5f;
+                                        newblock2.GetComponent<Block>().moveMax = -0.1f;
+                                        newblock2.GetComponent<Block>().moveMin = -0.9f;
+                                    }
+                                }
                             }
                         }
                     }

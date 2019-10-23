@@ -332,6 +332,33 @@ TextureImporter:
   - first:
       213: 6160866511706337852
     second: sprite_tiny-magnet
+  - first:
+      213: 4096097540614126731
+    second: blockwlid
+  - first:
+      213: -3746455057852378200
+    second: fist1
+  - first:
+      213: -4148168758435088303
+    second: blockwolid
+  - first:
+      213: 9047244001001277561
+    second: fist2
+  - first:
+      213: 6398637144611533636
+    second: fist3
+  - first:
+      213: 7196790441507556914
+    second: fist4
+  - first:
+      213: 8484208907087211763
+    second: sprite_sheet_49
+  - first:
+      213: -1169075241130104896
+    second: sprite_sheet_58
+  - first:
+      213: -8790877608769316777
+    second: sprite_sheet_59
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -1717,7 +1744,7 @@ TextureImporter:
         width: 5
         height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1725,6 +1752,195 @@ TextureImporter:
       bones: []
       spriteID: 0fe6b6c0e05b91f42a084df4c2f5f45d
       internalID: 6160866511706337852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blockwlid
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 76
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ff0eac1343c1e448bd6859a00e4d2d0
+      internalID: 4096097540614126731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fist1
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 37
+        width: 18
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ba16e9381f5be140906dae27ecaf3ef
+      internalID: -3746455057852378200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blockwolid
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 50
+        width: 18
+        height: 25
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6321192c90c455441b16002e77670bba
+      internalID: -4148168758435088303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fist2
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 37
+        width: 18
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dd43d9aad6b23f4498a81a6455a30e7
+      internalID: 9047244001001277561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fist3
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 37
+        width: 18
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0ed90e8a826dd243be031d26f909515
+      internalID: 6398637144611533636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fist4
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 37
+        width: 18
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8be961bb18367214ebb09c0fcf7b095d
+      internalID: 7196790441507556914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_sheet_49
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 37
+        width: 18
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5738a9fa531aa44086d1d5f26207965
+      internalID: 8484208907087211763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_sheet_58
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 95
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83c904d95fe45d345ab6b4cec68fdc73
+      internalID: -1169075241130104896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_sheet_59
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 24
+        width: 18
+        height: 25
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4562ee1538fed64499161fae7c253a7
+      internalID: -8790877608769316777
       vertices: []
       indices: 
       edges: []

@@ -145,6 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
     type: 3}
+  sr: {fileID: 351913578448194164}
 --- !u!95 &8659462340560371467
 Animator:
   serializedVersion: 3

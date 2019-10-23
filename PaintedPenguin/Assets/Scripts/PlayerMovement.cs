@@ -442,6 +442,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.transform.tag == "Block")
         {
+            if (collision.transform.tag == "Spikeball")
+            {
+                KillPlayer();
+            }
+
             if (collision.gameObject.GetComponent<Block>().colour != colour && colour != 7 && dead == false)
             {
                 collision.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
@@ -534,7 +539,13 @@ public class PlayerMovement : MonoBehaviour
         if (collision.transform.tag == "SpikeBall")
         {
             collision.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-            collision.gameObject.GetComponent<SpikeBall>().transform.rotation = Quaternion.identity;
+            collision.gameObject.transform.rotation = Quaternion.identity;
+            KillPlayer();
+        }
+
+        if (collision.transform.tag == "Fist")
+        {
+            collision.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
             KillPlayer();
         }
 

@@ -7,10 +7,13 @@ public class Block : MonoBehaviour
     public GameManager gameManager;
     public GameObject block;
     public PlayerMovement player;
+    public GameObject fist;
+    public float facing;
     public int colour;
     public int colour2;
     public SpriteRenderer sr;
     public SpriteRenderer sr2;
+    public bool punch;
     public bool hit = false;
     public float moving;
     public float moveMax;
@@ -21,6 +24,7 @@ public class Block : MonoBehaviour
     private void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
+        facing = 0.1f;
 
         colours.Add(1);
         colours.Add(2);
@@ -28,6 +32,32 @@ public class Block : MonoBehaviour
         colours.Add(4);
         colours.Add(5);
         colours.Add(6);
+
+        // Determine which way to punch
+        if (gameObject.name == "BlockWithFist" || gameObject.name == "BlockWithFist(Clone)")
+        {
+            punch = false;
+
+            if (transform.position.y == 0.7f)
+            {
+                facing = 180;
+            }
+            else if (transform.position.y == -0.9f)
+            {
+                facing = 0;
+            }
+            else
+            {
+                if (gameManager.PercentChance(50))
+                {
+                    facing = 0;
+                }
+                else
+                {
+                    facing = 180;
+                }
+            }
+        }
 
         // Randomly choose block's colour
         int roll = Random.Range(1, 7); // Between 1 and 6
@@ -114,6 +144,12 @@ public class Block : MonoBehaviour
         // Blocks move up and down
         transform.position += Vector3.up * moving * 1.0f * Time.deltaTime;
 
+        // Change facing direction
+        if ((gameObject.name == "BlockWithFist" || gameObject.name == "BlockWithFist(Clone)"))
+        {
+            transform.rotation = new Quaternion(0, 0, facing, 0);
+        }
+
         // Destroy if out of scene
         if (transform.position.x < -0.9)
         {
@@ -130,6 +166,17 @@ public class Block : MonoBehaviour
             if (gameObject.transform.position.y <= moveMin)
             {
                 moving *= -1;
+            }
+        }
+
+        // Activate fist
+        if ((gameObject.name == "BlockWithFist" || gameObject.name == "BlockWithFist(Clone)") && punch == false && fist != null)
+        {
+            if (transform.position.x < 0)
+            {
+                fist = Instantiate(fist, new Vector3(transform.position.x, transform.position.y + 0.4f), transform.rotation, gameObject.transform);
+                fist.GetComponent<Fist>().blockWithFist = gameObject;
+                punch = true;
             }
         }
     }

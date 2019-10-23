@@ -5,6 +5,7 @@ using UnityEngine;
 public class Rainbow : MonoBehaviour
 {
     public GameManager gameManager;
+    public SpriteRenderer sr;
 
     // Update is called once per frame
     void Update()
