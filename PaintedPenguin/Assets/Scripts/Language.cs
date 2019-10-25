@@ -18,6 +18,9 @@ public class Language : MonoBehaviour
     public TMP_FontAsset tlbFont;
     public TMP_FontAsset hindiFont;
     public TMP_FontAsset hebrewFont;
+    public List<Action> languages = new List<Action>();
+    public int currentLanguage;
+    public int previousLanguage;
 
     // Language
     public string LanguageName;
@@ -103,6 +106,65 @@ public class Language : MonoBehaviour
     public Sprite turkish;
     public Sprite ukranian;
     public Sprite vietnamese;
+
+    void Start()
+    {
+        // Add languages to list
+        languages.Add(English);
+        languages.Add(EnglishUK);
+        languages.Add(French);
+        //.Add(Portuguese);
+
+        // Decide index of language
+        if (gameManager.playerLanguage == "" || gameManager.playerLanguage == null)
+        {
+            currentLanguage = 0;
+        }
+        else
+        {
+            for (int i = 0; i < languages.Count; i++)
+            {
+                if (gameManager.playerLanguage == languages[i].Method.Name)
+                {
+                    currentLanguage = i;
+                }
+            }
+        }
+        previousLanguage = currentLanguage;
+    }
+
+    public void Right()
+    {
+        if (currentLanguage == languages.Count - 1)
+        {
+            currentLanguage = 0;
+        }
+        else
+        {
+            currentLanguage++;
+        }
+    }
+
+    public void Left()
+    {
+        if (currentLanguage == 0)
+        {
+            currentLanguage = languages.Count - 1;
+        }
+        else
+        {
+            currentLanguage--;
+        }
+    }
+
+    void Update()
+    {
+        if (currentLanguage != previousLanguage)
+        {
+            languages[currentLanguage]();
+            previousLanguage = currentLanguage;
+        }
+    }
 
     // Languages
     public void English()
@@ -192,7 +254,53 @@ public class Language : MonoBehaviour
         Warning2 = "The name is too long.";
         Warning3 = "Name cannot be blank.";
         Flag.image.overrideSprite = english;
-        gameManager.playerLanguage = "English";
+        gameManager.playerLanguage = "EnglishUK";
+        gameManager.XButtonLanguage();
+    } // Verified
+
+    public void Shavian()
+    {
+        // Language
+        LanguageName = "𐑖𐑣𐑩𐑝𐑦𐑩𐑯";
+
+        // Main Menu
+        GameTitle = "Painted Puffin";
+        StartButton = "𐑕𐑑𐑩𐑮𐑑";
+        Score = "𐑕𐑗𐑪𐑮𐑧";
+        Combo = "combo";
+
+        // Credits
+
+
+        // Game Over
+        GameOver = "𐑜𐑩𐑥𐑧 𐑪𐑝𐑧𐑮";
+        Replay = "𐑮𐑧𐑐𐑤𐑩𐑭";
+        Continue = "𐑗𐑪𐑯𐑑𐑦𐑯𐑳𐑧?";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "𐑐𐑩𐑳𐑕𐑧𐑛";
+
+        // High Scores
+        HighScores = "𐑣𐑦𐑜𐑣 𐑕𐑗𐑪𐑮𐑧𐑕";
+
+        // Colour Picker
+        ColourPickerText = "𐑗𐑪𐑤𐑪𐑮 𐑐𐑦𐑗𐑒𐑧𐑮";
+
+        // Language Prompt
+        LanguagePrompt = "𐑤𐑩𐑯𐑜𐑳𐑩𐑜𐑧";
+
+        // Username Input
+        Name = "𐑯𐑩𐑥𐑧 ...";
+        OK = "𐑪𐑒𐑩𐑭";
+        Warning1 = "Cannot contain spaces or *.";
+        Warning2 = "The name is too long.";
+        Warning3 = "Name cannot be blank.";
+        Warning4 = "Invalid characters";
+        Flag.image.overrideSprite = english;
+        gameManager.playerLanguage = "Shavian";
         gameManager.XButtonLanguage();
     } // Verified
 
@@ -600,6 +708,9 @@ public class Language : MonoBehaviour
 
     public void French()
     {
+        // Language
+        LanguageName = "Français";
+
         // Main Menu
         GameTitle = "Macareux Peint";
         StartButton = "DÉBUT";
@@ -1113,6 +1224,9 @@ public class Language : MonoBehaviour
 
     public void Portuguese()
     {
+        // Language
+        LanguageName = "Português";
+
         // Main Menu
         GameTitle = "Papagaio-do-Mar \nPintado";
         StartButton = "COMEÇAR";

@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     public InputField usernameInputField;
     public Text usernameInputFieldText;
     public GameObject credits;
+    public Text currentLanguageDisplay;
 
     // Volume
     public float playerSound;
@@ -99,6 +100,7 @@ public class GameManager : MonoBehaviour
     public GameObject usernameInputUI;
     public string playerUsername;
     public string playerLanguage;
+    public string tempLanguage;
 
     // Languages
     public Language language;
@@ -548,6 +550,7 @@ public class GameManager : MonoBehaviour
         mainMenuUI.SetActive(false);
         tempPlayerSound = playerSound;
         tempPlayerMusic = playerMusic;
+        tempLanguage = playerLanguage;
     }
 
     public void GetUsername(string name)
@@ -689,9 +692,6 @@ public class GameManager : MonoBehaviour
     {
         // Load all save data
         LoadUsername();
-
-        // Load game in English
-        language.English();
 
         // Set weather
         string date = System.DateTime.Now.ToString("ddMM");
@@ -936,11 +936,12 @@ public class GameManager : MonoBehaviour
     {
         if ((playerUsername != "" && playerUsername != null) || (usernameInputFieldText.text == "" || usernameInputFieldText.text == null))
         {
-            usernameInputUI.SetActive(false);
-            mainMenuUI.SetActive(true);
             credits.GetComponent<Credits>().count = 0;
             playerSound = tempPlayerSound;
             playerMusic = tempPlayerMusic;
+            language.SendMessage(tempLanguage, null, SendMessageOptions.DontRequireReceiver);
+            usernameInputUI.SetActive(false);
+            mainMenuUI.SetActive(true);
         }
     }
 
@@ -1056,6 +1057,9 @@ public class GameManager : MonoBehaviour
             playerSound = soundSlider.value;
             playerMusic = musicSlider.value;
         }
+
+        // Always display current language
+        currentLanguageDisplay.text = language.LanguageName.ToUpper();
 
         // Spin the pause button when the game is paused
         if (paused == true)
