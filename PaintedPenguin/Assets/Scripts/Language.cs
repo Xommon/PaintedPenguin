@@ -19,11 +19,19 @@ public class Language : MonoBehaviour
     public TMP_FontAsset hindiFont;
     public TMP_FontAsset hebrewFont;
 
+    // Language
+    public string LanguageName;
+
     // Main Menu
     public string GameTitle;
     public string StartButton;
     public string Score;
     public string Combo;
+
+    // Credits
+    public string CreatedBy;
+    public string ArtBy;
+    public string IconsBy;
 
     // Game Over
     public string GameOver;
@@ -52,6 +60,7 @@ public class Language : MonoBehaviour
     public string Warning1;
     public string Warning2;
     public string Warning3;
+    public string Warning4;
     public Button Flag;
 
     // Flags
@@ -98,11 +107,63 @@ public class Language : MonoBehaviour
     // Languages
     public void English()
     {
+        // Language
+        LanguageName = "English (US)";
+
         // Main Menu
         GameTitle = "Painted Puffin";
         StartButton = "START";
         Score = "SCORE";
         Combo = "combo";
+
+        // Credits
+
+
+        // Game Over
+        GameOver = "GAME OVER";
+        Replay = "REPLAY";
+        Continue = "CONTINUE?";
+
+        // Score
+        ScoreUI = gameManager.score.ToString();
+
+        // Pause
+        Paused = "PAUSED";
+
+        // High Scores
+        HighScores = "HIGH SCORES";
+
+        // Colour Picker
+        ColourPickerText = "COLOR PICKER";
+
+        // Language Prompt
+        LanguagePrompt = "LANGUAGE";
+
+        // Username Input
+        Name = "Name ...";
+        OK = "OK";
+        Warning1 = "Cannot contain spaces or *.";
+        Warning2 = "The name is too long.";
+        Warning3 = "Name cannot be blank.";
+        Warning4 = "Invalid characters";
+        Flag.image.overrideSprite = english;
+        gameManager.playerLanguage = "English";
+        gameManager.XButtonLanguage();
+    } // Verified
+
+    // Languages
+    public void EnglishUK()
+    {
+        // Language
+        LanguageName = "English (UK)";
+
+        // Main Menu
+        GameTitle = "Painted Puffin";
+        StartButton = "START";
+        Score = "SCORE";
+        Combo = "combo";
+
+        // Credits
 
         // Game Over
         GameOver = "GAME OVER";

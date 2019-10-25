@@ -9,6 +9,10 @@
 - Analytics
 (https://icons8.com in store description)
 
+:: CREDITS ::
+Little flag icons
+Colour picker
+
 BUGS:
 - First place tier doesn't have the same place as second place
 - Words clipping (Tagalog warnings)
@@ -16,4 +20,3 @@ BUGS:
 - Arabizer is broken
 - Fix titles in language
 - Snow piling
-- Babies don't always show up when you hit block (???)

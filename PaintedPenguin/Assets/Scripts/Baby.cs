@@ -55,12 +55,6 @@ public class Baby : MonoBehaviour
                     animator.SetBool("Jumping", false);
                     animator.SetBool("Dead", false);
                 }
-                /*else if (player.playerPositions2[offset + (spacing * babyValue)] == "dead")
-                {
-                    animator.SetBool("Swimming", false);
-                    animator.SetBool("Jumping", false);
-                    animator.SetBool("Dead", true);
-                }*/
             }
             else
             {

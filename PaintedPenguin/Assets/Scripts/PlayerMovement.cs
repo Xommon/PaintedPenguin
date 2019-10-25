@@ -31,7 +31,10 @@ public class PlayerMovement : MonoBehaviour
     public Language language;
     public TMP_FontAsset apu_title;
     public TMP_FontAsset roboto;
+    public bool flashing;
     public bool magnet;
+    public int count;
+    public float walkingPosition;
 
     // Swipe controls
     public Vector3 swipeStartPosition;
@@ -41,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        flashing = false;
         tutorial = true;
         swipeMinDistance = 10.0f;
         timesTwoMode = 1;
@@ -59,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (position == "walking")
             {
-                rb.MovePosition(new Vector2(-0.16f, -0.075f));
+                rb.MovePosition(new Vector2(walkingPosition, -0.075f));
                 position = "jumping";
                 rb.gravityScale = 0.5f;
                 rb.velocity = new Vector2(0, 2.9f);
@@ -90,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (position == "walking")
             {
-                rb.MovePosition(new Vector2(-0.16f, -0.075f));
+                rb.MovePosition(new Vector2(walkingPosition, -0.075f));
                 position = "diving";
                 rb.gravityScale = -0.5f;
                 rb.velocity = new Vector2(0, -2.9f);
@@ -121,6 +125,24 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (flashing == true)
+        {
+            count += int.Parse((5 * Time.deltaTime).ToString().Substring(0, 1));
+
+            if (count % 2 == 0)
+            {
+                FlashOn();
+            }
+            else if (count % 2 == 1)
+            {
+                FlashOff();
+            }
+        }
+        else
+        {
+            count = 0;
+        }
+
         // Add positions to list
         if (gameManager.paused == false)
         {
@@ -236,7 +258,7 @@ public class PlayerMovement : MonoBehaviour
             StartWalking();
 
             // Start game if player is in position, start the game
-            if (rb.position.x >= -0.16)
+            if (rb.position.x >= (walkingPosition - 0.03f))
             {
                 if (gameManager.canContinue == true && gameManager.playerTutorialEnabled == true)
                 {
@@ -251,6 +273,7 @@ public class PlayerMovement : MonoBehaviour
                     tutorial = false;
                     SwitchGameOn();
                 }
+
                 position = ("walking");
             }
         }
@@ -260,7 +283,7 @@ public class PlayerMovement : MonoBehaviour
             // Snap to ground if walking
             if (rb.position.y != -0.075 && position == "walking")
             {
-                rb.MovePosition(new Vector2(-0.16f, -0.075f));
+                rb.MovePosition(new Vector2(walkingPosition, -0.075f));
                 animator.SetBool("jumping", false);
                 animator.SetBool("falling", false);
                 animator.SetBool("swimming", false);
@@ -355,6 +378,25 @@ public class PlayerMovement : MonoBehaviour
         if (FindObjectOfType<LoadingBar>() == null)
         {
             GameObject loadingBar = Instantiate(loadingBarPrefab);
+        }
+    }
+
+    public void FlashOn()
+    {
+        sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1.0f);
+    }
+
+    public void FlashOff()
+    {
+        sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0.0f);
+    }
+
+    public void ColourFlashWarning()
+    {
+        if (colour == 7 && flashing == false)
+        {
+            count = 0;
+            flashing = true;
         }
     }
 

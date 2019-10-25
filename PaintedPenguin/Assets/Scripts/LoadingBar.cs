@@ -43,6 +43,11 @@ public class LoadingBar : MonoBehaviour
         if (currentAmount > 0)
         {
             currentAmount -= speed * Time.deltaTime;
+
+            if (currentAmount <= 25)
+            {
+                player.ColourFlashWarning();
+            }
         }
         else
         {
@@ -52,6 +57,7 @@ public class LoadingBar : MonoBehaviour
             {
                 player.colour = 0;
             }
+            player.flashing = false;
 
             Destroy(transform.parent.gameObject);
         }

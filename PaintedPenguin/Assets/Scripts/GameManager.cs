@@ -958,7 +958,21 @@ public class GameManager : MonoBehaviour
     {
         if (usernameInputUI.activeInHierarchy == true)
         {
-            if (nameSlot.text.Contains(" ") || nameSlot.text.Contains("*"))
+            string nonLatinChars = "";
+
+            for (int i = 0; i < nameSlot.text.Length; i++)
+            {
+                if (language.LatinCharacter(nameSlot.text.Substring(i, 1)) == false)
+                {
+                    nonLatinChars += nameSlot.text.Substring(i, 1);
+                }
+            }
+
+            if (nonLatinChars != "")
+            {
+                warningBoxText.text = language.Warning4 + ": " + nonLatinChars;
+            }
+            else if (nameSlot.text.Contains(" ") || nameSlot.text.Contains("*"))
             {
                 warningBoxText.text = language.Warning1;
             }
