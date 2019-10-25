@@ -790,7 +790,7 @@ public class GameManager : MonoBehaviour
 
             if (highscoreList[i].username == playerUsername)
             {
-                tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += "<color=yellow>";
+                tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += "<color=white>";
             }
             else
             {
@@ -845,7 +845,7 @@ public class GameManager : MonoBehaviour
             // Score
             if (highscoreList[i].username == playerUsername)
             {
-                tableScoreUI.GetComponent<TMPro.TextMeshProUGUI>().text += "<color=yellow>";
+                tableScoreUI.GetComponent<TMPro.TextMeshProUGUI>().text += "<color=white>";
             }
             else
             {
