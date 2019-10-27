@@ -16,12 +16,6 @@ public class Credits : MonoBehaviour
     {
         count = 0;
 
-        topTexts.Add("created by");
-        topTexts.Add("art by");
-        topTexts.Add("background by");
-        topTexts.Add("icons by");
-        topTexts.Add("hand art by");
-
         bottomTexts.Add("micheal quentin");
         bottomTexts.Add("chris ambroziak");
         bottomTexts.Add("vicente nitti");

@@ -37,6 +37,11 @@ public class GameManager : MonoBehaviour
     public Text usernameInputFieldText;
     public GameObject credits;
     public Text currentLanguageDisplay;
+    public Text settingsUI;
+    public Text soundUI;
+    public Text musicUI;
+    public Text tutorialUI;
+    public Text editColoursUI;
 
     // Volume
     public float playerSound;
@@ -85,6 +90,7 @@ public class GameManager : MonoBehaviour
     public Sprite uploadedSprite;
     public Sprite errorSprite;
     public ParticleSystem snow;
+    public GameObject snowUI;
 
     // High scores
     const string privateCode = "cQ87T8a7BUGRQmQNMDB6iwWUTDoSubyUOyfJ9_43b3_g";
@@ -460,8 +466,8 @@ public class GameManager : MonoBehaviour
             uploadScoreUI.transform.rotation = Quaternion.identity;
             uploadScoreUI.sprite = errorSprite;
 
-            // If there's an error, keep retrying to submit score every 3 seconds
-            yield return new WaitForSeconds(3);
+            // If there's an error, keep retrying to submit score every 5 seconds
+            yield return new WaitForSeconds(5);
             StartCoroutine(AddNewHighScore(score));
         }
         else
@@ -572,28 +578,31 @@ public class GameManager : MonoBehaviour
         playerSound = sound;
         playerMusic = music;
         playerTutorialEnabled = tutorial;
-        SaveSystem.SaveUsername(this);
+        SaveSystem.SaveData(this);
     }
 
     // Load Data
     public void LoadUsername()
     {
-        SaveData data = SaveSystem.LoadUsername();
+        SaveData data = SaveSystem.LoadData();
 
-        playerUsername = data.playerUsername;
-        nameFillInText.text = data.playerUsername;
-        playerLanguage = data.playerLanguage;
-        RedC = HexToColour(data.playerRed);
-        OrangeC = HexToColour(data.playerOrange);
-        YellowC = HexToColour(data.playerYellow);
-        GreenC = HexToColour(data.playerGreen);
-        BlueC = HexToColour(data.playerBlue);
-        PurpleC = HexToColour(data.playerPurple);
-        playerSound = data.playerSound;
-        playerMusic = data.playerMusic;
-        soundSlider.value = data.playerSound;
-        musicSlider.value = data.playerMusic;
-        tutorialToggle.isOn = data.playerTutorialEnabled;
+        if (SaveSystem.SaveFileExists())
+        {
+            playerUsername = data.playerUsername;
+            nameFillInText.text = data.playerUsername;
+            playerLanguage = data.playerLanguage;
+            RedC = HexToColour(data.playerRed);
+            OrangeC = HexToColour(data.playerOrange);
+            YellowC = HexToColour(data.playerYellow);
+            GreenC = HexToColour(data.playerGreen);
+            BlueC = HexToColour(data.playerBlue);
+            PurpleC = HexToColour(data.playerPurple);
+            playerSound = data.playerSound;
+            playerMusic = data.playerMusic;
+            soundSlider.value = data.playerSound;
+            musicSlider.value = data.playerMusic;
+            tutorialToggle.isOn = data.playerTutorialEnabled;
+        }
     }
 
     // Get location
@@ -691,12 +700,14 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         // Load all save data
+        SaveSystem.DeleteData(); // Clear save data
         LoadUsername();
 
         // Set weather
         string date = System.DateTime.Now.ToString("ddMM");
         if (date.Substring(2, 2) == "11")
         {
+            snowUI.SetActive(true);
             snow.emissionRate = float.Parse(date.Substring(0, 2)) * 3.33f;
         }
         else if (date.Substring(2, 2) == "12")
@@ -745,18 +756,15 @@ public class GameManager : MonoBehaviour
 
         uploadScoreUI.sprite = null;
         uploadScoreUI.color = new Color(1, 1, 1, 0f);
-        
-        // Choose what menus open depending on the save file
-        if (playerLanguage == "" || playerUsername == null)
-        {
-            languageTableUI.SetActive(true);
-            usernameInputUI.SetActive(false);
-            mainMenuUI.SetActive(false);
-        } else if (playerUsername == "" || playerUsername == null)
+
+        // Set up default options if there is no save file
+        if (playerLanguage == "" || playerLanguage == null)
         {
             usernameInputUI.SetActive(true);
             mainMenuUI.SetActive(false);
-            languageTableUI.SetActive(false);
+            language.English();
+            playerSound = 100;
+            playerMusic = 100;
             tempPlayerSound = playerSound;
             tempPlayerMusic = playerMusic;
         }
@@ -934,7 +942,7 @@ public class GameManager : MonoBehaviour
 
     public void XButtonSettings()
     {
-        if ((playerUsername != "" && playerUsername != null) || (usernameInputFieldText.text == "" || usernameInputFieldText.text == null))
+        if (SaveSystem.SaveFileExists() == true || usernameInputFieldText.text.Length > 0)
         {
             credits.GetComponent<Credits>().count = 0;
             playerSound = tempPlayerSound;
@@ -1167,7 +1175,15 @@ public class GameManager : MonoBehaviour
 
         colourPickerText.text = language.ColourPickerText.ToUpper();
 
-        languagePromptText.text = language.LanguagePrompt.ToUpper();
+        settingsUI.text = language.Settings.ToUpper();
+
+        soundUI.text = language.Sound.ToUpper();
+
+        musicUI.text = language.Music.ToUpper();
+
+        tutorialUI.text = language.Tutorial.ToUpper();
+
+        editColoursUI.text = language.ColourPickerText.ToUpper();
 
         if (language.Name == "" || language.Name == null)
         {

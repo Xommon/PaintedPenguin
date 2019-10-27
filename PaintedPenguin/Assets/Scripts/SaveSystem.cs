@@ -6,7 +6,7 @@ using System;
 [Serializable]
 public static class SaveSystem
 {
-    public static void SaveUsername (GameManager gameManager)
+    public static void SaveData (GameManager gameManager)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/save.dork";
@@ -19,7 +19,7 @@ public static class SaveSystem
         stream.Close();
     }
 
-    public static SaveData LoadUsername()
+    public static SaveData LoadData()
     {
         string path = Application.persistentDataPath + "/save.dork";
         if (File.Exists(path))
@@ -36,5 +36,22 @@ public static class SaveSystem
             Debug.Log("Save file not found in " + path);
             return null;
         }
+    }
+
+    public static bool SaveFileExists()
+    {
+        if (File.Exists(Application.persistentDataPath + "/save.dork"))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public static void DeleteData()
+    {
+        File.Delete(Application.persistentDataPath + "/save.dork");
     }
 }

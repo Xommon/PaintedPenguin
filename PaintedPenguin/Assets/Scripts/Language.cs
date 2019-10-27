@@ -31,11 +31,6 @@ public class Language : MonoBehaviour
     public string Score;
     public string Combo;
 
-    // Credits
-    public string CreatedBy;
-    public string ArtBy;
-    public string IconsBy;
-
     // Game Over
     public string GameOver;
     public string Replay;
@@ -54,16 +49,18 @@ public class Language : MonoBehaviour
     // Colour Picker
     public string ColourPickerText;
 
-    // Language Prompt
-    public string LanguagePrompt;
-
-    // Username Input
+    // Settings
+    public string Settings;
     public string Name;
-    public string OK;
+    public string Sound;
+    public string Music;
+    public string Tutorial;
+    public string EditColours;
     public string Warning1;
     public string Warning2;
     public string Warning3;
     public string Warning4;
+    public string OK;
     public Button Flag;
 
     // Flags
@@ -113,7 +110,7 @@ public class Language : MonoBehaviour
         languages.Add(English);
         languages.Add(EnglishUK);
         languages.Add(French);
-        //.Add(Portuguese);
+        languages.Add(Portuguese);
 
         // Decide index of language
         if (gameManager.playerLanguage == "" || gameManager.playerLanguage == null)
@@ -176,10 +173,14 @@ public class Language : MonoBehaviour
         GameTitle = "Painted Puffin";
         StartButton = "START";
         Score = "SCORE";
-        Combo = "combo";
 
         // Credits
-
+        gameManager.GetComponent<Credits>().topTexts.Clear();
+        gameManager.GetComponent<Credits>().topTexts.Add(("created by").ToLower());
+        gameManager.GetComponent<Credits>().topTexts.Add(("puffin art by").ToLower());
+        gameManager.GetComponent<Credits>().topTexts.Add(("background by").ToLower());
+        gameManager.GetComponent<Credits>().topTexts.Add(("icons by").ToLower());
+        gameManager.GetComponent<Credits>().topTexts.Add(("hands art by").ToLower());
 
         // Game Over
         GameOver = "GAME OVER";
@@ -196,18 +197,23 @@ public class Language : MonoBehaviour
         HighScores = "HIGH SCORES";
 
         // Colour Picker
-        ColourPickerText = "COLOR PICKER";
+        ColourPickerText = "EDIT COLORS";
 
-        // Language Prompt
-        LanguagePrompt = "LANGUAGE";
+        // Combo
+        Combo = "combo";
 
-        // Username Input
+        // Settings
+        Settings = "Settings";
         Name = "Name ...";
-        OK = "OK";
+        Sound = "Sound";
+        Music = "Music";
+        Tutorial = "Tutorial";
         Warning1 = "Cannot contain spaces or *.";
         Warning2 = "The name is too long.";
         Warning3 = "Name cannot be blank.";
         Warning4 = "Invalid characters";
+        OK = "OK";
+
         Flag.image.overrideSprite = english;
         gameManager.playerLanguage = "English";
         gameManager.XButtonLanguage();
@@ -217,15 +223,20 @@ public class Language : MonoBehaviour
     public void EnglishUK()
     {
         // Language
-        LanguageName = "English (UK)";
+        LanguageName = "English (UK/CA)";
 
         // Main Menu
         GameTitle = "Painted Puffin";
         StartButton = "START";
         Score = "SCORE";
-        Combo = "combo";
 
         // Credits
+        gameManager.GetComponent<Credits>().topTexts.Clear();
+        gameManager.GetComponent<Credits>().topTexts.Add(("created by").ToLower());
+        gameManager.GetComponent<Credits>().topTexts.Add(("puffin art by").ToLower());
+        gameManager.GetComponent<Credits>().topTexts.Add(("background by").ToLower());
+        gameManager.GetComponent<Credits>().topTexts.Add(("icons by").ToLower());
+        gameManager.GetComponent<Credits>().topTexts.Add(("hands art by").ToLower());
 
         // Game Over
         GameOver = "GAME OVER";
@@ -242,19 +253,25 @@ public class Language : MonoBehaviour
         HighScores = "HIGH SCORES";
 
         // Colour Picker
-        ColourPickerText = "COLOUR PICKER";
+        ColourPickerText = "EDIT COLOURS";
 
-        // Language Prompt
-        LanguagePrompt = "LANGUAGE";
+        // Combo
+        Combo = "combo";
 
-        // Username Input
+        // Settings
+        Settings = "Settings";
         Name = "Name ...";
-        OK = "OK";
+        Sound = "Sound";
+        Music = "Music";
+        Tutorial = "Tutorial";
         Warning1 = "Cannot contain spaces or *.";
         Warning2 = "The name is too long.";
         Warning3 = "Name cannot be blank.";
+        Warning4 = "Invalid characters";
+        OK = "OK";
+
         Flag.image.overrideSprite = english;
-        gameManager.playerLanguage = "EnglishUK";
+        gameManager.playerLanguage = "English";
         gameManager.XButtonLanguage();
     } // Verified
 
@@ -288,9 +305,6 @@ public class Language : MonoBehaviour
 
         // Colour Picker
         ColourPickerText = "𐑗𐑪𐑤𐑪𐑮 𐑐𐑦𐑗𐑒𐑧𐑮";
-
-        // Language Prompt
-        LanguagePrompt = "𐑤𐑩𐑯𐑜𐑳𐑩𐑜𐑧";
 
         // Username Input
         Name = "𐑯𐑩𐑥𐑧 ...";
@@ -329,9 +343,6 @@ public class Language : MonoBehaviour
         // Colour Picker
         ColourPickerText = Arabizer("منتقي الألوان");
 
-        // Language Prompt
-        LanguagePrompt = Arabizer("لغة");
-
         // Username Input
         Name = "... " + Reverse("ﺍﺳﻢ");
         OK = Reverse("ﺣﺴﻨﺎ");
@@ -367,9 +378,6 @@ public class Language : MonoBehaviour
         // Colour Picker
         ColourPickerText = "Birač boja";
 
-        // Language Prompt
-        LanguagePrompt = "JEZIK";
-
         // Username Input
         Name = "Ime ...";
         OK = "Uredu";
@@ -404,9 +412,6 @@ public class Language : MonoBehaviour
 
         // Colour Picker
         ColourPickerText = "избор на цвят";
-
-        // Language Prompt
-        LanguagePrompt = "език";
 
         // Username Input
         Name = "Име ...";

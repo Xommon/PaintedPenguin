@@ -1091,7 +1091,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -5770,7 +5770,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!199 &713925463
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -12146,7 +12146,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2111295718}
   m_Direction: 2
   m_Value: 0.99999815
-  m_Size: 0.1949834
+  m_Size: 0.19498341
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -12793,7 +12793,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -13827,8 +13827,8 @@ RectTransform:
   m_Father: {fileID: 877172863}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 30, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -16135,8 +16135,8 @@ RectTransform:
   m_Father: {fileID: 960883738}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 30, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -19067,12 +19067,12 @@ GameObject:
   - component: {fileID: 1739827177}
   - component: {fileID: 1739827176}
   m_Layer: 5
-  m_Name: UsernamePrompt
+  m_Name: Settings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1739827176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22380,7 +22380,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -24183,6 +24183,11 @@ PrefabInstance:
       propertyPath: currentLanguageDisplay
       value: 
       objectReference: {fileID: 1705448307}
+    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
+        type: 3}
+      propertyPath: snowUI
+      value: 
+      objectReference: {fileID: 713925462}
     - target: {fileID: 814642394577855561, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24292,9 +24297,6 @@ MonoBehaviour:
   StartButton: 
   Score: 
   Combo: 
-  CreatedBy: 
-  ArtBy: 
-  IconsBy: 
   GameOver: 
   Replay: 
   Continue: 
@@ -24303,13 +24305,17 @@ MonoBehaviour:
   HighScores: 
   numberSeparator: 
   ColourPickerText: 
-  LanguagePrompt: 
+  Settings: 
   Name: 
-  OK: 
+  Sound: 
+  Music: 
+  Tutorial: 
+  EditColours: 
   Warning1: 
   Warning2: 
   Warning3: 
   Warning4: 
+  OK: 
   Flag: {fileID: 1802009931}
   arabic: {fileID: -614184392608778017, guid: 2769971c505233146b89792aeecc62af, type: 3}
   bosnian: {fileID: 2682775672788926478, guid: 2769971c505233146b89792aeecc62af, type: 3}
