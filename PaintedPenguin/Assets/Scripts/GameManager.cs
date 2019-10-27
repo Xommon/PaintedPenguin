@@ -700,7 +700,7 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         // Load all save data
-        SaveSystem.DeleteData(); // Clear save data
+        //SaveSystem.DeleteData(); // Clear save data
         LoadUsername();
 
         // Set weather
