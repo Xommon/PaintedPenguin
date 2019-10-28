@@ -702,6 +702,7 @@ public class GameManager : MonoBehaviour
         // Load all save data
         //SaveSystem.DeleteData(); // Clear save data
         LoadUsername();
+        //credits.GetComponent<Credits>().creditsEnabled = true;
 
         // Set weather
         string date = System.DateTime.Now.ToString("ddMM");

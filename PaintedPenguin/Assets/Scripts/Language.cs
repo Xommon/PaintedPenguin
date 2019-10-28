@@ -63,6 +63,10 @@ public class Language : MonoBehaviour
     public string OK;
     public Button Flag;
 
+    // Tutorial
+    public string Paint;
+    public string Blocks;
+
     // Flags
     public Sprite arabic;
     public Sprite bosnian;
@@ -109,8 +113,8 @@ public class Language : MonoBehaviour
         // Add languages to list
         languages.Add(English);
         languages.Add(EnglishUK);
-        languages.Add(French);
-        languages.Add(Portuguese);
+        languages.Add(Arabic);
+        languages.Add(Mandarin);
 
         // Decide index of language
         if (gameManager.playerLanguage == "" || gameManager.playerLanguage == null)
@@ -175,12 +179,12 @@ public class Language : MonoBehaviour
         Score = "SCORE";
 
         // Credits
-        gameManager.GetComponent<Credits>().topTexts.Clear();
-        gameManager.GetComponent<Credits>().topTexts.Add(("created by").ToLower());
-        gameManager.GetComponent<Credits>().topTexts.Add(("puffin art by").ToLower());
-        gameManager.GetComponent<Credits>().topTexts.Add(("background by").ToLower());
-        gameManager.GetComponent<Credits>().topTexts.Add(("icons by").ToLower());
-        gameManager.GetComponent<Credits>().topTexts.Add(("hands art by").ToLower());
+        gameManager.credits.GetComponent<Credits>().topTexts.Clear();
+        gameManager.credits.GetComponent<Credits>().topTexts.Add(("created by").ToLower());
+        gameManager.credits.GetComponent<Credits>().topTexts.Add(("puffin art by").ToLower());
+        gameManager.credits.GetComponent<Credits>().topTexts.Add(("background by").ToLower());
+        gameManager.credits.GetComponent<Credits>().topTexts.Add(("icons by").ToLower());
+        gameManager.credits.GetComponent<Credits>().topTexts.Add(("hands art by").ToLower());
 
         // Game Over
         GameOver = "GAME OVER";
@@ -217,9 +221,12 @@ public class Language : MonoBehaviour
         Flag.image.overrideSprite = english;
         gameManager.playerLanguage = "English";
         gameManager.XButtonLanguage();
+
+        // Tutorial
+        Paint = "Paint";
+        Blocks = "Blocks";
     } // Verified
 
-    // Languages
     public void EnglishUK()
     {
         // Language
@@ -231,12 +238,12 @@ public class Language : MonoBehaviour
         Score = "SCORE";
 
         // Credits
-        gameManager.GetComponent<Credits>().topTexts.Clear();
-        gameManager.GetComponent<Credits>().topTexts.Add(("created by").ToLower());
-        gameManager.GetComponent<Credits>().topTexts.Add(("puffin art by").ToLower());
-        gameManager.GetComponent<Credits>().topTexts.Add(("background by").ToLower());
-        gameManager.GetComponent<Credits>().topTexts.Add(("icons by").ToLower());
-        gameManager.GetComponent<Credits>().topTexts.Add(("hands art by").ToLower());
+        gameManager.credits.GetComponent<Credits>().topTexts.Clear();
+        gameManager.credits.GetComponent<Credits>().topTexts.Add(("created by").ToLower());
+        gameManager.credits.GetComponent<Credits>().topTexts.Add(("puffin art by").ToLower());
+        gameManager.credits.GetComponent<Credits>().topTexts.Add(("background by").ToLower());
+        gameManager.credits.GetComponent<Credits>().topTexts.Add(("icons by").ToLower());
+        gameManager.credits.GetComponent<Credits>().topTexts.Add(("hands art by").ToLower());
 
         // Game Over
         GameOver = "GAME OVER";
@@ -273,58 +280,29 @@ public class Language : MonoBehaviour
         Flag.image.overrideSprite = english;
         gameManager.playerLanguage = "English";
         gameManager.XButtonLanguage();
-    } // Verified
 
-    public void Shavian()
+        // Tutorial
+        Paint = "Paint";
+        Blocks = "Blocks";
+    } // Verified
+    
+    public void Arabic()
     {
         // Language
-        LanguageName = "𐑖𐑣𐑩𐑝𐑦𐑩𐑯";
+        LanguageName = Reverse("العربية");
 
         // Main Menu
         GameTitle = "Painted Puffin";
-        StartButton = "𐑕𐑑𐑩𐑮𐑑";
-        Score = "𐑕𐑗𐑪𐑮𐑧";
-        Combo = "combo";
-
-        // Credits
-
-
-        // Game Over
-        GameOver = "𐑜𐑩𐑥𐑧 𐑪𐑝𐑧𐑮";
-        Replay = "𐑮𐑧𐑐𐑤𐑩𐑭";
-        Continue = "𐑗𐑪𐑯𐑑𐑦𐑯𐑳𐑧?";
-
-        // Score
-        ScoreUI = gameManager.score.ToString();
-
-        // Pause
-        Paused = "𐑐𐑩𐑳𐑕𐑧𐑛";
-
-        // High Scores
-        HighScores = "𐑣𐑦𐑜𐑣 𐑕𐑗𐑪𐑮𐑧𐑕";
-
-        // Colour Picker
-        ColourPickerText = "𐑗𐑪𐑤𐑪𐑮 𐑐𐑦𐑗𐑒𐑧𐑮";
-
-        // Username Input
-        Name = "𐑯𐑩𐑥𐑧 ...";
-        OK = "𐑪𐑒𐑩𐑭";
-        Warning1 = "Cannot contain spaces or *.";
-        Warning2 = "The name is too long.";
-        Warning3 = "Name cannot be blank.";
-        Warning4 = "Invalid characters";
-        Flag.image.overrideSprite = english;
-        gameManager.playerLanguage = "Shavian";
-        gameManager.XButtonLanguage();
-    } // Verified
-
-    public void Arabic()
-    {
-        // Main Menu
-        GameTitle = RTLSupport.FixRTL("رسمت البفن", true, false, false);
         StartButton = Reverse("اﻟﺒﺪء");
         Score = Reverse("ﺩﺭﺟﺔ ﻋﺎﻟﻴﺔ");
-        Combo = Arabizer("مزدوج");
+
+        // Credits
+        gameManager.credits.GetComponent<Credits>().topTexts.Clear();
+        gameManager.credits.GetComponent<Credits>().topTexts.Add(("انشأ من قبل").ToLower());
+        gameManager.credits.GetComponent<Credits>().topTexts.Add(("الفن من خلال").ToLower());
+        gameManager.credits.GetComponent<Credits>().topTexts.Add(("الخلفية بواسطة").ToLower());
+        gameManager.credits.GetComponent<Credits>().topTexts.Add(("الرموز من قبل").ToLower());
+        gameManager.credits.GetComponent<Credits>().topTexts.Add(("ومن ناحية الفن").ToLower());
 
         // Game Over
         GameOver = Reverse("ﺍﻧﺘﻬﺖ ﺍﻟﻠﻌﺒﺔ"); // ﺘ
@@ -334,7 +312,7 @@ public class Language : MonoBehaviour
         // Score
         ScoreUI = gameManager.score.ToString();
 
-        // Pause
+        // Paused
         Paused = Reverse("ﺗﻮﻗﻒ");
 
         // High Scores
@@ -343,14 +321,27 @@ public class Language : MonoBehaviour
         // Colour Picker
         ColourPickerText = Arabizer("منتقي الألوان");
 
-        // Username Input
+        // Combo
+        Combo = Arabizer("مزدوج");
+
+        // Settings
+        Settings = Arabizer("الإعدادات");
         Name = "... " + Reverse("ﺍﺳﻢ");
-        OK = Reverse("ﺣﺴﻨﺎ");
+        Sound = Arabizer("مؤثرات صوتية");
+        Music = Arabizer("موسيقى");
+        Tutorial = Arabizer("الدورة التعليمية");
         Warning1 = ".* " + Reverse("ﻻ ﻳﻤﻜﻦ ﺃﻥ ﺗﺤﺘﻮﻱ ﻋﻠﻰ ﻣﺴﺎﻓﺎﺕ ﺃﻭ");
         Warning2 = "." + Reverse("ﺍﺳﻢ ﻃﻮﻳﻞ ﺟﺪﺍ");
+        Warning3 = Arabizer("لا يمكن أن يكون الاسم فارغًا.");
+        Warning4 = Arabizer("غير صالحة");
+        OK = Reverse("ﺣﺴﻨﺎ");
         Flag.image.overrideSprite = arabic;
         gameManager.playerLanguage = "Arabic";
         gameManager.XButtonLanguage();
+
+        // Tutorial
+        Paint = Arabizer("رسم");
+        Blocks = Arabizer("مكعبات");
     }
 
     public void Bosnian()
@@ -489,11 +480,21 @@ public class Language : MonoBehaviour
 
     public void Mandarin()
     {
+        // Language
+        LanguageName = "普通话";
+
         // Main Menu
         GameTitle = "画海雀";
         StartButton = "开始";
         Score = "高分数";
-        Combo = "二合一";
+
+        // Credits
+        gameManager.credits.GetComponent<Credits>().topTexts.Clear();
+        gameManager.credits.GetComponent<Credits>().topTexts.Add(("创作者").ToLower());
+        gameManager.credits.GetComponent<Credits>().topTexts.Add(("艺术家").ToLower());
+        gameManager.credits.GetComponent<Credits>().topTexts.Add(("背景艺术家").ToLower());
+        gameManager.credits.GetComponent<Credits>().topTexts.Add(("图标艺术家").ToLower());
+        gameManager.credits.GetComponent<Credits>().topTexts.Add(("手艺人").ToLower());
 
         // Game Over
         GameOver = "游戏结束";
@@ -509,15 +510,32 @@ public class Language : MonoBehaviour
         // High Scores
         HighScores = "高分数";
 
-        // Username Input
+        // Colour Picker
+        ColourPickerText = "编辑颜色";
+
+        // Combo
+        Combo = "二合一";
+
+        // Settings
+        Settings = "游戏设置";
         Name = "你的名字 。。。";
-        OK = "好";
+        Sound = "声音特效";
+        Music = "音乐";
+        Tutorial = "教程";
         Warning1 = "不能包含空格或*。";
         Warning2 = "名字太长了。";
+        Warning3 = "名称不能为空。";
+        Warning4 = "无效字符";
+        OK = "好";
+
         Flag.image.overrideSprite = mandarin;
         gameManager.playerLanguage = "Mandarin";
         gameManager.XButtonLanguage();
-    } // Verified
+
+        // Tutorial
+        Paint = "涂料";
+        Blocks = "立方体";
+    } // Updated
 
     public void Taiwanese()
     {

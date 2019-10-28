@@ -11846,6 +11846,7 @@ MonoBehaviour:
   bottomTexts: []
   count: 0
   index: 0
+  creditsEnabled: 0
 --- !u!1 &877172862
 GameObject:
   m_ObjectHideFlags: 0
@@ -24188,6 +24189,31 @@ PrefabInstance:
       propertyPath: snowUI
       value: 
       objectReference: {fileID: 713925462}
+    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
+        type: 3}
+      propertyPath: settingsUI
+      value: 
+      objectReference: {fileID: 608190299}
+    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
+        type: 3}
+      propertyPath: soundUI
+      value: 
+      objectReference: {fileID: 1744371026}
+    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
+        type: 3}
+      propertyPath: musicUI
+      value: 
+      objectReference: {fileID: 919278216}
+    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
+        type: 3}
+      propertyPath: tutorialUI
+      value: 
+      objectReference: {fileID: 1384878906}
+    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
+        type: 3}
+      propertyPath: editColoursUI
+      value: 
+      objectReference: {fileID: 20391524}
     - target: {fileID: 814642394577855561, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24317,6 +24343,8 @@ MonoBehaviour:
   Warning4: 
   OK: 
   Flag: {fileID: 1802009931}
+  Paint: 
+  Blocks: 
   arabic: {fileID: -614184392608778017, guid: 2769971c505233146b89792aeecc62af, type: 3}
   bosnian: {fileID: 2682775672788926478, guid: 2769971c505233146b89792aeecc62af, type: 3}
   bulgarian: {fileID: -5365754987068647269, guid: 2769971c505233146b89792aeecc62af,

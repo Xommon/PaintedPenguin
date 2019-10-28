@@ -11,9 +11,12 @@ public class Credits : MonoBehaviour
     public List<string> bottomTexts = new List<string>();
     public float count;
     public int index;
+    public bool creditsEnabled;
     
     void Start()
     {
+        creditsEnabled = true;
+
         count = 0;
 
         bottomTexts.Add("micheal quentin");
@@ -28,21 +31,24 @@ public class Credits : MonoBehaviour
     
     void Update()
     {
-        count += Time.deltaTime;
-
-        if (count >= 6)
+        if (creditsEnabled == true)
         {
-            if (index >= topTexts.Count - 1)
+            count += Time.deltaTime;
+
+            if (count >= 6)
             {
-                index = 0;
+                if (index >= topTexts.Count - 1)
+                {
+                    index = 0;
+                }
+                else
+                {
+                    index++;
+                }
+                count = 0;
+                topText.text = topTexts[index];
+                bottomText.text = bottomTexts[index];
             }
-            else
-            {
-                index++;
-            }
-            count = 0;
-            topText.text = topTexts[index];
-            bottomText.text = bottomTexts[index];
         }
     }
 }
