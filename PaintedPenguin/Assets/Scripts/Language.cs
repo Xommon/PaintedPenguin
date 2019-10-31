@@ -15,6 +15,7 @@ public class Language : MonoBehaviour
     public TMP_FontAsset lgcFont;
     public TMP_FontAsset cjkFont;
     public TMP_FontAsset apuFont;
+    public Font arabicMenuFont;
     public TMP_FontAsset tlbFont;
     public TMP_FontAsset hindiFont;
     public TMP_FontAsset hebrewFont;
@@ -113,8 +114,7 @@ public class Language : MonoBehaviour
         // Add languages to list
         languages.Add(English);
         languages.Add(EnglishUK);
-        languages.Add(Arabic);
-        languages.Add(Mandarin);
+        languages.Add(French);
 
         // Decide index of language
         if (gameManager.playerLanguage == "" || gameManager.playerLanguage == null)
@@ -289,7 +289,7 @@ public class Language : MonoBehaviour
     public void Arabic()
     {
         // Language
-        LanguageName = Reverse("العربية");
+        LanguageName = Arabizer("العربية");
 
         // Main Menu
         GameTitle = "Painted Puffin";
@@ -735,10 +735,17 @@ public class Language : MonoBehaviour
         LanguageName = "Français";
 
         // Main Menu
-        GameTitle = "Macareux Peint";
+        GameTitle = "Painted Puffin";
         StartButton = "DÉBUT";
         Score = "SCORES";
-        Combo = "combo";
+
+        // Credits
+        gameManager.credits.GetComponent<Credits>().topTexts.Clear();
+        gameManager.credits.GetComponent<Credits>().topTexts.Add(("créé par").ToLower());
+        gameManager.credits.GetComponent<Credits>().topTexts.Add(("art de caractère par").ToLower());
+        gameManager.credits.GetComponent<Credits>().topTexts.Add(("art de fond par").ToLower());
+        gameManager.credits.GetComponent<Credits>().topTexts.Add(("icônes par").ToLower());
+        gameManager.credits.GetComponent<Credits>().topTexts.Add(("art des mains par").ToLower());
 
         // Game Over
         GameOver = "JEU TERMINÉ";
@@ -754,14 +761,31 @@ public class Language : MonoBehaviour
         // High Scores
         HighScores = "SCORES";
 
-        // Username Input
+        // Colour Picker
+        ColourPickerText = "éditer les couleurs";
+
+        // Combo
+        Combo = "combo";
+
+        // Settings
+        Settings = "paramètres";
         Name = "Nom ...";
-        OK = "D'accord";
+        Sound = "Son";
+        Music = "Musique";
+        Tutorial = "Didacticiel";
         Warning1 = "Ne peut pas contenir d'espaces ou *.";
         Warning2 = "Le nom est trop long.";
+        Warning3 = "Le nom ne peut pas être vide.";
+        Warning4 = "Caractères invalides";
+        OK = "D'accord";
+
         Flag.image.overrideSprite = french;
         gameManager.playerLanguage = "French";
         gameManager.XButtonLanguage();
+
+        // Tutorial
+        Paint = "peindre";
+        Blocks = "cubes";
     } // Verified
 
     public void German()
@@ -1579,7 +1603,32 @@ public class Language : MonoBehaviour
         }
         else if (gameManager.playerLanguage == "Arabic" || gameManager.playerLanguage == "Persian" || gameManager.playerLanguage == "Urdu")
         {
-            gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().font = apuFont;
+            /*gameManager.settingsUI.GetComponent<Text>().font = arabicMenuFont;
+            gameManager.settingsUI.GetComponent<Text>().fontStyle = FontStyles.Normal;
+            gameManager.soundUI.GetComponent<Text>().font = arabicMenuFont;
+            gameManager.soundUI.GetComponent<Text>().fontStyle = FontStyles.Normal;
+            gameManager.soundUI.GetComponent<Text>().alignment = TextAlignmentOptions.Right;
+            gameManager.musicUI.GetComponent<Text>().font = arabicMenuFont;
+            gameManager.musicUI.GetComponent<Text>().fontStyle = FontStyles.Normal;
+            gameManager.musicUI.GetComponent<Text>().alignment = TextAlignmentOptions.Right;
+            gameManager.tutorialUI.GetComponent<Text>().font = arabicMenuFont;
+            gameManager.tutorialUI.GetComponent<Text>().fontStyle = FontStyles.Normal;
+            gameManager.tutorialUI.GetComponent<Text>().alignment = TextAlignmentOptions.Right;
+            gameManager.editColoursUI.GetComponent<Text>().font = arabicMenuFont;
+            gameManager.editColoursUI.GetComponent<Text>().fontStyle = FontStyles.Normal;
+            gameManager.editColoursUI.GetComponent<Text>().alignment = TextAlignmentOptions.Right;
+            gameManager.currentLanguageDisplay.GetComponent<Text>().font = arabicMenuFont;
+            gameManager.currentLanguageDisplay.GetComponent<Text>().fontStyle = FontStyles.Normal;
+            gameManager.okButtonText.GetComponent<Text>().font = arabicMenuFont;
+            gameManager.okButtonText.GetComponent<Text>().fontStyle = FontStyles.Normal;
+            gameManager.startButtonText.GetComponent<Text>().font = arabicMenuFont;
+            gameManager.startButtonText.GetComponent<Text>().fontStyle = FontStyles.Normal;
+            gameManager.startButtonText.GetComponent<Text>().alignment = TextAlignmentOptions.Right;
+            gameManager.scoreButtonText.GetComponent<Text>().font = arabicMenuFont;
+            gameManager.scoreButtonText.GetComponent<Text>().fontStyle = FontStyles.Normal;
+            gameManager.scoreButtonText.GetComponent<Text>().alignment = TextAlignmentOptions.Right;
+            gameManager.startButton.transform.position = new Vector2(-29.7f, 1.82f);
+            gameManager.scoreButton.transform.position = new Vector2(35.2f, -112.9f);*/
             gameManager.comboText.GetComponent<TMPro.TextMeshPro>().font = apuFont;
         }
         else if (gameManager.playerLanguage == "Hebrew" || gameManager.playerLanguage == "Yiddish")
