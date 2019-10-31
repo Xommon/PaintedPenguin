@@ -322,7 +322,7 @@ TextureImporter:
     second: sprite_sheet_57
   - first:
       213: 6359139797314527829
-    second: sprite_sheet_43
+    second: pie_graph_outline
   - first:
       213: -2630285513357961619
     second: sprite_good
@@ -1526,34 +1526,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprite_sheet_57
-      rect:
-        serializedVersion: 2
-        x: 12
-        y: 300
-        width: 52
-        height: 19
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ba9b377443815104ba8df96c1b3421f6
-      internalID: -5350391624179469894
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: pie_graph
       rect:
         serializedVersion: 2
-        x: 78
-        y: 268
-        width: 48
-        height: 48
+        x: 77
+        y: 263
+        width: 52
+        height: 52
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1563,90 +1542,6 @@ TextureImporter:
       bones: []
       spriteID: c05c4f6be2533a048af62e0e9daf28c1
       internalID: 6359139797314527829
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sprite_sheet_43
-      rect:
-        serializedVersion: 2
-        x: 20
-        y: 260
-        width: 26
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 92c4fb58d6e524f4bb72f68cf4de6192
-      internalID: 6359139797314527829
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sprite_sheet_45
-      rect:
-        serializedVersion: 2
-        x: 20
-        y: 237
-        width: 26
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9a76dd4a4cf287147baddf0be9da6556
-      internalID: 6807999961568419257
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sprite_sheet_46
-      rect:
-        serializedVersion: 2
-        x: 20
-        y: 214
-        width: 26
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 68890e8e04be165458b610e338057b6e
-      internalID: -4181950294034328646
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sprite_sheet_47
-      rect:
-        serializedVersion: 2
-        x: 20
-        y: 191
-        width: 26
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5c3dcb0a5d3815240bd9b6d202f3fcc5
-      internalID: -5879400798634320872
       vertices: []
       indices: 
       edges: []
@@ -1941,6 +1836,27 @@ TextureImporter:
       bones: []
       spriteID: f4562ee1538fed64499161fae7c253a7
       internalID: -8790877608769316777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pie_graph_outline
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 263
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9b143c19ab8ec0479dfdfb5d2b581c2
+      internalID: 6359139797314527829
       vertices: []
       indices: 
       edges: []

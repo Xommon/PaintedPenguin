@@ -12,6 +12,7 @@ public class LoadingBar : MonoBehaviour
     public Image selfImage;
     public TMP_Text visualMultiplier;
     public Image tinyMagnet;
+    public Image outline;
     public bool exists;
     public float currentAmount;
     public float speed;
@@ -43,11 +44,6 @@ public class LoadingBar : MonoBehaviour
         if (currentAmount > 0)
         {
             currentAmount -= speed * Time.deltaTime;
-
-            if (currentAmount <= 25)
-            {
-                player.ColourFlashWarning();
-            }
         }
         else
         {
@@ -72,17 +68,18 @@ public class LoadingBar : MonoBehaviour
         }
 
         loadingBarValue.GetComponent<Image>().fillAmount = currentAmount / 100;
+        outline.GetComponent<Image>().fillAmount = currentAmount / 100;
 
         gameObject.transform.position = Camera.main.WorldToScreenPoint(player.transform.position + new Vector3(0.2f, 0, 0));
         
         if (player.colour != 0)
         {
-            selfImage.color = new Color(player.sr.color.r, player.sr.color.g, player.sr.color.b, 0.6f);
+            selfImage.color = new Color(player.sr.color.r, player.sr.color.g, player.sr.color.b, 0.75f);
         }
         else
         {
             // Colourless colour
-            selfImage.color = new Color(player.sr.color.r, player.sr.color.g, player.sr.color.b, 0.6f);
+            selfImage.color = new Color(player.sr.color.r, player.sr.color.g, player.sr.color.b, 0f);
         }
     }
 }
