@@ -1,7 +1,6 @@
 - Test magnet for glitches
 	- Attracted paint shifts blocks
 - Rainbow mode ends after hitting one block, then you die when you hit the next block
-- Punchies should hit blocks too
 - Save complex player data for future analysis
 - Create a system where submitted usernames are sent out for approval to the leaderboard and are only allowed if OK is returned
 	- Learn what the leaderboard doesn't like and don't allow people to use those names? :)

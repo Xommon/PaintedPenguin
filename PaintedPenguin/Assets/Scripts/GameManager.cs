@@ -225,7 +225,7 @@ public class GameManager : MonoBehaviour
                             newblock = Instantiate(blockWithTimesThree);
                         }
                     }
-                    else if (score > 3150 && PercentChance(blockWithFistPercent))
+                    else if (score > 3150 && PercentChance(100)) //blockWithFistPercent
                     {
                         newblock = Instantiate(blockWithFist);
                     }
@@ -333,8 +333,24 @@ public class GameManager : MonoBehaviour
             GameObject newpaint = null;
             if (newblock.name == "BlockWithFist" || newblock.name == "BlockWithFist(Clone)")
             {
-                newpaint = Instantiate(paint);
-                newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
+                if (PercentChance(100)) //20
+                {
+                    if (newblock.transform.position.y == -0.9f || newblock.transform.position.y == 0.7f)
+                    {
+                        newpaint = Instantiate(block);
+                        newpaint.transform.position = transform.position + new Vector3(1, -0.1f, 0);
+                    }
+                    else
+                    {
+                        newpaint = Instantiate(paint);
+                        newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
+                    }
+                }
+                else
+                {
+                    newpaint = Instantiate(paint);
+                    newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
+                }
             }
             else
             {
