@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
     public bool magnet;
     public int count;
     public float walkingPosition;
+    public CameraShake cameraShake;
 
     // Swipe controls
     public Vector3 swipeStartPosition;
@@ -527,6 +528,7 @@ public class PlayerMovement : MonoBehaviour
                 ps.startColor = collision.gameObject.GetComponent<Block>().sr.color;
                 Destroy(ps.gameObject, ps.startLifetime);
                 Destroy(ps2.gameObject, ps2.startLifetime);
+                StartCoroutine(cameraShake.Shake(0.22f, 0.02f));
 
                 GameObject floatText = Instantiate(floatingText, collision.transform.position, Quaternion.identity);
                 floatText.GetComponent<TextMeshPro>().color = collision.gameObject.GetComponent<Block>().sr.color;

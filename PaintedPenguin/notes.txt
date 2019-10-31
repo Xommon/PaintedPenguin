@@ -1,4 +1,3 @@
-- Moving blocks (water -> up) stop on the ground
 - Test magnet for glitches
 	- Attracted paint shifts blocks
 - Rainbow mode ends after hitting one block, then you die when you hit the next block
@@ -6,6 +5,7 @@
 - Save complex player data for future analysis
 - Create a system where submitted usernames are sent out for approval to the leaderboard and are only allowed if OK is returned
 	- Learn what the leaderboard doesn't like and don't allow people to use those names? :)
+- Loading bar should be clear
 
 :: SOUND ::
 - Sounds don't pause with game
@@ -19,6 +19,8 @@
 :: CREDITS ::
 Little flag icons
 Colour picker
+High score
+Localizer
 
 BUGS:
 - First place tier doesn't have the same place as second place

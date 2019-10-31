@@ -158,13 +158,15 @@ public class Block : MonoBehaviour
 
         if (moveMax != 0 && moveMin != 0)
         {
-            if (gameObject.transform.position.y >= moveMax)
+            if (gameObject.transform.position.y > moveMax)
             {
+                gameObject.transform.position = new Vector3(gameObject.transform.position.x, moveMax, 0);
                 moving *= -1;
             }
 
-            if (gameObject.transform.position.y <= moveMin)
+            if (gameObject.transform.position.y < moveMin)
             {
+                gameObject.transform.position = new Vector3(gameObject.transform.position.x, moveMin, 0);
                 moving *= -1;
             }
         }
