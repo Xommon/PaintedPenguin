@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     public ParticleSystem blockBurst;
     public ParticleSystem dustBurst;
     public ParticleSystem paintBurst;
+    public GameObject blockPop;
     public int combo;
     public Language language;
     public TMP_FontAsset apu_title;
@@ -525,10 +526,11 @@ public class PlayerMovement : MonoBehaviour
 
                 ParticleSystem ps = Instantiate(blockBurst, collision.transform.position, Quaternion.identity) as ParticleSystem;
                 ParticleSystem ps2 = Instantiate(dustBurst, collision.transform.position, Quaternion.identity) as ParticleSystem;
+                Instantiate(blockPop, collision.transform.position, Quaternion.identity);
                 ps.startColor = collision.gameObject.GetComponent<Block>().sr.color;
                 Destroy(ps.gameObject, ps.startLifetime);
                 Destroy(ps2.gameObject, ps2.startLifetime);
-                StartCoroutine(cameraShake.Shake(0.22f, 0.75f));
+                StartCoroutine(cameraShake.Shake(0.29f, 1.5f));
 
                 GameObject floatText = Instantiate(floatingText, collision.transform.position, Quaternion.identity);
                 floatText.GetComponent<TextMeshPro>().color = collision.gameObject.GetComponent<Block>().sr.color;
@@ -555,6 +557,7 @@ public class PlayerMovement : MonoBehaviour
                     floatText2.GetComponent<FloatingText>().horizontalSpeed = 0f;
                     floatText2.GetComponent<TextMeshPro>().color = collision.gameObject.GetComponent<Block>().sr.color;
                     floatText2.GetComponent<TextMeshPro>().text = language.Combo;
+                    floatText2.GetComponent<TextMeshPro>().font = language.cjkFont;
                     Destroy(floatText2, 1.0f);
 
                     GameObject floatText3 = Instantiate(floatingText, collision.transform.position, Quaternion.identity);
@@ -626,9 +629,11 @@ public class PlayerMovement : MonoBehaviour
         {
             if (dead == false)
             {
+                Instantiate(blockPop, collision.transform.position, Quaternion.identity);
                 timesTwoMode *= 2;
                 TimesTwoMode();
             }
+
             Destroy(collision.gameObject);
         }
     }

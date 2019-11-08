@@ -22,7 +22,7 @@ public class Credits : MonoBehaviour
         bottomTexts.Add("micheal quentin");
         bottomTexts.Add("chris ambroziak");
         bottomTexts.Add("vicente nitti");
-        bottomTexts.Add("https://icons8.com");
+        bottomTexts.Add("icons8");
         bottomTexts.Add("jeff portaro");
 
         topText.text = topTexts[0];

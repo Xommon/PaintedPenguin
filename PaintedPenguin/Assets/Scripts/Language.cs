@@ -786,7 +786,7 @@ public class Language : MonoBehaviour
         // Tutorial
         Paint = "peindre";
         Blocks = "cubes";
-    } // Verified
+    } // Updated
 
     public void German()
     {

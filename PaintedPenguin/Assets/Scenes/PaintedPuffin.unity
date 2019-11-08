@@ -712,7 +712,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &44683139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24258,6 +24258,21 @@ PrefabInstance:
       propertyPath: editColoursUI
       value: 
       objectReference: {fileID: 20391524}
+    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
+        type: 3}
+      propertyPath: highScoreTablUIScrollbar
+      value: 
+      objectReference: {fileID: 909892639}
+    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
+        type: 3}
+      propertyPath: tutorialPaint
+      value: 
+      objectReference: {fileID: 586801316}
+    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
+        type: 3}
+      propertyPath: tutorialBlocks
+      value: 
+      objectReference: {fileID: 37336907}
     - target: {fileID: 814642394577855561, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -32210,6 +32225,12 @@ PrefabInstance:
       propertyPath: cameraShake
       value: 
       objectReference: {fileID: 1096222981}
+    - target: {fileID: 5073945571518871174, guid: ec57f4535ec603946a7f03fa5bb07814,
+        type: 3}
+      propertyPath: blockPop
+      value: 
+      objectReference: {fileID: 3131186566471487864, guid: abff39b225d680f408eb54f7920653eb,
+        type: 3}
     - target: {fileID: 5073945571518871168, guid: ec57f4535ec603946a7f03fa5bb07814,
         type: 3}
       propertyPath: m_SortingOrder

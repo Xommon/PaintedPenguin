@@ -1,6 +1,5 @@
 - Test magnet for glitches
 	- Attracted paint shifts blocks
-- Save complex player data for future analysis
 - Create a system where submitted usernames are sent out for approval to the leaderboard and are only allowed if OK is returned
 	- Learn what the leaderboard doesn't like and don't allow people to use those names? :)
 
@@ -21,7 +20,6 @@ Localizer
 
 BUGS:
 - First place tier doesn't have the same place as second place
-- Words clipping (Tagalog warnings)
 - Missing Key ID error
 - Arabizer is broken
 - Fix titles in language

@@ -42,6 +42,8 @@ public class GameManager : MonoBehaviour
     public Text musicUI;
     public Text tutorialUI;
     public Text editColoursUI;
+    public Text tutorialPaint;
+    public Text tutorialBlocks;
 
     // Volume
     public float playerSound;
@@ -104,9 +106,13 @@ public class GameManager : MonoBehaviour
     public Image tableFlagUI;
     public Sprite defaultFlag;
     public GameObject usernameInputUI;
+    public Scrollbar highScoreTablUIScrollbar;
     public string playerUsername;
     public string playerLanguage;
     public string tempLanguage;
+
+    // Records
+    public int playerTime;
 
     // Languages
     public Language language;
@@ -488,7 +494,7 @@ public class GameManager : MonoBehaviour
         uploadScoreUI.sprite = loadingSprite;
         uploadScoreUI.color = new Color(1, 1, 1, 0.75f);
 
-        UnityWebRequest uwr = UnityWebRequest.Get(webURL + privateCode + "/add/" + UnityWebRequest.EscapeURL(playerUsername) + "/" + score + "/" + "0" + "/" + playerCountry);
+        UnityWebRequest uwr = UnityWebRequest.Get(webURL + privateCode + "/add/" + UnityWebRequest.EscapeURL(playerUsername) + "/" + score + "/" + playerTime + "/" + playerCountry);
         yield return uwr.SendWebRequest();
 
         if (uwr.isNetworkError)
@@ -730,6 +736,9 @@ public class GameManager : MonoBehaviour
     // Code for start of script
     public void Start()
     {
+        // Reset time
+        playerTime = 0;
+
         // Load all save data
         //SaveSystem.DeleteData(); // Clear save data
         LoadUsername();
@@ -1091,6 +1100,12 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
+        // Keep track of player time
+        if (on == true && player.dead == false)
+        {
+            playerTime += Mathf.RoundToInt(Time.deltaTime);
+        }
+
         // Update volume
         if (usernameInputUI.activeInHierarchy)
         {
@@ -1228,6 +1243,9 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 1.0f + (score / 99999.0f);
         }
+
+        tutorialPaint.text = language.Paint.ToUpper();
+        tutorialBlocks.text = language.Blocks.ToUpper();
 
         // Obstacles
         if (on == true && player.dead == false)
