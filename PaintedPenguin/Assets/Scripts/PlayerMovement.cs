@@ -507,21 +507,25 @@ public class PlayerMovement : MonoBehaviour
                 {
                     colour = 7;
                     Rainbow();
+                    FindObjectOfType<AudioManager>().Play("powerup");
                 }
                 else if ((collision.transform.name == "BlockWithX3" || collision.transform.name == "BlockWithX3(Clone)") && dead == false)
                 {
                     timesTwoMode *= 3;
                     TimesTwoMode();
+                    FindObjectOfType<AudioManager>().Play("powerup");
                 }
                 else if ((collision.transform.name == "BlockWithBaby" || collision.transform.name == "BlockWithBaby(Clone)") && dead == false && babyPuffins < 3)
                 {
                     Instantiate(babies[0]);
                     babies.RemoveAt(0);
                     babyPuffins++;
+                    FindObjectOfType<AudioManager>().Play("peep");
                 }
                 else if ((collision.transform.name == "BlockWithMagnet" || collision.transform.name == "BlockWithMagnet(Clone)") && dead == false)
                 {
                     Magnet();
+                    FindObjectOfType<AudioManager>().Play("powerup");
                 }
 
                 ParticleSystem ps = Instantiate(blockBurst, collision.transform.position, Quaternion.identity) as ParticleSystem;
@@ -530,7 +534,8 @@ public class PlayerMovement : MonoBehaviour
                 ps.startColor = collision.gameObject.GetComponent<Block>().sr.color;
                 Destroy(ps.gameObject, ps.startLifetime);
                 Destroy(ps2.gameObject, ps2.startLifetime);
-                StartCoroutine(cameraShake.Shake(0.29f, 1.5f));
+                StartCoroutine(cameraShake.Shake(0.24f, 0.65f));
+                FindObjectOfType<AudioManager>().Play("blockdestroy");
 
                 GameObject floatText = Instantiate(floatingText, collision.transform.position, Quaternion.identity);
                 floatText.GetComponent<TextMeshPro>().color = collision.gameObject.GetComponent<Block>().sr.color;
@@ -601,6 +606,7 @@ public class PlayerMovement : MonoBehaviour
             ParticleSystem ps3 = Instantiate(paintBurst, collision.transform.position, Quaternion.identity) as ParticleSystem;
             ps3.startColor = collision.gameObject.GetComponent<Paint>().sr.color;
             Destroy(ps3.gameObject, ps3.startLifetime);
+            FindObjectOfType<AudioManager>().Play("splat");
 
             if (colour != 7)
             {
@@ -615,11 +621,13 @@ public class PlayerMovement : MonoBehaviour
             ParticleSystem ps3 = Instantiate(paintBurst, collision.transform.position, Quaternion.identity) as ParticleSystem;
             ps3.startColor = sr.color;
             Destroy(ps3.gameObject, ps3.startLifetime);
+            FindObjectOfType<AudioManager>().Play("splat");
 
             if (colour != 7 && dead == false)
             {
                 colour = 7;
                 Rainbow();
+                FindObjectOfType<AudioManager>().Play("powerup");
             }
 
             Destroy(collision.gameObject);
@@ -632,6 +640,7 @@ public class PlayerMovement : MonoBehaviour
                 Instantiate(blockPop, collision.transform.position, Quaternion.identity);
                 timesTwoMode *= 2;
                 TimesTwoMode();
+                FindObjectOfType<AudioManager>().Play("powerup");
             }
 
             Destroy(collision.gameObject);

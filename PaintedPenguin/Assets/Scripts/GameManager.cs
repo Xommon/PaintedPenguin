@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
     public Text editColoursUI;
     public Text tutorialPaint;
     public Text tutorialBlocks;
+    public AudioManager audioManager;
 
     // Volume
     public float playerSound;
@@ -1100,6 +1101,12 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
+        // TEST!!!
+        if (Input.GetKeyDown("q"))
+        {
+            FindObjectOfType<AudioManager>().Play("powerup");
+        }
+
         // Keep track of player time
         if (on == true && player.dead == false)
         {

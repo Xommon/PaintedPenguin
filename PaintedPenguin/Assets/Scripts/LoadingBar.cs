@@ -17,11 +17,13 @@ public class LoadingBar : MonoBehaviour
     public float currentAmount;
     public float speed;
     public bool soundPlayed;
+    public float timer;
 
     void Start()
     {
         soundPlayed = false;
         currentAmount = 100;
+        timer = 0;
         player = FindObjectOfType<PlayerMovement>();
     }
 
@@ -44,6 +46,20 @@ public class LoadingBar : MonoBehaviour
         if (currentAmount > 0)
         {
             currentAmount -= speed * Time.deltaTime;
+            timer -= Time.deltaTime * 60;
+
+            if (timer <= 0)
+            {
+                FindObjectOfType<AudioManager>().Play("tick");
+                if (currentAmount >= 3)
+                {
+                    timer = Mathf.RoundToInt(currentAmount);
+                }
+                else
+                {
+                    timer = 3;
+                }
+            }
         }
         else
         {
@@ -54,6 +70,7 @@ public class LoadingBar : MonoBehaviour
                 player.colour = 0;
             }
             player.flashing = false;
+            FindObjectOfType<AudioManager>().Play("timesup");
 
             Destroy(transform.parent.gameObject);
         }

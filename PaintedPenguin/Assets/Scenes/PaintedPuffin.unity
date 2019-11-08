@@ -16805,7 +16805,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1520857619}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -16824,39 +16824,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01dc4c844cff22c4081b94e43896cb7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundVolume: 0
-  musicVolume: 0
-  gameManager: {fileID: 1253002816}
+  mixerGroup: {fileID: 0}
   sounds:
   - name: peep
     clip: {fileID: 8300000, guid: a14245d6ded52184eb43ba9566fbec62, type: 3}
     volume: 1
-    pitch: 0
+    pitch: 1
     source: {fileID: 0}
   - name: jump
     clip: {fileID: 8300000, guid: 2de8fab0f1003974580a762de0b24f7b, type: 3}
     volume: 1
-    pitch: 0
+    pitch: 1
     source: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: splat
+    clip: {fileID: 8300000, guid: d21a2a69e56cdee4e802cbbae3158a1b, type: 3}
+    volume: 1
+    pitch: 1
     source: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: tick
+    clip: {fileID: 8300000, guid: 958893c9eb9e3124f9f38267c836f531, type: 3}
+    volume: 1
+    pitch: 1
     source: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: powerup
+    clip: {fileID: 8300000, guid: 8f1af3d245f61fd47a6f9935ac9bdb3b, type: 3}
+    volume: 1
+    pitch: 1
     source: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: timesup
+    clip: {fileID: 8300000, guid: a4867aaaeb116a145b70b7ed8b71ff45, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: blockdestroy
+    clip: {fileID: 8300000, guid: 640878f3dae6f514bac4f1848dd19036, type: 3}
+    volume: 1
+    pitch: 1
     source: {fileID: 0}
 --- !u!1 &1525589011
 GameObject:
@@ -24273,6 +24276,11 @@ PrefabInstance:
       propertyPath: tutorialBlocks
       value: 
       objectReference: {fileID: 37336907}
+    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
+        type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1520857623}
     - target: {fileID: 814642394577855561, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: m_LocalPosition.x
