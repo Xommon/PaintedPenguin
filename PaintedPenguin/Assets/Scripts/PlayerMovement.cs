@@ -37,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
     public int count;
     public float walkingPosition;
     public CameraShake cameraShake;
+    public int comboStreak;
+    public AudioClip playBlockNote;
 
     // Swipe controls
     public Vector3 swipeStartPosition;
@@ -467,6 +469,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void KillPlayer()
     {
+        FindObjectOfType<AudioManager>().Play("peep");
         Instantiate(featherBurst, gameObject.transform.position, Quaternion.identity, null);
         StartCoroutine(gameManager.AddNewHighScore(gameManager.score));
         rb.gravityScale = 0;
@@ -489,6 +492,11 @@ public class PlayerMovement : MonoBehaviour
             if (collision.transform.tag == "Spikeball")
             {
                 KillPlayer();
+            }
+
+            if (collision.transform.tag == "Wave")
+            {
+                collision.gameObject.GetComponent<Water>().animator.SetBool("splash", true);
             }
 
             if (collision.gameObject.GetComponent<Block>().colour != colour && colour != 7 && dead == false)
@@ -528,6 +536,11 @@ public class PlayerMovement : MonoBehaviour
                     FindObjectOfType<AudioManager>().Play("powerup");
                 }
 
+                if (colour == 7)
+                {
+                    comboStreak++;
+                }
+
                 ParticleSystem ps = Instantiate(blockBurst, collision.transform.position, Quaternion.identity) as ParticleSystem;
                 ParticleSystem ps2 = Instantiate(dustBurst, collision.transform.position, Quaternion.identity) as ParticleSystem;
                 Instantiate(blockPop, collision.transform.position, Quaternion.identity);
@@ -535,7 +548,9 @@ public class PlayerMovement : MonoBehaviour
                 Destroy(ps.gameObject, ps.startLifetime);
                 Destroy(ps2.gameObject, ps2.startLifetime);
                 StartCoroutine(cameraShake.Shake(0.24f, 0.65f));
-                FindObjectOfType<AudioManager>().Play("blockdestroy");
+                FindObjectOfType<AudioManager>().GetComponent<AudioSource>().pitch = 1 + (comboStreak / 4);
+                FindObjectOfType<AudioManager>().Play("blocknote");
+                //FindObjectOfType<AudioManager>().Play("blockdestroy");
 
                 GameObject floatText = Instantiate(floatingText, collision.transform.position, Quaternion.identity);
                 floatText.GetComponent<TextMeshPro>().color = collision.gameObject.GetComponent<Block>().sr.color;

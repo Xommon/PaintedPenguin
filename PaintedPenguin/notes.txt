@@ -1,5 +1,6 @@
 - Attracted paint shifts blocks
 - Play seconds not recorded
+- When changing language, credits don't update immediately
 
 :: SOUND ::
 - Sounds don't pause with game

@@ -21,6 +21,7 @@ TagManager:
   - BombPickup
   - Feather
   - Fist
+  - Wave
   layers:
   - Default
   - TransparentFX

@@ -115,6 +115,7 @@ public class Language : MonoBehaviour
         languages.Add(English);
         languages.Add(EnglishUK);
         languages.Add(French);
+        languages.Add(German);
 
         // Decide index of language
         if (gameManager.playerLanguage == "" || gameManager.playerLanguage == null)
@@ -790,14 +791,24 @@ public class Language : MonoBehaviour
 
     public void German()
     {
+        // Language
+        LanguageName = "Deutsch";
+
         // Main Menu
-        GameTitle = "Painted \nPuffin";
+        GameTitle = "Painted Puffin";
         StartButton = "START";
         Score = "PUNKTE";
-        Combo = "combo";
+
+        // Credits
+        gameManager.credits.GetComponent<Credits>().topTexts.Clear();
+        gameManager.credits.GetComponent<Credits>().topTexts.Add(("Erstellt von").ToLower());
+        gameManager.credits.GetComponent<Credits>().topTexts.Add(("Charakterkunst von").ToLower());
+        gameManager.credits.GetComponent<Credits>().topTexts.Add(("Hintergrund von").ToLower());
+        gameManager.credits.GetComponent<Credits>().topTexts.Add(("Icons von").ToLower());
+        gameManager.credits.GetComponent<Credits>().topTexts.Add(("Hände Kunst von").ToLower());
 
         // Game Over
-        GameOver = "SPIEL BEENDET";
+        GameOver = "SPIEL \nBEENDET";
         Replay = "NEUSTART";
         Continue = "FORTSETZEN?";
 
@@ -810,15 +821,32 @@ public class Language : MonoBehaviour
         // High Scores
         HighScores = "PUNKTE";
 
-        // Username Input
+        // Colour Picker
+        ColourPickerText = "Farben bearbeiten";
+
+        // Combo
+        Combo = "combo";
+
+        // Settings
+        Settings = "Einstellungen";
         Name = "Name ...";
-        OK = "OK";
+        Sound = "Soundeffekte";
+        Music = "Musik";
+        Tutorial = "Tutorial";
         Warning1 = "Darf keine Leerzeichen oder * enthalten.";
         Warning2 = "Der Name ist zu lang.";
+        Warning3 = "Der Name kann nicht leer sein.";
+        Warning4 = "Ungültige Zeichen";
+        OK = "OK";
+
         Flag.image.overrideSprite = german;
         gameManager.playerLanguage = "German";
         gameManager.XButtonLanguage();
-    } // Verified
+
+        // Tutorial
+        Paint = "Farbe";
+        Blocks = "Würfel";
+    } // Updated
 
     public void Greek()
     {

@@ -1331,6 +1331,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         gameOverCanvas.SetActive(true);
+        FindObjectOfType<AudioManager>().Play("deathjingle");
         if (canContinue == false)
         {
             continueButtonUI.SetActive(false);
