@@ -148,6 +148,8 @@ public class GameManager : MonoBehaviour
     public float maxTime = 1;
     private float timer = 0;
     public int wave;
+    public int streakCount;
+    public int streakColour;
     public GameObject block;
     public GameObject blockWithPaint;
     public GameObject blockWithRainbow;
@@ -159,6 +161,7 @@ public class GameManager : MonoBehaviour
     public GameObject rainbow;
     public GameObject timesTwo;
     public GameObject spikeBall;
+    public int baseValue;
     public float blockWithFistPercent;
     float place;
     public List<float> obstaclePositions = new List<float>();
@@ -199,11 +202,11 @@ public class GameManager : MonoBehaviour
 
             // Place first block
             GameObject newblock = null;
-            if (score >= 500)
+            if (score >= baseValue)
             {
-                if ((score / 66.66f) <= 60)
+                if ((score / (66.66f * (baseValue / 500))) <= 60)
                 {
-                    if (PercentChance(score / 66.66f))
+                    if (PercentChance(score / (66.66f * (baseValue / 500))))
                     {
                         if (PercentChance(95))
                         {
@@ -232,7 +235,7 @@ public class GameManager : MonoBehaviour
                             newblock = Instantiate(blockWithTimesThree);
                         }
                     }
-                    else if (score > 3150 && PercentChance(blockWithFistPercent))
+                    else if (score > (baseValue * 6.3f) && PercentChance(blockWithFistPercent))
                     {
                         newblock = Instantiate(blockWithFist);
                     }
@@ -246,6 +249,7 @@ public class GameManager : MonoBehaviour
             {
                 newblock = Instantiate(block);
             }
+
             newblock.GetComponent<Block>().wave = wave;
             place = obstaclePositions[(Random.Range(0, 3))]; // 0, 1 or 2
             newblock.transform.position = transform.position + new Vector3(1, place, 0);
@@ -260,7 +264,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                if (score >= 1000)
+                if (score >= (baseValue * 2))
                 {
                     if (PercentChance(5.0f))
                     {
@@ -292,7 +296,7 @@ public class GameManager : MonoBehaviour
                     {
                         newblock2 = Instantiate(spikeBall);
                     }
-                    else if (PercentChance(score / 750.0f))
+                    else if (PercentChance(score / (750.0f * (baseValue / 500))))
                     {
                         newblock2 = Instantiate(blockWithPaint);
                     }
@@ -301,7 +305,7 @@ public class GameManager : MonoBehaviour
                         newblock2 = Instantiate(block);
                     }
                 }
-                else if (score >= 400 && score < 1000)
+                else if (score >= (baseValue * 0.8f) && score < (baseValue * 2))
                 {
                     if (PercentChance(1))
                     {
@@ -383,7 +387,7 @@ public class GameManager : MonoBehaviour
                 }
                 else //75%
                 {
-                    if (PercentChance(2)) // TEST 2%
+                    if (PercentChance(2))
                     {
                         int pick;
                         pick = Random.Range(1, 3);
@@ -399,7 +403,7 @@ public class GameManager : MonoBehaviour
                             newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
                         }
                     }
-                    else if (newblock2 != null && PercentChance(score / 80.0f))
+                    else if (newblock2 != null && PercentChance(score / (80.0f * (baseValue / 500))))
                     {
                         if (newblock2.tag == "Block")
                         {
@@ -737,6 +741,13 @@ public class GameManager : MonoBehaviour
     // Code for start of script
     public void Start()
     {
+        // Reset streak
+        streakColour = 0;
+        streakCount = 0;
+
+        // BaseValue for Difficulty Settings
+        baseValue = 100;
+
         // Reset time
         playerTime = 0;
 
@@ -820,7 +831,7 @@ public class GameManager : MonoBehaviour
         }
 
         canContinue = true;
-        score = 0;
+        score = -1;
     }
 
     public void OnHighscoresDownloaded(Highscore[] highscoreList)
@@ -1101,12 +1112,6 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
-        // TEST!!!
-        if (Input.GetKeyDown("q"))
-        {
-            FindObjectOfType<AudioManager>().Play("powerup");
-        }
-
         // Keep track of player time
         if (on == true && player.dead == false)
         {
@@ -1153,10 +1158,10 @@ public class GameManager : MonoBehaviour
             downloadScoreUI.transform.Rotate(0, 0, 10, Space.Self);
         }
 
-        // BlockWithFist percent
-        if ((score - 3150.0f) / 69.0f <= 70.0f)
+        // BlockWithFistPercent
+        if ((score - (3150.0f * (baseValue / 500)) / 69.0f <= 70.0f))
         {
-            blockWithFistPercent = (score - 3150.0f) / 69.0f;
+            blockWithFistPercent = (score - 3150.0f * (baseValue / 500)) / 69.0f;
         }
         else
         {
@@ -1216,11 +1221,25 @@ public class GameManager : MonoBehaviour
 
         if (playerLanguage == "Latin")
         {
-            scoreText.text = ToRoman(score);
+            if (score < 0)
+            {
+                scoreText.text = ToRoman(0);
+            }
+            else
+            {
+                scoreText.text = ToRoman(score);
+            }
         }
         else
         {
-            scoreText.text = score.ToString();
+            if (score < 0)
+            {
+                scoreText.text = 0.ToString();
+            }
+            else
+            {
+                scoreText.text = score.ToString();
+            }
         }
         
         pauseText.text = language.Paused;
@@ -1246,9 +1265,10 @@ public class GameManager : MonoBehaviour
         
         okButtonText.text = language.OK;
 
+        // Game Speed
         if (paused == false)
         {
-            Time.timeScale = 1.0f + (score / 99999.0f);
+            Time.timeScale = 1.0f + (score / 9999.0f);
         }
 
         tutorialPaint.text = language.Paint.ToUpper();

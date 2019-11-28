@@ -507,6 +507,32 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (collision.gameObject.GetComponent<Block>().hit == false && dead == false)
             {
+                if (gameManager.streakCount == 4 && colour == gameManager.streakColour)
+                {
+                    colour = 7;
+                    Rainbow();
+                    FindObjectOfType<AudioManager>().Play("powerup");
+                }
+                else if (colour == gameManager.streakColour)
+                {
+                    gameManager.streakCount++;
+                }
+                else if (gameManager.streakColour == 0 || gameManager.streakCount == 0)
+                {
+                    if (colour != 7)
+                    {
+                        gameManager.streakColour = colour;
+                    }
+                    else if (colour == 7)
+                    {
+                        gameManager.streakColour = 0;
+                    }
+                }
+                else
+                {
+                    gameManager.streakCount = 0;
+                }
+
                 if (collision.transform.name == "BlockWithPaint(Clone)" && colour != 7 && dead == false)
                 {
                     colour = collision.gameObject.GetComponent<Block>().colour2;
@@ -557,7 +583,7 @@ public class PlayerMovement : MonoBehaviour
                 floatText.GetComponent<TextMeshPro>().font = apu_title;
                 if (gameManager.playerLanguage != "Latin")
                 {
-                    floatText.GetComponent<TextMeshPro>().text = (5 * timesTwoMode).ToString();
+                    floatText.GetComponent<TextMeshPro>().text = (10 * timesTwoMode).ToString();
                 }
                 else
                 {
@@ -565,7 +591,7 @@ public class PlayerMovement : MonoBehaviour
                 }
                 floatText.GetComponent<FloatingText>().verticalSpeed = 0.5f;
                 floatText.GetComponent<FloatingText>().horizontalSpeed = 0f;
-                gameManager.score += (5 * timesTwoMode);
+                gameManager.score += (10 * timesTwoMode);
                 collision.gameObject.GetComponent<Block>().hit = true;
                 Destroy(collision.gameObject);
                 Destroy(floatText, 1.0f);
@@ -590,10 +616,10 @@ public class PlayerMovement : MonoBehaviour
                     }
                     else
                     {
-                        floatText3.GetComponent<TextMeshPro>().text = (5 * (1 + babyPuffins)).ToString();
+                        floatText3.GetComponent<TextMeshPro>().text = (10 * (1 + babyPuffins * 10)).ToString();
                     }
                     floatText3.GetComponent<TextMeshPro>().font = apu_title;
-                    gameManager.score += (5 * (1 + babyPuffins));
+                    gameManager.score += (10 * (1 + babyPuffins));
                     Destroy(floatText3, 1.0f);
                 }
                 else

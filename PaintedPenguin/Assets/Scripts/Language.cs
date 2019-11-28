@@ -1631,32 +1631,32 @@ public class Language : MonoBehaviour
         }
         else if (gameManager.playerLanguage == "Arabic" || gameManager.playerLanguage == "Persian" || gameManager.playerLanguage == "Urdu")
         {
-            /*gameManager.settingsUI.GetComponent<Text>().font = arabicMenuFont;
-            gameManager.settingsUI.GetComponent<Text>().fontStyle = FontStyles.Normal;
+            gameManager.settingsUI.GetComponent<Text>().font = arabicMenuFont;
+            gameManager.settingsUI.GetComponent<Text>().fontStyle = FontStyle.Normal;
             gameManager.soundUI.GetComponent<Text>().font = arabicMenuFont;
-            gameManager.soundUI.GetComponent<Text>().fontStyle = FontStyles.Normal;
-            gameManager.soundUI.GetComponent<Text>().alignment = TextAlignmentOptions.Right;
+            gameManager.soundUI.GetComponent<Text>().fontStyle = FontStyle.Normal;
+            gameManager.soundUI.GetComponent<Text>().alignment = TextAnchor.MiddleRight;
             gameManager.musicUI.GetComponent<Text>().font = arabicMenuFont;
-            gameManager.musicUI.GetComponent<Text>().fontStyle = FontStyles.Normal;
-            gameManager.musicUI.GetComponent<Text>().alignment = TextAlignmentOptions.Right;
+            gameManager.musicUI.GetComponent<Text>().fontStyle = FontStyle.Normal;
+            gameManager.musicUI.GetComponent<Text>().alignment = TextAnchor.MiddleRight;
             gameManager.tutorialUI.GetComponent<Text>().font = arabicMenuFont;
-            gameManager.tutorialUI.GetComponent<Text>().fontStyle = FontStyles.Normal;
-            gameManager.tutorialUI.GetComponent<Text>().alignment = TextAlignmentOptions.Right;
+            gameManager.tutorialUI.GetComponent<Text>().fontStyle = FontStyle.Normal;
+            gameManager.tutorialUI.GetComponent<Text>().alignment = TextAnchor.MiddleRight;
             gameManager.editColoursUI.GetComponent<Text>().font = arabicMenuFont;
-            gameManager.editColoursUI.GetComponent<Text>().fontStyle = FontStyles.Normal;
-            gameManager.editColoursUI.GetComponent<Text>().alignment = TextAlignmentOptions.Right;
+            gameManager.editColoursUI.GetComponent<Text>().fontStyle = FontStyle.Normal;
+            gameManager.editColoursUI.GetComponent<Text>().alignment = TextAnchor.MiddleRight;
             gameManager.currentLanguageDisplay.GetComponent<Text>().font = arabicMenuFont;
-            gameManager.currentLanguageDisplay.GetComponent<Text>().fontStyle = FontStyles.Normal;
+            gameManager.currentLanguageDisplay.GetComponent<Text>().fontStyle = FontStyle.Normal;
             gameManager.okButtonText.GetComponent<Text>().font = arabicMenuFont;
-            gameManager.okButtonText.GetComponent<Text>().fontStyle = FontStyles.Normal;
+            gameManager.okButtonText.GetComponent<Text>().fontStyle = FontStyle.Normal;
             gameManager.startButtonText.GetComponent<Text>().font = arabicMenuFont;
-            gameManager.startButtonText.GetComponent<Text>().fontStyle = FontStyles.Normal;
-            gameManager.startButtonText.GetComponent<Text>().alignment = TextAlignmentOptions.Right;
+            gameManager.startButtonText.GetComponent<Text>().fontStyle = FontStyle.Normal;
+            gameManager.startButtonText.GetComponent<Text>().alignment = TextAnchor.MiddleRight;
             gameManager.scoreButtonText.GetComponent<Text>().font = arabicMenuFont;
-            gameManager.scoreButtonText.GetComponent<Text>().fontStyle = FontStyles.Normal;
-            gameManager.scoreButtonText.GetComponent<Text>().alignment = TextAlignmentOptions.Right;
+            gameManager.scoreButtonText.GetComponent<Text>().fontStyle = FontStyle.Normal;
+            gameManager.scoreButtonText.GetComponent<Text>().alignment = TextAnchor.MiddleRight;
             gameManager.startButton.transform.position = new Vector2(-29.7f, 1.82f);
-            gameManager.scoreButton.transform.position = new Vector2(35.2f, -112.9f);*/
+            gameManager.scoreButton.transform.position = new Vector2(35.2f, -112.9f);
             gameManager.comboText.GetComponent<TMPro.TextMeshPro>().font = apuFont;
         }
         else if (gameManager.playerLanguage == "Hebrew" || gameManager.playerLanguage == "Yiddish")

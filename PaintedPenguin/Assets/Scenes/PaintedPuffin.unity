@@ -17303,7 +17303,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: tick
     clip: {fileID: 8300000, guid: 958893c9eb9e3124f9f38267c836f531, type: 3}
-    volume: 1
+    volume: 0.855
     pitch: 1
     source: {fileID: 0}
   - name: powerup
@@ -17324,7 +17324,7 @@ MonoBehaviour:
   - name: deathjingle
     clip: {fileID: 8300000, guid: c47a2bdd0c4485945a943e37c5b85a17, type: 3}
     volume: 1
-    pitch: 1.25
+    pitch: 1.1
     source: {fileID: 0}
   - name: blocknote
     clip: {fileID: 8300000, guid: ac8f8e1672075574388beeae4916f328, type: 3}

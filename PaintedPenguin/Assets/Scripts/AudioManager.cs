@@ -43,7 +43,16 @@ public class AudioManager : MonoBehaviour
         }
 
         s.source.volume = FindObjectOfType<GameManager>().playerSound;
-        s.source.pitch = s.pitch;
+
+
+        if (sound == "blocknote")
+        {
+            s.source.pitch = 1 + (0.1f * FindObjectOfType<GameManager>().streakCount);
+        }
+        else
+        {
+            s.source.pitch = s.pitch;
+        }
 
         s.source.Play();
     }
