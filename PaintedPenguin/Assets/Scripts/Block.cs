@@ -179,6 +179,7 @@ public class Block : MonoBehaviour
                 fist = Instantiate(fist, new Vector3(transform.position.x, transform.position.y + 0.4f), transform.rotation, gameObject.transform);
                 fist.GetComponent<Fist>().blockWithFist = gameObject;
                 punch = true;
+                FindObjectOfType<AudioManager>().Play("fistwhoosh");
             }
         }
     }

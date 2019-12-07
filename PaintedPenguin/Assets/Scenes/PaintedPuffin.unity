@@ -17317,7 +17317,7 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
   - name: blockdestroy
-    clip: {fileID: 8300000, guid: 640878f3dae6f514bac4f1848dd19036, type: 3}
+    clip: {fileID: 8300000, guid: 1b5f57a04d55a5e4f82ee7bb4e1ee96f, type: 3}
     volume: 0.341
     pitch: 1
     source: {fileID: 0}
@@ -17328,6 +17328,26 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: blocknote
     clip: {fileID: 8300000, guid: ac8f8e1672075574388beeae4916f328, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: bubble1
+    clip: {fileID: 8300000, guid: f19f01bdff5fa4e41b5907c15296e114, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: bubble2
+    clip: {fileID: 8300000, guid: 5b056239cf2ae2b4280be0bec25bacfb, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: bubble3
+    clip: {fileID: 8300000, guid: 4dad897235aef4f43ac4011b4f6b29fd, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: fistwhoosh
+    clip: {fileID: 8300000, guid: 988624ff5ddd3aa4896cad6c00013fed, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}

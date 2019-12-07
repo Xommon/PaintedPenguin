@@ -69,6 +69,7 @@ public class Fist : MonoBehaviour
                 ps.startColor = collision.gameObject.GetComponent<Block>().sr.color;
                 Destroy(ps.gameObject, ps.startLifetime);
                 Destroy(ps2.gameObject, ps2.startLifetime);
+                FindObjectOfType<AudioManager>().Play("blockdestroy");
             }
             else if (collision.transform.tag == "Paint")
             {
@@ -76,6 +77,7 @@ public class Fist : MonoBehaviour
                 ps3.startColor = collision.gameObject.GetComponent<Paint>().sr.color;
                 paintSplatterColour = collision.gameObject.GetComponent<Paint>().sr.color;
                 Destroy(ps3.gameObject, ps3.startLifetime);
+                FindObjectOfType<AudioManager>().Play("bubble" + Random.Range(1,4));
             }
             else if (collision.transform.tag == "Rainbow")
             {
@@ -83,6 +85,7 @@ public class Fist : MonoBehaviour
                 ps3.startColor = collision.gameObject.GetComponent<Rainbow>().sr.color;
                 paintSplatterColour = collision.gameObject.GetComponent<Rainbow>().sr.color;
                 Destroy(ps3.gameObject, ps3.startLifetime);
+                FindObjectOfType<AudioManager>().Play("bubble" + Random.Range(1, 4));
             }
 
             Destroy(collision.gameObject);

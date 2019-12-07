@@ -39,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
     public CameraShake cameraShake;
     public int comboStreak;
     public AudioClip playBlockNote;
+    public int soundToPlay;
 
     // Swipe controls
     public Vector3 swipeStartPosition;
@@ -575,8 +576,8 @@ public class PlayerMovement : MonoBehaviour
                 Destroy(ps2.gameObject, ps2.startLifetime);
                 StartCoroutine(cameraShake.Shake(0.24f, 0.65f));
                 FindObjectOfType<AudioManager>().GetComponent<AudioSource>().pitch = 1 + (comboStreak / 4);
-                FindObjectOfType<AudioManager>().Play("blocknote");
-                //FindObjectOfType<AudioManager>().Play("blockdestroy");
+                //FindObjectOfType<AudioManager>().Play("blocknote");
+                FindObjectOfType<AudioManager>().Play("blockdestroy");
 
                 GameObject floatText = Instantiate(floatingText, collision.transform.position, Quaternion.identity);
                 floatText.GetComponent<TextMeshPro>().color = collision.gameObject.GetComponent<Block>().sr.color;
@@ -647,7 +648,73 @@ public class PlayerMovement : MonoBehaviour
             ParticleSystem ps3 = Instantiate(paintBurst, collision.transform.position, Quaternion.identity) as ParticleSystem;
             ps3.startColor = collision.gameObject.GetComponent<Paint>().sr.color;
             Destroy(ps3.gameObject, ps3.startLifetime);
-            FindObjectOfType<AudioManager>().Play("splat");
+            if (soundToPlay == null || soundToPlay == 0)
+            {
+                soundToPlay = Random.Range(1, 4);
+                FindObjectOfType<AudioManager>().Play("bubble" + soundToPlay.ToString());
+            }
+            else
+            {
+                if (soundToPlay == 1)
+                {
+                    if (gameManager.PercentChance(50)) {
+                        FindObjectOfType<AudioManager>().Play("bubble2");
+                    }
+                    else
+                    {
+                        FindObjectOfType<AudioManager>().Play("bubble3");
+                    }
+
+                    if (gameManager.PercentChance(50))
+                    {
+                        soundToPlay = 2;
+                    }
+                    else
+                    {
+                        soundToPlay = 3;
+                    }
+                }
+                else if (soundToPlay == 2)
+                {
+                    if (gameManager.PercentChance(50))
+                    {
+                        FindObjectOfType<AudioManager>().Play("bubble1");
+                    }
+                    else
+                    {
+                        FindObjectOfType<AudioManager>().Play("bubble3");
+                    }
+
+                    if (gameManager.PercentChance(50))
+                    {
+                        soundToPlay = 1;
+                    }
+                    else
+                    {
+                        soundToPlay = 3;
+                    }
+                }
+                else if (soundToPlay == 3)
+                {
+                    if (gameManager.PercentChance(50))
+                    {
+                        FindObjectOfType<AudioManager>().Play("bubble2");
+                    }
+                    else
+                    {
+                        FindObjectOfType<AudioManager>().Play("bubble1");
+                    }
+
+                    if (gameManager.PercentChance(50))
+                    {
+                        soundToPlay = 1;
+                    }
+                    else
+                    {
+                        soundToPlay = 2;
+                    }
+                }
+            }
 
             if (colour != 7)
             {
