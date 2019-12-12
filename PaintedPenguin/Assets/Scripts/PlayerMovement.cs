@@ -539,6 +539,78 @@ public class PlayerMovement : MonoBehaviour
                 if (collision.transform.name == "BlockWithPaint(Clone)" && colour != 7 && dead == false)
                 {
                     colour = collision.gameObject.GetComponent<Block>().colour2;
+                    ParticleSystem ps3 = Instantiate(paintBurst, collision.transform.position, Quaternion.identity) as ParticleSystem;
+                    ps3.startColor = sr.color;
+                    Destroy(ps3.gameObject, ps3.startLifetime);
+
+                    if (soundToPlay == null || soundToPlay == 0)
+                    {
+                        soundToPlay = Random.Range(1, 4);
+                        FindObjectOfType<AudioManager>().Play("bubble" + soundToPlay.ToString());
+                    }
+                    else
+                    {
+                        if (soundToPlay == 1)
+                        {
+                            if (gameManager.PercentChance(50))
+                            {
+                                FindObjectOfType<AudioManager>().Play("bubble2");
+                            }
+                            else
+                            {
+                                FindObjectOfType<AudioManager>().Play("bubble3");
+                            }
+
+                            if (gameManager.PercentChance(50))
+                            {
+                                soundToPlay = 2;
+                            }
+                            else
+                            {
+                                soundToPlay = 3;
+                            }
+                        }
+                        else if (soundToPlay == 2)
+                        {
+                            if (gameManager.PercentChance(50))
+                            {
+                                FindObjectOfType<AudioManager>().Play("bubble1");
+                            }
+                            else
+                            {
+                                FindObjectOfType<AudioManager>().Play("bubble3");
+                            }
+
+                            if (gameManager.PercentChance(50))
+                            {
+                                soundToPlay = 1;
+                            }
+                            else
+                            {
+                                soundToPlay = 3;
+                            }
+                        }
+                        else if (soundToPlay == 3)
+                        {
+                            if (gameManager.PercentChance(50))
+                            {
+                                FindObjectOfType<AudioManager>().Play("bubble2");
+                            }
+                            else
+                            {
+                                FindObjectOfType<AudioManager>().Play("bubble1");
+                            }
+
+                            if (gameManager.PercentChance(50))
+                            {
+                                soundToPlay = 1;
+                            }
+                            else
+                            {
+                                soundToPlay = 2;
+                            }
+                        }
+                    }
                 }
                 else if (collision.transform.name == "BlockWithRainbow(Clone)" && colour != 7 && dead == false)
                 {

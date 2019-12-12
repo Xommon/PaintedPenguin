@@ -599,6 +599,7 @@ public class GameManager : MonoBehaviour
         tempPlayerSound = playerSound;
         tempPlayerMusic = playerMusic;
         tempLanguage = playerLanguage;
+        FindObjectOfType<AudioManager>().Play("click");
     }
 
     public void GetUsername(string name)
@@ -966,6 +967,8 @@ public class GameManager : MonoBehaviour
     // Start Button pressed
     public void StartGame()
     {
+        FindObjectOfType<AudioManager>().Play("click");
+        
         if (playerTutorialEnabled == true)
         {
             tutorialWindow.SetActive(true);
@@ -986,10 +989,12 @@ public class GameManager : MonoBehaviour
         mainMenuUI.SetActive(false);
         highScoreTableUI.SetActive(true);
         StartCoroutine("RefreshHighscores");
+        FindObjectOfType<AudioManager>().Play("click");
     }
 
     public void XButtonScore()
     {
+        FindObjectOfType<AudioManager>().Play("click");
         highScoreTableUI.SetActive(false);
         mainMenuUI.SetActive(true);
         credits.GetComponent<Credits>().count = 0;
@@ -999,6 +1004,7 @@ public class GameManager : MonoBehaviour
     {
         if (SaveSystem.SaveFileExists() == true || usernameInputFieldText.text.Length > 0)
         {
+            FindObjectOfType<AudioManager>().Play("click");
             credits.GetComponent<Credits>().count = 0;
             playerSound = tempPlayerSound;
             playerMusic = tempPlayerMusic;
@@ -1023,6 +1029,7 @@ public class GameManager : MonoBehaviour
         if (usernameInputUI.activeInHierarchy == true)
         {
             string nonLatinChars = "";
+            FindObjectOfType<AudioManager>().Play("click");
 
             for (int i = 0; i < nameSlot.text.Length; i++)
             {
@@ -1362,6 +1369,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        FindObjectOfType<AudioManager>().Play("click");
         gameUI.SetActive(false);
         SceneManager.LoadScene("PaintedPuffin");
     }
@@ -1413,6 +1421,7 @@ public class GameManager : MonoBehaviour
 
     public void ContinueButton()
     {
+        FindObjectOfType<AudioManager>().Play("click");
         player.dead = false;
         player.rb.gravityScale = 0;
         player.rb.MovePosition(new Vector2(-1.0f, -0.075f));
@@ -1433,6 +1442,7 @@ public class GameManager : MonoBehaviour
     // Colour picker
     public void OKButtonCP()
     {
+        FindObjectOfType<AudioManager>().Play("click");
         RedC = redImage.color;
         OrangeC = orangeImage.color;
         YellowC = yellowImage.color;
@@ -1453,6 +1463,7 @@ public class GameManager : MonoBehaviour
 
     public void CloseButtonCP()
     {
+        FindObjectOfType<AudioManager>().Play("click");
         colourPickerUI.SetActive(false);
         usernameInputUI.SetActive(true);
         tempPlayerSound = playerSound;
@@ -1467,6 +1478,7 @@ public class GameManager : MonoBehaviour
 
     public void OpenColourPicker()
     {
+        FindObjectOfType<AudioManager>().Play("click");
         redImage.color = RedC;
         orangeImage.color = OrangeC;
         yellowImage.color = YellowC;
@@ -1480,6 +1492,7 @@ public class GameManager : MonoBehaviour
 
     public void RedButton()
     {
+        FindObjectOfType<AudioManager>().Play("click");
         flexibleColourPicker.hexInput.text = ColorUtility.ToHtmlStringRGB(redImage.color);
         redImage.GetComponent<FCP_ExampleScript>().fcp = flexibleColourPicker;
         orangeImage.GetComponent<FCP_ExampleScript>().fcp = null;
@@ -1491,6 +1504,7 @@ public class GameManager : MonoBehaviour
 
     public void OrangeButton()
     {
+        FindObjectOfType<AudioManager>().Play("click");
         flexibleColourPicker.hexInput.text = ColorUtility.ToHtmlStringRGB(orangeImage.color);
         redImage.GetComponent<FCP_ExampleScript>().fcp = null;
         orangeImage.GetComponent<FCP_ExampleScript>().fcp = flexibleColourPicker;
@@ -1502,6 +1516,7 @@ public class GameManager : MonoBehaviour
 
     public void YellowButton()
     {
+        FindObjectOfType<AudioManager>().Play("click");
         flexibleColourPicker.hexInput.text = ColorUtility.ToHtmlStringRGB(yellowImage.color);
         redImage.GetComponent<FCP_ExampleScript>().fcp = null;
         orangeImage.GetComponent<FCP_ExampleScript>().fcp = null;
@@ -1513,6 +1528,7 @@ public class GameManager : MonoBehaviour
 
     public void GreenButton()
     {
+        FindObjectOfType<AudioManager>().Play("click");
         flexibleColourPicker.hexInput.text = ColorUtility.ToHtmlStringRGB(greenImage.color);
         redImage.GetComponent<FCP_ExampleScript>().fcp = null;
         orangeImage.GetComponent<FCP_ExampleScript>().fcp = null;
@@ -1524,6 +1540,7 @@ public class GameManager : MonoBehaviour
 
     public void BlueButton()
     {
+        FindObjectOfType<AudioManager>().Play("click");
         flexibleColourPicker.hexInput.text = ColorUtility.ToHtmlStringRGB(blueImage.color);
         redImage.GetComponent<FCP_ExampleScript>().fcp = null;
         orangeImage.GetComponent<FCP_ExampleScript>().fcp = null;
@@ -1535,6 +1552,7 @@ public class GameManager : MonoBehaviour
 
     public void PurpleButton()
     {
+        FindObjectOfType<AudioManager>().Play("click");
         flexibleColourPicker.hexInput.text = ColorUtility.ToHtmlStringRGB(purpleImage.color);
         redImage.GetComponent<FCP_ExampleScript>().fcp = null;
         orangeImage.GetComponent<FCP_ExampleScript>().fcp = null;
@@ -1546,6 +1564,7 @@ public class GameManager : MonoBehaviour
 
     public void DefaultColourButton()
     {
+        FindObjectOfType<AudioManager>().Play("click");
         redImage.GetComponent<FCP_ExampleScript>().fcp = null;
         orangeImage.GetComponent<FCP_ExampleScript>().fcp = null;
         yellowImage.GetComponent<FCP_ExampleScript>().fcp = null;
