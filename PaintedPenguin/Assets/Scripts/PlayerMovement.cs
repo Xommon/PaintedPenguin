@@ -472,6 +472,7 @@ public class PlayerMovement : MonoBehaviour
     public void KillPlayer()
     {
         FindObjectOfType<AudioManager>().Play("peep");
+        FindObjectOfType<AudioManager>().Pause("splash");
         Instantiate(featherBurst, gameObject.transform.position, Quaternion.identity, null);
         StartCoroutine(gameManager.AddNewHighScore(gameManager.score));
         rb.gravityScale = 0;

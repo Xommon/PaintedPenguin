@@ -76,6 +76,20 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void Pause(string sound)
+    {
+        Sound s = Array.Find(sounds, item => item.name == sound);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found!");
+            return;
+        }
+
+        s.source.volume = FindObjectOfType<GameManager>().playerSound;
+
+        s.source.Pause();
+    }
+
     public void Unpause()
     {
         for (int i = 0; i < sounds.Length; i++)
@@ -93,5 +107,19 @@ public class AudioManager : MonoBehaviour
 
             s.source.UnPause();
         }
+    }
+
+    public void Unpause(string sound)
+    {
+        Sound s = Array.Find(sounds, item => item.name == sound);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found!");
+            return;
+        }
+
+        s.source.volume = FindObjectOfType<GameManager>().playerSound;
+
+        s.source.UnPause();
     }
 }
