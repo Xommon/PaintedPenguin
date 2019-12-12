@@ -952,12 +952,14 @@ public class GameManager : MonoBehaviour
             pauseUI.SetActive(true);
             Time.timeScale = 0;
             paused = true;
+            FindObjectOfType<AudioManager>().Pause();
         }
         else
         {
             pauseUI.SetActive(false);
             Time.timeScale = 1;
             paused = false;
+            FindObjectOfType<AudioManager>().Unpause();
         }
     }
 

@@ -3,7 +3,6 @@
 - When changing language, credits don't update immediately
 
 :: SOUND ::
-- Sounds don't pause with game
 - Game freezes when sounds play
 
 :: FINAL TOUCHES ::
@@ -20,7 +19,4 @@ Localizer
 BUGS:
 - First place tier doesn't have the same place as second place
 - Missing Key ID error
-- Arabizer is broken
-- Fix titles in language
-- Snow piling
 - Create a system where submitted usernames are sent out for approval to the leaderboard and are only allowed if OK is returned OR learn what the leaderboard doesn't like and don't allow people to use those names? :)
