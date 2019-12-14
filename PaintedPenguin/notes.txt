@@ -4,6 +4,7 @@
 
 :: SOUND ::
 - Game freezes when sounds play
+- Sound speed doesn't scale with game speed, so splash is OOS
 
 :: FINAL TOUCHES ::
 - Ads
@@ -14,7 +15,6 @@
 Colour picker [pending]
 High score
 Localizer
-
 
 Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
 
@@ -30,6 +30,5 @@ Splash - https://freesound.org/people/soundscalpel.com/sounds/110393/
 Splash2 - https://freesound.org/people/digifishmusic/sounds/53764/
 
 BUGS:
-- First place tier doesn't have the same place as second place
 - Missing Key ID error
 - Create a system where submitted usernames are sent out for approval to the leaderboard and are only allowed if OK is returned OR learn what the leaderboard doesn't like and don't allow people to use those names? :)

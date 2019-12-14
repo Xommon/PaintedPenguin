@@ -238,6 +238,18 @@ public class PlayerMovement : MonoBehaviour
 
     public void SwitchGameOn()
     {
+        if (gameManager.canContinue == true)
+        {
+            gameManager.on = true;
+        }
+        else
+        {
+            Invoke("SwitchGameOnTwo", 2.0f);
+        }
+    }
+
+    public void SwitchGameOnTwo()
+    {
         gameManager.on = true;
     }
 

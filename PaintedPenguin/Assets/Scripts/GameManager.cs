@@ -849,7 +849,8 @@ public class GameManager : MonoBehaviour
         {
             // Place
             int place = 0;
-
+            
+            // Highlights your score in white
             if (highscoreList[i].username == playerUsername)
             {
                 tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += "<color=white>";
@@ -859,22 +860,28 @@ public class GameManager : MonoBehaviour
                 tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += "<color=black>";
             }
 
+            // Matching scores tie in place
             if (highscoreList[i].score == previousScore)
             {
                 if (previousPlace == 0)
                 {
                     previousPlace = i;
-                } else
+                }
+                else
                 {
                     count++;
                 }
+
                 place = i - count + 1;
-            } else
+            }
+            else
             {
                 count = 0;
                 place = i + 1;
+                previousPlace = 1;
             }
 
+            // Align places
             if (place < 10)
             {
                 tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += "00";
