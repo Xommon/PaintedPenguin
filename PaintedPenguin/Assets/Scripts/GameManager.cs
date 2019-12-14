@@ -1275,9 +1275,13 @@ public class GameManager : MonoBehaviour
         okButtonText.text = language.OK;
 
         // Game Speed
-        if (paused == false)
+        if (paused == false && player.dead == false)
         {
             Time.timeScale = 1.0f + (score / 9999.0f);
+        }
+        else if (player.dead == true)
+        {
+            Time.timeScale = 1.0f;
         }
 
         tutorialPaint.text = language.Paint.ToUpper();

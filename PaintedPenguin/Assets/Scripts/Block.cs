@@ -13,6 +13,7 @@ public class Block : MonoBehaviour
     public int colour2;
     public SpriteRenderer sr;
     public SpriteRenderer sr2;
+    public SpriteRenderer lidsr;
     public bool punch;
     public bool hit = false;
     public float moving;
@@ -148,6 +149,7 @@ public class Block : MonoBehaviour
         if ((gameObject.name == "BlockWithFist" || gameObject.name == "BlockWithFist(Clone)"))
         {
             transform.rotation = new Quaternion(0, 0, facing, 0);
+            lidsr.color = sr.color;
         }
 
         // Destroy if out of scene

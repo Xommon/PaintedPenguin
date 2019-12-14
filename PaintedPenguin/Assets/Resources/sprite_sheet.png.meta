@@ -392,6 +392,9 @@ TextureImporter:
   - first:
       213: -7829473545343235413
     second: waterpixel
+  - first:
+      213: 514719527545141208
+    second: lid
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -1691,9 +1694,9 @@ TextureImporter:
         x: 3
         y: 76
         width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5, y: 0.6}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2197,7 +2200,7 @@ TextureImporter:
         width: 1
         height: 1
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2205,6 +2208,27 @@ TextureImporter:
       bones: []
       spriteID: c6b126b343675064097c7bf44cb28cc4
       internalID: -7829473545343235413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lid
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 91
+        width: 18
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd2d634de9dcef943b625481745a0447
+      internalID: 514719527545141208
       vertices: []
       indices: 
       edges: []

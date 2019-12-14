@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     public ParticleSystem blockBurst;
     public ParticleSystem dustBurst;
     public ParticleSystem paintBurst;
+    public ParticleSystem splashParticles;
     public GameObject blockPop;
     public int combo;
     public Language language;
@@ -148,6 +149,13 @@ public class PlayerMovement : MonoBehaviour
         {
             count = 0;
         }
+
+        if (splashParticles.transform.position.x == 0 & transform.position.y < -0.14 && transform.position.y > -0.2 && dead == false)
+        {
+            // Different spawns depending on if player is resurfacing or diving
+            ParticleSystem ps4 = Instantiate(splashParticles, transform.position, Quaternion.identity) as ParticleSystem;
+            Destroy(ps4.gameObject, ps4.startLifetime);
+        } 
 
         // Add positions to list
         if (gameManager.paused == false)
