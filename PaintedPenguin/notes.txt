@@ -1,18 +1,18 @@
 - Attracted paint shifts blocks
-- Play seconds not recorded
+***Attracted items could ditch their collision component, and then trigger their deletion upon reaching the player's coordinates, which it will do inevitably anyway***
 - When changing language, credits don't update immediately
 
 :: SOUND ::
 - Game freezes when sounds play
 - Sound speed doesn't scale with game speed, so splash is OOS
 
-:: FINAL TOUCHES ::
+:: TO DO ::
 - Ads
 - Analytics
 (https://icons8.com in store description)
 
 :: CREDITS ::
-Colour picker [pending]
+Colour picker - NONE
 High score
 Localizer
 
@@ -28,7 +28,3 @@ Jump - https://freesound.org/people/Brsjak/sounds/482880/
 Fist whoosh - ZERO
 Splash - https://freesound.org/people/soundscalpel.com/sounds/110393/
 Splash2 - https://freesound.org/people/digifishmusic/sounds/53764/
-
-BUGS:
-- Missing Key ID error
-- Create a system where submitted usernames are sent out for approval to the leaderboard and are only allowed if OK is returned OR learn what the leaderboard doesn't like and don't allow people to use those names? :)
