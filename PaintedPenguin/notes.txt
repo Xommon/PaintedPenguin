@@ -1,20 +1,21 @@
-- Attracted paint shifts blocks
-***Attracted items could ditch their collision component, and then trigger their deletion upon reaching the player's coordinates, which it will do inevitably anyway***
-- When changing language, credits don't update immediately
-
-:: SOUND ::
-- Game freezes when sounds play
-- Sound speed doesn't scale with game speed, so splash is OOS
-
 :: TO DO ::
 - Ads
 - Analytics
-(https://icons8.com in store description)
+- Tap controls
+
+:: BUGS ::
+- When changing language, credits don't update immediately
+- Username issues when you go online with a bad name
+- Game freezes when sounds play
+- Sound speed doesn't scale with game speed, so splash is OOS
+- "awesome" is not a country; fix that
+- Tick/shatter noises too brash
 
 :: CREDITS ::
 Colour picker - NONE
-High score
-Localizer
+High score - NONE
+Localizer - [PENDING]
+(https://icons8.com in google play store description)
 
 Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
 

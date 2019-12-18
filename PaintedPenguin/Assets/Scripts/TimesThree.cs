@@ -2,19 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rainbow : MonoBehaviour
+public class TimesThree : MonoBehaviour
 {
-    public GameManager gameManager;
-    public SpriteRenderer sr;
-    public BoxCollider2D bc;
-
-    private void Start()
-    {
-        if (FindObjectOfType<PlayerMovement>().magnet == false)
-        {
-            bc.enabled = true;
-        }
-    }
+    public CircleCollider2D bc;
 
     // Update is called once per frame
     void Update()
@@ -27,21 +17,17 @@ public class Rainbow : MonoBehaviour
         }
         else
         {
-            // Paint keeps moving to the left
+            // Powerup keeps moving to the left
             transform.position += Vector3.left * 0.75f * Time.deltaTime;
         }
 
         if (transform.position == FindObjectOfType<PlayerMovement>().transform.position)
         {
-            ParticleSystem ps3 = Instantiate(FindObjectOfType<PlayerMovement>().paintBurst, transform.position, Quaternion.identity) as ParticleSystem;
-            ps3.startColor = FindObjectOfType<PlayerMovement>().sr.color;
-            Destroy(ps3.gameObject, ps3.startLifetime);
-            FindObjectOfType<AudioManager>().Play("bubble");
-
-            if (FindObjectOfType<PlayerMovement>().colour != 7 && FindObjectOfType<PlayerMovement>().dead == false)
+            if (FindObjectOfType<PlayerMovement>().dead == false)
             {
-                FindObjectOfType<PlayerMovement>().colour = 7;
-                FindObjectOfType<PlayerMovement>().Rainbow();
+                Instantiate(FindObjectOfType<PlayerMovement>().blockPop, transform.position, Quaternion.identity);
+                FindObjectOfType<PlayerMovement>().timesTwoMode *= 3;
+                FindObjectOfType<PlayerMovement>().TimesTwoMode();
                 FindObjectOfType<AudioManager>().Play("powerup");
             }
 

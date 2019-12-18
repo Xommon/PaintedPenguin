@@ -489,6 +489,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void CreateBaby()
+    {
+        Instantiate(babies[0]);
+        babies.RemoveAt(0);
+        babyPuffins++;
+        FindObjectOfType<AudioManager>().Play("peep");
+    }
+
     public void KillPlayer()
     {
         FindObjectOfType<AudioManager>().Play("peep");
@@ -530,38 +538,12 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (collision.gameObject.GetComponent<Block>().hit == false && dead == false)
             {
-                if (gameManager.streakCount == 4 && colour == gameManager.streakColour)
+                if (collision.transform.name == "BlockWithPaint(Clone)" && colour != 7 && dead == false && collision.gameObject.GetComponent<Block>().contentsActive == true)
                 {
-                    colour = 7;
-                    Rainbow();
-                    FindObjectOfType<AudioManager>().Play("powerup");
-                }
-                else if (colour == gameManager.streakColour)
-                {
-                    gameManager.streakCount++;
-                }
-                else if (gameManager.streakColour == 0 || gameManager.streakCount == 0)
-                {
-                    if (colour != 7)
-                    {
-                        gameManager.streakColour = colour;
-                    }
-                    else if (colour == 7)
-                    {
-                        gameManager.streakColour = 0;
-                    }
-                }
-                else
-                {
-                    gameManager.streakCount = 0;
-                }
-
-                if (collision.transform.name == "BlockWithPaint(Clone)" && colour != 7 && dead == false)
-                {
-                    colour = collision.gameObject.GetComponent<Block>().colour2;
                     ParticleSystem ps3 = Instantiate(paintBurst, collision.transform.position, Quaternion.identity) as ParticleSystem;
                     ps3.startColor = sr.color;
                     Destroy(ps3.gameObject, ps3.startLifetime);
+                    colour = collision.gameObject.GetComponent<Block>().colour2;
 
                     if (soundToPlay == null || soundToPlay == 0)
                     {
@@ -632,26 +614,23 @@ public class PlayerMovement : MonoBehaviour
                         }
                     }
                 }
-                else if (collision.transform.name == "BlockWithRainbow(Clone)" && colour != 7 && dead == false)
+                else if (collision.transform.name == "BlockWithRainbow" || collision.transform.name == "BlockWithRainbow(Clone)" && colour != 7 && dead == false && collision.gameObject.GetComponent<Block>().contentsActive == true)
                 {
                     colour = 7;
                     Rainbow();
                     FindObjectOfType<AudioManager>().Play("powerup");
                 }
-                else if ((collision.transform.name == "BlockWithX3" || collision.transform.name == "BlockWithX3(Clone)") && dead == false)
+                else if ((collision.transform.name == "BlockWithX3" || collision.transform.name == "BlockWithX3(Clone)") && dead == false && collision.gameObject.GetComponent<Block>().contentsActive == true)
                 {
                     timesTwoMode *= 3;
                     TimesTwoMode();
                     FindObjectOfType<AudioManager>().Play("powerup");
                 }
-                else if ((collision.transform.name == "BlockWithBaby" || collision.transform.name == "BlockWithBaby(Clone)") && dead == false && babyPuffins < 3)
+                else if ((collision.transform.name == "BlockWithBaby" || collision.transform.name == "BlockWithBaby(Clone)") && dead == false && babyPuffins < 3 && collision.gameObject.GetComponent<Block>().contentsActive == true)
                 {
-                    Instantiate(babies[0]);
-                    babies.RemoveAt(0);
-                    babyPuffins++;
-                    FindObjectOfType<AudioManager>().Play("peep");
+                    CreateBaby();
                 }
-                else if ((collision.transform.name == "BlockWithMagnet" || collision.transform.name == "BlockWithMagnet(Clone)") && dead == false)
+                else if ((collision.transform.name == "BlockWithMagnet" || collision.transform.name == "BlockWithMagnet(Clone)") && dead == false && collision.gameObject.GetComponent<Block>().contentsActive == true)
                 {
                     Magnet();
                     FindObjectOfType<AudioManager>().Play("powerup");
@@ -823,7 +802,7 @@ public class PlayerMovement : MonoBehaviour
             ParticleSystem ps3 = Instantiate(paintBurst, collision.transform.position, Quaternion.identity) as ParticleSystem;
             ps3.startColor = sr.color;
             Destroy(ps3.gameObject, ps3.startLifetime);
-            FindObjectOfType<AudioManager>().Play("splat");
+            FindObjectOfType<AudioManager>().Play("bubble");
 
             if (colour != 7 && dead == false)
             {

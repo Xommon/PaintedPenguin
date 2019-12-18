@@ -21,8 +21,23 @@ public class Block : MonoBehaviour
     public float moveMin;
     public int wave;
     public List<int> colours = new List<int>();
+    public GameObject rainbow;
+    public GameObject timesTwo;
+    public GameObject timesThree;
+    public GameObject baby;
+    public GameObject magnet;
+    public bool generated;
+    public bool contentsActive;
 
-    private void Start()
+    // Content parts
+    public bool ejected;
+    public GameObject rainbowContents;
+    public GameObject timesTwoContents;
+    public GameObject timesThreeContents;
+    public GameObject babyContents;
+    public GameObject magnetContents;
+
+    private void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
         facing = 0.1f;
@@ -34,31 +49,8 @@ public class Block : MonoBehaviour
         colours.Add(5);
         colours.Add(6);
 
-        // Determine which way to punch
-        if (gameObject.name == "BlockWithFist" || gameObject.name == "BlockWithFist(Clone)")
-        {
-            punch = false;
-
-            if (transform.position.y == 0.7f)
-            {
-                facing = 180;
-            }
-            else if (transform.position.y == -0.9f)
-            {
-                facing = 0;
-            }
-            else
-            {
-                if (gameManager.PercentChance(50))
-                {
-                    facing = 0;
-                }
-                else
-                {
-                    facing = 180;
-                }
-            }
-        }
+        contentsActive = true;
+        ejected = false;
 
         // Randomly choose block's colour
         int roll = Random.Range(1, 7); // Between 1 and 6
@@ -105,6 +97,31 @@ public class Block : MonoBehaviour
             sr.color = gameManager.PurpleC;
         }
 
+        if (colour == 1)
+        {
+            sr.color = gameManager.RedC;
+        }
+        else if (colour == 2)
+        {
+            sr.color = gameManager.OrangeC;
+        }
+        else if (colour == 3)
+        {
+            sr.color = gameManager.YellowC;
+        }
+        else if (colour == 4)
+        {
+            sr.color = gameManager.GreenC;
+        }
+        else if (colour == 5)
+        {
+            sr.color = gameManager.BlueC;
+        }
+        else if (colour == 6)
+        {
+            sr.color = gameManager.PurpleC;
+        }
+
         if (gameObject.name == "BlockWithPaint(Clone)")
         {
             int roll2 = Random.Range(0, 5);
@@ -137,8 +154,64 @@ public class Block : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        // Determine which way to punch
+        if (gameObject.name == "BlockWithFist" || gameObject.name == "BlockWithFist(Clone)")
+        {
+            punch = false;
+
+            if (transform.position.y == 0.7f)
+            {
+                facing = 180;
+            }
+            else if (transform.position.y == -0.9f)
+            {
+                facing = 0;
+            }
+            else
+            {
+                if (gameManager.PercentChance(50))
+                {
+                    facing = 0;
+                }
+                else
+                {
+                    facing = 180;
+                }
+            }
+        }
+    }
+
     void Update()
     {
+        if (colour == 1)
+        {
+            sr.color = gameManager.RedC;
+        }
+        else if (colour == 2)
+        {
+            sr.color = gameManager.OrangeC;
+        }
+        else if (colour == 3)
+        {
+            sr.color = gameManager.YellowC;
+        }
+        else if (colour == 4)
+        {
+            sr.color = gameManager.GreenC;
+        }
+        else if (colour == 5)
+        {
+            sr.color = gameManager.BlueC;
+        }
+        else if (colour == 6)
+        {
+            sr.color = gameManager.PurpleC;
+        }
+
+        transform.rotation = Quaternion.identity;
+
         // Blocks keep moving to the left
         transform.position += Vector3.left * 0.75f * Time.deltaTime;
 
@@ -176,12 +249,57 @@ public class Block : MonoBehaviour
         // Activate fist
         if ((gameObject.name == "BlockWithFist" || gameObject.name == "BlockWithFist(Clone)") && punch == false && fist != null)
         {
-            if (transform.position.x < 0)
+            if (transform.position.x < 0.08f)
             {
                 fist = Instantiate(fist, new Vector3(transform.position.x, transform.position.y + 0.4f), transform.rotation, gameObject.transform);
                 fist.GetComponent<Fist>().blockWithFist = gameObject;
                 punch = true;
                 FindObjectOfType<AudioManager>().Play("fistwhoosh");
+            }
+        }
+
+        // Eject contents if magnet is enabled
+        if (FindObjectOfType<PlayerMovement>().magnet == true && transform.position.x < 0.5)
+        {
+            contentsActive = false;
+
+            if (ejected == false)
+            {
+                if (name == "BlockWithRainbow" || name == "BlockWithRainbow(Clone)")
+                {
+                    Instantiate(rainbow, transform.position, Quaternion.identity);
+                    contentsActive = false;
+                    rainbowContents.SetActive(false);
+                    ejected = true;
+                }
+                else if (name == "BlockWithX2" || name == "BlockWithX2(Clone)")
+                {
+                    Instantiate(timesTwo, transform.position, Quaternion.identity);
+                    contentsActive = false;
+                    timesTwoContents.SetActive(false);
+                    ejected = true;
+                }
+                else if (name == "BlockWithX3" || name == "BlockWithX3(Clone)")
+                {
+                    Instantiate(timesThree, transform.position, Quaternion.identity);
+                    contentsActive = false;
+                    timesThreeContents.SetActive(false);
+                    ejected = true;
+                }
+                else if (name == "BlockWithBaby" || name == "BlockWithBaby(Clone)")
+                {
+                    Instantiate(baby, transform.position, Quaternion.identity);
+                    contentsActive = false;
+                    babyContents.SetActive(false);
+                    ejected = true;
+                }
+                else if (name == "BlockWithMagnet" || name == "BlockWithMagnet(Clone)")
+                {
+                    Instantiate(magnet, transform.position, Quaternion.identity);
+                    contentsActive = false;
+                    magnetContents.SetActive(false);
+                    ejected = true;
+                }
             }
         }
     }

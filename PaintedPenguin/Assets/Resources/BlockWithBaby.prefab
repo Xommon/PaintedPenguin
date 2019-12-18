@@ -321,16 +321,33 @@ MonoBehaviour:
     type: 3}
   block: {fileID: 6912182656722656618, guid: 28a263cf0e83020418b6fa4f9b07f0ac, type: 3}
   player: {fileID: 0}
+  fist: {fileID: 0}
+  facing: 0
   colour: 0
   colour2: 0
   sr: {fileID: 816865251966469900}
   sr2: {fileID: 0}
+  lidsr: {fileID: 0}
+  punch: 0
   hit: 0
   moving: 0
   moveMax: 0
   moveMin: 0
   wave: 0
   colours: 
+  rainbow: {fileID: 351913578448194153, guid: 740ebd791a4d3d24e8faf89821217c55, type: 3}
+  timesTwo: {fileID: 0}
+  timesThree: {fileID: 0}
+  baby: {fileID: 26107361239631552, guid: 5002f7d3387c39b40a7298c54f98ea9e, type: 3}
+  magnet: {fileID: 0}
+  generated: 0
+  contentsActive: 0
+  ejected: 0
+  rainbowContents: {fileID: 0}
+  timesTwoContents: {fileID: 0}
+  timesThreeContents: {fileID: 0}
+  babyContents: {fileID: 3426080795507188964}
+  magnetContents: {fileID: 0}
 --- !u!50 &6912182656722656619
 Rigidbody2D:
   serializedVersion: 4

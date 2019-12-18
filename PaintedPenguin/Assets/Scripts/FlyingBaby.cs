@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TimesTwo : MonoBehaviour
+public class FlyingBaby : MonoBehaviour
 {
     public CircleCollider2D bc;
 
@@ -25,10 +25,7 @@ public class TimesTwo : MonoBehaviour
         {
             if (FindObjectOfType<PlayerMovement>().dead == false)
             {
-                Instantiate(FindObjectOfType<PlayerMovement>().blockPop, transform.position, Quaternion.identity);
-                FindObjectOfType<PlayerMovement>().timesTwoMode *= 2;
-                FindObjectOfType<PlayerMovement>().TimesTwoMode();
-                FindObjectOfType<AudioManager>().Play("powerup");
+                FindObjectOfType<PlayerMovement>().CreateBaby();
             }
 
             Destroy(gameObject);

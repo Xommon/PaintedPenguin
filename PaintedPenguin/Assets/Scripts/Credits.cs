@@ -12,6 +12,7 @@ public class Credits : MonoBehaviour
     public float count;
     public int index;
     public bool creditsEnabled;
+    public GameObject mainMenu;
     
     void Start()
     {
@@ -31,7 +32,7 @@ public class Credits : MonoBehaviour
     
     void Update()
     {
-        if (creditsEnabled == true)
+        if (creditsEnabled == true && FindObjectOfType<GameManager>().settingsUI.IsActive() == false)
         {
             count += Time.deltaTime;
 
@@ -49,6 +50,11 @@ public class Credits : MonoBehaviour
                 topText.text = topTexts[index];
                 bottomText.text = bottomTexts[index];
             }
+        }
+        else
+        {
+            index = 0;
+            count = 0;
         }
     }
 }

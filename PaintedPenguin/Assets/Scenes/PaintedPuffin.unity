@@ -11989,6 +11989,7 @@ MonoBehaviour:
   count: 0
   index: 0
   creditsEnabled: 0
+  mainMenu: {fileID: 44683138}
 --- !u!1 &877172862
 GameObject:
   m_ObjectHideFlags: 0
