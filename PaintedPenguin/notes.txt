@@ -1,7 +1,6 @@
 :: TO DO ::
 - Ads
 - Analytics
-- Tap controls
 
 :: BUGS ::
 - When changing language, credits don't update immediately
@@ -10,6 +9,7 @@
 - Sound speed doesn't scale with game speed, so splash is OOS
 - "awesome" is not a country; fix that
 - Tick/shatter noises too brash
+- Settings graphics update needed
 
 :: CREDITS ::
 Colour picker - NONE

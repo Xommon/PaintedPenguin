@@ -17,6 +17,7 @@ public class SaveData
     public float playerSound;
     public float playerMusic;
     public bool playerTutorialEnabled;
+    public bool playerSwipeEnabled;
 
     public SaveData (GameManager gameManager)
     {
@@ -31,5 +32,6 @@ public class SaveData
         playerSound = gameManager.playerSound;
         playerMusic = gameManager.playerMusic;
         playerTutorialEnabled = gameManager.playerTutorialEnabled;
+        playerSwipeEnabled = gameManager.playerSwipeEnabled;
     }
 }

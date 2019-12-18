@@ -177,35 +177,57 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Swipe controls
-        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
+        if (gameManager.playerSwipeEnabled == true)
         {
-            swipeStartPosition = Input.mousePosition;
-        }
-
-        if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1) || Input.GetMouseButtonUp(2))
-        {
-            swipeEndPosition = Input.mousePosition;
-
-            // If the swipe was long enough
-            if (Mathf.Abs(swipeStartPosition.y - swipeEndPosition.y) >= swipeMinDistance)
+            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
             {
-                if (swipeStartPosition.y > swipeEndPosition.y && tutorial == false)
+                swipeStartPosition = Input.mousePosition;
+            }
+
+            if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1) || Input.GetMouseButtonUp(2))
+            {
+                swipeEndPosition = Input.mousePosition;
+
+                // If the swipe was long enough
+                if (Mathf.Abs(swipeStartPosition.y - swipeEndPosition.y) >= swipeMinDistance)
                 {
-                    swipeDirection = "down";
-                    Dive();
+                    if (swipeStartPosition.y > swipeEndPosition.y && tutorial == false)
+                    {
+                        swipeDirection = "down";
+                        Dive();
+                    }
+
+                    if (swipeStartPosition.y < swipeEndPosition.y && tutorial == false)
+                    {
+                        swipeDirection = "up";
+                        Jump();
+                    }
                 }
 
-                if (swipeStartPosition.y < swipeEndPosition.y && tutorial == false)
+                if (colour == 7)
+                {
+                    RainbowCycle();
+                }
+            }
+        }
+        else
+        {
+            // Tap controls
+            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
+            {
+                Debug.Log(Input.mousePosition.y);
+                if (Input.mousePosition.y > 330 && tutorial == false)
                 {
                     swipeDirection = "up";
                     Jump();
                 }
+                else if (tutorial == false)
+                {
+                    swipeDirection = "down";
+                    Dive();
+                }
             }
-
-            if (colour == 7)
-            {
-                RainbowCycle();
-            }
+            
         }
 
         // Jump or swim only on the ground

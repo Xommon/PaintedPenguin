@@ -31,7 +31,9 @@ public class GameManager : MonoBehaviour
     public GameObject pauseButtonImage;
     public Text currentNameFieldUI;
     public bool playerTutorialEnabled;
+    public bool playerSwipeEnabled;
     public Toggle tutorialToggle;
+    public Toggle swipeToggle;
     public GameObject tutorialWindow;
     public InputField usernameInputField;
     public Text usernameInputFieldText;
@@ -586,7 +588,7 @@ public class GameManager : MonoBehaviour
                 {
                     GetUsername(usernameInputFieldText.text);
                 }
-                SaveUsername(playerUsername, playerLanguage, RedC, OrangeC, YellowC, GreenC, BlueC, PurpleC, playerSound, playerMusic, playerTutorialEnabled);
+                SaveUsername(playerUsername, playerLanguage, RedC, OrangeC, YellowC, GreenC, BlueC, PurpleC, playerSound, playerMusic, playerTutorialEnabled, playerSwipeEnabled);
             }
             else
             {
@@ -701,7 +703,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Save Data
-    public void SaveUsername(string name, string language, Color red, Color orange, Color yellow, Color green, Color blue, Color purple, float sound, float music, bool tutorial)
+    public void SaveUsername(string name, string language, Color red, Color orange, Color yellow, Color green, Color blue, Color purple, float sound, float music, bool tutorial, bool swipe)
     {
         playerUsername = name;
         playerLanguage = language;
@@ -714,6 +716,7 @@ public class GameManager : MonoBehaviour
         playerSound = sound;
         playerMusic = music;
         playerTutorialEnabled = tutorial;
+        playerSwipeEnabled = swipe;
         SaveSystem.SaveData(this);
     }
 
@@ -738,6 +741,7 @@ public class GameManager : MonoBehaviour
             soundSlider.value = data.playerSound;
             musicSlider.value = data.playerMusic;
             tutorialToggle.isOn = data.playerTutorialEnabled;
+            swipeToggle.isOn = data.playerSwipeEnabled;
         }
     }
 
@@ -914,6 +918,8 @@ public class GameManager : MonoBehaviour
             playerMusic = 100;
             tempPlayerSound = playerSound;
             tempPlayerMusic = playerMusic;
+            playerTutorialEnabled = true;
+            playerSwipeEnabled = true;
         }
         else // If the player's username and language has already been set
         {
@@ -1201,6 +1207,7 @@ public class GameManager : MonoBehaviour
     public void ToggleChanged(bool newValue)
     {
         playerTutorialEnabled = newValue;
+        playerSwipeEnabled = newValue;
     }
 
     public void Update()
