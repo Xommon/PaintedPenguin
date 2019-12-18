@@ -215,8 +215,11 @@ public class PlayerMovement : MonoBehaviour
             // Tap controls
             if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
             {
-                Debug.Log(Input.mousePosition.y);
-                if (Input.mousePosition.y > 330 && tutorial == false)
+                Vector3 point = new Vector3();
+                Vector2 mousePos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+                Camera cam = FindObjectOfType<Camera>();
+                point = cam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, cam.nearClipPlane));
+                if (point.y > -0.03004317f && tutorial == false)
                 {
                     swipeDirection = "up";
                     Jump();

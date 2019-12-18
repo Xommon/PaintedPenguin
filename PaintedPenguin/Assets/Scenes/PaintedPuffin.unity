@@ -4225,7 +4225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SortingLayerName: Default
-  DisableInGame: 0
+  DisableInGame: 1
   UpdateEachFrame: 1
   Transparency: 0.032
   RefractionIntensity: 0.049
