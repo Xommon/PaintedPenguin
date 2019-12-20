@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     public GameObject tutorialWindow;
     public InputField usernameInputField;
     public Text usernameInputFieldText;
-    public GameObject credits;
+    public Credits credits;
     public Text currentLanguageDisplay;
     public Text settingsUI;
     public Text soundUI;
@@ -574,8 +574,8 @@ public class GameManager : MonoBehaviour
             {
                 usernameInputUI.SetActive(false);
                 mainMenuUI.SetActive(true);
-                credits.GetComponent<Credits>().count = 0;
-                credits.GetComponent<Credits>().index = 0;
+                credits.count = 0;
+                credits.index = 0;
                 warningBoxText.text = "";
                 playerSound = soundSlider.value;
                 playerMusic = musicSlider.value;
@@ -598,8 +598,8 @@ public class GameManager : MonoBehaviour
         else
         {
             language.SendMessage(playerLanguage, null, SendMessageOptions.DontRequireReceiver);
-            credits.GetComponent<Credits>().count = 0;
-            credits.GetComponent<Credits>().index = 0;
+            credits.count = 0;
+            credits.index = 0;
             Time.timeScale = 1;
 
             if (ghostScoreReturn == true)
@@ -854,7 +854,6 @@ public class GameManager : MonoBehaviour
         // Load all save data
         //SaveSystem.DeleteData(); // Clear / reset save data
         LoadUsername();
-        //credits.GetComponent<Credits>().creditsEnabled = true;
 
         // Set weather
         string date = System.DateTime.Now.ToString("ddMM");
@@ -1102,8 +1101,8 @@ public class GameManager : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("click");
         highScoreTableUI.SetActive(false);
         mainMenuUI.SetActive(true);
-        credits.GetComponent<Credits>().count = 0;
-        credits.GetComponent<Credits>().index = 0;
+        credits.count = 0;
+        credits.index = 0;
     }
 
     public void XButtonSettings()
@@ -1166,6 +1165,8 @@ public class GameManager : MonoBehaviour
             {
                 StartCoroutine(SendGhostScore(usernameInputFieldText.text));
             }
+
+            credits.index = 0;
         }
     }
 

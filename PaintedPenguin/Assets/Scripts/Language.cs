@@ -31,6 +31,7 @@ public class Language : MonoBehaviour
     public string StartButton;
     public string Score;
     public string Combo;
+    public Credits credits;
 
     // Game Over
     public string GameOver;
@@ -800,12 +801,12 @@ public class Language : MonoBehaviour
         Score = "PUNKTE";
 
         // Credits
-        gameManager.credits.GetComponent<Credits>().topTexts.Clear();
-        gameManager.credits.GetComponent<Credits>().topTexts.Add(("Erstellt von").ToLower());
-        gameManager.credits.GetComponent<Credits>().topTexts.Add(("Charakterkunst von").ToLower());
-        gameManager.credits.GetComponent<Credits>().topTexts.Add(("Hintergrund von").ToLower());
-        gameManager.credits.GetComponent<Credits>().topTexts.Add(("Icons von").ToLower());
-        gameManager.credits.GetComponent<Credits>().topTexts.Add(("Hände Kunst von").ToLower());
+        gameManager.credits.topTexts.Clear();
+        gameManager.credits.topTexts.Add(("Erstellt von").ToLower());
+        gameManager.credits.topTexts.Add(("Charakterkunst von").ToLower());
+        gameManager.credits.topTexts.Add(("Hintergrund von").ToLower());
+        gameManager.credits.topTexts.Add(("Icons von").ToLower());
+        gameManager.credits.topTexts.Add(("Hände Kunst von").ToLower());
 
         // Game Over
         GameOver = "SPIEL \nBEENDET";

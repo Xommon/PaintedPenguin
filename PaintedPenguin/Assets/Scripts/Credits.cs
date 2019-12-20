@@ -32,6 +32,12 @@ public class Credits : MonoBehaviour
     
     void Update()
     {
+        if (index == 0)
+        {
+            topText.text = topTexts[0];
+            bottomText.text = bottomTexts[0];
+        }
+
         if (creditsEnabled == true && FindObjectOfType<GameManager>().settingsUI.IsActive() == false)
         {
             count += Time.deltaTime;

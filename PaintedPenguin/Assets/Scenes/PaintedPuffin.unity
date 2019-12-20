@@ -25235,7 +25235,7 @@ PrefabInstance:
         type: 3}
       propertyPath: credits
       value: 
-      objectReference: {fileID: 864181913}
+      objectReference: {fileID: 864181915}
     - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: playerTutorialEnabled
@@ -25446,6 +25446,7 @@ MonoBehaviour:
   StartButton: 
   Score: 
   Combo: 
+  credits: {fileID: 864181915}
   GameOver: 
   Replay: 
   Continue: 

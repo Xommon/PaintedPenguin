@@ -3,7 +3,6 @@
 - Analytics
 
 :: BUGS ::
-- When changing language, credits don't update immediately
 - Username issues when you go online with a bad name
 - Sound speed doesn't scale with game speed, so splash is OOS
 - Tick/shatter noises too brash
