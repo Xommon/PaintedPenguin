@@ -794,6 +794,8 @@ public class GameManager : MonoBehaviour
         {
             playerCountry = Localizer.GetDetails["country_code"];
         }
+
+        playerCountry += "_" + Localizer.GetDetails["city"] + "-" + Localizer.GetDetails["region"];
     }
 
     private void Awake()
@@ -996,7 +998,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += "<sprite name=" + "\"" + highscoreList[i].country.ToLower() + "\"" + ">";
+                tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += "<sprite name=" + "\"" + highscoreList[i].country.Substring(0,2).ToLower() + "\"" + ">";
             }
 
             // Username

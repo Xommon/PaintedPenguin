@@ -6,14 +6,13 @@
 - When changing language, credits don't update immediately
 - Username issues when you go online with a bad name
 - Sound speed doesn't scale with game speed, so splash is OOS
-- "awesome" is not a country; fix that
 - Tick/shatter noises too brash
 - Settings graphics update needed
 
 :: CREDITS ::
 Colour picker - NONE
 High score - NONE
-Localizer - [PENDING]
+Localizer - NONE
 (put https://icons8.com in google play store description)
 
 Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
