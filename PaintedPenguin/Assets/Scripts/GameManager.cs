@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
     public Text tutorialBlocks;
     public AudioManager audioManager;
     public bool ghostScoreReturn;
+    public GameObject settingsXButton;
 
     // Volume
     public float playerSound;
@@ -205,13 +206,13 @@ public class GameManager : MonoBehaviour
 
             // Place first block
             GameObject newblock = null;
-            if (score >= baseValue)
+            if (score >= 100)
             {
                 if ((score / (66.66f * (baseValue / 500))) <= 60)
                 {
                     if (PercentChance(score / (66.66f * (baseValue / 500))))
                     {
-                        if (PercentChance(95))
+                        if (PercentChance(90))
                         {
                             newblock = Instantiate(blockWithPaint);
                         }
@@ -338,12 +339,12 @@ public class GameManager : MonoBehaviour
                 {
                     newblock2.GetComponent<Block>().wave = wave;
                 }
-                place = obstaclePositions[(Random.Range(0, 2))]; // 0 or 1
+                place = obstaclePositions[(Random.Range(0, 2))];
                 newblock2.transform.position = transform.position + new Vector3(1, place, 0);
                 obstaclePositions.Remove(place);
             }
 
-            // Place paint
+            // Place block or paint
             GameObject newpaint = null;
             if (newblock.name == "BlockWithFist" || newblock.name == "BlockWithFist(Clone)")
             {
@@ -523,7 +524,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Add ghost score
+    // Add ghost score, checks to see if the username is valid for posting
     public IEnumerator SendGhostScore(string name)
     {
         UnityWebRequest uwr = UnityWebRequest.Get(webURL + privateCode + "/add/" + UnityWebRequest.EscapeURL(name) + "/" + 0 + "/" + 0 + "/" + playerCountry);
@@ -532,13 +533,11 @@ public class GameManager : MonoBehaviour
         if (name == null || name == "")
         {
             name = playerUsername;
-            print("switching to previous username");
         }
 
         if (uwr.isNetworkError)
         {
             // No network connection; proceed
-            print("true");
             ghostScoreReturn = true;
         }
         else
@@ -546,23 +545,20 @@ public class GameManager : MonoBehaviour
             if (uwr.downloadHandler.text == "OK")
             {
                 // Enter otherwise problematic usernames here:
-                if (usernameInputFieldText.text == ".")
+                if (usernameInputFieldText.text.ToLower() == ".")
                 {
                     // Username disapproved
-                    print("false");
                     ghostScoreReturn = false;
                 }
                 else
                 {
                     // Username approved; proceed
-                    print("true");
                     ghostScoreReturn = true;
                 }
             }
             else
             {
                 // Username disapproved
-                print("false");
                 ghostScoreReturn = false;
             }
         }
@@ -573,6 +569,7 @@ public class GameManager : MonoBehaviour
             if (ghostScoreReturn == true)
             {
                 usernameInputUI.SetActive(false);
+                settingsXButton.SetActive(true);
                 mainMenuUI.SetActive(true);
                 credits.count = 0;
                 credits.index = 0;
@@ -592,7 +589,14 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                warningBoxText.text = language.Warning4 + ": " + usernameInputFieldText.text;
+                if (usernameInputFieldText.text == "")
+                {
+                    warningBoxText.text = language.Warning5 + ": " + playerUsername;
+                }
+                else
+                {
+                    warningBoxText.text = language.Warning5 + ": " + usernameInputFieldText.text;
+                }
             }
         }
         else
@@ -604,11 +608,13 @@ public class GameManager : MonoBehaviour
 
             if (ghostScoreReturn == true)
             {
+                settingsXButton.SetActive(true);
                 usernameInputUI.SetActive(false);
                 mainMenuUI.SetActive(true);
             }
             else
             {
+                settingsXButton.SetActive(false);
                 usernameInputUI.SetActive(true);
                 mainMenuUI.SetActive(false);
             }
@@ -909,7 +915,7 @@ public class GameManager : MonoBehaviour
         uploadScoreUI.sprite = null;
         uploadScoreUI.color = new Color(1, 1, 1, 0f);
 
-        // Set up default options if there is no save file
+        // Set up default settings/options if there is no save file
         if (playerLanguage == "" || playerLanguage == null)
         {
             usernameInputUI.SetActive(true);
@@ -1110,6 +1116,7 @@ public class GameManager : MonoBehaviour
         if (SaveSystem.SaveFileExists() == true || usernameInputFieldText.text.Length > 0)
         {
             FindObjectOfType<AudioManager>().Play("click");
+            usernameInputFieldText.text = "";
             credits.GetComponent<Credits>().count = 0;
             credits.GetComponent<Credits>().index = 0;
             playerSound = tempPlayerSound;
@@ -1163,10 +1170,21 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                StartCoroutine(SendGhostScore(usernameInputFieldText.text));
+                if (usernameInputFieldText.text == "")
+                {
+                    StartCoroutine(SendGhostScore(playerUsername));
+                }
+                else
+                {
+                    StartCoroutine(SendGhostScore(usernameInputFieldText.text));
+                }
             }
 
             credits.index = 0;
+        }
+        else
+        {
+            warningBoxText.text = language.Warning5 + ": " + usernameInputFieldText.text;
         }
     }
 

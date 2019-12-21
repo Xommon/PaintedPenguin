@@ -3,10 +3,17 @@
 - Analytics
 
 :: BUGS ::
-- Username issues when you go online with a bad name
 - Sound speed doesn't scale with game speed, so splash is OOS
 - Tick/shatter noises too brash
 - Settings graphics update needed
+- Difficulty scaling completely off
+
+Normal/Paint/X2 - 0
+With Paint/Rainbow - 100
+Moving/X3 - 300
+Spikeball/Puffling - 500
+Fist - 1000
+MovingFist - 1500
 
 :: CREDITS ::
 Colour picker - NONE

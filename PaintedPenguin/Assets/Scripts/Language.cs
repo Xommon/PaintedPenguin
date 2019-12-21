@@ -62,6 +62,7 @@ public class Language : MonoBehaviour
     public string Warning2;
     public string Warning3;
     public string Warning4;
+    public string Warning5;
     public string OK;
     public Button Flag;
 
@@ -218,6 +219,7 @@ public class Language : MonoBehaviour
         Warning2 = "The name is too long.";
         Warning3 = "Name cannot be blank.";
         Warning4 = "Invalid characters";
+        Warning5 = "Invalid name";
         OK = "OK";
 
         Flag.image.overrideSprite = english;
@@ -277,6 +279,7 @@ public class Language : MonoBehaviour
         Warning2 = "The name is too long.";
         Warning3 = "Name cannot be blank.";
         Warning4 = "Invalid characters";
+        Warning5 = "Invalid name";
         OK = "OK";
 
         Flag.image.overrideSprite = english;
@@ -779,6 +782,7 @@ public class Language : MonoBehaviour
         Warning2 = "Le nom est trop long.";
         Warning3 = "Le nom ne peut pas être vide.";
         Warning4 = "Caractères invalides";
+        Warning5 = "Nom invalide";
         OK = "D'accord";
 
         Flag.image.overrideSprite = french;
@@ -838,6 +842,7 @@ public class Language : MonoBehaviour
         Warning2 = "Der Name ist zu lang.";
         Warning3 = "Der Name kann nicht leer sein.";
         Warning4 = "Ungültige Zeichen";
+        Warning5 = "Ungültiger Name";
         OK = "OK";
 
         Flag.image.overrideSprite = german;
