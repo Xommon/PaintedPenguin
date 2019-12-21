@@ -17709,7 +17709,7 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
   - name: tick
-    clip: {fileID: 8300000, guid: 3b6b2f6923017ca49b6baa96dc000d73, type: 3}
+    clip: {fileID: 8300000, guid: 84e8b323ab220c74b95cfe124bb6e9cf, type: 3}
     volume: 0.855
     pitch: 1
     source: {fileID: 0}
@@ -17724,8 +17724,8 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
   - name: blockdestroy
-    clip: {fileID: 8300000, guid: 1b5f57a04d55a5e4f82ee7bb4e1ee96f, type: 3}
-    volume: 0.341
+    clip: {fileID: 8300000, guid: 640878f3dae6f514bac4f1848dd19036, type: 3}
+    volume: 1
     pitch: 1
     source: {fileID: 0}
   - name: deathjingle
@@ -17780,6 +17780,11 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: peepdying
     clip: {fileID: 8300000, guid: c38099ee8ffc255479bb587385c30c3f, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: tick2
+    clip: {fileID: 8300000, guid: 3d64734d850dd434ca1be4fea4a7aa27, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}

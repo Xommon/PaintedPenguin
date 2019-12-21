@@ -3,7 +3,6 @@
 - Analytics
 
 :: BUGS ::
-- Shatter noise too brash
 - Settings graphics update needed
 - Difficulty scaling completely off
 
@@ -36,3 +35,4 @@ ClockTick -
 https://freesound.org/people/InspectorJ/sounds/343130/#comments
 Cuckoo - https://freesound.org/people/InspectorJ/sounds/398194/#comments
 Whip - https://freesound.org/people/fisu/sounds/350770/
+Ding - https://freesound.org/people/InspectorJ/sounds/484344/

@@ -208,7 +208,7 @@ public class GameManager : MonoBehaviour
             GameObject newblock = null;
             if (score >= 100)
             {
-                if ((score / (66.66f * (baseValue / 500))) <= 60)
+                if ((score / 13) <= 60)
                 {
                     if (PercentChance(score / (66.66f * (baseValue / 500))))
                     {
@@ -230,7 +230,7 @@ public class GameManager : MonoBehaviour
                 {
                     if (PercentChance(60))
                     {
-                        if (PercentChance(92))
+                        if (PercentChance(88))
                         {
                             newblock = Instantiate(blockWithPaint);
                         }
