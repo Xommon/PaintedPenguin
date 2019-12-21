@@ -2,10 +2,6 @@
 - Ads
 - Analytics
 
-:: BUGS ::
-- Settings graphics update needed
-- Difficulty scaling completely off
-
 :: CREDITS ::
 Colour picker - NONE
 High score - NONE

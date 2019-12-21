@@ -147,6 +147,7 @@ public class Language : MonoBehaviour
         {
             currentLanguage++;
         }
+        FindObjectOfType<AudioManager>().Play("click");
     }
 
     public void Left()
@@ -159,6 +160,7 @@ public class Language : MonoBehaviour
         {
             currentLanguage--;
         }
+        FindObjectOfType<AudioManager>().Play("click");
     }
 
     void Update()
@@ -835,7 +837,7 @@ public class Language : MonoBehaviour
         // Settings
         Settings = "Einstellungen";
         Name = "Name ...";
-        Sound = "Soundeffekte";
+        Sound = "Lautstärke";
         Music = "Musik";
         Tutorial = "Tutorial";
         Warning1 = "Darf keine Leerzeichen oder * enthalten.";
