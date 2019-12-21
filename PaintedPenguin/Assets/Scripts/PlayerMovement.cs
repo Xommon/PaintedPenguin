@@ -41,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
     public int comboStreak;
     public AudioClip playBlockNote;
     public int soundToPlay;
+    public bool willResurface;
 
     // Swipe controls
     public Vector3 swipeStartPosition;
@@ -51,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         flashing = false;
+        willResurface = false;
         tutorial = true;
         swipeMinDistance = 10.0f;
         timesTwoMode = 1;
@@ -106,6 +108,9 @@ public class PlayerMovement : MonoBehaviour
                 rb.velocity = new Vector2(0, -2.9f);
                 animator.SetBool("swimming", true);
                 FindObjectOfType<AudioManager>().Play("splash");
+                willResurface = true;
+                ParticleSystem ps4 = Instantiate(splashParticles, new Vector3(-0.25f, -0.17f, 0), Quaternion.identity) as ParticleSystem;
+                Destroy(ps4.gameObject, 0.9f);
             }
             else
             {
@@ -149,13 +154,6 @@ public class PlayerMovement : MonoBehaviour
         {
             count = 0;
         }
-
-        if (splashParticles.transform.position.x == 0 & transform.position.y < -0.14 && transform.position.y > -0.2 && dead == false)
-        {
-            // Different spawns depending on if player is resurfacing or diving
-            ParticleSystem ps4 = Instantiate(splashParticles, transform.position, Quaternion.identity) as ParticleSystem;
-            Destroy(ps4.gameObject, ps4.startLifetime);
-        } 
 
         // Add positions to list
         if (gameManager.paused == false)
@@ -346,6 +344,14 @@ public class PlayerMovement : MonoBehaviour
                 position = "walking";
                 animator.SetBool("falling", false);
                 animator.SetBool("swimming", false);
+            }
+
+            if (rb.position.y >= -0.45 && position == "resurfacing" && willResurface == true)
+            {
+                willResurface = false;
+                FindObjectOfType<AudioManager>().Play("splash2");
+                ParticleSystem ps4 = Instantiate(splashParticles, new Vector3(-0.25f, -0.17f, 0), Quaternion.identity) as ParticleSystem;
+                Destroy(ps4.gameObject, 0.9f);
             }
 
             // Mark player as falling

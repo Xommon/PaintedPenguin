@@ -3,7 +3,6 @@
 - Analytics
 
 :: BUGS ::
-- Sound speed doesn't scale with game speed, so splash is OOS
 - Tick/shatter noises too brash
 - Settings graphics update needed
 - Difficulty scaling completely off

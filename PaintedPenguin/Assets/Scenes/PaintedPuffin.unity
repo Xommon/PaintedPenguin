@@ -17768,6 +17768,11 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
+  - name: splash2
+    clip: {fileID: 8300000, guid: 1691b776c80ce994295ab0efb802f2b8, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
 --- !u!1 &1524952418
 GameObject:
   m_ObjectHideFlags: 0
