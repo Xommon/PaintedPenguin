@@ -530,8 +530,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void KillPlayer()
     {
-        FindObjectOfType<AudioManager>().Play("peep");
-        FindObjectOfType<AudioManager>().Pause("splash");
+        FindObjectOfType<AudioManager>().Play("peepdying");
+        FindObjectOfType<AudioManager>().Play("slap");
         Instantiate(featherBurst, gameObject.transform.position, Quaternion.identity, null);
         StartCoroutine(gameManager.AddNewHighScore(gameManager.score));
         rb.gravityScale = 0;
@@ -678,7 +678,7 @@ public class PlayerMovement : MonoBehaviour
                 ps.startColor = collision.gameObject.GetComponent<Block>().sr.color;
                 Destroy(ps.gameObject, ps.startLifetime);
                 Destroy(ps2.gameObject, ps2.startLifetime);
-                StartCoroutine(cameraShake.Shake(0.24f, 0.65f));
+                //StartCoroutine(cameraShake.Shake(0.24f, 0.65f));
                 FindObjectOfType<AudioManager>().GetComponent<AudioSource>().pitch = 1 + (comboStreak / 4);
                 //FindObjectOfType<AudioManager>().Play("blocknote");
                 FindObjectOfType<AudioManager>().Play("blockdestroy");
@@ -851,6 +851,19 @@ public class PlayerMovement : MonoBehaviour
             {
                 Instantiate(blockPop, collision.transform.position, Quaternion.identity);
                 timesTwoMode *= 2;
+                TimesTwoMode();
+                FindObjectOfType<AudioManager>().Play("powerup");
+            }
+
+            Destroy(collision.gameObject);
+        }
+
+        if (collision.transform.tag == "TimesThree")
+        {
+            if (dead == false)
+            {
+                Instantiate(blockPop, collision.transform.position, Quaternion.identity);
+                timesTwoMode *= 3;
                 TimesTwoMode();
                 FindObjectOfType<AudioManager>().Play("powerup");
             }

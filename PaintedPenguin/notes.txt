@@ -3,7 +3,7 @@
 - Analytics
 
 :: BUGS ::
-- Tick/shatter noises too brash
+- Shatter noise too brash
 - Settings graphics update needed
 - Difficulty scaling completely off
 
@@ -32,3 +32,7 @@ Jump - https://freesound.org/people/Brsjak/sounds/482880/
 Fist whoosh - ZERO
 Splash - https://freesound.org/people/soundscalpel.com/sounds/110393/
 Splash2 - https://freesound.org/people/digifishmusic/sounds/53764/
+ClockTick -
+https://freesound.org/people/InspectorJ/sounds/343130/#comments
+Cuckoo - https://freesound.org/people/InspectorJ/sounds/398194/#comments
+Whip - https://freesound.org/people/fisu/sounds/350770/

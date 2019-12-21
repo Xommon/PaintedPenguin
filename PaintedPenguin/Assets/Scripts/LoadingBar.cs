@@ -51,13 +51,13 @@ public class LoadingBar : MonoBehaviour
             if (timer <= 0)
             {
                 FindObjectOfType<AudioManager>().Play("tick");
-                if (currentAmount >= 5)
+                if (currentAmount >= 10)
                 {
                     timer = Mathf.RoundToInt(currentAmount);
                 }
                 else
                 {
-                    timer = 5;
+                    timer = 10;
                 }
             }
         }
