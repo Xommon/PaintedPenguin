@@ -208,9 +208,9 @@ public class GameManager : MonoBehaviour
             GameObject newblock = null;
             if (score >= 100)
             {
-                if ((score / 13) <= 60)
+                if ((score / 18.33f) <= 60) // 100 to 1100
                 {
-                    if (PercentChance(score / (66.66f * (baseValue / 500))))
+                    if (PercentChance(score / 18.33f)) // 0% to 60%
                     {
                         if (PercentChance(90))
                         {
@@ -239,7 +239,7 @@ public class GameManager : MonoBehaviour
                             newblock = Instantiate(blockWithTimesThree);
                         }
                     }
-                    else if (score > (baseValue * 6.3f) && PercentChance(blockWithFistPercent))
+                    else if (score >= 1000 && PercentChance(blockWithFistPercent))
                     {
                         newblock = Instantiate(blockWithFist);
                     }
@@ -268,9 +268,9 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                if (score >= (baseValue * 2))
+                if (score >= 100)
                 {
-                    if (PercentChance(5.0f))
+                    if (PercentChance(6.5f) && score >= 300)
                     {
                         if (PercentChance(25.0f))
                         {
@@ -286,7 +286,7 @@ public class GameManager : MonoBehaviour
                         }
                         else
                         {
-                            if (player.babyPuffins < 3)
+                            if (player.babyPuffins < 3 && score >= 500)
                             {
                                 newblock2 = Instantiate(blockWithBaby);
                             }
@@ -300,27 +300,9 @@ public class GameManager : MonoBehaviour
                     {
                         newblock2 = Instantiate(spikeBall);
                     }
-                    else if (PercentChance(score / (750.0f * (baseValue / 500))))
+                    else if (PercentChance(50))
                     {
                         newblock2 = Instantiate(blockWithPaint);
-                    }
-                    else
-                    {
-                        newblock2 = Instantiate(block);
-                    }
-                }
-                else if (score >= (baseValue * 0.8f) && score < (baseValue * 2))
-                {
-                    if (PercentChance(1))
-                    {
-                        if (player.babyPuffins < 3)
-                        {
-                            newblock2 = Instantiate(blockWithBaby);
-                        }
-                        else
-                        {
-                            newblock2 = Instantiate(block);
-                        }
                     }
                     else
                     {
@@ -346,7 +328,7 @@ public class GameManager : MonoBehaviour
 
             // Place block or paint
             GameObject newpaint = null;
-            if (newblock.name == "BlockWithFist" || newblock.name == "BlockWithFist(Clone)")
+            if (newblock.name == "BlockWithFist" || newblock.name == "BlockWithFist(Clone)") // Score is at least 1000
             {
                 if (PercentChance(75))
                 {
@@ -382,14 +364,17 @@ public class GameManager : MonoBehaviour
                     newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
                 }
             }
-            else
+            else // All happens if there is no fist block
             {
-                if (PercentChance(25))
+                if (score < 100)
                 {
-                    newpaint = Instantiate(paint);
-                    newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
+                    if (PercentChance(25))
+                    {
+                        newpaint = Instantiate(paint);
+                        newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
+                    }
                 }
-                else //75%
+                else // Score >= 100
                 {
                     if (PercentChance(2))
                     {
@@ -407,7 +392,7 @@ public class GameManager : MonoBehaviour
                             newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
                         }
                     }
-                    else if (newblock2 != null && PercentChance(score / (80.0f * (baseValue / 500))))
+                    else if (newblock2 != null && PercentChance((score - 300) / 23)) // 300 to 1500
                     {
                         if (newblock2.tag == "Block")
                         {
@@ -1208,15 +1193,15 @@ public class GameManager : MonoBehaviour
 
     public float SpikeballEquation()
     {
-        if (score > 1750)
+        if (score > 500)
         {
-            if (score / 1166.67f < 45.0f)
+            if ((score - 500) / 71.43f < 35.0f) // 500 to 2500
             {
-                return (score / 333.33f);
+                return ((score - 500) / 71.43f);
             }
             else
             {
-                return 45.0f;
+                return 35.0f;
             }
         }
         else
@@ -1280,13 +1265,13 @@ public class GameManager : MonoBehaviour
         }
 
         // BlockWithFistPercent
-        if ((score - (3150.0f * (baseValue / 500)) / 69.0f <= 70.0f))
+        if (((score - 1000) / 72.72f <= 55.0f)) // 1000 to 4000
         {
-            blockWithFistPercent = (score - 3150.0f * (baseValue / 500)) / 69.0f;
+            blockWithFistPercent = (score - 1000) / 27.27f;
         }
         else
         {
-            blockWithFistPercent = 70.0f;
+            blockWithFistPercent = 55.0f;
         }
 
         // Location settings

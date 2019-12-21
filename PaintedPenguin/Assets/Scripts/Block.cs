@@ -261,7 +261,10 @@ public class Block : MonoBehaviour
         // Eject contents if magnet is enabled
         if (FindObjectOfType<PlayerMovement>().magnet == true && transform.position.x < 0.5)
         {
-            contentsActive = false;
+            if (name != "BlockWithPaint" && name != "BlockWithPaint(Clone)")
+            {
+                contentsActive = false;
+            }
 
             if (ejected == false)
             {

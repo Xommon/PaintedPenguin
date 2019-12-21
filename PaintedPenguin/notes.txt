@@ -6,13 +6,6 @@
 - Settings graphics update needed
 - Difficulty scaling completely off
 
-Normal/Paint/X2 - 0
-With Paint/Rainbow - 100
-Moving/X3 - 300
-Spikeball/Puffling - 500
-Fist - 1000
-MovingFist - 1500
-
 :: CREDITS ::
 Colour picker - NONE
 High score - NONE
