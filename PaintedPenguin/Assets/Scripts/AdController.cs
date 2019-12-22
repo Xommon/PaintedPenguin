@@ -7,8 +7,6 @@ public class AdController : MonoBehaviour
     public static AdController instance;
 
     private string storeId = "3241553";
-    private string videoAd = "video";
-    private string rewardedVideoAd = "rewardedVideo";
     private string bannerAd = "bannerAd";
 
     // Start is called before the first frame update
@@ -17,11 +15,6 @@ public class AdController : MonoBehaviour
         // Change to false when publishing
         Advertisement.Initialize(storeId, true);
         Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER);
-    }
-
-    public void ShowRewarded()
-    {
-        //StartCoroutine(Rewarded());
     }
 
     public void ShowBanner()
@@ -34,18 +27,24 @@ public class AdController : MonoBehaviour
         Advertisement.Banner.Hide();
     }
 
+    public bool IsAdReady()
+    {
+        if (Advertisement.IsReady(bannerAd))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     IEnumerator Banner()
     {
-        while (!Advertisement.IsReady(bannerAd))
+        while (IsAdReady() == false)
         {
             yield return new WaitForSeconds(0.5f);
         }
         Advertisement.Banner.Show(bannerAd);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

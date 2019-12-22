@@ -1050,6 +1050,7 @@ public class GameManager : MonoBehaviour
         if (paused == false)
         {
             pauseUI.SetActive(true);
+            adController.ShowBanner();
             Time.timeScale = 0;
             paused = true;
             FindObjectOfType<AudioManager>().Pause();
@@ -1057,6 +1058,7 @@ public class GameManager : MonoBehaviour
         else
         {
             pauseUI.SetActive(false);
+            adController.CloseBanner();
             Time.timeScale = 1;
             paused = false;
             FindObjectOfType<AudioManager>().Unpause();
@@ -1417,7 +1419,8 @@ public class GameManager : MonoBehaviour
                 if (continueButtonUI.activeInHierarchy == true)
                 {
                     ContinueButton();
-                } else
+                }
+                else
                 {
                     RestartGame();
                 }
@@ -1471,7 +1474,7 @@ public class GameManager : MonoBehaviour
 
         gameOverCanvas.SetActive(true);
         FindObjectOfType<AudioManager>().Play("deathjingle");
-        if (canContinue == false)
+        if (canContinue == false || adController.IsAdReady() == false)
         {
             continueButtonUI.SetActive(false);
         }

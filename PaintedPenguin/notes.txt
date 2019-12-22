@@ -4,6 +4,7 @@
 - Retouch Tutorial
 - Game Over Sound
 - Powerup Sound
+- Close/Loading icons for Settings Out Of Sight
 
 :: CREDITS ::
 Colour picker - NONE
