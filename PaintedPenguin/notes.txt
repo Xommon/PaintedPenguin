@@ -1,6 +1,9 @@
 :: TO DO ::
 - Ads
 - Analytics
+- Retouch Tutorial
+- Game Over Sound
+- Powerup Sound
 
 :: CREDITS ::
 Colour picker - NONE

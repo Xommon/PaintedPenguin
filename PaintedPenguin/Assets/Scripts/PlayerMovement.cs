@@ -341,6 +341,7 @@ public class PlayerMovement : MonoBehaviour
             // Player starts walking if it falls to the ground or resurfaces from water
             if ((rb.position.y <= -0.010 && position == "falling") || ((rb.position.y >= -0.140) && position == "resurfacing"))
             {
+                FindObjectOfType<AudioManager>().Play("hitground");
                 position = "walking";
                 animator.SetBool("falling", false);
                 animator.SetBool("swimming", false);
@@ -708,6 +709,7 @@ public class PlayerMovement : MonoBehaviour
                     floatText2.GetComponent<FloatingText>().horizontalSpeed = 0f;
                     floatText2.GetComponent<TextMeshPro>().color = collision.gameObject.GetComponent<Block>().sr.color;
                     floatText2.GetComponent<TextMeshPro>().text = language.Combo;
+                    FindObjectOfType<AudioManager>().Play("combo");
                     floatText2.GetComponent<TextMeshPro>().font = language.cjkFont;
                     Destroy(floatText2, 1.0f);
 

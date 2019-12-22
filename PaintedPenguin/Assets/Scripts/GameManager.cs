@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
     public AudioManager audioManager;
     public bool ghostScoreReturn;
     public GameObject settingsXButton;
+    public AdController adController;
 
     // Volume
     public float playerSound;
@@ -832,6 +833,9 @@ public class GameManager : MonoBehaviour
     // Code for start of script
     public void Start()
     {
+        // Ad
+        adController.ShowBanner();
+
         // Reset streak
         streakColour = 0;
         streakCount = 0;
@@ -1062,6 +1066,8 @@ public class GameManager : MonoBehaviour
     // Start Button pressed
     public void StartGame()
     {
+        adController.CloseBanner();
+
         FindObjectOfType<AudioManager>().Play("click");
         
         if (playerTutorialEnabled == true)
@@ -1460,6 +1466,9 @@ public class GameManager : MonoBehaviour
     //Display game over overlay and upload high score when the player dies
     public void GameOver()
     {
+        // Ad
+        adController.ShowBanner();
+
         gameOverCanvas.SetActive(true);
         FindObjectOfType<AudioManager>().Play("deathjingle");
         if (canContinue == false)
@@ -1522,7 +1531,9 @@ public class GameManager : MonoBehaviour
 
     public void ContinueButton()
     {
+        adController.CloseBanner();
         FindObjectOfType<AudioManager>().Play("click");
+        //adController.RewardedVideoAd();
         player.dead = false;
         player.rb.gravityScale = 0;
         player.rb.MovePosition(new Vector2(-1.0f, -0.075f));
