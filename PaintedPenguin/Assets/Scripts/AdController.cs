@@ -13,7 +13,7 @@ public class AdController : MonoBehaviour
     void Start()
     {
         // Change to false when publishing
-        Advertisement.Initialize(storeId, true);
+        Advertisement.Initialize(storeId, false);
         Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER);
     }
 

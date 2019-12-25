@@ -34,6 +34,15 @@ public class TimesThree : MonoBehaviour
             Destroy(gameObject);
         }
 
+        if (Vector3.Distance(FindObjectOfType<PlayerMovement>().transform.position, transform.position) < 0.08628588)
+        {
+            bc.enabled = true;
+        }
+        else
+        {
+            bc.enabled = false;
+        }
+
         // Destroy if out of scene
         if (transform.position.x < -0.9)
         {

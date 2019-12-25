@@ -10,7 +10,7 @@ public class Reward : MonoBehaviour
     private void Start()
     {
         // Set to false when publishing game
-        Monetization.Initialize(storeId, true);
+        Monetization.Initialize(storeId, false);
     }
 
     public void ShowId()

@@ -1,15 +1,13 @@
 :: TO DO ::
-- Ads
 - Analytics
-- Retouch Tutorial
+- Update Tutorial
 - Game Over Sound
 - Powerup Sound
 - Close/Loading icons for Settings Out Of Sight
+- Close icon not showing on high score list
+- Attracted upgrades to collide with player sooner
 
 :: CREDITS ::
-Colour picker - NONE
-High score - NONE
-Localizer - NONE
 (put https://icons8.com in google play store description)
 
 Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
@@ -29,3 +27,4 @@ https://freesound.org/people/InspectorJ/sounds/343130/#comments
 Cuckoo - https://freesound.org/people/InspectorJ/sounds/398194/#comments
 Whip - https://freesound.org/people/fisu/sounds/350770/
 Ding - https://freesound.org/people/InspectorJ/sounds/484344/
+FistPunch - https://freesound.org/people/EFlexMusic/sounds/369594/
