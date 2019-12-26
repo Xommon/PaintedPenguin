@@ -20,16 +20,4 @@ public class TouchGuide : MonoBehaviour
         gameManager.playerTutorialEnabled = false;
         Destroy(gameObject);
     }
-
-    void Update()
-    {
-        if (gameManager.playerSwipeEnabled == true)
-        {
-            animator.SetBool("swipe", true);
-        }
-        else
-        {
-            animator.SetBool("swipe", false);
-        }
-    }
 }

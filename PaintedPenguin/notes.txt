@@ -1,5 +1,4 @@
 :: TO DO ::
-- Guide always defaults to tap
 
 :: CREDITS ::
 (put https://icons8.com in google play store description)
@@ -23,3 +22,4 @@ Whip - https://freesound.org/people/fisu/sounds/350770/
 Ding - https://freesound.org/people/InspectorJ/sounds/484344/
 Fist Punch - https://freesound.org/people/EFlexMusic/sounds/369594/
 Game Over - https://www.zapsplat.com/sound-effect-category/game-sounds/page/13/
+Power Up NEW - https://www.youtube.com/watch?v=v94-AQxceGk
