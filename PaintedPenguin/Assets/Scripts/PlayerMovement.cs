@@ -844,7 +844,7 @@ public class PlayerMovement : MonoBehaviour
             ParticleSystem ps3 = Instantiate(paintBurst, collision.transform.position, Quaternion.identity) as ParticleSystem;
             ps3.startColor = sr.color;
             Destroy(ps3.gameObject, ps3.startLifetime);
-            FindObjectOfType<AudioManager>().Play("bubble");
+            FindObjectOfType<AudioManager>().Play("bubble1");
 
             if (colour != 7 && dead == false)
             {

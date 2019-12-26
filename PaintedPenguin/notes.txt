@@ -4,7 +4,6 @@
 - Close/Loading icons for Settings Out Of Sight
 - Close icon not showing on high score list
 - Game starts back up too quickly after continue
-- Sound not found for rainbow
 - Guide always defaults to tap
 
 :: CREDITS ::
