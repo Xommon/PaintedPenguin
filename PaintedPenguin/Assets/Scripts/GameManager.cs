@@ -915,7 +915,7 @@ public class GameManager : MonoBehaviour
             tempPlayerSound = playerSound;
             tempPlayerMusic = playerMusic;
             playerTutorialEnabled = true;
-            playerSwipeEnabled = true;
+            //playerSwipeEnabled = true;
         }
         else // If the player's username and language has already been set
         {
@@ -1218,14 +1218,26 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ToggleChanged(bool newValue)
-    {
-        playerTutorialEnabled = newValue;
-        playerSwipeEnabled = newValue;
-    }
-
     public void Update()
     {
+        if (tutorialToggle.isOn)
+        {
+            playerTutorialEnabled = true;
+        }
+        else
+        {
+            playerTutorialEnabled = false;
+        }
+
+        if (swipeToggle.isOn)
+        {
+            playerSwipeEnabled = true;
+        }
+        else
+        {
+            playerSwipeEnabled = false;
+        }
+
         // Keep track of player time
         if (on == true && player.dead == false)
         {
@@ -1456,7 +1468,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        // Max score of 99.999
+        // Max score of 100.000
         if (score >= 100000)
         {
             score = 100000;
@@ -1536,7 +1548,6 @@ public class GameManager : MonoBehaviour
     {
         adController.CloseBanner();
         FindObjectOfType<AudioManager>().Play("click");
-        //adController.RewardedVideoAd();
         player.dead = false;
         player.rb.gravityScale = 0;
         player.rb.MovePosition(new Vector2(-1.0f, -0.075f));

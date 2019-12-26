@@ -17,6 +17,18 @@ public class AdController : MonoBehaviour
         Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER);
     }
 
+    public bool IsBannerShowing()
+    {
+        if (Advertisement.Banner.isLoaded == true)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public void ShowBanner()
     {
         StartCoroutine(Banner());

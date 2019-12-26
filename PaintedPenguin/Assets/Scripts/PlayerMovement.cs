@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public List<GameObject> babies = new List<GameObject>();
     public GameObject floatingText;
     public GameObject touchGuide;
+    public GameObject tapGuide;
     public bool tutorial;
     public bool earlyJump = false;
     public bool earlyDive = false;
@@ -314,8 +315,16 @@ public class PlayerMovement : MonoBehaviour
                     Invoke("SwitchGameOn", 3.5f);
                     Invoke("Jump", 0.5f);
                     Invoke("Dive", 2.2f);
-                    Instantiate(touchGuide);
+                    if (gameManager.playerSwipeEnabled == true)
+                    {
+                        Instantiate(touchGuide);
+                    }
+                    else
+                    {
+                        Instantiate(tapGuide);
+                    }
                     Invoke("TutorialOff", 3.0f);
+                    gameManager.SaveUsername(gameManager.playerUsername, gameManager.playerLanguage, gameManager.RedC, gameManager.OrangeC, gameManager.YellowC, gameManager.GreenC, gameManager.BlueC, gameManager.PurpleC, gameManager.playerSound, gameManager.playerMusic, false, gameManager.playerSwipeEnabled);
                 }
                 else if (gameManager.canContinue == true || gameManager.playerTutorialEnabled == false)
                 {

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 878490400191766397}
   - component: {fileID: 7878019921778268090}
   m_Layer: 0
-  m_Name: TouchGuide
+  m_Name: TapGuide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

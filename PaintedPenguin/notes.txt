@@ -1,11 +1,11 @@
 :: TO DO ::
 - Analytics
-- Update Tutorial
-- Game Over Sound
 - Powerup Sound
 - Close/Loading icons for Settings Out Of Sight
 - Close icon not showing on high score list
-- Attracted upgrades to collide with player sooner
+- Game starts back up too quickly after continue
+- Sound not found for rainbow
+- Guide always defaults to tap
 
 :: CREDITS ::
 (put https://icons8.com in google play store description)
