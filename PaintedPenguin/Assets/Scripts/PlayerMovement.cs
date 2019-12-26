@@ -268,7 +268,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            Invoke("SwitchGameOnTwo", 2.0f);
+            Invoke("SwitchGameOnTwo", 7.0f);
         }
     }
 
@@ -330,6 +330,10 @@ public class PlayerMovement : MonoBehaviour
                 {
                     tutorial = false;
                     SwitchGameOn();
+                }
+                else if (gameManager.canContinue == false)
+                {
+                    Invoke("SwitchGameOn", 6.0f);
                 }
 
                 position = ("walking");

@@ -1,7 +1,6 @@
 :: TO DO ::
 - Analytics
 - Powerup Sound
-- Game starts back up too quickly after continue
 - Guide always defaults to tap
 
 :: CREDITS ::
