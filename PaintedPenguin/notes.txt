@@ -1,5 +1,4 @@
 :: TO DO ::
-- Analytics
 - Powerup Sound
 - Guide always defaults to tap
 
