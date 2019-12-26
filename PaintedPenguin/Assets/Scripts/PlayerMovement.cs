@@ -885,6 +885,21 @@ public class PlayerMovement : MonoBehaviour
 
             Destroy(collision.gameObject);
         }
+
+        if (collision.transform.tag == "FlyingBaby")
+        {
+            Instantiate(blockPop, collision.transform.position, Quaternion.identity);
+            CreateBaby();
+            Destroy(collision.gameObject);
+        }
+
+        if (collision.transform.tag == "Magnet")
+        {
+            FindObjectOfType<AudioManager>().Play("powerup");
+            Instantiate(blockPop, collision.transform.position, Quaternion.identity);
+            Magnet();
+            Destroy(collision.gameObject);
+        }
     }
 
     public void Death()
