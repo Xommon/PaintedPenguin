@@ -17265,7 +17265,7 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
   - name: deathjingle
-    clip: {fileID: 8300000, guid: c47a2bdd0c4485945a943e37c5b85a17, type: 3}
+    clip: {fileID: 8300000, guid: efacc5eb2b874ad45929606961ef38f3, type: 3}
     volume: 1
     pitch: 1.1
     source: {fileID: 0}

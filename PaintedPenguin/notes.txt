@@ -1,5 +1,4 @@
 :: TO DO ::
-- Powerup Sound
 - Guide always defaults to tap
 
 :: CREDITS ::
@@ -22,4 +21,5 @@ https://freesound.org/people/InspectorJ/sounds/343130/#comments
 Cuckoo - https://freesound.org/people/InspectorJ/sounds/398194/#comments
 Whip - https://freesound.org/people/fisu/sounds/350770/
 Ding - https://freesound.org/people/InspectorJ/sounds/484344/
-FistPunch - https://freesound.org/people/EFlexMusic/sounds/369594/
+Fist Punch - https://freesound.org/people/EFlexMusic/sounds/369594/
+Game Over - https://www.zapsplat.com/sound-effect-category/game-sounds/page/13/
