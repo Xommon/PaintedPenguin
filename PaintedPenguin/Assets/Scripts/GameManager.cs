@@ -369,17 +369,14 @@ public class GameManager : MonoBehaviour
             }
             else // All happens if there is no fist block
             {
-                if (score < 100)
+                if (PercentChance(25))
                 {
-                    if (PercentChance(25))
-                    {
-                        newpaint = Instantiate(paint);
-                        newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
-                    }
+                    newpaint = Instantiate(paint);
+                    newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
                 }
                 else // Score >= 100
                 {
-                    if (PercentChance(2))
+                    if (PercentChance(2.5f) && score > 100)
                     {
                         int pick;
                         pick = Random.Range(1, 3);
@@ -395,7 +392,7 @@ public class GameManager : MonoBehaviour
                             newpaint.transform.position = transform.position + new Vector3(1, obstaclePositions[0], 0);
                         }
                     }
-                    else if (newblock2 != null && PercentChance((score - 300) / 23)) // 300 to 1500
+                    else if (newblock2 != null && PercentChance((score - 300) / 23) && score > 100) // 300 to 1500
                     {
                         if (newblock2.tag == "Block")
                         {
@@ -994,6 +991,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
+
                 tableInfoUI.GetComponent<TMPro.TextMeshProUGUI>().text += "<sprite name=" + "\"" + highscoreList[i].country.Substring(0,2).ToLower() + "\"" + ">";
             }
 
@@ -1222,6 +1220,13 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
+        // Make sure the banner ad is ALWAYS closed when it needs to be
+        if (mainMenuUI.activeInHierarchy == false && settingsUI.IsActive() == false && colourPickerUI.activeInHierarchy == false && gameOverCanvas.activeInHierarchy == false && highScoreTableUI.activeInHierarchy == false)
+        {
+            adController.CloseBanner();
+        }
+
+        // Sync up toggle variables with toggles
         if (tutorialToggle.isOn)
         {
             playerTutorialEnabled = true;
