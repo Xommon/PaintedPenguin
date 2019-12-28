@@ -268,7 +268,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            Invoke("SwitchGameOnTwo", 7.0f);
+            Invoke("SwitchGameOnTwo", 1.5f);
         }
     }
 

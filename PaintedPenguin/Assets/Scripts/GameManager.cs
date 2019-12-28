@@ -1599,6 +1599,7 @@ public class GameManager : MonoBehaviour
         player.rb.MovePosition(new Vector2(-1.0f, -0.075f));
         uploadScoreUI.sprite = null;
         uploadScoreUI.color = new Color(1, 1, 1, 0f);
+        on = false;
         ClearObstacles();
         if (player.colour == 7)
         {
@@ -1609,6 +1610,7 @@ public class GameManager : MonoBehaviour
         player.position = "ready";
         player.StartWalking();
         gameOverCanvas.SetActive(false);
+        player.SwitchGameOn();
     }
 
     // Colour picker
