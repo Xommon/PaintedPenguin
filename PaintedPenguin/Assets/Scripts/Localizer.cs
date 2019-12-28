@@ -40,7 +40,7 @@ public class Localizer : MonoBehaviour {
 		}
 		else
 		{
-			Debug.Log("Connection Error: " + www.error + " Details: " + www.text);
+			Debug.Log("Localizer Connection Error: " + www.error + " Details: " + www.text);
 		}
 	}
 }

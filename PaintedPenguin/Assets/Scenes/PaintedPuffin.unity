@@ -24692,6 +24692,16 @@ PrefabInstance:
       propertyPath: adController
       value: 
       objectReference: {fileID: 814642395745757708}
+    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
+        type: 3}
+      propertyPath: swipeUI
+      value: 
+      objectReference: {fileID: 1260262529}
+    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
+        type: 3}
+      propertyPath: colourSwitchOk
+      value: 
+      objectReference: {fileID: 1044437734}
     - target: {fileID: 814642394577855561, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24813,6 +24823,7 @@ MonoBehaviour:
   ColourPickerText: 
   Settings: 
   Name: 
+  Swipe: 
   Sound: 
   Music: 
   Tutorial: 

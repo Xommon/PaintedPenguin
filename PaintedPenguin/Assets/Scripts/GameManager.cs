@@ -40,12 +40,14 @@ public class GameManager : MonoBehaviour
     public Credits credits;
     public Text currentLanguageDisplay;
     public Text settingsUI;
+    public Text swipeUI;
     public Text soundUI;
     public Text musicUI;
     public Text tutorialUI;
     public Text editColoursUI;
     public Text tutorialPaint;
     public Text tutorialBlocks;
+    public Text colourSwitchOk;
     public AudioManager audioManager;
     public bool ghostScoreReturn;
     public GameObject settingsXButton;
@@ -1376,6 +1378,8 @@ public class GameManager : MonoBehaviour
 
         settingsUI.text = language.Settings.ToUpper();
 
+        swipeUI.text = language.Swipe.ToUpper();
+
         soundUI.text = language.Sound.ToUpper();
 
         musicUI.text = language.Music.ToUpper();
@@ -1390,6 +1394,48 @@ public class GameManager : MonoBehaviour
         }
         
         okButtonText.text = language.OK;
+        colourSwitchOk.text = language.OK;
+
+        if (playerLanguage == "Mandarin")
+        {
+            startButtonText.fontStyle = FontStyle.Normal;
+            scoreButtonText.fontStyle = FontStyle.Normal;
+            replayButtonText.fontStyle = FontStyle.Normal;
+            continueButtonText.fontStyle = FontStyle.Normal;
+            highScoresText.fontStyle = FontStyle.Normal;
+            colourPickerText.fontStyle = FontStyle.Normal;
+            settingsUI.fontStyle = FontStyle.Normal;
+            swipeUI.fontStyle = FontStyle.Normal;
+            soundUI.fontStyle = FontStyle.Normal;
+            musicUI.fontStyle = FontStyle.Normal;
+            tutorialUI.fontStyle = FontStyle.Normal;
+            editColoursUI.fontStyle = FontStyle.Normal;
+            editColoursUI.fontStyle = FontStyle.Normal;
+            colourSwitchOk.fontStyle = FontStyle.Normal;
+            currentLanguageDisplay.fontStyle = FontStyle.Normal;
+            tutorialPaint.fontStyle = FontStyle.Normal;
+            tutorialBlocks.fontStyle = FontStyle.Normal;
+        }
+        else
+        {
+            startButtonText.fontStyle = FontStyle.Bold;
+            scoreButtonText.fontStyle = FontStyle.Bold;
+            replayButtonText.fontStyle = FontStyle.Bold;
+            continueButtonText.fontStyle = FontStyle.Bold;
+            highScoresText.fontStyle = FontStyle.Bold;
+            colourPickerText.fontStyle = FontStyle.Bold;
+            settingsUI.fontStyle = FontStyle.Bold;
+            swipeUI.fontStyle = FontStyle.Bold;
+            soundUI.fontStyle = FontStyle.Bold;
+            musicUI.fontStyle = FontStyle.Bold;
+            tutorialUI.fontStyle = FontStyle.Bold;
+            editColoursUI.fontStyle = FontStyle.Bold;
+            editColoursUI.fontStyle = FontStyle.Bold;
+            colourSwitchOk.fontStyle = FontStyle.Bold;
+            currentLanguageDisplay.fontStyle = FontStyle.Bold;
+            tutorialPaint.fontStyle = FontStyle.Bold;
+            tutorialBlocks.fontStyle = FontStyle.Bold;
+        }
 
         // Game Speed
         if (paused == false && player.dead == false)

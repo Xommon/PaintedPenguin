@@ -13,6 +13,9 @@ public class Credits : MonoBehaviour
     public int index;
     public bool creditsEnabled;
     public GameObject mainMenu;
+
+    public TMP_FontAsset latin;
+    public TMP_FontAsset simplifiedChinese;
     
     void Start()
     {
@@ -23,8 +26,9 @@ public class Credits : MonoBehaviour
         bottomTexts.Add("micheal quentin");
         bottomTexts.Add("chris ambroziak");
         bottomTexts.Add("vicente nitti");
-        bottomTexts.Add("icons8");
+        bottomTexts.Add("icons8.com");
         bottomTexts.Add("jeff portaro");
+        bottomTexts.Add("freesounds.org");
 
         topText.text = topTexts[0];
         bottomText.text = bottomTexts[0];
@@ -36,6 +40,17 @@ public class Credits : MonoBehaviour
         {
             topText.text = topTexts[0];
             bottomText.text = bottomTexts[0];
+        }
+
+        if (FindObjectOfType<GameManager>().playerLanguage == "Mandarin")
+        {
+            topText.font = simplifiedChinese;
+            topText.fontStyle = FontStyles.Normal;
+        }
+        else
+        {
+            topText.font = latin;
+            topText.fontStyle = FontStyles.Bold;
         }
 
         if (creditsEnabled == true && FindObjectOfType<GameManager>().settingsUI.IsActive() == false)

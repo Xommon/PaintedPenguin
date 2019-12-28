@@ -54,6 +54,7 @@ public class Language : MonoBehaviour
     // Settings
     public string Settings;
     public string Name;
+    public string Swipe;
     public string Sound;
     public string Music;
     public string Tutorial;
@@ -118,6 +119,7 @@ public class Language : MonoBehaviour
         languages.Add(EnglishUK);
         languages.Add(French);
         languages.Add(German);
+        languages.Add(Mandarin);
 
         // Decide index of language
         if (gameManager.playerLanguage == "" || gameManager.playerLanguage == null)
@@ -190,6 +192,7 @@ public class Language : MonoBehaviour
         gameManager.credits.GetComponent<Credits>().topTexts.Add(("background by").ToLower());
         gameManager.credits.GetComponent<Credits>().topTexts.Add(("icons by").ToLower());
         gameManager.credits.GetComponent<Credits>().topTexts.Add(("hands art by").ToLower());
+        gameManager.credits.GetComponent<Credits>().topTexts.Add(("sound effects from").ToLower());
 
         // Game Over
         GameOver = "GAME OVER";
@@ -214,6 +217,7 @@ public class Language : MonoBehaviour
         // Settings
         Settings = "Settings";
         Name = "Name ...";
+        Swipe = "Swipe";
         Sound = "Sound";
         Music = "Music";
         Tutorial = "Tutorial";
@@ -250,6 +254,7 @@ public class Language : MonoBehaviour
         gameManager.credits.GetComponent<Credits>().topTexts.Add(("background by").ToLower());
         gameManager.credits.GetComponent<Credits>().topTexts.Add(("icons by").ToLower());
         gameManager.credits.GetComponent<Credits>().topTexts.Add(("hands art by").ToLower());
+        gameManager.credits.GetComponent<Credits>().topTexts.Add(("sound effects from").ToLower());
 
         // Game Over
         GameOver = "GAME OVER";
@@ -274,6 +279,7 @@ public class Language : MonoBehaviour
         // Settings
         Settings = "Settings";
         Name = "Name ...";
+        Swipe = "Swipe";
         Sound = "Sound";
         Music = "Music";
         Tutorial = "Tutorial";
@@ -502,6 +508,7 @@ public class Language : MonoBehaviour
         gameManager.credits.GetComponent<Credits>().topTexts.Add(("背景艺术家").ToLower());
         gameManager.credits.GetComponent<Credits>().topTexts.Add(("图标艺术家").ToLower());
         gameManager.credits.GetComponent<Credits>().topTexts.Add(("手艺人").ToLower());
+        gameManager.credits.GetComponent<Credits>().topTexts.Add(("来自的声音效果").ToLower());
 
         // Game Over
         GameOver = "游戏结束";
@@ -526,6 +533,7 @@ public class Language : MonoBehaviour
         // Settings
         Settings = "游戏设置";
         Name = "你的名字 。。。";
+        Swipe = "滑动";
         Sound = "声音特效";
         Music = "音乐";
         Tutorial = "教程";
@@ -533,6 +541,7 @@ public class Language : MonoBehaviour
         Warning2 = "名字太长了。";
         Warning3 = "名称不能为空。";
         Warning4 = "无效字符";
+        Warning5 = "无效的名字";
         OK = "好";
 
         Flag.image.overrideSprite = mandarin;
@@ -753,6 +762,7 @@ public class Language : MonoBehaviour
         gameManager.credits.GetComponent<Credits>().topTexts.Add(("art de fond par").ToLower());
         gameManager.credits.GetComponent<Credits>().topTexts.Add(("icônes par").ToLower());
         gameManager.credits.GetComponent<Credits>().topTexts.Add(("art des mains par").ToLower());
+        gameManager.credits.GetComponent<Credits>().topTexts.Add(("effets sonores de").ToLower());
 
         // Game Over
         GameOver = "JEU TERMINÉ";
@@ -777,6 +787,7 @@ public class Language : MonoBehaviour
         // Settings
         Settings = "paramètres";
         Name = "Nom ...";
+        Swipe = "Glisse";
         Sound = "Son";
         Music = "Musique";
         Tutorial = "Didacticiel";
@@ -813,6 +824,7 @@ public class Language : MonoBehaviour
         gameManager.credits.topTexts.Add(("Hintergrund von").ToLower());
         gameManager.credits.topTexts.Add(("Icons von").ToLower());
         gameManager.credits.topTexts.Add(("Hände Kunst von").ToLower());
+        gameManager.credits.topTexts.Add(("Soundeffekte aus").ToLower());
 
         // Game Over
         GameOver = "SPIEL \nBEENDET";
@@ -837,6 +849,7 @@ public class Language : MonoBehaviour
         // Settings
         Settings = "Einstellungen";
         Name = "Name ...";
+        Swipe = "Wisch";
         Sound = "Lautstärke";
         Music = "Musik";
         Tutorial = "Tutorial";
