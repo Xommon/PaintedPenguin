@@ -510,110 +510,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Add ghost score, checks to see if the username is valid for posting
-    public IEnumerator SendGhostScore(string name)
-    {
-        UnityWebRequest uwr = UnityWebRequest.Get(webURL + privateCode + "/add/" + UnityWebRequest.EscapeURL(name) + "/" + 0 + "/" + 0 + "/" + playerCountry);
-        yield return uwr.SendWebRequest();
-
-        ghostTimer = 3.0f;
-
-        if (name == null || name == "")
-        {
-            name = playerUsername;
-        }
-
-        if (ghostTimer == 0)
-        {
-            ghostScoreReturn = true;
-        }
-
-        if (uwr.isNetworkError)
-        {
-            // No network connection; proceed
-            ghostScoreReturn = true;
-        }
-        else
-        {
-            if (uwr.downloadHandler.text == "OK")
-            {
-                // Enter otherwise problematic usernames here:
-                if (usernameInputFieldText.text.ToLower() == ".")
-                {
-                    // Username disapproved
-                    ghostScoreReturn = false;
-                }
-                else
-                {
-                    // Username approved; proceed
-                    ghostScoreReturn = true;
-                }
-            }
-            else
-            {
-                // Username disapproved
-                ghostScoreReturn = false;
-            }
-        }
-
-        // Username check in settings
-        if (usernameInputUI.activeSelf == true)
-        {
-            if (ghostScoreReturn == true)
-            {
-                usernameInputUI.SetActive(false);
-                settingsXButton.SetActive(true);
-                mainMenuUI.SetActive(true);
-                credits.count = 0;
-                credits.index = 0;
-                warningBoxText.text = "";
-                playerSound = soundSlider.value;
-                playerMusic = musicSlider.value;
-                playerTutorialEnabled = tutorialToggle.isOn;
-                if (usernameInputFieldText.text == "" || usernameInputFieldText.text == null)
-                {
-                    GetUsername(playerUsername);
-                }
-                else
-                {
-                    GetUsername(usernameInputFieldText.text);
-                }
-                SaveUsername(playerUsername, playerLanguage, RedC, OrangeC, YellowC, GreenC, BlueC, PurpleC, playerSound, playerMusic, playerTutorialEnabled, playerSwipeEnabled);
-            }
-            else
-            {
-                if (usernameInputFieldText.text == "")
-                {
-                    warningBoxText.text = language.Warning5 + ": " + playerUsername;
-                }
-                else
-                {
-                    warningBoxText.text = language.Warning5 + ": " + usernameInputFieldText.text;
-                }
-            }
-        }
-        else
-        {
-            language.SendMessage(playerLanguage, null, SendMessageOptions.DontRequireReceiver);
-            credits.count = 0;
-            credits.index = 0;
-            Time.timeScale = 1;
-
-            if (ghostScoreReturn == true)
-            {
-                settingsXButton.SetActive(true);
-                usernameInputUI.SetActive(false);
-                mainMenuUI.SetActive(true);
-            }
-            else
-            {
-                settingsXButton.SetActive(false);
-                usernameInputUI.SetActive(true);
-                mainMenuUI.SetActive(false);
-            }
-        }
-    }
-
     public void DownloadHighScores()
     {
         StartCoroutine("DownloadHighScoresFromDatabase");
@@ -926,10 +822,14 @@ public class GameManager : MonoBehaviour
             playerTutorialEnabled = true;
             //playerSwipeEnabled = true;
         }
-        else // If the player's username and language has already been set
+        else
         {
-            // If you can connect to the internet, check to see if the offline username is suitable for upload
-            StartCoroutine(SendGhostScore(playerUsername));
+            language.SendMessage(playerLanguage, null, SendMessageOptions.DontRequireReceiver);
+            credits.count = 0;
+            credits.index = 0;
+            Time.timeScale = 1;
+            usernameInputUI.SetActive(false);
+            mainMenuUI.SetActive(true);
         }
 
         canContinue = true;
@@ -1144,9 +1044,9 @@ public class GameManager : MonoBehaviour
     {
         if (usernameInputUI.activeInHierarchy == true)
         {
-            string nonLatinChars = "";
             FindObjectOfType<AudioManager>().Play("click");
 
+            string nonLatinChars = "";
             for (int i = 0; i < nameSlot.text.Length; i++)
             {
                 if (language.LatinCharacter(nameSlot.text.Substring(i, 1)) == false)
@@ -1159,10 +1059,6 @@ public class GameManager : MonoBehaviour
             {
                 warningBoxText.text = language.Warning4 + ": " + nonLatinChars;
             }
-            else if (nameSlot.text.Contains(" ") || nameSlot.text.Contains("*"))
-            {
-                warningBoxText.text = language.Warning1;
-            }
             else if (nameSlot.preferredWidth > 168)
             {
                 warningBoxText.text = language.Warning2;
@@ -1173,21 +1069,47 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                if (usernameInputFieldText.text == "")
+                bool onlyPeriods = true;
+                for (int i = 0; i <= nameSlot.text.Length - 1; i++)
                 {
-                    StartCoroutine(SendGhostScore(playerUsername));
+                    if (nameSlot.text.Substring(i, 1) == ".")
+                    {
+                        onlyPeriods = true;
+                    }
+                    else
+                    {
+                        onlyPeriods = false;
+                    }
+                }
+
+                if (onlyPeriods == true)
+                {
+                    warningBoxText.text = language.Warning5 + ": " + usernameInputFieldText.text;
                 }
                 else
                 {
-                    StartCoroutine(SendGhostScore(usernameInputFieldText.text));
+                    usernameInputUI.SetActive(false);
+                    settingsXButton.SetActive(true);
+                    mainMenuUI.SetActive(true);
+                    credits.count = 0;
+                    credits.index = 0;
+                    warningBoxText.text = "";
+                    playerSound = soundSlider.value;
+                    playerMusic = musicSlider.value;
+                    playerTutorialEnabled = tutorialToggle.isOn;
+                    if (usernameInputFieldText.text == "" || usernameInputFieldText.text == null)
+                    {
+                        GetUsername(playerUsername);
+                    }
+                    else
+                    {
+                        GetUsername(usernameInputFieldText.text);
+                    }
+                    SaveUsername(playerUsername, playerLanguage, RedC, OrangeC, YellowC, GreenC, BlueC, PurpleC, playerSound, playerMusic, playerTutorialEnabled, playerSwipeEnabled);
                 }
             }
 
             credits.index = 0;
-        }
-        else
-        {
-            warningBoxText.text = language.Warning5 + ": " + usernameInputFieldText.text;
         }
     }
 
