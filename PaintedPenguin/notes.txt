@@ -1,6 +1,6 @@
 :: BETA TESTING ::
 GhostName and server pings take way too long
-Block Chinese countries
+Block Chinese countries (on Chinese versions)
 
 :: CREDITS ::
 (put https://icons8.com in google play store description)

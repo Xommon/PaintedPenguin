@@ -101,6 +101,7 @@ public class GameManager : MonoBehaviour
     public Sprite errorSprite;
     public ParticleSystem snow;
     public GameObject snowUI;
+    public float ghostTimer;
 
     // High scores
     const string privateCode = "cQ87T8a7BUGRQmQNMDB6iwWUTDoSubyUOyfJ9_43b3_g";
@@ -515,9 +516,16 @@ public class GameManager : MonoBehaviour
         UnityWebRequest uwr = UnityWebRequest.Get(webURL + privateCode + "/add/" + UnityWebRequest.EscapeURL(name) + "/" + 0 + "/" + 0 + "/" + playerCountry);
         yield return uwr.SendWebRequest();
 
+        ghostTimer = 3.0f;
+
         if (name == null || name == "")
         {
             name = playerUsername;
+        }
+
+        if (ghostTimer == 0)
+        {
+            ghostScoreReturn = true;
         }
 
         if (uwr.isNetworkError)
@@ -832,6 +840,8 @@ public class GameManager : MonoBehaviour
     // Code for start of script
     public void Start()
     {
+        ghostTimer = 3.0f;
+
         // Ad
         adController.ShowBanner();
 
@@ -1220,8 +1230,18 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
+        // Time down method timer
+        if (ghostTimer > 0)
+        {
+            ghostTimer -= Time.deltaTime;
+        }
+        else
+        {
+            ghostTimer = 0;
+        }
+
         // Make sure the banner ad is ALWAYS closed when it needs to be
-        if (mainMenuUI.activeInHierarchy == false && settingsUI.IsActive() == false && colourPickerUI.activeInHierarchy == false && gameOverCanvas.activeInHierarchy == false && highScoreTableUI.activeInHierarchy == false)
+        if (mainMenuUI.activeInHierarchy == false && settingsUI.IsActive() == false && colourPickerUI.activeInHierarchy == false && gameOverCanvas.activeInHierarchy == false && highScoreTableUI.activeInHierarchy == false && paused == false)
         {
             adController.CloseBanner();
         }
