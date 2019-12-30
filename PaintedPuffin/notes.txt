@@ -1,5 +1,4 @@
 :: BETA TESTING ::
-GhostName and server pings take way too long
 Block Chinese countries (on Chinese versions)
 
 :: CREDITS ::
