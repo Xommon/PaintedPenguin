@@ -6,7 +6,8 @@ public class AdController : MonoBehaviour
 {
     public static AdController instance;
 
-    private string storeId = "3241553";
+    //private string storeId = "3241553"; // Android
+    private string storeId = "3241552"; // Apple
     private string bannerAd = "bannerAd";
     public bool showBannerAd;
 

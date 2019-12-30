@@ -4,7 +4,8 @@ using UnityEngine.Monetization;
 
 public class Reward : MonoBehaviour
 {
-    private string storeId = "3241553";
+    //private string storeId = "3241553"; // Android
+    private string storeId = "3241552"; // Apple
     private string placementId = "rewardedVideo";
 
     private void Start()
