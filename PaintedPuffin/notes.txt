@@ -1,8 +1,11 @@
 :: BETA TESTING ::
 Block Chinese countries (on Chinese versions)
+Name marked as invalid when empty and name already chosen
 
 :: CREDITS ::
 (put https://icons8.com in google play store description)
+
+AMYGM-Z7UC8-9Z63V-ESPWM
 
 Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
 

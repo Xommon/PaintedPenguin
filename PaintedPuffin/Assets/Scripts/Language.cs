@@ -117,7 +117,9 @@ public class Language : MonoBehaviour
         // Add languages to list
         languages.Add(English);
         languages.Add(EnglishUK);
+        languages.Add(Spanish);
         languages.Add(French);
+        languages.Add(Portuguese);
         languages.Add(German);
         languages.Add(Mandarin);
 
@@ -1324,10 +1326,18 @@ public class Language : MonoBehaviour
         LanguageName = "Português";
 
         // Main Menu
-        GameTitle = "Papagaio-do-Mar \nPintado";
+        GameTitle = "Painted Puffin";
         StartButton = "COMEÇAR";
         Score = "PONTUAÇÃO";
-        Combo = "combo";
+
+        // Credits
+        gameManager.credits.topTexts.Clear();
+        gameManager.credits.topTexts.Add(("Criado por").ToLower());
+        gameManager.credits.topTexts.Add(("Arte de personagens de").ToLower());
+        gameManager.credits.topTexts.Add(("Arte de fundo de").ToLower());
+        gameManager.credits.topTexts.Add(("Ícones de").ToLower());
+        gameManager.credits.topTexts.Add(("Arte das mãos de").ToLower());
+        gameManager.credits.topTexts.Add(("Efeitos sonoros de").ToLower());
 
         // Game Over
         GameOver = "FIM DE JOGO";
@@ -1343,15 +1353,34 @@ public class Language : MonoBehaviour
         // High Scores
         HighScores = "PONTUAÇÃO";
 
-        // Username Input
+        // Colour Picker
+        ColourPickerText = "Cambiar colores";
+
+        // Combo
+        Combo = "combo";
+
+        // Settings
+        Settings = "Configurações";
         Name = "Nome ...";
-        OK = "OK";
+        Swipe = "Passe";
+        Sound = "Som";
+        Music = "Música";
+        Tutorial = "Tutorial";
         Warning1 = "Não pode conter espaços ou *.";
         Warning2 = "O nome é muito longo.";
+        Warning3 = "O nome não pode ficar em branco.";
+        Warning4 = "Caracteres inválidos";
+        Warning5 = "Nome inválido";
+        OK = "OK";
+
         Flag.image.overrideSprite = portuguese;
         gameManager.playerLanguage = "Portuguese";
         gameManager.XButtonLanguage();
-    } // Verified
+
+        // Tutorial
+        Paint = "Pintura";
+        Blocks = "Cubos";
+    } // Updated
 
     public void Romanian()
     {
@@ -1419,11 +1448,22 @@ public class Language : MonoBehaviour
 
     public void Spanish()
     {
+        // Language
+        LanguageName = "Español";
+
         // Main Menu
-        GameTitle = "Frailecillo \nPintado";
+        GameTitle = "Painted Puffin";
         StartButton = "COMIENZO";
         Score = "PUNTUACIÓN";
-        Combo = "combo";
+
+        // Credits
+        gameManager.credits.topTexts.Clear();
+        gameManager.credits.topTexts.Add(("Creado por").ToLower());
+        gameManager.credits.topTexts.Add(("Arte del personaje de").ToLower());
+        gameManager.credits.topTexts.Add(("Arte de fondo de").ToLower());
+        gameManager.credits.topTexts.Add(("Iconos de").ToLower());
+        gameManager.credits.topTexts.Add(("Arte de las manos de").ToLower());
+        gameManager.credits.topTexts.Add(("Efectos de sonido de").ToLower());
 
         // Game Over
         GameOver = "FIN \nDEL JUEGO";
@@ -1437,17 +1477,36 @@ public class Language : MonoBehaviour
         Paused = "PAUSADO";
 
         // High Scores
-        HighScores = "PUNTUACIÓN";
+        HighScores = "PUNTUACIÓNES";
 
-        // Username Input
-        Name = "Nombre ...";
-        OK = "Okay";
+        // Colour Picker
+        ColourPickerText = "Cambiar colores";
+
+        // Combo
+        Combo = "combo";
+
+        // Settings
+        Settings = "Configuraciones";
+        Name = "Nobre ...";
+        Swipe = "Desliza el Dedo";
+        Sound = "Sonido";
+        Music = "Música";
+        Tutorial = "Tutorial";
         Warning1 = "No puede contener espacios o *.";
         Warning2 = "El nombre es muy largo.";
+        Warning3 = "El nombre no puede estar vacío.";
+        Warning4 = "Caracteres inválidos";
+        Warning5 = "Nombre inválido";
+        OK = "Okay";
+
         Flag.image.overrideSprite = spanish;
         gameManager.playerLanguage = "Spanish";
         gameManager.XButtonLanguage();
-    }
+
+        // Tutorial
+        Paint = "Pintar";
+        Blocks = "Cubitos";
+    } // Updated
 
     public void Swedish()
     {
