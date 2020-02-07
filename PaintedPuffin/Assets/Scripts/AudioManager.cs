@@ -27,7 +27,6 @@ public class AudioManager : MonoBehaviour
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
-            //s.source.loop = s.loop;
 
             s.source.outputAudioMixerGroup = mixerGroup;
         }
@@ -43,16 +42,22 @@ public class AudioManager : MonoBehaviour
         }
 
         s.source.volume = FindObjectOfType<GameManager>().playerSound;
+        s.source.loop = false;
 
+        s.source.Play();
+    }
 
-        if (sound == "blocknote")
+    public void PlayMusic(string sound)
+    {
+        Sound s = Array.Find(sounds, item => item.name == sound);
+        if (s == null)
         {
-            s.source.pitch = 1 + (0.1f * FindObjectOfType<GameManager>().streakCount);
+            Debug.LogWarning("Sound: " + name + " not found!");
+            return;
         }
-        else
-        {
-            s.source.pitch = s.pitch;
-        }
+
+        s.source.volume = FindObjectOfType<GameManager>().playerMusic;
+        s.source.loop = true;
 
         s.source.Play();
     }
@@ -70,9 +75,14 @@ public class AudioManager : MonoBehaviour
                 return;
             }
 
-            s.source.volume = FindObjectOfType<GameManager>().playerSound;
-
-            s.source.Pause();
+            if (s.music == false)
+            {
+                s.source.Pause();
+            }
+            else
+            {
+                s.volume /= 2;
+            }
         }
     }
 
@@ -84,8 +94,6 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Sound: " + name + " not found!");
             return;
         }
-
-        s.source.volume = FindObjectOfType<GameManager>().playerSound;
 
         s.source.Pause();
     }
@@ -103,9 +111,14 @@ public class AudioManager : MonoBehaviour
                 return;
             }
 
-            s.source.volume = FindObjectOfType<GameManager>().playerSound;
-
-            s.source.UnPause();
+            if (s.music == false)
+            {
+                s.source.UnPause();
+            }
+            else
+            {
+                s.volume *= 2;
+            }
         }
     }
 
@@ -118,8 +131,18 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        s.source.volume = FindObjectOfType<GameManager>().playerSound;
-
         s.source.UnPause();
+    }
+
+    public void Stop(string sound)
+    {
+        Sound s = Array.Find(sounds, item => item.name == sound);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found!");
+            return;
+        }
+
+        s.source.Stop();
     }
 }

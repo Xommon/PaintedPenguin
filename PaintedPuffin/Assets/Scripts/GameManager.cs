@@ -54,7 +54,9 @@ public class GameManager : MonoBehaviour
     public AdController adController;
 
     // Volume
+    [Range(0f, 1f)]
     public float playerSound;
+    [Range(0f, 1f)]
     public float playerMusic;
     public float tempPlayerSound;
     public float tempPlayerMusic;
@@ -736,6 +738,10 @@ public class GameManager : MonoBehaviour
     // Code for start of script
     public void Start()
     {
+        var pitchBendGroup = Resources.Load("Pitch Bend Mixer");
+        //audioSource.outputAudioMixerGroup = pitchBendGroup;
+        //audioSource.pitch = 1.5f; pitchBendGroup.audioMixer.SetFloat("pitchBend", 1f / 1.5f);
+
         ghostTimer = 3.0f;
 
         // Ad
@@ -980,6 +986,8 @@ public class GameManager : MonoBehaviour
     {
         adController.CloseBanner();
 
+        FindObjectOfType<AudioManager>().PlayMusic("music_game");
+
         FindObjectOfType<AudioManager>().Play("click");
         
         if (playerTutorialEnabled == true)
@@ -1069,7 +1077,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                bool onlyPeriods = true;
+                bool onlyPeriods = false;
                 for (int i = 0; i <= nameSlot.text.Length - 1; i++)
                 {
                     if (nameSlot.text.Substring(i, 1) == ".")
@@ -1099,6 +1107,7 @@ public class GameManager : MonoBehaviour
                     playerTutorialEnabled = tutorialToggle.isOn;
                     if (usernameInputFieldText.text == "" || usernameInputFieldText.text == null)
                     {
+                        usernameInputFieldText.text = playerUsername;
                         GetUsername(playerUsername);
                     }
                     else
@@ -1558,6 +1567,7 @@ public class GameManager : MonoBehaviour
         player.StartWalking();
         gameOverCanvas.SetActive(false);
         player.SwitchGameOn();
+        FindObjectOfType<AudioManager>().PlayMusic("music_game");
     }
 
     // Colour picker

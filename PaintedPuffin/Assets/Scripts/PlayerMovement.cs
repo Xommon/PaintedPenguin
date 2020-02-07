@@ -558,6 +558,7 @@ public class PlayerMovement : MonoBehaviour
         timesTwoMode = 1;
         Destroy(GameObject.FindGameObjectWithTag("LoadingBar"));
         Invoke("Death", 0.5f);
+        FindObjectOfType<AudioManager>().Stop("music_game");
     }
 
     // End the game if collision with an obstacle occurs
