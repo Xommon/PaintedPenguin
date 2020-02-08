@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 2810459}
   - component: {fileID: 2810458}
   m_Layer: 5
-  m_Name: ReplayButton
+  m_Name: ContinueButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,9 +151,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1515341651}
+  - {fileID: 1818524554}
   m_Father: {fileID: 1303924346}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -218,8 +218,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1253002816}
-        m_MethodName: RestartGame
+      - m_Target: {fileID: 814642395745757710}
+        m_MethodName: ShowId
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3917,7 +3917,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 317.9, y: -0.84000254}
+  m_AnchoredPosition: {x: -321.2, y: -0.84000254}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &364491793
@@ -5375,7 +5375,7 @@ GameObject:
   - component: {fileID: 553525321}
   - component: {fileID: 553525320}
   m_Layer: 5
-  m_Name: ContinueButton
+  m_Name: ReplayButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5392,9 +5392,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1818524554}
+  - {fileID: 1515341651}
   m_Father: {fileID: 1303924346}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5444,8 +5444,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 814642395745757710}
-        m_MethodName: ShowId
+      - m_Target: {fileID: 1253002816}
+        m_MethodName: RestartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16399,8 +16399,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 101550852}
-  - {fileID: 2810457}
   - {fileID: 553525319}
+  - {fileID: 2810457}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17966,7 +17966,7 @@ GameObject:
   - component: {fileID: 1515341652}
   - component: {fileID: 1515341653}
   m_Layer: 5
-  m_Name: Text
+  m_Name: RText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17983,13 +17983,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2810457}
+  m_Father: {fileID: 553525319}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 7.5025, y: 7.94}
-  m_SizeDelta: {x: -14.99, y: -15.87}
+  m_AnchoredPosition: {x: -8.4, y: 7.939995}
+  m_SizeDelta: {x: -16.8, y: -15.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1515341652
 CanvasRenderer:
@@ -18026,7 +18026,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
-    m_Alignment: 3
+    m_Alignment: 5
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -21650,7 +21650,7 @@ GameObject:
   - component: {fileID: 1818524553}
   - component: {fileID: 1818524552}
   m_Layer: 5
-  m_Name: Text
+  m_Name: CText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21683,7 +21683,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
-    m_Alignment: 5
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -21710,13 +21710,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 364491792}
-  m_Father: {fileID: 553525319}
+  m_Father: {fileID: 2810457}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -28.557499, y: 7.94}
-  m_SizeDelta: {x: -57.125, y: -15.87}
+  m_AnchoredPosition: {x: 22.85, y: 7.9399986}
+  m_SizeDelta: {x: -45.7, y: -15.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1820432456
 GameObject:
