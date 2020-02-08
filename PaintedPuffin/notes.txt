@@ -1,6 +1,5 @@
 :: BETA TESTING ::
 Block Chinese countries (on Chinese versions)
-Name marked as invalid when empty and name already chosen
 
 :: CREDITS ::
 (put https://icons8.com in google play store description)
@@ -10,20 +9,6 @@ AMYGM-Z7UC8-9Z63V-ESPWM
 Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
 
 : SOUND CREDITS:
-GUI Click - ZERO
-Chirp - https://freesound.org/people/GB01/sounds/150294/
-Timer Click - ZERO
-Bubbles - https://freesound.org/people/Avaruusnuija/sounds/476599/
-Bubbles2 - https://freesound.org/people/Glaneur%20de%20sons/sounds/104949/
-Jump - https://freesound.org/people/Brsjak/sounds/482880/
-Fist whoosh - ZERO
-Splash - https://freesound.org/people/soundscalpel.com/sounds/110393/
-Splash2 - https://freesound.org/people/digifishmusic/sounds/53764/
-ClockTick -
-https://freesound.org/people/InspectorJ/sounds/343130/#comments
-Cuckoo - https://freesound.org/people/InspectorJ/sounds/398194/#comments
-Whip - https://freesound.org/people/fisu/sounds/350770/
-Ding - https://freesound.org/people/InspectorJ/sounds/484344/
-Fist Punch - https://freesound.org/people/EFlexMusic/sounds/369594/
-Game Over - https://www.zapsplat.com/sound-effect-category/game-sounds/page/13/
-Power Up NEW - https://www.youtube.com/watch?v=v94-AQxceGk
+
+
+

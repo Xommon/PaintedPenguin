@@ -55,9 +55,11 @@ public class GameManager : MonoBehaviour
     int musicCounter;
     public Animator mainMenuAnimator;
     public GameObject creditsUI;
-    int startGameCounter;
+    public float startGameCounter;
     bool gameStarting;
     public GameObject usernameDisplay;
+    public GameObject settingsButton;
+    public GameObject instagramButton;
 
     // Volume
     [Range(0f, 1f)]
@@ -747,6 +749,7 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         gameStarting = false;
+        startGameCounter = 0;
 
         // Play music
         FindObjectOfType<AudioManager>().Play("music_menu");
@@ -1003,6 +1006,8 @@ public class GameManager : MonoBehaviour
         scoreButton.SetActive(false);
         creditsUI.SetActive(false);
         usernameDisplay.SetActive(false);
+        settingsButton.SetActive(false);
+        instagramButton.SetActive(false);
         mainMenuAnimator.enabled = true;
         gameStarting = true;
 
@@ -1188,13 +1193,13 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
-        if (gameStarting == true && startGameCounter > 95)
+        if (gameStarting == true && startGameCounter > 0.85f)
         {
             StartGame();
             gameStarting = false;
         }
         
-        startGameCounter++;
+        startGameCounter += Time.deltaTime;
 
         if (musicCounter == 0) 
         {
@@ -1749,5 +1754,10 @@ public class GameManager : MonoBehaviour
         greenImage.color = new Color(0.1f, 1f, 0.1f, 1f);
         blueImage.color = new Color(0.1f, 0.2f, 1f, 1f);
         purpleImage.color = new Color(0.7f, 0.1f, 1f, 1f);
+    }
+
+    public void OpenInstagram()
+    {
+        Application.OpenURL("https://www.instagram.com/its_xommon/");
     }
 }

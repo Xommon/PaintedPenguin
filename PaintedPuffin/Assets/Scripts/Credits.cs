@@ -29,7 +29,7 @@ public class Credits : MonoBehaviour
         bottomTexts.Add("vicente nitti");
         bottomTexts.Add("icons8.com");
         bottomTexts.Add("jeff portaro");
-        bottomTexts.Add("freesounds.org");
+        bottomTexts.Add("CLICK HERE");
         
         bottomText.text = bottomTexts[0];
     }
@@ -76,6 +76,22 @@ public class Credits : MonoBehaviour
         {
             index = 0;
             count = 0;
+        }
+    }
+
+    public void OpenExtraCredits()
+    {
+        if (index == 0)
+        {
+            Application.OpenURL("https://www.instagram.com/its_xommon/");
+        }
+        else if (index == 4)
+        {
+            Application.OpenURL("https://icons8.com/icons/");
+        }
+        else if (index == 6)
+        {
+            Application.OpenURL("https://xommon.github.io/");
         }
     }
 }
