@@ -17886,6 +17886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01dc4c844cff22c4081b94e43896cb7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 1253002816}
   mixerGroup: {fileID: 0}
   sounds:
   - name: peep
@@ -18026,6 +18027,15 @@ MonoBehaviour:
     pitch: 1
     music: 1
     source: {fileID: 0}
+  so:
+    name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    music: 0
+    source: {fileID: 0}
+  fadeOut: 0
+  fadeIn: 0
 --- !u!1 &1525589011
 GameObject:
   m_ObjectHideFlags: 0

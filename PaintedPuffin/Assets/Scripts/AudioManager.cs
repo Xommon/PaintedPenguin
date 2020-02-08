@@ -6,10 +6,13 @@ public class AudioManager : MonoBehaviour
 {
 
     public static AudioManager instance;
-
+    public GameManager gameManager;
     public AudioMixerGroup mixerGroup;
-
     public Sound[] sounds;
+    public Sound so;
+
+    public bool fadeOut;
+    public bool fadeIn;
 
     void Awake()
     {
@@ -137,5 +140,80 @@ public class AudioManager : MonoBehaviour
         }
 
         s.source.Stop();
+    }
+
+    public void FadeOut(string sound)
+    {
+        Sound s = Array.Find(sounds, item => item.name == sound);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found!");
+            return;
+        }
+
+        fadeOut = true;
+        so = s;
+    }
+
+    public void FadeIn(string sound)
+    {
+        Sound s = Array.Find(sounds, item => item.name == sound);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found!");
+            return;
+        }
+
+        Play(sound);
+        s.volume = 0;
+        fadeIn = true;
+        so = s;
+    }
+
+    private void Update()
+    {
+        if (fadeOut)
+        {
+            if (so.volume > 0)
+            {
+                so.volume -= (gameManager.playerMusic / 20);
+            }
+            else
+            {
+                Stop(so.name);
+                fadeOut = false;
+            }
+        }
+
+        if (fadeIn)
+        {
+            if (so.volume < gameManager.playerMusic)
+            {
+                so.volume += (gameManager.playerMusic / 20);
+            }
+            else
+            {
+                fadeIn = false;
+            }
+        }
+        else
+        {
+            for (int i = 0; i < sounds.Length; i++)
+            {
+                string sound = sounds[i].name;
+
+                Sound s = Array.Find(sounds, item => item.name == sound);
+                if (s == null)
+                {
+                    Debug.LogWarning("Sound: " + name + " not found!");
+                    return;
+                }
+
+                if (s.music == true)
+                {
+                    s.volume = gameManager.playerMusic;
+                }
+            }
+        }
     }
 }

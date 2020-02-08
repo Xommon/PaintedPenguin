@@ -584,6 +584,8 @@ public class GameManager : MonoBehaviour
     {
         playerSound = tempPlayerSound;
         playerMusic = tempPlayerMusic;
+        playerSound = soundSlider.value;
+        playerMusic = musicSlider.value;
         usernameInputUI.SetActive(false);
         languageTableUI.SetActive(true);
     }
@@ -995,7 +997,7 @@ public class GameManager : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().Play("click");
         adController.CloseBanner();
-        FindObjectOfType<AudioManager>().Stop("music_menu");
+        FindObjectOfType<AudioManager>().FadeOut("music_menu");
 
         startButton.SetActive(false);
         scoreButton.SetActive(false);
@@ -1011,7 +1013,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        FindObjectOfType<AudioManager>().Play("music_game");
+        FindObjectOfType<AudioManager>().FadeIn("music_game");
         
         if (playerTutorialEnabled == true)
         {
@@ -1058,6 +1060,8 @@ public class GameManager : MonoBehaviour
             language.SendMessage(tempLanguage, null, SendMessageOptions.DontRequireReceiver);
             usernameInputUI.SetActive(false);
             mainMenuUI.SetActive(true);
+            soundSlider.value = playerSound;
+            musicSlider.value = playerMusic;
         }
     }
 
