@@ -865,8 +865,18 @@ public class GameManager : MonoBehaviour
         int previousPlace = 0;
         int count = 0;
 
+        int amountOfScores;
+        if (highscoreList.Length < 100)
+        {
+            amountOfScores = highscoreList.Length;
+        }
+        else
+        {
+            amountOfScores = 99;
+        }
+
         // Populate the score table
-        for (int i = 0; i <= 99; i++)
+        for (int i = 0; i <= amountOfScores - 1; i++)
         {
             // Place
             int place = 0;
@@ -1534,7 +1544,7 @@ public class GameManager : MonoBehaviour
 
         gameOverCanvas.SetActive(true);
         FindObjectOfType<AudioManager>().Play("deathjingle");
-        if (canContinue == false || adController.IsAdReady() == false)
+        if (canContinue == false) // || adController.IsAdReady() == false)
         {
             continueButtonUI.SetActive(false);
         }
