@@ -25,12 +25,12 @@ public class Credits : MonoBehaviour
 
         bottomTexts.Add("micheal quentin");
         bottomTexts.Add("chris ambroziak");
+        bottomTexts.Add("patrick de arteaga");
         bottomTexts.Add("vicente nitti");
         bottomTexts.Add("icons8.com");
         bottomTexts.Add("jeff portaro");
         bottomTexts.Add("freesounds.org");
-
-        topText.text = topTexts[0];
+        
         bottomText.text = bottomTexts[0];
     }
     

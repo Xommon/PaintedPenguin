@@ -52,6 +52,12 @@ public class GameManager : MonoBehaviour
     public bool ghostScoreReturn;
     public GameObject settingsXButton;
     public AdController adController;
+    int musicCounter;
+    public Animator mainMenuAnimator;
+    public GameObject creditsUI;
+    int startGameCounter;
+    bool gameStarting;
+    public GameObject usernameDisplay;
 
     // Volume
     [Range(0f, 1f)]
@@ -738,9 +744,10 @@ public class GameManager : MonoBehaviour
     // Code for start of script
     public void Start()
     {
-        var pitchBendGroup = Resources.Load("Pitch Bend Mixer");
-        //audioSource.outputAudioMixerGroup = pitchBendGroup;
-        //audioSource.pitch = 1.5f; pitchBendGroup.audioMixer.SetFloat("pitchBend", 1f / 1.5f);
+        gameStarting = false;
+
+        // Play music
+        FindObjectOfType<AudioManager>().Play("music_menu");
 
         ghostTimer = 3.0f;
 
@@ -758,7 +765,7 @@ public class GameManager : MonoBehaviour
         playerTime = 0;
 
         // Load all save data
-        //SaveSystem.DeleteData(); // Clear / reset save data
+        //SaveSystem.DeleteData(); // Clear and reset save data
         LoadUsername();
 
         // Set weather
@@ -840,6 +847,8 @@ public class GameManager : MonoBehaviour
 
         canContinue = true;
         score = -1;
+
+        
     }
 
     public void OnHighscoresDownloaded(Highscore[] highscoreList)
@@ -982,13 +991,27 @@ public class GameManager : MonoBehaviour
     }
 
     // Start Button pressed
+    public void PreStartGame()
+    {
+        FindObjectOfType<AudioManager>().Play("click");
+        adController.CloseBanner();
+        FindObjectOfType<AudioManager>().Stop("music_menu");
+
+        startButton.SetActive(false);
+        scoreButton.SetActive(false);
+        creditsUI.SetActive(false);
+        usernameDisplay.SetActive(false);
+        mainMenuAnimator.enabled = true;
+        gameStarting = true;
+
+        startGameCounter = 0;
+        FindObjectOfType<AudioManager>().Play("slap");
+        FindObjectOfType<AudioManager>().Play("peep");
+    }
+
     public void StartGame()
     {
-        adController.CloseBanner();
-
-        FindObjectOfType<AudioManager>().PlayMusic("music_game");
-
-        FindObjectOfType<AudioManager>().Play("click");
+        FindObjectOfType<AudioManager>().Play("music_game");
         
         if (playerTutorialEnabled == true)
         {
@@ -1161,6 +1184,20 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
+        if (gameStarting == true && startGameCounter > 85)
+        {
+            StartGame();
+            gameStarting = false;
+        }
+        
+        startGameCounter++;
+
+        if (musicCounter == 0) 
+        {
+            FindObjectOfType<AudioManager>().Play("music_menu");
+            musicCounter = 1;
+        }
+
         // Time down method timer
         if (ghostTimer > 0)
         {
@@ -1425,7 +1462,7 @@ public class GameManager : MonoBehaviour
         {
             if (mainMenuUI.activeInHierarchy == true)
             {
-                StartGame();
+                PreStartGame();
             }
 
             if (gameOverCanvas.activeInHierarchy == true)
@@ -1567,7 +1604,7 @@ public class GameManager : MonoBehaviour
         player.StartWalking();
         gameOverCanvas.SetActive(false);
         player.SwitchGameOn();
-        FindObjectOfType<AudioManager>().PlayMusic("music_game");
+        FindObjectOfType<AudioManager>().Play("music_game");
     }
 
     // Colour picker

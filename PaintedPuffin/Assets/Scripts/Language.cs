@@ -191,6 +191,7 @@ public class Language : MonoBehaviour
         gameManager.credits.GetComponent<Credits>().topTexts.Clear();
         gameManager.credits.GetComponent<Credits>().topTexts.Add(("created by").ToLower());
         gameManager.credits.GetComponent<Credits>().topTexts.Add(("puffin art by").ToLower());
+        gameManager.credits.GetComponent<Credits>().topTexts.Add(("music by").ToLower());
         gameManager.credits.GetComponent<Credits>().topTexts.Add(("background by").ToLower());
         gameManager.credits.GetComponent<Credits>().topTexts.Add(("icons by").ToLower());
         gameManager.credits.GetComponent<Credits>().topTexts.Add(("hands art by").ToLower());
@@ -253,6 +254,7 @@ public class Language : MonoBehaviour
         gameManager.credits.GetComponent<Credits>().topTexts.Clear();
         gameManager.credits.GetComponent<Credits>().topTexts.Add(("created by").ToLower());
         gameManager.credits.GetComponent<Credits>().topTexts.Add(("puffin art by").ToLower());
+        gameManager.credits.GetComponent<Credits>().topTexts.Add(("music by").ToLower());
         gameManager.credits.GetComponent<Credits>().topTexts.Add(("background by").ToLower());
         gameManager.credits.GetComponent<Credits>().topTexts.Add(("icons by").ToLower());
         gameManager.credits.GetComponent<Credits>().topTexts.Add(("hands art by").ToLower());
@@ -507,6 +509,7 @@ public class Language : MonoBehaviour
         gameManager.credits.GetComponent<Credits>().topTexts.Clear();
         gameManager.credits.GetComponent<Credits>().topTexts.Add(("创作者").ToLower());
         gameManager.credits.GetComponent<Credits>().topTexts.Add(("艺术家").ToLower());
+        gameManager.credits.topTexts.Add(("作曲家").ToLower());
         gameManager.credits.GetComponent<Credits>().topTexts.Add(("背景艺术家").ToLower());
         gameManager.credits.GetComponent<Credits>().topTexts.Add(("图标艺术家").ToLower());
         gameManager.credits.GetComponent<Credits>().topTexts.Add(("手艺人").ToLower());
@@ -761,6 +764,7 @@ public class Language : MonoBehaviour
         gameManager.credits.GetComponent<Credits>().topTexts.Clear();
         gameManager.credits.GetComponent<Credits>().topTexts.Add(("créé par").ToLower());
         gameManager.credits.GetComponent<Credits>().topTexts.Add(("art de caractère par").ToLower());
+        gameManager.credits.GetComponent<Credits>().topTexts.Add(("musique par").ToLower());
         gameManager.credits.GetComponent<Credits>().topTexts.Add(("art de fond par").ToLower());
         gameManager.credits.GetComponent<Credits>().topTexts.Add(("icônes par").ToLower());
         gameManager.credits.GetComponent<Credits>().topTexts.Add(("art des mains par").ToLower());
@@ -823,6 +827,7 @@ public class Language : MonoBehaviour
         gameManager.credits.topTexts.Clear();
         gameManager.credits.topTexts.Add(("Erstellt von").ToLower());
         gameManager.credits.topTexts.Add(("Charakterkunst von").ToLower());
+        gameManager.credits.topTexts.Add(("Musik von").ToLower());
         gameManager.credits.topTexts.Add(("Hintergrund von").ToLower());
         gameManager.credits.topTexts.Add(("Icons von").ToLower());
         gameManager.credits.topTexts.Add(("Hände Kunst von").ToLower());
@@ -1334,6 +1339,7 @@ public class Language : MonoBehaviour
         gameManager.credits.topTexts.Clear();
         gameManager.credits.topTexts.Add(("Criado por").ToLower());
         gameManager.credits.topTexts.Add(("Arte de personagens de").ToLower());
+        gameManager.credits.topTexts.Add(("Música de").ToLower());
         gameManager.credits.topTexts.Add(("Arte de fundo de").ToLower());
         gameManager.credits.topTexts.Add(("Ícones de").ToLower());
         gameManager.credits.topTexts.Add(("Arte das mãos de").ToLower());
@@ -1460,6 +1466,7 @@ public class Language : MonoBehaviour
         gameManager.credits.topTexts.Clear();
         gameManager.credits.topTexts.Add(("Creado por").ToLower());
         gameManager.credits.topTexts.Add(("Arte del personaje de").ToLower());
+        gameManager.credits.topTexts.Add(("Música de").ToLower());
         gameManager.credits.topTexts.Add(("Arte de fondo de").ToLower());
         gameManager.credits.topTexts.Add(("Iconos de").ToLower());
         gameManager.credits.topTexts.Add(("Arte de las manos de").ToLower());

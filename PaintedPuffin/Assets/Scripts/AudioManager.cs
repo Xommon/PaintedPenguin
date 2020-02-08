@@ -41,23 +41,16 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        s.source.volume = FindObjectOfType<GameManager>().playerSound;
-        s.source.loop = false;
-
-        s.source.Play();
-    }
-
-    public void PlayMusic(string sound)
-    {
-        Sound s = Array.Find(sounds, item => item.name == sound);
-        if (s == null)
+        if (s.music == true)
         {
-            Debug.LogWarning("Sound: " + name + " not found!");
-            return;
+            s.source.volume = FindObjectOfType<GameManager>().playerMusic;
+            s.source.loop = true;
         }
-
-        s.source.volume = FindObjectOfType<GameManager>().playerMusic;
-        s.source.loop = true;
+        else
+        {
+            s.source.volume = FindObjectOfType<GameManager>().playerSound;
+            s.source.loop = false;
+        }
 
         s.source.Play();
     }
