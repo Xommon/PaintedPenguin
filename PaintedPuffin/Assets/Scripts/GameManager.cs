@@ -1013,8 +1013,8 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        FindObjectOfType<AudioManager>().FadeIn("music_game");
-        
+        FindObjectOfType<AudioManager>().Play("music_game");
+
         if (playerTutorialEnabled == true)
         {
             tutorialWindow.SetActive(true);
@@ -1188,7 +1188,7 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
-        if (gameStarting == true && startGameCounter > 85)
+        if (gameStarting == true && startGameCounter > 95)
         {
             StartGame();
             gameStarting = false;

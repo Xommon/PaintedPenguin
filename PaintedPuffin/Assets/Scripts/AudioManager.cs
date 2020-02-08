@@ -164,19 +164,27 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        Play(sound);
+        Play(s.name);
         s.volume = 0;
         fadeIn = true;
         so = s;
     }
 
+    private void FixedUpdate()
+    {
+        if (gameManager == null)
+        {
+            gameManager = FindObjectOfType<GameManager>();
+        }
+    }
+
     private void Update()
     {
-        if (fadeOut)
+        if (fadeOut == true)
         {
-            if (so.volume > 0)
+            if (so.source.volume > 0)
             {
-                so.volume -= (gameManager.playerMusic / 20);
+                so.source.volume -= (gameManager.playerMusic / 50);
             }
             else
             {
@@ -184,34 +192,56 @@ public class AudioManager : MonoBehaviour
                 fadeOut = false;
             }
         }
-
-        if (fadeIn)
+        else if (fadeIn == true)
         {
-            if (so.volume < gameManager.playerMusic)
+            if (so.source.volume < gameManager.playerMusic)
             {
-                so.volume += (gameManager.playerMusic / 20);
+                so.source.volume += (gameManager.playerMusic / 50);
             }
             else
             {
                 fadeIn = false;
+                so.source.volume = gameManager.playerMusic;
             }
         }
         else
         {
-            for (int i = 0; i < sounds.Length; i++)
+            if (gameManager.paused)
             {
-                string sound = sounds[i].name;
-
-                Sound s = Array.Find(sounds, item => item.name == sound);
-                if (s == null)
+                for (int i = 0; i < sounds.Length; i++)
                 {
-                    Debug.LogWarning("Sound: " + name + " not found!");
-                    return;
+                    string sound = sounds[i].name;
+
+                    Sound s = Array.Find(sounds, item => item.name == sound);
+                    if (s == null)
+                    {
+                        Debug.LogWarning("Sound: " + name + " not found!");
+                        return;
+                    }
+
+                    if (s.music == true)
+                    {
+                        s.source.volume = (gameManager.playerMusic / 4);
+                    }
                 }
-
-                if (s.music == true)
+            }
+            else
+            {
+                for (int i = 0; i < sounds.Length; i++)
                 {
-                    s.volume = gameManager.playerMusic;
+                    string sound = sounds[i].name;
+
+                    Sound s = Array.Find(sounds, item => item.name == sound);
+                    if (s == null)
+                    {
+                        Debug.LogWarning("Sound: " + name + " not found!");
+                        return;
+                    }
+
+                    if (s.music == true)
+                    {
+                        s.source.volume = gameManager.playerMusic;
+                    }
                 }
             }
         }
