@@ -32,9 +32,11 @@ public class Background : MonoBehaviour
             transform.position -= new Vector3(0.06f * Time.deltaTime, 0, 0);
         }
 
+        //transform.position = new Vector3(transform.position.x, 0, 0);
+
         if (transform.position.x <= -3.03f)
         {
-            transform.position = new Vector3(0.8121f, 0.53f, 0);
+            transform.position = new Vector3(0.8121f, transform.position.y, 0);
         }
     }
 }
