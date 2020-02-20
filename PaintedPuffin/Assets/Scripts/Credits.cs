@@ -91,7 +91,7 @@ public class Credits : MonoBehaviour
         }
         else if (index == 6)
         {
-            Application.OpenURL("https://xommon.github.io/");
+            Application.OpenURL("https://michealquentin.weebly.com/games.html");
         }
     }
 }
