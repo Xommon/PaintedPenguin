@@ -218,8 +218,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: ShowRewardBasedAd
+      - m_Target: {fileID: 1253002816}
+        m_MethodName: ContinueButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -24976,7 +24976,7 @@ PrefabInstance:
         type: 3}
       propertyPath: continueButtonUI
       value: 
-      objectReference: {fileID: 553525318}
+      objectReference: {fileID: 2810456}
     - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: mainMenuUI
