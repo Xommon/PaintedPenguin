@@ -757,7 +757,8 @@ public class GameManager : MonoBehaviour
         ghostTimer = 3.0f;
 
         // Ad
-        adController.ShowBanner();
+        // adController.ShowBanner();
+        //AdsManager.Instance.request
 
         // Reset streak
         streakColour = 0;
@@ -1604,7 +1605,7 @@ public class GameManager : MonoBehaviour
 
     public void ContinueButton()
     {
-        adController.CloseBanner();
+        AdsManager.Instance.ShowInterstitial();
         FindObjectOfType<AudioManager>().Play("click");
         player.dead = false;
         player.rb.gravityScale = 0;
