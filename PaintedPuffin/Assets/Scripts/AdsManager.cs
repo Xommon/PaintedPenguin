@@ -99,7 +99,7 @@ public class AdsManager : MonoBehaviour {
 
 	public void HandleOnAdFailedToLoad(object sender, AdFailedToLoadEventArgs args)
 	{
-		MonoBehaviour.print("HandleFailedToReceiveAd event received with message: " + args.Message);
+        MonoBehaviour.print("HandleFailedToReceiveAd event received with message: " + args.Message);
 	}
 
 	public void HandleOnAdOpened(object sender, EventArgs args)
@@ -110,12 +110,15 @@ public class AdsManager : MonoBehaviour {
 	public void HandleOnAdClosed(object sender, EventArgs args)
 	{
 		MonoBehaviour.print("HandleAdClosed event received");
+        //FindObjectOfType<GameManager>().ContinueButton();
 		interstitialAdMob.LoadAd(requestAdMobInterstitial);
 	}
 
 	public void HandleOnAdLeavingApplication(object sender, EventArgs args)
 	{
-		MonoBehaviour.print("HandleAdLeftApplication event received");
+        FindObjectOfType<GameManager>().ContinueButton();
+        FindObjectOfType<GameManager>().paused = true;
+        MonoBehaviour.print("HandleAdLeftApplication event received");
 	}
 
 	private void RequestRewardedVideo()
@@ -212,7 +215,7 @@ public class AdsManager : MonoBehaviour {
 	private void RequestBanner()
 	{
 		// Create a 320x50 banner at the bottom of the screen.
-		bannerView = new BannerView("ca-app-pub-3940256099942544/6300978111", AdSize.SmartBanner, AdPosition.Bottom);
+		bannerView = new BannerView("ca-app-pub-3940256099942544/6300978111", AdSize.Banner, AdPosition.Bottom);
 
 		// Called when an ad request has successfully loaded.
 		bannerView.OnAdLoaded += HandleBannerOnAdLoaded;
@@ -232,7 +235,17 @@ public class AdsManager : MonoBehaviour {
 		bannerView.LoadAd(request);
 	}
 
-	public void HandleBannerOnAdLoaded(object sender, EventArgs args)
+    public void BannerHide()
+    {
+        bannerView.Hide();
+    }
+
+    public void BannerShow()
+    {
+        bannerView.Show();
+    }
+
+    public void HandleBannerOnAdLoaded(object sender, EventArgs args)
 	{
 		MonoBehaviour.print("HandleAdLoaded event received");
 		bannerView.Show();

@@ -757,8 +757,7 @@ public class GameManager : MonoBehaviour
         ghostTimer = 3.0f;
 
         // Ad
-        // adController.ShowBanner();
-        //AdsManager.Instance.request
+        AdsManager.Instance.BannerShow();
 
         // Reset streak
         streakColour = 0;
@@ -839,7 +838,6 @@ public class GameManager : MonoBehaviour
             tempPlayerSound = playerSound;
             tempPlayerMusic = playerMusic;
             playerTutorialEnabled = true;
-            //playerSwipeEnabled = true;
         }
         else
         {
@@ -991,7 +989,7 @@ public class GameManager : MonoBehaviour
         if (paused == false)
         {
             pauseUI.SetActive(true);
-            adController.ShowBanner();
+            AdsManager.Instance.BannerShow();
             Time.timeScale = 0;
             paused = true;
             FindObjectOfType<AudioManager>().Pause();
@@ -999,7 +997,7 @@ public class GameManager : MonoBehaviour
         else
         {
             pauseUI.SetActive(false);
-            adController.CloseBanner();
+            AdsManager.Instance.BannerHide();
             Time.timeScale = 1;
             paused = false;
             FindObjectOfType<AudioManager>().Unpause();
@@ -1010,7 +1008,7 @@ public class GameManager : MonoBehaviour
     public void PreStartGame()
     {
         FindObjectOfType<AudioManager>().Play("click");
-        adController.CloseBanner();
+        AdsManager.Instance.BannerHide();
         FindObjectOfType<AudioManager>().FadeOut("music_menu");
 
         startButton.SetActive(false);
@@ -1228,10 +1226,11 @@ public class GameManager : MonoBehaviour
             ghostTimer = 0;
         }
 
-        // Make sure the banner ad is ALWAYS closed when it needs to be
+        // Make sure the banner ad is ALWAYS hidden when it needs to be
         if (mainMenuUI.activeInHierarchy == false && settingsUI.IsActive() == false && colourPickerUI.activeInHierarchy == false && gameOverCanvas.activeInHierarchy == false && highScoreTableUI.activeInHierarchy == false && paused == false)
         {
-            adController.CloseBanner();
+            Debug.Log("Hiding banner ad.");
+            AdsManager.Instance.BannerHide();
         }
 
         // Sync up toggle variables with toggles
@@ -1541,11 +1540,11 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         // Ad
-        adController.ShowBanner();
+        AdsManager.Instance.BannerShow();
 
         gameOverCanvas.SetActive(true);
         FindObjectOfType<AudioManager>().Play("deathjingle");
-        if (canContinue == false) // || adController.IsAdReady() == false)
+        if (canContinue == false)
         {
             continueButtonUI.SetActive(false);
         }
@@ -1605,8 +1604,9 @@ public class GameManager : MonoBehaviour
 
     public void ContinueButton()
     {
-        AdsManager.Instance.ShowInterstitial();
         FindObjectOfType<AudioManager>().Play("click");
+        AdsManager.Instance.BannerHide();
+        AdsManager.Instance.ShowInterstitial();
         player.dead = false;
         player.rb.gravityScale = 0;
         player.rb.MovePosition(new Vector2(-1.0f, -0.075f));
