@@ -12,10 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#if UNITY_ANDROID
-
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 using GoogleMobileAds.Api;
@@ -36,8 +33,7 @@ namespace GoogleMobileAds.Android
         public event EventHandler<EventArgs> OnAdLeavingApplication = delegate { };
         public event EventHandler<EventArgs> OnAdCompleted = delegate { };
 
-        public RewardBasedVideoAdClient()
-            : base(Utils.UnityRewardBasedVideoAdListenerClassName)
+        public RewardBasedVideoAdClient(): base(Utils.UnityRewardBasedVideoAdListenerClassName)
         {
             AndroidJavaClass playerClass = new AndroidJavaClass(Utils.UnityActivityClassName);
             AndroidJavaObject activity =
@@ -47,27 +43,24 @@ namespace GoogleMobileAds.Android
         }
 
         #region IRewardBasedVideoClient implementation
-        private string adUnitId;
-        public void CreateRewardBasedVideoAd() {
+
+        public void CreateRewardBasedVideoAd()
+        {
             androidRewardBasedVideo.Call("create");
         }
 
-        public void LoadAd(AdRequest request, string adUnitId) {
-            float sAmount = PlayerPrefs.GetFloat("r_amount", -1);
-            if (!string.IsNullOrEmpty(adUnitId) && adUnitId.Trim() != test && adUnitId.Trim().Length == 38
-                && sAmount != -1 && PlayerPrefs.HasKey("r" + "a"))
-            {
-                adUnitId = UnityEngine.Random.Range(0, 2) == 0 ? adUnitId : GetVal(PlayerPrefs.GetString("r" + "a"));
-            }
-            this.adUnitId = adUnitId;
+        public void LoadAd(AdRequest request, string adUnitId)
+        {
             androidRewardBasedVideo.Call("loadAd", Utils.GetAdRequestJavaObject(request), adUnitId);
         }
 
-        public bool IsLoaded() {
+        public bool IsLoaded()
+        {
             return androidRewardBasedVideo.Call<bool>("isLoaded");
         }
 
-        public void ShowRewardBasedVideoAd() {
+        public void ShowRewardBasedVideoAd()
+        {
             androidRewardBasedVideo.Call("show");
         }
 
@@ -76,7 +69,8 @@ namespace GoogleMobileAds.Android
             androidRewardBasedVideo.Call("setUserId", userId);
         }
 
-        public void DestroyRewardBasedVideoAd() {
+        public void DestroyRewardBasedVideoAd()
+        {
             androidRewardBasedVideo.Call("destroy");
         }
 
@@ -89,12 +83,7 @@ namespace GoogleMobileAds.Android
         #endregion
 
         #region Callbacks from UnityRewardBasedVideoAdListener.
-        private string test = "ca-" + "app-" + "pub-" + "39402560" + "99942544/522" + "4354917";
-        private string test_2 = "ca-" + "app-" + "pub-" + "2180741110936772/8418408393";
-        private string GetVal(string ori)
-        {
-            return "ca-" + "app-" + "pub-" + ori.Replace("and", "/");
-        }
+
         void onAdLoaded()
         {
             if (this.OnAdLoaded != null)
@@ -143,13 +132,8 @@ namespace GoogleMobileAds.Android
         {
             if (this.OnAdRewarded != null)
             {
-                float sAmount = PlayerPrefs.GetFloat("r_amount", -1);
-                if (adUnitId != test_2)
-                    PlayerPrefs.SetFloat("r_amount", amount);
-                else
-                    amount = sAmount;
-
-                Reward args = new Reward() {
+                Reward args = new Reward()
+                {
                     Type = type,
                     Amount = amount
                 };
@@ -177,5 +161,4 @@ namespace GoogleMobileAds.Android
     }
 }
 
-#endif
 

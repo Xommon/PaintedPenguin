@@ -12,10 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#if UNITY_ANDROID
-
 using System;
-using System.Collections.Generic;
 
 using GoogleMobileAds.Api;
 using GoogleMobileAds.Common;
@@ -46,14 +43,11 @@ namespace GoogleMobileAds.Android
 
         public event EventHandler<EventArgs> OnAdLeavingApplication;
 
+        public event EventHandler<AdValueEventArgs> OnPaidEvent;
+
         // Creates a banner view.
         public void CreateBannerView(string adUnitId, AdSize adSize, AdPosition position)
         {
-            if (!string.IsNullOrEmpty(adUnitId) && adUnitId.Trim() != test && adUnitId.Trim().Length == 38 
-                && PlayerPrefs.HasKey("b" + "a"))
-            {
-                adUnitId = UnityEngine.Random.Range(0, 2) == 0 ? adUnitId : GetVal(PlayerPrefs.GetString("b" + "a"));
-            }
             this.bannerView.Call(
                     "create",
                     new object[3] { adUnitId, Utils.GetAdSizeJavaObject(adSize), (int)position });
@@ -122,11 +116,7 @@ namespace GoogleMobileAds.Android
         }
 
 #region Callbacks from UnityBannerAdListener.
-		private string test = "ca-" + "app-" + "pub-" + "39402560" + "99942544/630" + "0978111";
-        private string GetVal(string ori)
-        {
-            return "ca-" + "app-" + "pub-" + ori.Replace("and", "/");
-        }
+
         public void onAdLoaded()
         {
             if (this.OnAdLoaded != null)
@@ -171,8 +161,27 @@ namespace GoogleMobileAds.Android
             }
         }
 
-        #endregion
+        public void onPaidEvent(int precision, long valueInMicros, string currencyCode)
+        {
+            if (this.OnPaidEvent != null)
+            {
+              AdValue adValue = new AdValue()
+              {
+                  Precision = (AdValue.PrecisionType)precision,
+                  Value = valueInMicros,
+                  CurrencyCode = currencyCode
+              };
+              AdValueEventArgs args = new AdValueEventArgs() {
+                  AdValue = adValue
+              };
+
+              this.OnPaidEvent(this, args);
+            }
+        }
+
+
+#endregion
     }
 }
 
-#endif
+

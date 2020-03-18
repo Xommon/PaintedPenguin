@@ -1,4 +1,4 @@
-﻿// Copyright (C) 2015 Google, Inc.
+// Copyright (C) 2015 Google, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -11,8 +11,6 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-
-#if UNITY_ANDROID
 
 using System;
 using System.Collections.Generic;
@@ -43,13 +41,19 @@ namespace GoogleMobileAds.Android
 
             this.CustomNativeTemplateCallbacks = unityAdLoader.CustomNativeTemplateClickHandlers;
 
+            bool supportsRequestImageAssetUrls = false;
+
             if (unityAdLoader.AdTypes.Contains(NativeAdType.CustomTemplate))
             {
+                supportsRequestImageAssetUrls = false;
                 foreach (string templateId in unityAdLoader.TemplateIds)
                 {
                     adLoader.Call("configureCustomNativeTemplateAd", templateId,
                         this.CustomNativeTemplateCallbacks.ContainsKey(templateId));
                 }
+            }
+            if (supportsRequestImageAssetUrls) {
+                adLoader.Call("configureReturnUrlsForImageAssets");
             }
             adLoader.Call("create");
         }
@@ -89,4 +93,4 @@ namespace GoogleMobileAds.Android
     }
 }
 
-#endif
+

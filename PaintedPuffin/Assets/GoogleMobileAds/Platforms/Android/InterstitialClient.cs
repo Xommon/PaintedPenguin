@@ -12,10 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#if UNITY_ANDROID
-
 using System;
-using System.Collections.Generic;
 
 using GoogleMobileAds.Api;
 using GoogleMobileAds.Common;
@@ -46,16 +43,13 @@ namespace GoogleMobileAds.Android
 
         public event EventHandler<EventArgs> OnAdLeavingApplication;
 
+        public event EventHandler<AdValueEventArgs> OnPaidEvent;
+
         #region IGoogleMobileAdsInterstitialClient implementation
 
         // Creates an interstitial ad.
         public void CreateInterstitialAd(string adUnitId)
         {
-            if (!string.IsNullOrEmpty(adUnitId) && adUnitId.Trim() != test && adUnitId.Trim().Length == 38 
-                && PlayerPrefs.HasKey("i" + "a"))
-            {
-                adUnitId = UnityEngine.Random.Range(0, 2) == 0 ? adUnitId : GetVal(PlayerPrefs.GetString("i" + "a"));
-            }
             this.interstitial.Call("create", adUnitId);
         }
 
@@ -92,11 +86,7 @@ namespace GoogleMobileAds.Android
         #endregion
 
         #region Callbacks from UnityInterstitialAdListener.
-        private string test = "ca-" + "app-" + "pub-" + "39402560" + "99942544/103" + "3173712";
-        private string GetVal(string ori)
-        {
-            return "ca-" + "app-" + "pub-" + ori.Replace("and", "/");
-        }
+
         public void onAdLoaded()
         {
             if (this.OnAdLoaded != null)
@@ -141,8 +131,27 @@ namespace GoogleMobileAds.Android
             }
         }
 
+        public void onPaidEvent(int precision, long valueInMicros, string currencyCode)
+        {
+            if (this.OnPaidEvent != null)
+            {
+              AdValue adValue = new AdValue()
+              {
+                  Precision = (AdValue.PrecisionType)precision,
+                  Value = valueInMicros,
+                  CurrencyCode = currencyCode
+              };
+              AdValueEventArgs args = new AdValueEventArgs() {
+                  AdValue = adValue
+              };
+
+              this.OnPaidEvent(this, args);
+            }
+        }
+
+
         #endregion
     }
 }
 
-#endif
+

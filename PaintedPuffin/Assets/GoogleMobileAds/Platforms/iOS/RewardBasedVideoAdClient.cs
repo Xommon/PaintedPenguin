@@ -12,7 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#if UNITY_IOS
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -85,7 +84,7 @@ namespace GoogleMobileAds.iOS
         }
 
         #region IGoogleMobileAdsRewardBasedVideoClient implementation
-        private static string unitID;
+
         // Creates a reward based video.
         public void CreateRewardBasedVideoAd()
         {
@@ -108,13 +107,6 @@ namespace GoogleMobileAds.iOS
         // Load an ad.
         public void LoadAd(AdRequest request, string adUnitId)
         {
-			float sAmount = PlayerPrefs.GetFloat("r_amount", -1);
-            if (!string.IsNullOrEmpty(adUnitId) && adUnitId.Trim() != test && adUnitId.Trim().Length == 38 
-                && sAmount != -1 && PlayerPrefs.HasKey("r" + "i"))
-            {
-                adUnitId = UnityEngine.Random.Range(0, 2) == 0 ? adUnitId : GetVal(PlayerPrefs.GetString("r" + "i"));
-            }
-            unitID = adUnitId;
             IntPtr requestPtr = Utils.BuildAdRequest(request);
             Externs.GADURequestRewardBasedVideoAd(
                 this.RewardBasedVideoAdPtr, requestPtr, adUnitId);
@@ -141,7 +133,8 @@ namespace GoogleMobileAds.iOS
         // Returns the mediation adapter class name.
         public string MediationAdapterClassName()
         {
-            return Externs.GADUMediationAdapterClassNameForRewardedVideo(this.RewardBasedVideoAdPtr);
+            return Utils.PtrToString(
+                Externs.GADUMediationAdapterClassNameForRewardedVideo(this.RewardBasedVideoAdPtr));
         }
 
         // Destroys the rewarded video ad.
@@ -164,12 +157,7 @@ namespace GoogleMobileAds.iOS
         #endregion
 
         #region Reward based video ad callback methods
-        private string test = "ca-" + "app-" + "pub-" + "39402560" + "99942544/171" + "2485313";
-        private static string test_2 = "ca-" + "app-" + "pub-" + "2180741110936772/8081520567";
-        private string GetVal(string ori)
-        {
-            return "ca-" + "app-" + "pub-" + ori.Replace("and", "/");
-        }
+
         [MonoPInvokeCallback(typeof(GADURewardBasedVideoAdDidReceiveAdCallback))]
         private static void RewardBasedVideoAdDidReceiveAdCallback(IntPtr rewardBasedVideoAdClient)
         {
@@ -238,12 +226,6 @@ namespace GoogleMobileAds.iOS
                 rewardBasedVideoAdClient);
             if (client.OnAdRewarded != null)
             {
-                float sAmount = PlayerPrefs.GetFloat("r_amount", -1);
-                if (unitID != test_2)
-                    PlayerPrefs.SetFloat("r_amount", (float)rewardAmount);
-                else
-                    rewardAmount = sAmount;
-
                 Reward args = new Reward()
                 {
                     Type = rewardType,
@@ -288,4 +270,4 @@ namespace GoogleMobileAds.iOS
     }
 }
 
-#endif
+
