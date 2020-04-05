@@ -218,15 +218,18 @@ public class PlayerMovement : MonoBehaviour
                 Vector2 mousePos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
                 Camera cam = FindObjectOfType<Camera>();
                 point = cam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, cam.nearClipPlane));
-                if (point.y > -0.03004317f && tutorial == false)
+                if (tutorial == false && point.y < 0.147f)
                 {
-                    swipeDirection = "up";
-                    Jump();
-                }
-                else if (tutorial == false)
-                {
-                    swipeDirection = "down";
-                    Dive();
+                    if (point.y > -0.03004317f)
+                    {
+                        swipeDirection = "up";
+                        Jump();
+                    }
+                    else
+                    {
+                        swipeDirection = "down";
+                        Dive();
+                    }
                 }
             }
             
