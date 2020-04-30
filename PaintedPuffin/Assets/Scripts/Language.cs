@@ -1504,7 +1504,7 @@ public class Language : MonoBehaviour
         Warning3 = "El nombre no puede estar vacío.";
         Warning4 = "Caracteres inválidos";
         Warning5 = "Nombre inválido";
-        OK = "Okay";
+        OK = "Aceptar";
 
         Flag.image.overrideSprite = spanish;
         gameManager.playerLanguage = "Spanish";

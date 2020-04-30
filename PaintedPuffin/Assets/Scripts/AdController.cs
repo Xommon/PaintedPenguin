@@ -12,30 +12,46 @@ public class AdController : MonoBehaviour
     public bool showBannerAd;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        // Change to false when publishing
-        Advertisement.Initialize(storeId, false);
-        Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER);
+        if (FindObjectOfType<GameManager>().googleAdsEnabled == false)
+        {
+            // Change to false when publishing
+            Advertisement.Initialize(storeId, false);
+            Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER);
+        }
     }
 
     public void ShowBanner()
     {
-        StartCoroutine(Banner());
-        showBannerAd = true;
+        if (FindObjectOfType<GameManager>().googleAdsEnabled == false)
+        {
+            StartCoroutine(Banner());
+            showBannerAd = true;
+        }
     }
 
     public void CloseBanner()
     {
-        Advertisement.Banner.Hide();
-        showBannerAd = false;
+        if (FindObjectOfType<GameManager>().googleAdsEnabled == false)
+        {
+            Advertisement.Banner.Hide();
+            showBannerAd = false;
+        }
     }
 
     public bool IsAdReady()
     {
-        if (Advertisement.IsReady(bannerAd))
+        if (FindObjectOfType<GameManager>().googleAdsEnabled == false)
         {
-            return true;
+            if (Advertisement.IsReady(bannerAd))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         else
         {
@@ -45,10 +61,13 @@ public class AdController : MonoBehaviour
 
     IEnumerator Banner()
     {
-        while (IsAdReady() == false)
+        if (FindObjectOfType<GameManager>().googleAdsEnabled == false)
         {
-            yield return new WaitForSeconds(0.5f);
+            while (IsAdReady() == false)
+            {
+                yield return new WaitForSeconds(0.5f);
+            }
+            Advertisement.Banner.Show(bannerAd);
         }
-        Advertisement.Banner.Show(bannerAd);
     }
 }
