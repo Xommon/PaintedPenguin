@@ -1542,7 +1542,7 @@ public class GameManager : MonoBehaviour
         }
 
         // Mobile back button
-        /*if (Input.GetKeyDown("escape"))
+        if (Input.GetKeyDown("escape"))
         {
             if (highScoreTableUI.activeInHierarchy == true)
             {
@@ -1560,7 +1560,7 @@ public class GameManager : MonoBehaviour
             {
                 Pause();
             }
-        }*/
+        }
 
         // Max score of 100.000
         if (score >= 100000)
