@@ -12,46 +12,30 @@ public class AdController : MonoBehaviour
     public bool showBannerAd;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
-        if (FindObjectOfType<GameManager>().googleAdsEnabled == false)
-        {
-            // Change to false when publishing
-            Advertisement.Initialize(storeId, false);
-            Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER);
-        }
+        // Change to false when publishing
+        Advertisement.Initialize(storeId, false);
+        Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER);
     }
 
     public void ShowBanner()
     {
-        if (FindObjectOfType<GameManager>().googleAdsEnabled == false)
-        {
-            StartCoroutine(Banner());
-            showBannerAd = true;
-        }
+        StartCoroutine(Banner());
+        showBannerAd = true;
     }
 
     public void CloseBanner()
     {
-        if (FindObjectOfType<GameManager>().googleAdsEnabled == false)
-        {
-            Advertisement.Banner.Hide();
-            showBannerAd = false;
-        }
+        Advertisement.Banner.Hide();
+        showBannerAd = false;
     }
 
     public bool IsAdReady()
     {
-        if (FindObjectOfType<GameManager>().googleAdsEnabled == false)
+        if (Advertisement.IsReady(bannerAd))
         {
-            if (Advertisement.IsReady(bannerAd))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return true;
         }
         else
         {
@@ -61,13 +45,10 @@ public class AdController : MonoBehaviour
 
     IEnumerator Banner()
     {
-        if (FindObjectOfType<GameManager>().googleAdsEnabled == false)
+        while (IsAdReady() == false)
         {
-            while (IsAdReady() == false)
-            {
-                yield return new WaitForSeconds(0.5f);
-            }
-            Advertisement.Banner.Show(bannerAd);
+            yield return new WaitForSeconds(0.5f);
         }
+        Advertisement.Banner.Show(bannerAd);
     }
 }

@@ -10,48 +10,36 @@ public class Reward2 : MonoBehaviour
 
     private void Start()
     {
-        if (FindObjectOfType<GameManager>().googleAdsEnabled == false)
-        {
-            // Set to false when publishing game
-            Monetization.Initialize(storeId, false);
-        }
+        // Set to false when publishing game
+        Monetization.Initialize(storeId, false);
     }
 
     public void ShowId()
     {
-        if (FindObjectOfType<GameManager>().googleAdsEnabled == false)
-        {
-            StartCoroutine(WaitForAd());
-        }
+        StartCoroutine(WaitForAd());
     }
 
     IEnumerator WaitForAd()
     {
-        if (FindObjectOfType<GameManager>().googleAdsEnabled == false)
+        while (!Monetization.IsReady(placementId))
         {
-            while (!Monetization.IsReady(placementId))
-            {
-                yield return null;
-            }
+            yield return null;
+        }
 
-            ShowAdPlacementContent ad = null;
-            ad = Monetization.GetPlacementContent(placementId) as ShowAdPlacementContent;
+        ShowAdPlacementContent ad = null;
+        ad = Monetization.GetPlacementContent(placementId) as ShowAdPlacementContent;
 
-            if (ad != null)
-            {
-                ad.Show(AdFinished);
-            }
+        if (ad != null)
+        {
+            ad.Show(AdFinished);
         }
     }
 
     void AdFinished(ShowResult result)
     {
-        if (FindObjectOfType<GameManager>().googleAdsEnabled == false)
+        if (result == ShowResult.Finished)
         {
-            if (result == ShowResult.Finished)
-            {
-                FindObjectOfType<GameManager>().ContinueButton2();
-            }
+            FindObjectOfType<GameManager>().ContinueButton();
         }
     }
 }
