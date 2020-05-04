@@ -25840,6 +25840,16 @@ PrefabInstance:
       propertyPath: instagramButton
       value: 
       objectReference: {fileID: 1140356751}
+    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
+        type: 3}
+      propertyPath: unityAdController
+      value: 
+      objectReference: {fileID: 814642395745757708}
+    - target: {fileID: 814642394577855560, guid: a71de283662990e4bbb15849e0178a74,
+        type: 3}
+      propertyPath: reward2
+      value: 
+      objectReference: {fileID: 814642395745757710}
     - target: {fileID: 814642394577855561, guid: a71de283662990e4bbb15849e0178a74,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -26042,7 +26052,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 814642395745757705}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1de8cfa4cdaee0b42a57331ee593b9cf, type: 3}
   m_Name: 
@@ -26067,7 +26077,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 814642395745757705}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f3d36c8e5d9d9e242b7274146d6b6c2f, type: 3}
   m_Name: 
