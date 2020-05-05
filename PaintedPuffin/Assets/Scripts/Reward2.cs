@@ -39,7 +39,7 @@ public class Reward2 : MonoBehaviour
     {
         if (result == ShowResult.Finished)
         {
-            FindObjectOfType<GameManager>().ContinueButton2();
+            FindObjectOfType<GameManager>().ContinueButton();
         }
     }
 }

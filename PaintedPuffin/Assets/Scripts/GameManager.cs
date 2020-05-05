@@ -9,11 +9,6 @@ using TMPro;
 [System.Serializable]
 public class GameManager : MonoBehaviour
 {
-    // Advertisement
-    public bool googleAdsEnabled;
-    public AdController unityAdController;
-    public Reward2 reward2;
-
     // Menu components
     public GameObject gameOverCanvas;
     public GameObject continueButtonUI;
@@ -753,9 +748,6 @@ public class GameManager : MonoBehaviour
     // Code for start of script
     public void Start()
     {
-        // Advertisement
-        googleAdsEnabled = false;
-
         gameStarting = false;
         startGameCounter = 0;
 
@@ -765,14 +757,7 @@ public class GameManager : MonoBehaviour
         ghostTimer = 3.0f;
 
         // Ad
-        if (googleAdsEnabled)
-        {
-            //AdsManager.Instance.BannerShow();
-        }
-        else
-        {
-            unityAdController.ShowBanner();
-        }
+        AdsManager.Instance.BannerShow();
 
         // Reset streak
         streakColour = 0;
@@ -1004,14 +989,7 @@ public class GameManager : MonoBehaviour
         if (paused == false)
         {
             pauseUI.SetActive(true);
-            if (googleAdsEnabled)
-            {
-                //AdsManager.Instance.BannerShow();
-            }
-            else
-            {
-                unityAdController.ShowBanner();
-            }
+            AdsManager.Instance.BannerShow();
             Time.timeScale = 0;
             paused = true;
             FindObjectOfType<AudioManager>().Pause();
@@ -1019,14 +997,7 @@ public class GameManager : MonoBehaviour
         else
         {
             pauseUI.SetActive(false);
-            if (googleAdsEnabled)
-            {
-                //AdsManager.Instance.BannerShow();
-            }
-            else
-            {
-                unityAdController.CloseBanner();
-            }
+            AdsManager.Instance.BannerHide();
             Time.timeScale = 1;
             paused = false;
             FindObjectOfType<AudioManager>().Unpause();
@@ -1037,14 +1008,7 @@ public class GameManager : MonoBehaviour
     public void PreStartGame()
     {
         FindObjectOfType<AudioManager>().Play("click");
-        if (googleAdsEnabled)
-        {
-            //AdsManager.Instance.BannerShow();
-        }
-        else
-        {
-            unityAdController.CloseBanner();
-        }
+        AdsManager.Instance.BannerHide();
         FindObjectOfType<AudioManager>().FadeOut("music_menu");
 
         startButton.SetActive(false);
@@ -1265,14 +1229,8 @@ public class GameManager : MonoBehaviour
         // Make sure the banner ad is ALWAYS hidden when it needs to be
         if (mainMenuUI.activeInHierarchy == false && settingsUI.IsActive() == false && colourPickerUI.activeInHierarchy == false && gameOverCanvas.activeInHierarchy == false && highScoreTableUI.activeInHierarchy == false && paused == false)
         {
-            if (googleAdsEnabled)
-            {
-                //AdsManager.Instance.BannerShow();
-            }
-            else
-            {
-                unityAdController.CloseBanner();
-            }
+            Debug.Log("Hiding banner ad.");
+            AdsManager.Instance.BannerHide();
         }
 
         // Sync up toggle variables with toggles
@@ -1494,7 +1452,7 @@ public class GameManager : MonoBehaviour
         // Game Speed
         if (paused == false && player.dead == false)
         {
-            Time.timeScale = 1.0f + (score / 7500.0f);
+            Time.timeScale = 1.0f + (score / 9999.0f);
         }
         else if (player.dead == true)
         {
@@ -1582,14 +1540,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         // Ad
-        if (googleAdsEnabled)
-        {
-            //AdsManager.Instance.BannerShow();
-        }
-        else
-        {
-            unityAdController.ShowBanner();
-        }
+        AdsManager.Instance.BannerShow();
 
         gameOverCanvas.SetActive(true);
         FindObjectOfType<AudioManager>().Play("deathjingle");
@@ -1654,39 +1605,8 @@ public class GameManager : MonoBehaviour
     public void ContinueButton()
     {
         FindObjectOfType<AudioManager>().Play("click");
-        if (googleAdsEnabled)
-        {
-            //AdsManager.Instance.BannerHide();
-            //AdsManager.Instance.ShowInterstitial();
-            
-            player.dead = false;
-            player.rb.gravityScale = 0;
-            player.rb.MovePosition(new Vector2(-1.0f, -0.075f));
-            uploadScoreUI.sprite = null;
-            uploadScoreUI.color = new Color(1, 1, 1, 0f);
-            on = false;
-            ClearObstacles();
-            if (player.colour == 7)
-            {
-                player.colour = 0;
-            }
-            canContinue = false;
-            Time.timeScale = 1f;
-            player.position = "ready";
-            player.StartWalking();
-            gameOverCanvas.SetActive(false);
-            player.SwitchGameOn();
-            FindObjectOfType<AudioManager>().Play("music_game");
-        }
-        else
-        {
-            unityAdController.CloseBanner();
-            reward2.ShowId();
-        }
-    }
-
-    public void ContinueButton2()
-    {
+        AdsManager.Instance.BannerHide();
+        AdsManager.Instance.ShowInterstitial();
         player.dead = false;
         player.rb.gravityScale = 0;
         player.rb.MovePosition(new Vector2(-1.0f, -0.075f));
