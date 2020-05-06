@@ -9,6 +9,8 @@ using TMPro;
 [System.Serializable]
 public class GameManager : MonoBehaviour
 {
+    public Reward2 reward2;
+
     // Menu components
     public GameObject gameOverCanvas;
     public GameObject continueButtonUI;
@@ -757,7 +759,8 @@ public class GameManager : MonoBehaviour
         ghostTimer = 3.0f;
 
         // Ad
-        AdsManager.Instance.BannerShow();
+        //AdsManager.Instance.BannerShow();
+        adController.ShowBanner();
 
         // Reset streak
         streakColour = 0;
@@ -989,7 +992,8 @@ public class GameManager : MonoBehaviour
         if (paused == false)
         {
             pauseUI.SetActive(true);
-            AdsManager.Instance.BannerShow();
+            //AdsManager.Instance.BannerShow();
+            adController.ShowBanner();
             Time.timeScale = 0;
             paused = true;
             FindObjectOfType<AudioManager>().Pause();
@@ -997,7 +1001,8 @@ public class GameManager : MonoBehaviour
         else
         {
             pauseUI.SetActive(false);
-            AdsManager.Instance.BannerHide();
+            //AdsManager.Instance.BannerHide();
+            adController.CloseBanner();
             Time.timeScale = 1;
             paused = false;
             FindObjectOfType<AudioManager>().Unpause();
@@ -1008,7 +1013,8 @@ public class GameManager : MonoBehaviour
     public void PreStartGame()
     {
         FindObjectOfType<AudioManager>().Play("click");
-        AdsManager.Instance.BannerHide();
+        //AdsManager.Instance.BannerHide();
+        adController.CloseBanner();
         FindObjectOfType<AudioManager>().FadeOut("music_menu");
 
         startButton.SetActive(false);
@@ -1229,8 +1235,8 @@ public class GameManager : MonoBehaviour
         // Make sure the banner ad is ALWAYS hidden when it needs to be
         if (mainMenuUI.activeInHierarchy == false && settingsUI.IsActive() == false && colourPickerUI.activeInHierarchy == false && gameOverCanvas.activeInHierarchy == false && highScoreTableUI.activeInHierarchy == false && paused == false)
         {
-            Debug.Log("Hiding banner ad.");
-            AdsManager.Instance.BannerHide();
+            //AdsManager.Instance.BannerHide();
+            adController.CloseBanner();
         }
 
         // Sync up toggle variables with toggles
@@ -1540,7 +1546,8 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         // Ad
-        AdsManager.Instance.BannerShow();
+        //AdsManager.Instance.BannerShow();
+        adController.ShowBanner();
 
         gameOverCanvas.SetActive(true);
         FindObjectOfType<AudioManager>().Play("deathjingle");
@@ -1605,8 +1612,14 @@ public class GameManager : MonoBehaviour
     public void ContinueButton()
     {
         FindObjectOfType<AudioManager>().Play("click");
-        AdsManager.Instance.BannerHide();
-        AdsManager.Instance.ShowInterstitial();
+        //AdsManager.Instance.BannerHide();
+        //AdsManager.Instance.ShowInterstitial();
+        adController.CloseBanner();
+        reward2.ShowId();
+    }
+
+    public void ContinueButton2()
+    {
         player.dead = false;
         player.rb.gravityScale = 0;
         player.rb.MovePosition(new Vector2(-1.0f, -0.075f));

@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
-using GoogleMobileAds.Api;
+//using GoogleMobileAds.Api;
 using System;
 
 
 public class AdsManager : MonoBehaviour {
-
+    /*
 	#region AdMob
 	[Header("Admob")]
 	private string adMobAppID = "";
@@ -270,5 +270,5 @@ public class AdsManager : MonoBehaviour {
 	public void HandleBannerOnAdLeavingApplication(object sender, EventArgs args)
 	{
 		MonoBehaviour.print("HandleAdLeftApplication event received");
-	}
+	}*/
 }
