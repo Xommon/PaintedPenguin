@@ -139,7 +139,7 @@ public class GameManager : MonoBehaviour
     public Language language;
     public GameObject languageTableUI;
 
-    public TMP_Text gameTitleText;
+    //public TMP_Text gameTitleText;
     public Text startButtonText;
     public Text scoreButtonText;
     public Text usernameDisplayText;
@@ -659,7 +659,11 @@ public class GameManager : MonoBehaviour
     {
         playerRegion = Localizer.GetDetails["region"];
 
-        if (playerRegion == "Quebec")
+        if (AndroidRuntimePermissions.CheckPermission("android.permission.ACCESS_FINE_LOCATION") == AndroidRuntimePermissions.Permission.Denied)
+        {
+            playerCountry = "xx-Denied";
+        }
+        else if (playerRegion == "Quebec")
         {
             playerCountry = "pq";
         }
@@ -1354,8 +1358,8 @@ public class GameManager : MonoBehaviour
         }
 
         // Set up text based on language
-        gameTitleText.outlineWidth = 0;
-        gameTitleText.text = "Painted Puffin";
+        //gameTitleText.outlineWidth = 0;
+        //gameTitleText.text = "Painted Puffin";
         startButtonText.text = language.StartButton;
         scoreButtonText.text = language.Score;
         usernameDisplayText.text = " " + playerUsername;
@@ -1780,6 +1784,7 @@ public class GameManager : MonoBehaviour
         purpleImage.color = new Color(0.7f, 0.1f, 1f, 1f);
     }
 
+    // Hyperlinks
     public void OpenInstagram()
     {
         Application.OpenURL("https://www.instagram.com/its_xommon/");

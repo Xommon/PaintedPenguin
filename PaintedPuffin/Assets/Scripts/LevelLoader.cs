@@ -8,18 +8,41 @@ using UnityEngine.Android;
 
 public class LevelLoader : MonoBehaviour
 {
+    public GameObject popup;
+    public GameObject loadingBar;
+    public Slider slider;
+
     void Start()
+    {
+        if (AndroidRuntimePermissions.CheckPermission("android.permission.ACCESS_FINE_LOCATION") == AndroidRuntimePermissions.Permission.Granted || AndroidRuntimePermissions.CheckPermission("android.permission.ACCESS_FINE_LOCATION") == AndroidRuntimePermissions.Permission.Denied)
+        {
+            popup.SetActive(false);
+            loadingBar.SetActive(true);
+            LoadLevel(1);
+        }
+        else
+        {
+            popup.SetActive(true);
+        }
+    }
+
+    public void GetPermissions()
     {
 #if PLATFORM_ANDROID
         AndroidRuntimePermissions.Permission result = AndroidRuntimePermissions.RequestPermission("android.permission.ACCESS_FINE_LOCATION");
         if (result == AndroidRuntimePermissions.Permission.Granted || result == AndroidRuntimePermissions.Permission.Denied)
         {
+            popup.SetActive(false);
+            loadingBar.SetActive(true);
             LoadLevel(1);
         }
 #endif
     }
 
-    public Slider slider;
+    public void OpenPrivacyPolicy()
+    {
+        Application.OpenURL("https://painted-puffin.flycricket.io/privacy.html");
+    }
 
     public void LoadLevel(int sceneIndex)
     {

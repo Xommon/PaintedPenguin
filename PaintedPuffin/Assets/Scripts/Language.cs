@@ -1713,7 +1713,7 @@ public class Language : MonoBehaviour
         // Font
         if (gameManager.playerLanguage == "Mandarin" || gameManager.playerLanguage == "Taiwanese" || gameManager.playerLanguage == "Cantonese" || gameManager.playerLanguage == "Japanese" || gameManager.playerLanguage == "Korean")
         {
-            gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().font = cjkFont;
+            //gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().font = cjkFont;
             gameManager.comboText.GetComponent<TMPro.TextMeshPro>().font = cjkFont;
         }
         else if (gameManager.playerLanguage == "Arabic" || gameManager.playerLanguage == "Persian" || gameManager.playerLanguage == "Urdu")
@@ -1748,22 +1748,22 @@ public class Language : MonoBehaviour
         }
         else if (gameManager.playerLanguage == "Hebrew" || gameManager.playerLanguage == "Yiddish")
         {
-            gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().font = hebrewFont;
+            //gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().font = hebrewFont;
             gameManager.comboText.GetComponent<TMPro.TextMeshPro>().font = hebrewFont;
         }
         else if (gameManager.playerLanguage == "Thai")
         {
-            gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().font = tlbFont;
+            //gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().font = tlbFont;
             gameManager.comboText.GetComponent<TMPro.TextMeshPro>().font = tlbFont;
         }
         else if (gameManager.playerLanguage == "Hindi")
         {
-            gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().font = hindiFont;
+            //gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().font = hindiFont;
             gameManager.comboText.GetComponent<TMPro.TextMeshPro>().font = hindiFont;
         }
         else
         {
-            gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().font = lgcFont;
+            //gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().font = lgcFont;
             //gameManager.comboText.GetComponent<TMPro.TextMeshPro>().font = lgcFont;
         }
 
@@ -1786,7 +1786,7 @@ public class Language : MonoBehaviour
         }
 
         // LowerCase
-        if (gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().fontStyle != FontStyles.LowerCase)
+       /* if (gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().fontStyle != FontStyles.LowerCase)
         {
             gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().fontStyle = FontStyles.LowerCase;
         }
@@ -1804,7 +1804,7 @@ public class Language : MonoBehaviour
         } else
         {
             gameManager.gameTitleText.GetComponent<TMPro.TextMeshProUGUI>().lineSpacing = -30;
-        }
+        }*/
     }
 
     public Font regularLatin;
@@ -1877,7 +1877,7 @@ public class Language : MonoBehaviour
             }
         }
 
-        gameManager.gameTitleText.text = codedEntry;
+        //gameManager.gameTitleText.text = codedEntry;
         return codedEntry;
     }
 
