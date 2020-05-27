@@ -2,14 +2,23 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+#if PLATFORM_ANDROID
+using UnityEngine.Android;
+#endif
 
 public class LevelLoader : MonoBehaviour
 {
     void Start()
     {
-        LoadLevel(1);
+#if PLATFORM_ANDROID
+        AndroidRuntimePermissions.Permission result = AndroidRuntimePermissions.RequestPermission("android.permission.ACCESS_FINE_LOCATION");
+        if (result == AndroidRuntimePermissions.Permission.Granted || result == AndroidRuntimePermissions.Permission.Denied)
+        {
+            LoadLevel(1);
+        }
+#endif
     }
-    
+
     public Slider slider;
 
     public void LoadLevel(int sceneIndex)

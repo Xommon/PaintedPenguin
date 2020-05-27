@@ -750,6 +750,8 @@ public class GameManager : MonoBehaviour
     // Code for start of script
     public void Start()
     {
+        //AndroidRuntimePermissions.CheckPermission("android.permission.WRITE_EXTERNAL_STORAGE");
+
         gameStarting = false;
         startGameCounter = 0;
 
@@ -777,7 +779,7 @@ public class GameManager : MonoBehaviour
         LoadUsername();
 
         // Set weather
-        string date = System.DateTime.Now.ToString("ddMM");
+        /*string date = System.DateTime.Now.ToString("ddMM");
         if (date.Substring(2, 2) == "11")
         {
             snowUI.SetActive(true);
@@ -798,7 +800,7 @@ public class GameManager : MonoBehaviour
         else
         {
             snow.emissionRate = 0;
-        }
+        }*/
 
         // Set default colours if no colours are saved on file
         WhiteC = new Color(1f, 1f, 1f, 0f);
@@ -854,8 +856,6 @@ public class GameManager : MonoBehaviour
 
         canContinue = true;
         score = -1;
-
-        
     }
 
     public void OnHighscoresDownloaded(Highscore[] highscoreList)
