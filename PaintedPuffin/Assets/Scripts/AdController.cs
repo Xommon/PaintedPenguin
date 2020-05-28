@@ -21,7 +21,7 @@ public class AdController : MonoBehaviour
 
     public void ShowBanner()
     {
-        StartCoroutine(Banner());
+        //StartCoroutine(Banner());
         showBannerAd = true;
     }
 
