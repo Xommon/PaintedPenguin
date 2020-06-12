@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
     public GameObject usernameDisplay;
     public GameObject settingsButton;
     public GameObject instagramButton;
+    public Text version;
 
     // Volume
     [Range(0f, 1f)]
@@ -84,6 +85,7 @@ public class GameManager : MonoBehaviour
     // Location
     public string playerRegion;
     public string playerCountry;
+    public string playerCity;
 
     // Colours
     [SerializeField]
@@ -654,66 +656,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Get location
-    public void GetDetails()
-    {
-        playerRegion = Localizer.GetDetails["region"];
-
-        if (AndroidRuntimePermissions.CheckPermission("android.permission.ACCESS_FINE_LOCATION") == AndroidRuntimePermissions.Permission.Denied)
-        {
-            playerCountry = "xx-Denied";
-        }
-        else if (playerRegion == "Quebec")
-        {
-            playerCountry = "pq";
-        }
-        else if (playerRegion == "Catalonia")
-        {
-            playerCountry = "ct";
-        }
-        else if (playerRegion == "Pais Vasco")
-        {
-            playerCountry = "bc";
-        }
-        else if (playerRegion == "Xinjiang")
-        {
-            playerCountry = "xj";
-        }
-        else if (playerRegion == "Kosovsko-Mitrovacki okrug")
-        {
-            playerCountry = "xk";
-        }
-        else if (playerRegion == "Tibet")
-        {
-            playerCountry = "tb";
-        }
-        else if (playerRegion == "Scotland")
-        {
-            playerCountry = "zs";
-        }
-        else if (playerRegion == "Wales")
-        {
-            playerCountry = "wa";
-        }
-        else if (playerRegion == "Abkhazia")
-        {
-            playerCountry = "xa";
-        }
-        else if (playerRegion == "South Ossetia")
-        {
-            playerCountry = "xo";
-        }
-        else
-        {
-            playerCountry = Localizer.GetDetails["country_code"];
-        }
-
-        playerCountry += "_" + Localizer.GetDetails["city"] + "-" + Localizer.GetDetails["region"];
-    }
-
     private void Awake()
     {
-        Invoke("GetDetails", 1.0f);
+        StartCoroutine("CollectAndAssignLocation");
+        version.text = "Version: " + Application.version;
         wave = 0;
     }
 
@@ -1546,7 +1492,92 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    //Display game over overlay and upload high score when the player dies
+    
+    public void AssignLocationData()
+    {
+        {
+
+        }
+    }
+
+    // Collect and assign location data if permission is granted
+    IEnumerator CollectAndAssignLocation()
+    {
+        if (AndroidRuntimePermissions.CheckPermission("android.permission.ACCESS_FINE_LOCATION") == AndroidRuntimePermissions.Permission.Granted)
+        {
+            UnityWebRequest request = UnityWebRequest.Get("https://extreme-ip-lookup.com/json");
+            request.chunkedTransfer = false;
+            yield return request.SendWebRequest();
+
+            if (request.isNetworkError)
+            {
+                Debug.Log("Location Collection Error: " + request.error);
+            }
+            else
+            {
+                if (request.isDone)
+                {
+                    LocationData res = JsonUtility.FromJson<LocationData>(request.downloadHandler.text);
+                    playerRegion = res.region;
+
+                    if (playerRegion == "Quebec")
+                    {
+                        playerCountry = "pq";
+                    }
+                    else if (playerRegion == "Catalonia")
+                    {
+                        playerCountry = "ct";
+                    }
+                    else if (playerRegion == "Pais Vasco")
+                    {
+                        playerCountry = "bc";
+                    }
+                    else if (playerRegion == "Xinjiang")
+                    {
+                        playerCountry = "xj";
+                    }
+                    else if (playerRegion == "Kosovsko-Mitrovacki okrug")
+                    {
+                        playerCountry = "xk";
+                    }
+                    else if (playerRegion == "Tibet")
+                    {
+                        playerCountry = "tb";
+                    }
+                    else if (playerRegion == "Scotland")
+                    {
+                        playerCountry = "zs";
+                    }
+                    else if (playerRegion == "Wales")
+                    {
+                        playerCountry = "wa";
+                    }
+                    else if (playerRegion == "Abkhazia")
+                    {
+                        playerCountry = "xa";
+                    }
+                    else if (playerRegion == "South Ossetia")
+                    {
+                        playerCountry = "xo";
+                    }
+                    else
+                    {
+                        playerCountry = res.countryCode;
+                    }
+
+                    playerCity = res.city;
+                    Debug.Log(playerCountry += "_" + playerCity + "-" + playerRegion);
+                }
+            }
+        }
+        else
+        {
+            // Permission is not granted
+            Debug.Log("XX_Denied");
+        }
+    }
+
+    // Display game over overlay and upload high score when the player dies
     public void GameOver()
     {
         // Ad
@@ -1618,8 +1649,9 @@ public class GameManager : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("click");
         //AdsManager.Instance.BannerHide();
         //AdsManager.Instance.ShowInterstitial();
-        adController.CloseBanner();
-        reward2.ShowId();
+        //adController.CloseBanner();
+        //reward2.ShowId();
+        ContinueButton2();
     }
 
     public void ContinueButton2()
@@ -1636,7 +1668,6 @@ public class GameManager : MonoBehaviour
             player.colour = 0;
         }
         canContinue = false;
-        Time.timeScale = 1f;
         player.position = "ready";
         player.StartWalking();
         gameOverCanvas.SetActive(false);
