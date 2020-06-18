@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     // Menu components
     public GameObject gameOverCanvas;
     public GameObject continueButtonUI;
+    public GameObject continueButtonAdIcon;
     public GameObject mainMenuUI;
     public GameObject gameUI;
     public GameObject pauseUI;
@@ -1583,6 +1584,7 @@ public class GameManager : MonoBehaviour
         // Ad
         //AdsManager.Instance.BannerShow();
         adController.ShowBanner();
+        adController.showBannerAd = true;
 
         gameOverCanvas.SetActive(true);
         FindObjectOfType<AudioManager>().Play("deathjingle");
@@ -1649,9 +1651,9 @@ public class GameManager : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("click");
         //AdsManager.Instance.BannerHide();
         //AdsManager.Instance.ShowInterstitial();
-        //adController.CloseBanner();
+        adController.CloseBanner();
+        adController.DisplayVideoAd();
         //reward2.ShowId();
-        ContinueButton2();
     }
 
     public void ContinueButton2()
@@ -1667,6 +1669,7 @@ public class GameManager : MonoBehaviour
         {
             player.colour = 0;
         }
+        player.magnet = false;
         canContinue = false;
         player.position = "ready";
         player.StartWalking();

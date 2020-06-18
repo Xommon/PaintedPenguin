@@ -29,7 +29,11 @@ public class Reward2 : MonoBehaviour
         ShowAdPlacementContent ad = null;
         ad = Monetization.GetPlacementContent(placementId) as ShowAdPlacementContent;
 
-        if (ad != null)
+        if (ad == null)
+        {
+            FindObjectOfType<GameManager>().ContinueButton2();
+        }
+        else if (ad != null)
         {
             ad.Show(AdFinished);
         }
