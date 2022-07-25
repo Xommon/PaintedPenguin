@@ -696,7 +696,7 @@ public class Language : MonoBehaviour
 
         // Game Over
         GameOver = "LA LUDO \nFINIĜIS";
-        Replay = "REPARO";
+        Replay = "REPARU";
         Continue = "DAŬRIGU?";
 
         // Score

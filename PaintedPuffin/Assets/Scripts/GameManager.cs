@@ -1140,20 +1140,18 @@ public class GameManager : MonoBehaviour
 
     public float SpikeballEquation()
     {
-        if (score > 500)
-        {
-            if ((score - 500) / 71.43f < 35.0f) // 500 to 2500
-            {
-                return ((score - 500) / 71.43f);
-            }
-            else
-            {
-                return 35.0f;
-            }
-        }
-        else
+        if (score < 500)
         {
             return 0.0f;
+        }
+
+        if ((score - 500) / 71.43f < 35.0f) // 500 to 2500
+        {
+            return ((score - 500) / 71.43f);
+        }
+        else // 2500 or higher
+        {
+            return 35.0f;
         }
     }
 

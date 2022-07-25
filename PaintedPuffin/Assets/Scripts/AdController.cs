@@ -23,7 +23,7 @@ public class AdController : MonoBehaviour, IUnityAdsListener
     void Start()
     {
         // Change to false when publishing
-        Advertisement.Initialize(storeId, false);
+        Advertisement.Initialize(storeId, true);
         Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER);
         Advertisement.AddListener(this);
     }
